@@ -1,0 +1,195 @@
+/* ── Hero section ─────────────────────────────────────────────── */
+.hero {
+  background: #ffffff;
+  border-bottom: 1px solid #dde3ed;
+  overflow: hidden;
+}
+
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 72px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* ── Left content ─────────────────────────────────────────────── */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.headline {
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #1a1a2e;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.subheadline {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: #4a5568;
+  margin: 0;
+  max-width: 480px;
+}
+
+/* ── Feature checklist ────────────────────────────────────────── */
+.featureGrid {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.featureRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #2d3748;
+  font-weight: 500;
+}
+
+.checkIcon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* ── CTA buttons ──────────────────────────────────────────────── */
+.ctas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  background: #1d3fa8;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.btnPrimary:hover {
+  background: #163090;
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  background: transparent;
+  color: #1d3fa8;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 8px;
+  border: 2px solid #1d3fa8;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btnSecondary:hover {
+  background: #eef2ff;
+}
+
+.serviceNote {
+  font-size: 13px;
+  color: #6b7a99;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ── Right visual ─────────────────────────────────────────────── */
+.visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(29, 63, 168, 0.12);
+}
+
+.familySvg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.dnaHelix {
+  position: absolute;
+  right: -24px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 260px;
+  opacity: 0.7;
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    padding: 48px 24px;
+    gap: 32px;
+  }
+
+  .visual {
+    justify-content: center;
+  }
+
+  .dnaHelix {
+    display: none;
+  }
+
+  .imagePlaceholder {
+    max-width: 340px;
+  }
+}
+
+@media (max-width: 540px) {
+  .headline {
+    font-size: 28px;
+  }
+
+  .featureRow {
+    grid-template-columns: 1fr;
+  }
+
+  .ctas {
+    flex-direction: column;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    justify-content: center;
+  }
+}

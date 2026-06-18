@@ -1,142 +1,245 @@
+/* ── Design tokens ───────────────────────────────────────────── */
 .page {
-  --background: #fafafa;
-  --foreground: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
+  --clr-primary: #0f62a8;
+  --clr-primary-dark: #0a4a80;
+  --clr-accent: #e8f3fc;
+  --clr-text: #1a1a2e;
+  --clr-muted: #5a6478;
+  --clr-border: #dde3ed;
+  --clr-bg: #f5f7fa;
+  --clr-white: #ffffff;
 
   display: flex;
-  flex: 1;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
+  min-height: 100vh;
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
+/* ── Main / shared section styles ────────────────────────────── */
 .main {
-  display: flex;
   flex: 1;
-  width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
-}
-
-.intro {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
 }
 
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
-}
-
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
-  display: flex;
-  flex-direction: row;
+.section {
+  max-width: 1100px;
   width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
+  margin: 0 auto;
+  padding: 72px 24px;
 }
 
-.ctas a {
-  display: flex;
-  justify-content: center;
+.section h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.sectionSubtitle {
+  color: var(--clr-muted);
+  margin-bottom: 40px;
+  font-size: 16px;
+}
+
+.sectionAlt {
+  background: var(--clr-white);
+  border-top: 1px solid var(--clr-border);
+  border-bottom: 1px solid var(--clr-border);
+}
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+.btnPrimary {
+  display: inline-flex;
   align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
+  justify-content: center;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  background: var(--clr-white);
+  color: var(--clr-primary);
+  border: 2px solid transparent;
   cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+.btnPrimary:hover {
+  background: var(--clr-accent);
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+/* Inside a non-hero context, invert the colours */
+.section .btnPrimary,
+.contactForm .btnPrimary {
+  background: var(--clr-primary);
+  color: var(--clr-white);
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
+.section .btnPrimary:hover,
+.contactForm .btnPrimary:hover {
+  background: var(--clr-primary-dark);
 }
 
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
-  }
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  background: transparent;
+  color: var(--clr-white);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
 
-  .intro {
-    gap: 16px;
-  }
+.btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--clr-white);
+}
 
-  .intro h1 {
+/* ── Service cards ───────────────────────────────────────────── */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.card {
+  background: var(--clr-white);
+  border: 1px solid var(--clr-border);
+  border-radius: 10px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: box-shadow 0.15s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 18px rgba(15, 98, 168, 0.1);
+}
+
+.cardIcon {
+  font-size: 32px;
+}
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.card p {
+  font-size: 14px;
+  color: var(--clr-muted);
+  line-height: 1.6;
+}
+
+/* ── About ───────────────────────────────────────────────────── */
+.aboutInner {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 72px 24px;
+}
+
+.aboutText h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.aboutText p {
+  font-size: 16px;
+  color: var(--clr-muted);
+  line-height: 1.75;
+  max-width: 640px;
+  margin-bottom: 32px;
+}
+
+.statList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.statList li {
+  font-size: 14px;
+  color: var(--clr-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statList li strong {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--clr-primary);
+}
+
+/* ── Contact form ────────────────────────────────────────────── */
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 640px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.contactForm input,
+.contactForm textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--clr-border);
+  border-radius: 6px;
+  font-size: 15px;
+  color: var(--clr-text);
+  background: var(--clr-white);
+  transition: border-color 0.15s;
+  font-family: inherit;
+}
+
+.contactForm input:focus,
+.contactForm textarea:focus {
+  outline: none;
+  border-color: var(--clr-primary);
+}
+
+.contactForm textarea {
+  resize: vertical;
+}
+
+/* ── Footer ──────────────────────────────────────────────────── */
+.footer {
+  background: var(--clr-white);
+  border-top: 1px solid var(--clr-border);
+  text-align: center;
+  padding: 24px;
+  font-size: 13px;
+  color: var(--clr-muted);
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .hero h1 {
     font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
   }
 
-  .page {
-    --background: #000;
-    --foreground: #000;
+  .hero p {
+    font-size: 16px;
+  }
 
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
+  .formRow {
+    grid-template-columns: 1fr;
   }
 }

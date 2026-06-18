@@ -1,66 +1,53 @@
-import Image from "next/image";
 import styles from "./page.module.css";
+import Header from "@/components/Header/Header";
+import Hero from "@/components/Hero/Hero";
+import StatsBar from "@/components/StatsBar/StatsBar";
+import GeneticsSection from "@/components/GeneticsSection/GeneticsSection";
 
 export default function Home() {
   return (
     <div className={styles.page}>
+      <Header />
+
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+        <Hero />
+        <StatsBar />
+
+        <GeneticsSection />
+
+        <section id="about" className={styles.sectionAlt}>
+          <div className={styles.aboutInner}>
+            <div className={styles.aboutText}>
+              <h2>About Our Lab</h2>
+              <p>Founded on a commitment to scientific excellence, our ISO-accredited laboratory delivers trusted results to clients across healthcare, food safety, environmental science, and materials research.</p>
+              <ul className={styles.statList}>
+                <li><strong>500+</strong> Tests Offered</li>
+                <li><strong>98.7%</strong> Accuracy Rate</li>
+                <li><strong>24–48h</strong> Turnaround</li>
+                <li><strong>ISO 17025</strong> Accredited</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className={styles.section}>
+          <h2>Contact Us</h2>
+          <p className={styles.sectionSubtitle}>Submit a test request or get in touch with our team.</p>
+          <form className={styles.contactForm}>
+            <div className={styles.formRow}>
+              <input type="text" placeholder="Full Name" required />
+              <input type="email" placeholder="Email Address" required />
+            </div>
+            <input type="text" placeholder="Organization / Institution" />
+            <textarea placeholder="Describe the test(s) you need..." rows={4} required />
+            <button type="submit" className={styles.btnPrimary}>Send Request</button>
+          </form>
+        </section>
       </main>
+
+      <footer className={styles.footer}>
+        <p>© {new Date().getFullYear()} LabLog. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
