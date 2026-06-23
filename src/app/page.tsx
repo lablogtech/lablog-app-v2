@@ -7,6 +7,7 @@ import StatsBar from "@/components/StatsBar/StatsBar"
 import GeneticsSection from "@/components/GeneticsSection/GeneticsSection"
 import PreventiveHealthSection from "@/components/PreventiveHealthSection/PreventiveHealthSection"
 import HowItWorks from "@/components/HowItWorks/HowItWorks"
+import FAQReviewsSection from "@/components/FAQReviewsSection/FAQReviewsSection"
 import CorporateWellness from "@/components/CorporateWellness/CorporateWellness"
 import CollectionCenters from "@/components/CollectionCenters/CollectionCenters"
 import Footer from "@/components/Footer/Footer"
@@ -23,6 +24,7 @@ export default function Home() {
         <GeneticsSection />
         <PreventiveHealthSection />
         <HowItWorks />
+        <FAQReviewsSection />
         <CollectionCenters />
         <CorporateWellness />
       </Box>

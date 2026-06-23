@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import styles from "./Hero.module.css"
 import { Box, Button, Container, Group, Text, ThemeIcon, Title } from "@mantine/core"
 import { IconCalendarEvent, IconCheck, IconMapPinSearch } from "@tabler/icons-react"
@@ -14,6 +15,10 @@ const FEATURES = [
 export default function Hero() {
   return (
     <Box className={styles.root}>
+      <Box className={styles.backgroundImage} aria-hidden="true">
+        <Image src="/hero.jpg" alt="" fill priority className={styles.backgroundImageElement} />
+      </Box>
+      <Box className={styles.backgroundGradient} aria-hidden="true" />
       <Container
         component="section"
         size="xl"

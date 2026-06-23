@@ -1,0 +1,58 @@
+.section {
+  border-bottom: 1px solid #dde3ed;
+}
+
+.card {
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  background: #ffffff;
+  padding: 20px;
+  box-shadow: 0 8px 30px rgba(15, 98, 168, 0.06);
+}
+
+.title {
+  margin: 0 0 16px;
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #17326e;
+}
+
+.accordion {
+  --accordion-radius: 12px;
+}
+
+.control {
+  font-weight: 600;
+  color: #17326e;
+  padding-left: 4px;
+}
+
+.panel {
+  color: #5a6478;
+  line-height: 1.65;
+  font-size: 14px;
+}
+
+.moreLink {
+  display: inline-flex;
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--mantine-color-blue-6);
+  text-decoration: none;
+}
+
+.moreLink:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 18px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+}
