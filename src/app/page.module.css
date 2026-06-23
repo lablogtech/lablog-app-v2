@@ -1,8 +1,8 @@
 /* ── Design tokens ───────────────────────────────────────────── */
 .page {
-  --clr-primary: #0f62a8;
-  --clr-primary-dark: #0a4a80;
-  --clr-accent: #e8f3fc;
+  --clr-primary: var(--mantine-color-blue-6);
+  --clr-primary-dark: var(--mantine-color-blue-7);
+  --clr-accent: var(--mantine-color-teal-0);
   --clr-text: #1a1a2e;
   --clr-muted: #5a6478;
   --clr-border: #dde3ed;
@@ -11,26 +11,13 @@
 
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
+  overflow-y: auto;
   background-color: var(--clr-bg);
   color: var(--clr-text);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* ── Main / shared section styles ────────────────────────────── */
-.main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.section {
-  max-width: 1100px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 72px 24px;
-}
-
 .section h2 {
   font-size: 32px;
   font-weight: 700;
@@ -62,7 +49,9 @@
   color: var(--clr-primary);
   border: 2px solid transparent;
   cursor: pointer;
-  transition: background 0.15s, color 0.15s;
+  transition:
+    background 0.15s,
+    color 0.15s;
 }
 
 .btnPrimary:hover {
@@ -93,7 +82,9 @@
   color: var(--clr-white);
   border: 2px solid rgba(255, 255, 255, 0.6);
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
 }
 
 .btnSecondary:hover {
@@ -140,13 +131,6 @@
 }
 
 /* ── About ───────────────────────────────────────────────────── */
-.aboutInner {
-  max-width: 1100px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 72px 24px;
-}
-
 .aboutText h2 {
   font-size: 32px;
   font-weight: 700;

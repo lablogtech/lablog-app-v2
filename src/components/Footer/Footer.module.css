@@ -1,0 +1,233 @@
+/* ── Footer wrapper ──────────────────────────────────────────── */
+.footer {
+  background: linear-gradient(135deg, var(--mantine-color-blue-9) 0%, var(--mantine-color-blue-7) 100%);
+  color: #ffffff;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ── Main grid ───────────────────────────────────────────────── */
+.mainGrid {
+  position: relative;
+}
+
+/* ── Logo section ────────────────────────────────────────────── */
+.logoSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logoText {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.logoSubtext {
+  font-size: 12px;
+  color: #a0b4d4;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.description {
+  font-size: 14px;
+  color: #d0dde9;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.socialGroup {
+  gap: 8px !important;
+}
+
+.socialIcon {
+  color: var(--mantine-color-teal-4) !important;
+  background-color: rgba(2, 185, 146, 0.16) !important;
+  transition: all 0.3s ease;
+}
+
+.socialIcon:hover {
+  background-color: rgba(2, 185, 146, 0.26) !important;
+  transform: translateY(-2px);
+}
+
+/* ── Column styles ───────────────────────────────────────────── */
+.columnTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 0.3px;
+}
+
+.link {
+  font-size: 13.5px;
+  color: #d0dde9;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: #ffffff;
+  padding-left: 4px;
+}
+
+.staticText {
+  font-size: 13.5px;
+  color: #d0dde9;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Contact section ─────────────────────────────────────────── */
+.contactItem {
+  gap: 10px !important;
+  align-items: flex-start;
+}
+
+.contactIcon {
+  color: var(--mantine-color-teal-4) !important;
+  background-color: rgba(2, 185, 146, 0.16) !important;
+  flex-shrink: 0;
+}
+
+.contactLink {
+  font-size: 13.5px;
+  color: #d0dde9;
+  text-decoration: none;
+  line-height: 1.5;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.contactLink:hover {
+  color: #ffffff;
+}
+
+.contactText {
+  font-size: 13.5px;
+  color: #d0dde9;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Divider ─────────────────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 32px 0;
+}
+
+/* ── Copyright ───────────────────────────────────────────────── */
+.copyright {
+  font-size: 13px;
+  color: #a0b4d4;
+  text-align: center;
+  margin: 0;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 992px) {
+  .mainGrid {
+    gap: 40px !important;
+  }
+
+  .columnTitle {
+    font-size: 15px;
+  }
+
+  .link,
+  .contactLink,
+  .contactText {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    margin-top: 60px;
+  }
+
+  .mainGrid {
+    gap: 32px !important;
+  }
+
+  .logoText {
+    font-size: 22px;
+  }
+
+  .description {
+    font-size: 13px;
+  }
+
+  .columnTitle {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+
+  .link,
+  .contactLink,
+  .contactText {
+    font-size: 12.5px;
+  }
+
+  .divider {
+    margin: 24px 0;
+  }
+}
+
+@media (max-width: 540px) {
+  .footer {
+    margin-top: 48px;
+  }
+
+  .mainGrid {
+    gap: 24px !important;
+  }
+
+  .logoText {
+    font-size: 20px;
+  }
+
+  .logoSubtext {
+    font-size: 11px;
+  }
+
+  .description {
+    font-size: 13px;
+  }
+
+  .columnTitle {
+    font-size: 13px;
+    margin-top: 4px;
+  }
+
+  .link,
+  .contactLink,
+  .contactText {
+    font-size: 12px;
+  }
+
+  .socialGroup {
+    gap: 6px !important;
+  }
+
+  .contactIcon {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .copyright {
+    font-size: 12px;
+  }
+}

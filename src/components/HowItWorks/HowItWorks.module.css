@@ -1,0 +1,144 @@
+/* ── Section wrapper ─────────────────────────────────────────── */
+.section {
+  border-bottom: 1px solid #dde3ed;
+}
+
+/* ── Header ──────────────────────────────────────────────────── */
+.headerStack {
+  margin-bottom: 48px;
+}
+
+.headerBox {
+  text-align: center;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #17326e;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #5a6478;
+  margin: 0;
+  max-width: 320px;
+}
+
+/* ── Steps Grid ──────────────────────────────────────────────── */
+.stepsGrid {
+  position: relative;
+}
+
+.stepWrapper {
+  text-align: left;
+  position: relative;
+}
+
+.stepHeader {
+  position: relative;
+  height: 56px;
+  margin-bottom: 8px;
+}
+
+.stepBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepNumber {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: var(--font-poppins), sans-serif;
+}
+
+.stepTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a2e;
+  text-align: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.stepDescription {
+  font-size: 14px;
+  color: #6b7a99;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Arrow Connector ─────────────────────────────────────────── */
+.arrowContainer {
+  display: none;
+  position: absolute;
+  top: 16px;
+  right: -28px;
+  z-index: 2;
+}
+
+.arrow {
+  display: block;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 992px) {
+  .title {
+    font-size: 32px;
+  }
+
+  .arrowContainer {
+    display: none;
+  }
+}
+
+@media (min-width: 993px) {
+  .arrowContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .stepTitle {
+    font-size: 16px;
+  }
+
+  .stepDescription {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 540px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .headerStack {
+    margin-bottom: 36px;
+  }
+
+  .stepsGrid {
+    gap: 24px !important;
+  }
+}
