@@ -22,11 +22,6 @@ const REVIEWS: Review[] = [
     quote: "The home collection option was very convenient. Results came out faster than expected.",
     avatar: "ML",
   },
-  {
-    name: "James T.",
-    quote: "Highly recommended! The process was easy and the team was very professional from start to finish.",
-    avatar: "JT",
-  },
 ]
 
 function Rating() {
@@ -68,7 +63,6 @@ export default function UserReviews() {
         <Grid.Col span={{ base: 12, md: 6 }}>
           <Stack gap="lg" className={styles.reviewStack}>
             <ReviewCard review={REVIEWS[1]} />
-            <ReviewCard review={REVIEWS[2]} />
           </Stack>
         </Grid.Col>
       </Grid>
