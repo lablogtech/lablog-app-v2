@@ -68,7 +68,7 @@ export default function AlternativeRelationshipSection() {
 
   return (
     <Box component="section" className={styles.altSection}>
-      <Container size={1220}>
+      <Container size="xl">
         <Box className={styles.sectionHeading}>
           <Title order={2} className={styles.sectionTitle}>
             Alternative Family Relationship DNA Testing
@@ -121,6 +121,7 @@ export default function AlternativeRelationshipSection() {
         opened={Boolean(activeCard)}
         onClose={() => setActiveCardId(null)}
         title={activeCard?.title ?? "Test details"}
+        lockScroll
         centered
         size="lg"
       >

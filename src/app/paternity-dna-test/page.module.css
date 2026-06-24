@@ -1,70 +1,55 @@
 .page {
-  min-height: 100vh;
+  height: 100vh;
   background: linear-gradient(180deg, #f7faff 0%, #ffffff 34%, #f5f8ff 100%);
   color: #112246;
+  overflow-y: auto;
 }
 
 .heroSection {
-  padding: 40px 0 24px;
+  padding: 36px 0 20px;
 }
 
 .heroInner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 26px;
-  align-items: stretch;
+  margin-bottom: 8px;
 }
 
 .heroCopy {
-  background: #f6f9ff;
-  border: 1px solid #dbe5f5;
-  border-radius: 20px;
-  padding: 32px 30px;
+  padding: 8px 0;
 }
 
 .eyebrow {
   color: #1da86a;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   font-weight: 700;
-  font-size: 12px;
-  margin-bottom: 12px;
+  font-size: 0.94rem;
+  margin-bottom: 10px;
 }
 
 .heroTitle {
   font-family: var(--font-poppins), sans-serif;
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  line-height: 1.04;
-  letter-spacing: -0.02em;
-  margin-bottom: 14px;
+  font-size: clamp(2.55rem, 5.3vw, 4.85rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+  color: #0f2f7d;
 }
 
 .lead {
-  font-size: 1.15rem;
-  line-height: 1.5;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #172f63;
+  font-size: 2.1rem;
+  line-height: 1.38;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #162f67;
+  max-width: 740px;
 }
 
 .subLead {
-  color: #344e7a;
-  line-height: 1.6;
-  margin-bottom: 24px;
-}
-
-.heroCta {
-  display: inline-block;
-  background: #17a85e;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 0.95rem;
-  border-radius: 10px;
-  padding: 12px 18px;
-}
-
-.heroCta:hover {
-  background: #12924f;
+  color: #2f4a78;
+  font-size: 1.52rem;
+  line-height: 1.52;
+  margin-bottom: 20px;
+  max-width: 760px;
 }
 
 .heroImageWrap {
@@ -81,31 +66,46 @@
 }
 
 .pointsList {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 10px;
-  margin-top: 16px;
-  list-style: none;
+  margin-top: 12px;
 }
 
 .pointItem {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 10px 8px;
-  border-radius: 10px;
-  background: #ffffff;
-  border: 1px solid #d7e3f7;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: #19356d;
+  gap: 10px;
+  padding: 4px 6px;
+  color: #1a3572;
   text-align: center;
 }
 
+.pointItem :global(svg) {
+  width: 33px;
+  height: 33px;
+  color: #2f4698;
+}
+
+.pointLabelWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
 .pointLabel {
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: 1.03rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.22;
+  letter-spacing: 0.02em;
+}
+
+.pointSubLabel {
+  font-size: 0.98rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
 }
 
 .testsSection,
@@ -748,8 +748,12 @@
 }
 
 @media (max-width: 1100px) {
-  .pointsList {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .lead {
+    font-size: 1.55rem;
+  }
+
+  .subLead {
+    font-size: 1.14rem;
   }
 
   .cardGrid {
@@ -770,16 +774,20 @@
 }
 
 @media (max-width: 860px) {
-  .heroInner {
-    grid-template-columns: 1fr;
-  }
-
   .heroImageWrap {
     min-height: 350px;
   }
 
-  .pointsList {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .heroTitle {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .lead {
+    font-size: 1.2rem;
+  }
+
+  .subLead {
+    font-size: 1rem;
   }
 
   .cardGrid {
@@ -814,11 +822,7 @@
 
 @media (max-width: 560px) {
   .heroCopy {
-    padding: 24px 18px;
-  }
-
-  .pointsList {
-    grid-template-columns: 1fr;
+    padding: 0;
   }
 
   .specialistDescription {

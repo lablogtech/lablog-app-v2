@@ -59,7 +59,7 @@ const TEST_CARDS = [
 export default function PaternityTestOptionsSection() {
   return (
     <Box component="section" className={styles.testsSection}>
-      <Container size={1220}>
+      <Container size="xl">
         <Box className={styles.sectionHeading}>
           <Title order={2} className={styles.sectionTitle}>
             Which Paternity DNA Test Is Right For You?

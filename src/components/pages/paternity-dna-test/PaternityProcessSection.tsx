@@ -86,7 +86,7 @@ const FAQ_COLUMNS = [
 export default function PaternityProcessSection() {
   return (
     <Box component="section" className={styles.processSection}>
-      <Container size={1220}>
+      <Container size="xl">
         <HowItWorksSteps
           title="How Does The Process Work?"
           subtitle="From consultation to release, the process is guided, secure, and straightforward."
