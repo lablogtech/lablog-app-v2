@@ -1,13 +1,33 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 import styles from "./Header.module.css"
 import { Anchor, Box, Button, Container, Group } from "@mantine/core"
 import { IconCalendarEvent, IconChevronDown } from "@tabler/icons-react"
 
 const NAV_ITEMS = [
-  { label: "Home", href: "#", active: true },
-  { label: "Genetic Testing", href: "#", dropdown: true },
+  { label: "Home", href: "/" },
+  {
+    label: "Paternity DNA Test",
+    href: "/paternity-dna-test",
+    dropdown: true,
+    items: [
+      {
+        label: "Peace of mind (Non-Legal) Paternity Test",
+        href: "/paternity-dna-test/peace-of-mind",
+      },
+      {
+        label: "Legal Paternity Test",
+        href: "/paternity-dna-test/legal-paternity",
+      },
+      {
+        label: "Non-Invasive Paternal Test",
+        href: "/paternity-dna-test/non-invasive-paternal",
+      },
+    ],
+  },
   { label: "Laboratory Tests", href: "#", dropdown: true },
   { label: "Collection Centers", href: "#" },
   { label: "Corporate Wellness", href: "#" },
@@ -17,6 +37,8 @@ const NAV_ITEMS = [
 ]
 
 export default function Header() {
+  const pathname = usePathname()
+
   return (
     <Box component="header" className={styles.header}>
       <Container className={styles.inner} fluid>
@@ -28,15 +50,33 @@ export default function Header() {
         {/* Nav */}
         <Group component="nav" className={styles.nav} aria-label="Main navigation" gap={0}>
           {NAV_ITEMS.map((item) => (
-            <Anchor
-              key={item.label}
-              href={item.href}
-              underline="never"
-              className={`${styles.navLink} ${item.active ? styles.navLinkActive : ""}`}
-            >
-              {item.label}
-              {item.dropdown && <IconChevronDown className={styles.chevron} stroke={1.8} aria-hidden />}
-            </Anchor>
+            <Box key={item.label} className={styles.navItem}>
+              <Anchor
+                component={Link}
+                href={item.href}
+                underline="never"
+                className={`${styles.navLink} ${pathname === item.href ? styles.navLinkActive : ""}`}
+              >
+                {item.label}
+                {item.dropdown && <IconChevronDown className={styles.chevron} stroke={1.8} aria-hidden />}
+              </Anchor>
+
+              {item.items && (
+                <Box className={styles.dropdown}>
+                  {item.items.map((dropdownItem) => (
+                    <Anchor
+                      key={dropdownItem.label}
+                      component={Link}
+                      href={dropdownItem.href}
+                      underline="never"
+                      className={styles.dropdownItem}
+                    >
+                      {dropdownItem.label}
+                    </Anchor>
+                  ))}
+                </Box>
+              )}
+            </Box>
           ))}
         </Group>
 

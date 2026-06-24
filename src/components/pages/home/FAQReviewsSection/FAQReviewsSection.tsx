@@ -2,8 +2,8 @@
 
 import styles from "./FAQReviewsSection.module.css"
 import { Container, Grid } from "@mantine/core"
-import FAQ from "@/components/FAQ/FAQ"
-import UserReviews from "@/components/UserReviews/UserReviews"
+import FAQ from "@/components/pages/home/FAQ/FAQ"
+import UserReviews from "@/components/pages/home/UserReviews/UserReviews"
 
 export default function FAQReviewsSection() {
   return (
