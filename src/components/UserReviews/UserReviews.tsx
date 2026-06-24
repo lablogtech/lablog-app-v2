@@ -1,7 +1,7 @@
 "use client"
 
 import styles from "./UserReviews.module.css"
-import { Avatar, Box, Grid, Group, Stack, Text, Title } from "@mantine/core"
+import { Avatar, Box, Grid, Group, Text, Title } from "@mantine/core"
 import { IconStarFilled } from "@tabler/icons-react"
 
 type Review = {
@@ -21,6 +21,11 @@ const REVIEWS: Review[] = [
     name: "Maria L.",
     quote: "The home collection option was very convenient. Results came out faster than expected.",
     avatar: "ML",
+  },
+  {
+    name: "James T.",
+    quote: "Highly recommended! The process was easy and the team was very professional from start to finish.",
+    avatar: "JT",
   },
 ]
 
@@ -61,9 +66,10 @@ export default function UserReviews() {
           <ReviewCard review={REVIEWS[0]} />
         </Grid.Col>
         <Grid.Col span={{ base: 12, md: 6 }}>
-          <Stack gap="lg" className={styles.reviewStack}>
-            <ReviewCard review={REVIEWS[1]} />
-          </Stack>
+          <ReviewCard review={REVIEWS[1]} />
+        </Grid.Col>
+        <Grid.Col span={{ base: 12, md: 6 }}>
+          <ReviewCard review={REVIEWS[2]} />
         </Grid.Col>
       </Grid>
     </Box>
