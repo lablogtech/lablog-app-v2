@@ -28,7 +28,25 @@ const NAV_ITEMS = [
       },
     ],
   },
-  { label: "Pregnancy", href: "#" },
+  {
+    label: "Pregnancy",
+    href: "/pregnancy",
+    dropdown: true,
+    items: [
+      {
+        label: "NIPT Philippines",
+        href: "/pregnancy/nipt-philippines",
+      },
+      {
+        label: "Carrier Screening Philippines",
+        href: "/pregnancy/carrier-screening-philippines",
+      },
+      {
+        label: "Newborn Genetic Screening Philippines",
+        href: "/pregnancy/newborn-genetic-screening-philippines",
+      },
+    ],
+  },
   { label: "Cancer", href: "#" },
   { label: "Corporate Wellness", href: "#" },
   { label: "About Us", href: "#" },
@@ -48,35 +66,40 @@ export default function Header() {
 
         {/* Nav */}
         <Group component="nav" className={styles.nav} aria-label="Main navigation" gap={0}>
-          {NAV_ITEMS.map((item) => (
-            <Box key={item.label} className={styles.navItem}>
-              <Anchor
-                component={Link}
-                href={item.href}
-                underline="never"
-                className={`${styles.navLink} ${pathname === item.href ? styles.navLinkActive : ""}`}
-              >
-                {item.label}
-                {item.dropdown && <IconChevronDown className={styles.chevron} size={20} stroke={1} aria-hidden />}
-              </Anchor>
+          {NAV_ITEMS.map((item) => {
+            const isActive =
+              item.href === "/" ? pathname === "/" : pathname === item.href || pathname.startsWith(`${item.href}/`)
 
-              {item.items && (
-                <Box className={styles.dropdown}>
-                  {item.items.map((dropdownItem) => (
-                    <Anchor
-                      key={dropdownItem.label}
-                      component={Link}
-                      href={dropdownItem.href}
-                      underline="never"
-                      className={styles.dropdownItem}
-                    >
-                      {dropdownItem.label}
-                    </Anchor>
-                  ))}
-                </Box>
-              )}
-            </Box>
-          ))}
+            return (
+              <Box key={item.label} className={styles.navItem}>
+                <Anchor
+                  component={Link}
+                  href={item.href}
+                  underline="never"
+                  className={`${styles.navLink} ${isActive ? styles.navLinkActive : ""}`}
+                >
+                  {item.label}
+                  {item.dropdown && <IconChevronDown className={styles.chevron} size={20} stroke={1} aria-hidden />}
+                </Anchor>
+
+                {item.items && (
+                  <Box className={styles.dropdown}>
+                    {item.items.map((dropdownItem) => (
+                      <Anchor
+                        key={dropdownItem.label}
+                        component={Link}
+                        href={dropdownItem.href}
+                        underline="never"
+                        className={styles.dropdownItem}
+                      >
+                        {dropdownItem.label}
+                      </Anchor>
+                    ))}
+                  </Box>
+                )}
+              </Box>
+            )
+          })}
         </Group>
 
         {/* CTA */}
