@@ -10,28 +10,27 @@ import { IconCalendarEvent, IconChevronDown } from "@tabler/icons-react"
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
   {
-    label: "Paternity DNA Test",
+    label: "Paternity",
     href: "/paternity-dna-test",
     dropdown: true,
     items: [
       {
-        label: "Peace of mind (Non-Legal) Paternity Test",
+        label: "Peace of mind (Non-Legal)",
         href: "/paternity-dna-test/peace-of-mind",
       },
       {
-        label: "Legal Paternity Test",
+        label: "Legal",
         href: "/paternity-dna-test/legal-paternity",
       },
       {
-        label: "Non-Invasive Paternal Test",
+        label: "Non-Invasive",
         href: "/paternity-dna-test/non-invasive-paternal",
       },
     ],
   },
-  { label: "Laboratory Tests", href: "#", dropdown: true },
-  { label: "Collection Centers", href: "#" },
+  { label: "Pregnancy", href: "#" },
+  { label: "Cancer", href: "#" },
   { label: "Corporate Wellness", href: "#" },
-  { label: "Blog", href: "#" },
   { label: "About Us", href: "#" },
   { label: "Contact", href: "#" },
 ]
@@ -58,7 +57,7 @@ export default function Header() {
                 className={`${styles.navLink} ${pathname === item.href ? styles.navLinkActive : ""}`}
               >
                 {item.label}
-                {item.dropdown && <IconChevronDown className={styles.chevron} stroke={1.8} aria-hidden />}
+                {item.dropdown && <IconChevronDown className={styles.chevron} size={20} stroke={1} aria-hidden />}
               </Anchor>
 
               {item.items && (

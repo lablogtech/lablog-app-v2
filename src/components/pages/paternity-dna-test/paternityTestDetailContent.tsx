@@ -547,35 +547,7 @@ export const prenatalPaternityPageContent: PaternityTestPageContent = {
       "Our advanced DNA analysis technology ensures highly accurate and reliable results while maintaining the highest level of confidentiality and quality control.",
     sideItems: ["Private coordination", "Secure release procedures", "Confidential handling throughout the process"],
   },
-  faq: {
-    title: "Frequently Asked Questions",
-    items: [
-      {
-        question: "How early can I take the test?",
-        answer: "The test can be performed as early as 10 weeks into pregnancy.",
-      },
-      {
-        question: "Is the test safe for the baby?",
-        answer: "Yes. This is a completely non-invasive procedure that only requires a maternal blood sample.",
-      },
-      {
-        question: "What samples are required?",
-        answer: "We require a blood sample from the mother and a cheek swab sample from the alleged father.",
-      },
-      {
-        question: "Can participants be in different locations?",
-        answer: "Yes. We can arrange separate sample collections nationwide.",
-      },
-      {
-        question: "Is this confidential?",
-        answer: "Yes. All information, samples, and results are handled with strict confidentiality.",
-      },
-      {
-        question: "Can this be done at home?",
-        answer: "Mobile home services may be available in selected areas depending on location.",
-      },
-    ],
-  },
+  faq,
   cta: {
     title: "Find answers with confidence and peace of mind.",
     description: "Book your non-invasive prenatal paternity test with guided support from our team.",

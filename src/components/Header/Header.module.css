@@ -113,8 +113,6 @@
 }
 
 .chevron {
-  width: 10px;
-  height: 6px;
   flex-shrink: 0;
   opacity: 0.6;
 }
