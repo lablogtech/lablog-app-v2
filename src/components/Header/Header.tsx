@@ -63,7 +63,25 @@ const NAV_ITEMS = [
       },
     ],
   },
-  { label: "Cancer", href: "#" },
+  {
+    label: "Cancer",
+    href: "/cancer",
+    dropdown: true,
+    items: [
+      {
+        label: "BRCA Genetic Test Philippines",
+        href: "/cancer/brca-genetic-test-philippines",
+      },
+      {
+        label: "HBOC Screening Philippines",
+        href: "/cancer/hboc-screening-philippines",
+      },
+      {
+        label: "Comprehensive Hereditary Cancer Screening",
+        href: "/cancer/comprehensive-hereditary-cancer-screening-philippines",
+      },
+    ],
+  },
   { label: "Corporate Wellness", href: "#" },
   { label: "About Us", href: "#" },
   { label: "Contact", href: "#" },

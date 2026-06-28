@@ -1,0 +1,540 @@
+.page {
+  min-height: 100%;
+  background: transparent;
+  color: #123163;
+}
+
+.main {
+  padding: 48px 0 64px;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #1f4f9a;
+  font-weight: 700;
+}
+
+.heroSection,
+.processSection,
+.stripSection,
+.turnaroundSection,
+.resultsSection,
+.trustSection,
+.faqSection {
+  padding-top: 28px;
+}
+
+.heroSection {
+  padding-top: 22px;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: var(--detail-accent);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.92rem;
+}
+
+.sectionEyebrow {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--detail-accent);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.86rem;
+  text-align: center;
+}
+
+.heroTitle {
+  color: #0d2d70;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.55rem);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  margin-bottom: 14px;
+}
+
+.heroLead {
+  color: #203d7f;
+  font-size: clamp(1.55rem, 2.5vw, 2.15rem);
+  line-height: 1.28;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.heroDescription {
+  color: #35507b;
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 560px;
+}
+
+.featureCard {
+  height: 100%;
+  padding: 8px 4px;
+  text-align: center;
+}
+
+.featureIcon {
+  margin: 0 auto 10px;
+  color: var(--detail-accent);
+}
+
+.featureIcon :global(svg) {
+  width: 30px;
+  height: 30px;
+}
+
+.featureLabel,
+.featureSubLabel {
+  display: block;
+  color: #183469;
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.28;
+  text-transform: uppercase;
+}
+
+.heroNote {
+  margin-top: 20px;
+  border: 1px solid var(--detail-accent-border);
+  background: var(--detail-accent-soft);
+  color: #243d6a;
+}
+
+.heroNoteIcon {
+  color: var(--detail-accent);
+  background: rgba(255, 255, 255, 0.82);
+  flex-shrink: 0;
+}
+
+.heroVisual {
+  position: relative;
+  min-height: 600px;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid #dce7f5;
+  box-shadow: 0 30px 60px rgba(13, 39, 83, 0.12);
+  background: linear-gradient(180deg, #ffffff 0%, #eef4ff 100%);
+}
+
+.heroImage {
+  object-fit: cover;
+}
+
+.heroGlow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.2) 55%, transparent 100%);
+}
+
+.floatingCard {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  border-radius: 24px;
+  border: 1px solid #e0e8f7;
+  box-shadow: 0 18px 40px rgba(12, 41, 90, 0.16);
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.floatingCardTitle {
+  color: #17346c;
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.floatingCardText {
+  color: #3c557e;
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
+
+.sectionTitle {
+  color: #12306b;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  text-align: center;
+}
+
+.sectionSubtitle {
+  color: #48617f;
+  font-size: 1rem;
+  line-height: 1.65;
+  text-align: center;
+  max-width: 720px;
+  margin: 10px auto 0;
+}
+
+.processCard,
+.stripCard,
+.resultCard,
+.resultsSideCard,
+.trustCard,
+.ctaBand {
+  border: 1px solid #dce7f6;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 16px 34px rgba(19, 48, 99, 0.06);
+}
+
+.processCard {
+  height: 100%;
+  padding: 22px 20px;
+  text-align: center;
+}
+
+.processIcon {
+  margin: 0 auto 12px;
+  background: var(--detail-accent-soft);
+  color: var(--detail-accent);
+}
+
+.stepNumber {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: var(--detail-accent);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.processTitle,
+.stripTitle,
+.trustTitle,
+.resultsTitle,
+.faqTitle,
+.ctaTitle {
+  color: #13316d;
+}
+
+.processTitle {
+  margin-top: 8px;
+  margin-bottom: 10px;
+  font-size: 1.18rem;
+}
+
+.processDescription,
+.stripDescription,
+.turnaroundText,
+.trustDescription,
+.trustSideText,
+.faqAnswer,
+.ctaText {
+  color: #496280;
+  line-height: 1.65;
+}
+
+.stripWrapper {
+  padding: 24px;
+  border-radius: 24px;
+  border: 1px solid #dce7f6;
+  background: linear-gradient(180deg, #fbfdff 0%, #f6f9ff 100%);
+}
+
+.stripCard {
+  height: 100%;
+  padding: 20px 16px;
+  text-align: center;
+  border-radius: 18px;
+}
+
+.stripIcon {
+  margin: 0 auto 12px;
+  color: var(--detail-accent);
+  background: var(--detail-accent-soft);
+}
+
+.stripTitle {
+  font-size: 1.06rem;
+  margin-bottom: 8px;
+}
+
+.stripFooter {
+  margin-top: 18px;
+  color: #35507c;
+  font-weight: 600;
+  text-align: center;
+}
+
+.turnaroundVisual {
+  height: 100%;
+  min-height: 270px;
+  padding: 28px;
+  border-radius: 24px;
+  border: 1px solid #dce7f6;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.98), transparent 55%),
+    linear-gradient(180deg, #f6f9ff 0%, #edf3ff 100%);
+}
+
+.turnaroundIcon {
+  background: var(--detail-accent-soft);
+  color: var(--detail-accent);
+}
+
+.turnaroundVisualTitle {
+  color: #17346c;
+  font-size: 1.4rem;
+}
+
+.turnaroundNote {
+  border: 1px solid var(--detail-accent-border);
+  background: var(--detail-accent-soft);
+}
+
+.turnaroundNoteTitle {
+  color: #16346b;
+  font-size: 1.05rem;
+}
+
+.resultsSectionHeader {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.resultCard {
+  height: 100%;
+  padding: 24px 20px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.resultIconPositive {
+  margin: 0 auto 14px;
+  background: #eaf8f1;
+  color: #18a868;
+}
+
+.resultIconNegative {
+  margin: 0 auto 14px;
+  background: #fff0f0;
+  color: #e84d4d;
+}
+
+.resultLabelPositive,
+.resultLabelNegative {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.resultLabelPositive {
+  color: #18a868;
+}
+
+.resultLabelNegative {
+  color: #e84d4d;
+}
+
+.resultCardTitle {
+  color: #16356f;
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+
+.resultsSideCard {
+  height: 100%;
+  padding: 24px 22px;
+  border-radius: 22px;
+}
+
+.panelEyebrow {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--detail-accent);
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  font-size: 0.78rem;
+}
+
+.panelTitle {
+  color: #17346c;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.panelItem {
+  color: #264170;
+  font-weight: 600;
+}
+
+.panelNote {
+  color: #59708f;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.trustCard {
+  height: 100%;
+  padding: 24px 22px;
+  border-radius: 22px;
+}
+
+.trustImageWrap {
+  position: relative;
+  min-height: 180px;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+
+.trustImage {
+  object-fit: cover;
+}
+
+.trustBullet,
+.trustSideItem {
+  color: #284271;
+  font-weight: 600;
+}
+
+.trustBulletIcon,
+.trustSideIcon {
+  color: var(--detail-accent);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.badgeCard {
+  height: 100%;
+  min-height: 100%;
+  padding: 24px 18px;
+  border-radius: 22px;
+  border: 1px solid #dce7f6;
+  background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+  text-align: center;
+  box-shadow: 0 16px 34px rgba(19, 48, 99, 0.06);
+}
+
+.badgeVisual {
+  min-height: 160px;
+}
+
+.badgeTitle {
+  color: #17346c;
+  font-size: 1.25rem;
+}
+
+.badgeSubtitle {
+  color: #4c6482;
+  font-size: 0.9rem;
+}
+
+.faqColumn :global(.mantine-Accordion-item) {
+  border-radius: 16px;
+}
+
+.faqControl {
+  color: #17346c;
+  font-weight: 700;
+}
+
+.faqChevron {
+  color: var(--detail-accent);
+}
+
+.faqPanel {
+  color: #516887;
+}
+
+.ctaBand {
+  margin-top: 28px;
+  padding: 22px 24px;
+  border-radius: 22px;
+  background: linear-gradient(90deg, var(--detail-cta-bg) 0%, #0f3272 100%);
+  color: #ffffff;
+}
+
+.ctaTitle,
+.ctaText,
+.ctaMeta {
+  color: #ffffff;
+}
+
+.ctaMeta {
+  opacity: 0.88;
+}
+
+.ctaIcon {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.ctaButton {
+  background: var(--detail-cta-button);
+  color: #ffffff;
+  font-weight: 800;
+  min-width: 220px;
+}
+
+.ctaButton:hover {
+  filter: brightness(0.96);
+}
+
+@media (max-width: 992px) {
+  .heroVisual {
+    min-height: 520px;
+  }
+
+  .floatingCard {
+    position: static;
+    margin: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 36px 0 56px;
+  }
+
+  .heroVisual {
+    min-height: 430px;
+  }
+
+  .heroTitle {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  .heroLead {
+    font-size: 1.35rem;
+  }
+
+  .turnaroundVisual,
+  .processCard,
+  .stripCard,
+  .resultCard,
+  .resultsSideCard,
+  .trustCard,
+  .badgeCard,
+  .ctaBand {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 560px) {
+  .heroVisual {
+    min-height: 340px;
+  }
+
+  .floatingCard {
+    margin: 12px;
+  }
+}

@@ -1,8 +1,8 @@
 "use client"
 
-import PregnancyTestDetailPage from "@/components/shared/pregnancy-test-detail/PregnancyTestDetailPage"
+import TestDetailPage from "@/components/shared/test-detail/TestDetailPage"
 import { newbornGeneticScreeningPageContent } from "@/components/pages/pregnancy/pregnancyTestDetailContent"
 
 export default function NewbornGeneticScreeningPhilippinesPage() {
-  return <PregnancyTestDetailPage content={newbornGeneticScreeningPageContent} />
+  return <TestDetailPage content={newbornGeneticScreeningPageContent} />
 }

@@ -1,6 +1,6 @@
 "use client"
 
-import PaternityTestDetailPage from "@/components/shared/paternity-test-detail/PaternityTestDetailPage"
+import TestDetailPage from "@/components/shared/test-detail/TestDetailPage"
 import type { PregnancyTestPageContent } from "./types"
 
 type PregnancyTestDetailPageProps = {
@@ -8,5 +8,5 @@ type PregnancyTestDetailPageProps = {
 }
 
 export default function PregnancyTestDetailPage({ content }: PregnancyTestDetailPageProps) {
-  return <PaternityTestDetailPage content={content} />
+  return <TestDetailPage content={content} />
 }

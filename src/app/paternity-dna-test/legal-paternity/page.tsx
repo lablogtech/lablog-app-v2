@@ -1,8 +1,8 @@
 "use client"
 
-import PaternityTestDetailPage from "@/components/shared/paternity-test-detail/PaternityTestDetailPage"
+import TestDetailPage from "@/components/shared/test-detail/TestDetailPage"
 import { legalPaternityPageContent } from "@/components/pages/paternity-dna-test/paternityTestDetailContent"
 
 export default function LegalPaternityPage() {
-  return <PaternityTestDetailPage content={legalPaternityPageContent} />
+  return <TestDetailPage content={legalPaternityPageContent} />
 }

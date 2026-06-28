@@ -1,8 +1,8 @@
 "use client"
 
-import PregnancyTestDetailPage from "@/components/shared/pregnancy-test-detail/PregnancyTestDetailPage"
+import TestDetailPage from "@/components/shared/test-detail/TestDetailPage"
 import { niptPageContent } from "@/components/pages/pregnancy/pregnancyTestDetailContent"
 
 export default function NiptPhilippinesPage() {
-  return <PregnancyTestDetailPage content={niptPageContent} />
+  return <TestDetailPage content={niptPageContent} />
 }

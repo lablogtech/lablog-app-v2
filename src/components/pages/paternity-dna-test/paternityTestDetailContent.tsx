@@ -82,6 +82,7 @@ const faq = {
 
 export const peaceOfMindPaternityPageContent: PaternityTestPageContent = {
   backLabel: "Back to Paternity DNA Test",
+  backHref: "/paternity-dna-test",
   theme: {
     accent: "#17a567",
     accentSoft: "#eefaf4",
@@ -233,6 +234,7 @@ export const peaceOfMindPaternityPageContent: PaternityTestPageContent = {
 
 export const legalPaternityPageContent: PaternityTestPageContent = {
   backLabel: "Back to Paternity DNA Test",
+  backHref: "/paternity-dna-test",
   theme: {
     accent: "#19a768",
     accentSoft: "#eefaf4",
@@ -396,6 +398,7 @@ export const legalPaternityPageContent: PaternityTestPageContent = {
 
 export const prenatalPaternityPageContent: PaternityTestPageContent = {
   backLabel: "Back to Paternity DNA Test",
+  backHref: "/paternity-dna-test",
   theme: {
     accent: "#8d57e8",
     accentSoft: "#f4efff",

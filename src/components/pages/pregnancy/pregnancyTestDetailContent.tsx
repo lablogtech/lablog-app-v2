@@ -143,6 +143,7 @@ const carrierFaq = {
 
 export const niptPageContent: PregnancyTestPageContent = {
   backLabel: "Back to Pregnancy Testing",
+  backHref: "/pregnancy",
   theme: {
     accent: "#8b4de0",
     accentSoft: "#f5eeff",
@@ -318,6 +319,7 @@ export const niptPageContent: PregnancyTestPageContent = {
 
 export const carrierScreeningPageContent: PregnancyTestPageContent = {
   backLabel: "Back to Pregnancy Testing",
+  backHref: "/pregnancy",
   theme: {
     accent: "#db3f9f",
     accentSoft: "#fff1f8",
@@ -492,6 +494,7 @@ export const carrierScreeningPageContent: PregnancyTestPageContent = {
 
 export const newbornGeneticScreeningPageContent: PregnancyTestPageContent = {
   backLabel: "Back to Pregnancy Testing",
+  backHref: "/pregnancy",
   theme: {
     accent: "#7b4ad3",
     accentSoft: "#f3efff",

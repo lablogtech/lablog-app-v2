@@ -1,1 +1,1 @@
-export type PregnancyTestPageContent = import("@/components/shared/paternity-test-detail/types").PaternityTestPageContent
+export type PregnancyTestPageContent = import("@/components/shared/test-detail/types").TestPageContent
