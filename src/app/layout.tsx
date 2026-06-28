@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import { Inter, Poppins } from "next/font/google"
-import { ColorSchemeScript, MantineProvider, createTheme, mantineHtmlProps } from "@mantine/core"
+import { Box, ColorSchemeScript, MantineProvider, createTheme, mantineHtmlProps } from "@mantine/core"
+import Header from "@/components/Header/Header"
+import Footer from "@/components/Footer/Footer"
 import "@mantine/core/styles.css"
 import "@mantine/carousel/styles.css"
 import "leaflet/dist/leaflet.css"
@@ -71,8 +73,16 @@ export default function RootLayout({
       <head>
         <ColorSchemeScript />
       </head>
-      <body>
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+      <body className="siteBody">
+        <MantineProvider theme={theme}>
+          <Box className="siteShell" bg="#fff">
+            <Header />
+            <Box component="main" className="siteMain">
+              {children}
+            </Box>
+            <Footer />
+          </Box>
+        </MantineProvider>
       </body>
     </html>
   )

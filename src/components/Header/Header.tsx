@@ -2,10 +2,26 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { useEffect, useState } from "react"
 import { usePathname } from "next/navigation"
 import styles from "./Header.module.css"
-import { Anchor, Box, Button, Container, Group } from "@mantine/core"
-import { IconCalendarEvent, IconChevronDown } from "@tabler/icons-react"
+import {
+  Accordion,
+  Anchor,
+  Box,
+  Burger,
+  Button,
+  Container,
+  Divider,
+  Drawer,
+  Group,
+  Menu,
+  ScrollArea,
+  Stack,
+  Text,
+} from "@mantine/core"
+import { useDisclosure } from "@mantine/hooks"
+import { IconCalendarEvent, IconChevronDown, IconMenu2 } from "@tabler/icons-react"
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
@@ -55,47 +71,86 @@ const NAV_ITEMS = [
 
 export default function Header() {
   const pathname = usePathname()
+  const [drawerOpened, { open: openDrawer, close: closeDrawer }] = useDisclosure(false)
+  const [openDesktopMenu, setOpenDesktopMenu] = useState<string | null>(null)
+
+  useEffect(() => {
+    closeDrawer()
+  }, [pathname, closeDrawer])
+
+  const isPathActive = (href: string) => {
+    if (href === "#") {
+      return false
+    }
+
+    return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`)
+  }
 
   return (
     <Box component="header" className={styles.header}>
-      <Container className={styles.inner} fluid>
+      <Container size="xl" className={styles.inner}>
         {/* Logo */}
-        <Anchor href="#" className={styles.logo} underline="never">
-          <Image src="/lablog-inline.png" alt="LABLOG" width={280} height={80} priority />
+        <Anchor component={Link} href="/" className={styles.logo} underline="never">
+          <Image src="/lablog-nav.png" alt="LABLOG" width={280} height={80} priority />
         </Anchor>
 
         {/* Nav */}
-        <Group component="nav" className={styles.nav} aria-label="Main navigation" gap={0}>
+        <Group visibleFrom="md" component="nav" align="flex-end" className={styles.nav} aria-label="Main navigation">
           {NAV_ITEMS.map((item) => {
-            const isActive =
-              item.href === "/" ? pathname === "/" : pathname === item.href || pathname.startsWith(`${item.href}/`)
+            const isActive = isPathActive(item.href)
 
             return (
               <Box key={item.label} className={styles.navItem}>
-                <Anchor
-                  component={Link}
-                  href={item.href}
-                  underline="never"
-                  className={`${styles.navLink} ${isActive ? styles.navLinkActive : ""}`}
-                >
-                  {item.label}
-                  {item.dropdown && <IconChevronDown className={styles.chevron} size={20} stroke={1} aria-hidden />}
-                </Anchor>
-
-                {item.items && (
-                  <Box className={styles.dropdown}>
-                    {item.items.map((dropdownItem) => (
+                {item.items ? (
+                  <Menu
+                    trigger="hover"
+                    openDelay={70}
+                    closeDelay={120}
+                    withArrow
+                    position="bottom-start"
+                    offset={10}
+                    shadow="lg"
+                    classNames={{ dropdown: styles.dropdown }}
+                    onChange={(opened) => setOpenDesktopMenu(opened ? item.label : null)}
+                  >
+                    <Menu.Target>
                       <Anchor
-                        key={dropdownItem.label}
                         component={Link}
-                        href={dropdownItem.href}
+                        href={item.href}
                         underline="never"
-                        className={styles.dropdownItem}
+                        aria-current={isActive ? "page" : undefined}
+                        className={`${styles.navLink} ${isActive ? styles.navLinkActive : ""} ${openDesktopMenu === item.label ? styles.navLinkOpen : ""}`}
+                        size="sm"
                       >
-                        {dropdownItem.label}
+                        {item.label}
+                        <IconChevronDown className={styles.chevron} size={20} stroke={1} aria-hidden />
                       </Anchor>
-                    ))}
-                  </Box>
+                    </Menu.Target>
+
+                    <Menu.Dropdown>
+                      {item.items.map((dropdownItem) => (
+                        <Menu.Item
+                          key={dropdownItem.label}
+                          component={Link}
+                          href={dropdownItem.href}
+                          className={`${styles.dropdownItem} ${isPathActive(dropdownItem.href) ? styles.dropdownItemActive : ""}`}
+                        >
+                          {dropdownItem.label}
+                        </Menu.Item>
+                      ))}
+                    </Menu.Dropdown>
+                  </Menu>
+                ) : (
+                  <Anchor
+                    component={Link}
+                    href={item.href}
+                    underline="never"
+                    aria-current={isActive ? "page" : undefined}
+                    className={`${styles.navLink} ${isActive ? styles.navLinkActive : ""}`}
+                    size="sm"
+                  >
+                    {item.label}
+                  </Anchor>
                 )}
               </Box>
             )
@@ -105,15 +160,122 @@ export default function Header() {
         {/* CTA */}
         <Button
           leftSection={<IconCalendarEvent className={styles.ctaIcon} stroke={2} aria-hidden />}
-          component="a"
+          component={Link}
           href="#contact"
           className={styles.cta}
           variant="filled"
-          radius="md"
+          tt="uppercase"
+          radius="sm"
         >
           Book a Test
         </Button>
+
+        <Burger
+          opened={drawerOpened}
+          onClick={drawerOpened ? closeDrawer : openDrawer}
+          className={styles.mobileMenuButton}
+          aria-label="Open navigation menu"
+          color="#0f377b"
+          size="sm"
+        />
       </Container>
+
+      <Drawer
+        opened={drawerOpened}
+        onClose={closeDrawer}
+        position="right"
+        size="86%"
+        title={
+          <Group gap={8} align="center" className={styles.drawerTitleWrap}>
+            <IconMenu2 size={18} stroke={1.9} aria-hidden />
+            <Text className={styles.drawerTitle}>Menu</Text>
+          </Group>
+        }
+        classNames={{
+          content: styles.drawerContent,
+          header: styles.drawerHeader,
+          body: styles.drawerBody,
+          close: styles.drawerClose,
+          title: styles.drawerTitleSlot,
+        }}
+        zIndex={99999}
+      >
+        <ScrollArea h="calc(100dvh - 88px)" type="scroll" scrollbarSize={5}>
+          <Stack gap="xs" className={styles.mobileNavList}>
+            {NAV_ITEMS.map((item) => {
+              const itemActive = isPathActive(item.href)
+
+              if (!item.items) {
+                return (
+                  <Anchor
+                    key={item.label}
+                    component={Link}
+                    href={item.href}
+                    underline="never"
+                    aria-current={itemActive ? "page" : undefined}
+                    className={`${styles.mobileNavLink} ${itemActive ? styles.mobileNavLinkActive : ""}`}
+                  >
+                    {item.label}
+                  </Anchor>
+                )
+              }
+
+              return (
+                <Accordion key={item.label} variant="separated" radius="md" className={styles.mobileAccordion}>
+                  <Accordion.Item value={item.label} className={styles.mobileAccordionItem}>
+                    <Accordion.Control className={styles.mobileAccordionControl}>
+                      <Group justify="space-between" wrap="nowrap" gap={8}>
+                        <Anchor
+                          component={Link}
+                          href={item.href}
+                          underline="never"
+                          aria-current={itemActive ? "page" : undefined}
+                          className={`${styles.mobileAccordionTitle} ${itemActive ? styles.mobileAccordionTitleActive : ""}`}
+                        >
+                          {item.label}
+                        </Anchor>
+                      </Group>
+                    </Accordion.Control>
+                    <Accordion.Panel className={styles.mobileAccordionPanel}>
+                      <Stack gap={4}>
+                        {item.items.map((dropdownItem) => {
+                          const dropdownActive = isPathActive(dropdownItem.href)
+
+                          return (
+                            <Anchor
+                              key={dropdownItem.label}
+                              component={Link}
+                              href={dropdownItem.href}
+                              underline="never"
+                              aria-current={dropdownActive ? "page" : undefined}
+                              className={`${styles.mobileSubLink} ${dropdownActive ? styles.mobileSubLinkActive : ""}`}
+                            >
+                              {dropdownItem.label}
+                            </Anchor>
+                          )
+                        })}
+                      </Stack>
+                    </Accordion.Panel>
+                  </Accordion.Item>
+                </Accordion>
+              )
+            })}
+
+            <Divider my="xs" color="#dbe5f6" />
+
+            <Button
+              leftSection={<IconCalendarEvent className={styles.ctaIcon} stroke={2} aria-hidden />}
+              component={Link}
+              href="#contact"
+              className={styles.mobileCta}
+              variant="filled"
+              radius="md"
+            >
+              Book a Test
+            </Button>
+          </Stack>
+        </ScrollArea>
+      </Drawer>
     </Box>
   )
 }

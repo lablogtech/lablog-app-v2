@@ -3,8 +3,6 @@
 import type { CSSProperties } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import Header from "@/components/Header/Header"
-import Footer from "@/components/Footer/Footer"
 import {
   Accordion,
   Anchor,
@@ -56,10 +54,8 @@ export default function PaternityTestDetailPage({ content }: PaternityTestDetail
   } as CSSProperties
 
   return (
-    <Box className={styles.page} style={themeVars}>
-      <Header />
-
-      <Box component="main" className={styles.main}>
+    <Box className={`pageSurface ${styles.page}`} style={themeVars}>
+      <Box className={styles.main}>
         <Container size="xl">
           <Anchor component={Link} href="/paternity-dna-test" underline="never" className={styles.backLink}>
             <IconArrowLeft size={16} stroke={2.2} aria-hidden />
@@ -449,8 +445,6 @@ export default function PaternityTestDetailPage({ content }: PaternityTestDetail
           </Paper>
         </Container>
       </Box>
-
-      <Footer />
     </Box>
   )
 }

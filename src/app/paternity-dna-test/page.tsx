@@ -1,7 +1,5 @@
 "use client"
 
-import Header from "@/components/Header/Header"
-import Footer from "@/components/Footer/Footer"
 import PaternityHeroSection from "@/components/pages/paternity-dna-test/PaternityHeroSection"
 import PaternityTestOptionsSection from "@/components/pages/paternity-dna-test/PaternityTestOptionsSection"
 import AlternativeRelationshipSection from "@/components/pages/paternity-dna-test/AlternativeRelationshipSection"
@@ -12,18 +10,12 @@ import { Box } from "@mantine/core"
 
 export default function PaternityDnaTestPage() {
   return (
-    <Box className={styles.page}>
-      <Header />
-
-      <Box component="main">
-        <PaternityHeroSection />
-        <PaternityTestOptionsSection />
-        <AlternativeRelationshipSection />
-        <TestRecommendationMatrixSection />
-        <PaternityProcessSection />
-      </Box>
-
-      <Footer />
+    <Box className={`pageSurface ${styles.page}`}>
+      <PaternityHeroSection />
+      <PaternityTestOptionsSection />
+      <AlternativeRelationshipSection />
+      <TestRecommendationMatrixSection />
+      <PaternityProcessSection />
     </Box>
   )
 }

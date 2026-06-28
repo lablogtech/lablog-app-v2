@@ -9,11 +9,8 @@
   --clr-bg: #f5f7fa;
   --clr-white: #ffffff;
 
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  overflow-y: auto;
-  background-color: var(--clr-bg);
+  min-height: 100%;
+  background-color: transparent;
   color: var(--clr-text);
 }
 
