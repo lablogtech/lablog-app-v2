@@ -33,6 +33,9 @@ import {
 import type { DetailFaqItem, TestPageContent } from "./types"
 import styles from "./TestDetailPage.module.css"
 import Heading from "@/components/shared/heading/Heading"
+import FeatureHighlightsGrid, {
+  type FeatureHighlightItem,
+} from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
 
 type TestDetailPageProps = {
   content: TestPageContent
@@ -45,6 +48,11 @@ function splitQuestions(items: DetailFaqItem[]) {
 
 export default function TestDetailPage({ content }: TestDetailPageProps) {
   const faqColumns = splitQuestions(content.faq.items)
+  const heroFeatures: FeatureHighlightItem[] = content.hero.features.map((item) => ({
+    label: item.label,
+    subLabel: item.subLabel,
+    Icon: (() => item.icon) as FeatureHighlightItem["Icon"],
+  }))
   const themeVars = {
     "--detail-accent": content.theme.accent,
     "--detail-accent-soft": content.theme.accentSoft,
@@ -80,23 +88,21 @@ export default function TestDetailPage({ content }: TestDetailPageProps) {
                   }}
                 />
 
-                <SimpleGrid cols={{ base: 2, sm: 3, lg: 5 }} spacing={{ base: 10, md: 14 }} mt={26}>
-                  {content.hero.features.map((item) => (
-                    <Box key={`${item.label}-${item.subLabel ?? ""}`} className={styles.featureCard}>
-                      <ThemeIcon size={58} radius="xl" variant="light" className={styles.featureIcon}>
-                        {item.icon}
-                      </ThemeIcon>
-                      <Text component="span" className={styles.featureLabel}>
-                        {item.label}
-                      </Text>
-                      {item.subLabel ? (
-                        <Text component="span" className={styles.featureSubLabel}>
-                          {item.subLabel}
-                        </Text>
-                      ) : null}
-                    </Box>
-                  ))}
-                </SimpleGrid>
+                <FeatureHighlightsGrid
+                  items={heroFeatures}
+                  cols={{ base: 2, sm: 3, lg: 5 }}
+                  spacing={{ base: 10, md: 14 }}
+                  mt={26}
+                  iconSize={30}
+                  iconStroke={1.8}
+                  themeIconSize={58}
+                  colors={{
+                    circleBackground: content.theme.accentSoft,
+                    circleIcon: content.theme.accent,
+                    label: "#183469",
+                    subLabel: "#183469",
+                  }}
+                />
 
                 <Paper radius="xl" p="md" className={styles.heroNote} mt={20}>
                   <Group align="flex-start" wrap="nowrap">

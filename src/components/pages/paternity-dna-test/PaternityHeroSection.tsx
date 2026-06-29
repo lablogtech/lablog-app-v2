@@ -1,14 +1,17 @@
-import { Box, Container, Grid, Group, Text } from "@mantine/core"
+import { Box, Container, Grid } from "@mantine/core"
 import { IconCalendarEvent, IconLock, IconMapPin, IconShieldCheck, IconTargetArrow } from "@tabler/icons-react"
 import styles from "@/app/paternity-dna-test/page.module.css"
 import Heading from "@/components/shared/heading/Heading"
+import FeatureHighlightsGrid, {
+  type FeatureHighlightItem,
+} from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
 
-const HERO_POINTS = [
-  { icon: IconTargetArrow, label: "99.99%", subLabel: "Accuracy" },
-  { icon: IconShieldCheck, label: "ISO-Certified", subLabel: "Laboratory" },
-  { icon: IconLock, label: "Confidential", subLabel: "& Secure" },
-  { icon: IconCalendarEvent, label: "Results in", subLabel: "7-10 Working Days" },
-  { icon: IconMapPin, label: "Nationwide", subLabel: "Service" },
+const HERO_POINTS: FeatureHighlightItem[] = [
+  { Icon: IconTargetArrow, label: "99.99%", subLabel: "Accuracy" },
+  { Icon: IconShieldCheck, label: "ISO-Certified", subLabel: "Laboratory" },
+  { Icon: IconLock, label: "Confidential", subLabel: "& Secure" },
+  { Icon: IconCalendarEvent, label: "Results in", subLabel: "7-10 Working Days" },
+  { Icon: IconMapPin, label: "Nationwide", subLabel: "Service" },
 ]
 
 export default function PaternityHeroSection() {
@@ -35,26 +38,22 @@ export default function PaternityHeroSection() {
           </Grid.Col>
         </Grid>
 
-        <Grid className={styles.pointsList} columns={10} gap={{ base: 8, md: 8 }}>
-          {HERO_POINTS.map((item) => {
-            const Icon = item.icon
-            return (
-              <Grid.Col key={item.label} span={{ base: 5, sm: 2 }}>
-                <Group className={styles.pointItem} gap={8} wrap="nowrap" justify="center">
-                  <Icon size={18} stroke={1.9} aria-hidden />
-                  <Box className={styles.pointLabelWrap}>
-                    <Text component="span" className={styles.pointLabel}>
-                      {item.label}
-                    </Text>
-                    <Text component="span" className={styles.pointSubLabel}>
-                      {item.subLabel}
-                    </Text>
-                  </Box>
-                </Group>
-              </Grid.Col>
-            )
-          })}
-        </Grid>
+        <Box className={styles.pointsList}>
+          <FeatureHighlightsGrid
+            items={HERO_POINTS}
+            cols={{ base: 2, sm: 5 }}
+            spacing={8}
+            iconSize={18}
+            iconStroke={1.9}
+            themeIconSize={42}
+            colors={{
+              circleBackground: "#eaf2ff",
+              circleIcon: "#2f4698",
+              label: "#1f3f7d",
+              subLabel: "#4b6290",
+            }}
+          />
+        </Box>
       </Container>
     </Box>
   )

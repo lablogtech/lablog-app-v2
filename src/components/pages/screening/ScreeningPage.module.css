@@ -34,24 +34,32 @@
 }
 
 .heroFeature {
-  border: 1px solid #d8ece5;
-  background: #fbfffd;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 10px;
+  text-align: center;
+  gap: 4px;
 }
 
-.heroFeature :global(svg) {
+.heroFeatureIcon {
+  background: #e8f7f0;
   color: #14a76b;
-  flex-shrink: 0;
 }
 
-.heroFeature :global(p) {
-  font-size: 0.77rem;
+.heroFeatureLabel {
+  font-size: 0.74rem;
   font-weight: 700;
-  color: #20517f;
-  line-height: 1.3;
+  line-height: 1.25;
+  text-transform: uppercase;
+  color: #1f3f7d;
+}
+
+.heroFeatureSubLabel {
+  font-size: 0.71rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-transform: uppercase;
+  color: #4b6290;
 }
 
 .heroVisualWrap {

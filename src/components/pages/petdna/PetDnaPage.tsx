@@ -18,6 +18,9 @@ import {
   Title,
 } from "@mantine/core"
 import Heading from "@/components/shared/heading/Heading"
+import FeatureHighlightsGrid, {
+  type FeatureHighlightItem,
+} from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
 import {
   IconCalendarEvent,
   IconCircleCheck,
@@ -32,19 +35,19 @@ import {
   IconUsers,
 } from "@tabler/icons-react"
 
-const WHY_PETDNA_POINTS = [
-  "Comprehensive dog and cat DNA analysis",
-  "Breed and lineage identification",
-  "Genetic disease screening",
-  "Behavioral insights",
-  "Wellness recommendations",
-  "Grooming guidance",
-  "Diet recommendations",
-  "Breeding guidance",
-  "Simple cheek swab collection",
-  "Personalized digital reports",
-  "Nationwide accessibility",
-  "Secure and confidential results",
+const HERO_FEATURES: FeatureHighlightItem[] = [
+  { label: "Comprehensive", subLabel: "dog and cat DNA analysis", Icon: IconDna2 },
+  { label: "Breed & lineage", subLabel: "identification", Icon: IconUsers },
+  { label: "Genetic disease", subLabel: "screening", Icon: IconShieldLock },
+  { label: "Behavioral", subLabel: "insights", Icon: IconHeartRateMonitor },
+  { label: "Wellness", subLabel: "recommendations", Icon: IconFlask },
+  { label: "Grooming", subLabel: "guidance", Icon: IconStethoscope },
+  { label: "Diet", subLabel: "recommendations", Icon: IconTestPipe },
+  { label: "Breeding", subLabel: "guidance", Icon: IconDna2 },
+  { label: "Simple cheek swab", subLabel: "collection", Icon: IconTestPipe },
+  { label: "Personalized", subLabel: "digital reports", Icon: IconFileCheck },
+  { label: "Available", subLabel: "nationwide", Icon: IconUsers },
+  { label: "Secure", subLabel: "confidential results", Icon: IconShieldLock },
 ]
 
 const DISCOVERY_CARDS = [
@@ -226,14 +229,21 @@ export default function PetDnaPage() {
                 Why Pet Owners Choose Lablog PetDNA
               </Title>
 
-              <SimpleGrid cols={{ base: 2, sm: 3, md: 4 }} spacing="sm" mt={12}>
-                {WHY_PETDNA_POINTS.map((item) => (
-                  <Paper key={item} radius="md" className={styles.heroFeature}>
-                    <IconCircleCheck size={16} stroke={2.1} aria-hidden />
-                    <Text>{item}</Text>
-                  </Paper>
-                ))}
-              </SimpleGrid>
+              <FeatureHighlightsGrid
+                items={HERO_FEATURES}
+                cols={{ base: 2, sm: 3, lg: 5 }}
+                spacing={{ base: 10, md: 14 }}
+                mt={26}
+                iconSize={30}
+                iconStroke={1.8}
+                themeIconSize={58}
+                colors={{
+                  circleBackground: "#f0e9ff",
+                  circleIcon: "#5a3ec8",
+                  label: "#1f3f7d",
+                  subLabel: "#4b6290",
+                }}
+              />
 
               <Group gap="sm" mt={22}>
                 <Button component={Link} href="#contact" className={styles.primaryButton} radius="md">

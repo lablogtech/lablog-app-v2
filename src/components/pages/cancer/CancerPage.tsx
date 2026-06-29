@@ -30,6 +30,9 @@ import {
   IconStethoscope,
   IconUsers,
 } from "@tabler/icons-react"
+import FeatureHighlightsGrid, {
+  type FeatureHighlightItem,
+} from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
 
 const TEST_OPTIONS = [
   {
@@ -93,6 +96,54 @@ const PROCESS_STEPS = [
   },
 ]
 
+const HERO_FEATURES: FeatureHighlightItem[] = [
+  {
+    label: "Personalized",
+    subLabel: "risk assessment",
+    Icon: IconFlask,
+  },
+  {
+    label: "Suitable for",
+    subLabel: "men and women",
+    Icon: IconUsers,
+  },
+  {
+    label: "Advanced genomic",
+    subLabel: "technology",
+    Icon: IconDna2,
+  },
+  {
+    label: "Supports preventive",
+    subLabel: "healthcare planning",
+    Icon: IconHeartRateMonitor,
+  },
+  {
+    label: "Nationwide",
+    subLabel: "collection centers",
+    Icon: IconUsers,
+  },
+  {
+    label: "Mobile home service",
+    subLabel: "selected areas",
+    Icon: IconStethoscope,
+  },
+  {
+    label: "ISO-certified",
+    subLabel: "partner laboratory",
+    Icon: IconMicroscope,
+  },
+  {
+    label: "Powered by",
+    subLabel: "BGI Genomics expertise",
+    Icon: IconMicroscope,
+  },
+  {
+    label: "Strictly",
+    subLabel: "confidential process",
+    Icon: IconShieldLock,
+  },
+]
+
 const FAQ_ITEMS = [
   {
     question: "Does this test diagnose cancer?",
@@ -153,63 +204,21 @@ export default function CancerPage() {
                 Why Choose Lablog For Hereditary Cancer Screening?
               </Title>
 
-              <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="sm" mt={12}>
-                {[
-                  {
-                    label: "Personalized",
-                    subLabel: "risk assessment",
-                    icon: <IconFlask size={20} stroke={2} aria-hidden />,
-                  },
-                  {
-                    label: "Suitable for",
-                    subLabel: "men and women",
-                    icon: <IconUsers size={20} stroke={2} aria-hidden />,
-                  },
-                  {
-                    label: "Advanced genomic",
-                    subLabel: "technology",
-                    icon: <IconDna2 size={20} stroke={2} aria-hidden />,
-                  },
-                  {
-                    label: "Supports preventive",
-                    subLabel: "healthcare planning",
-                    icon: <IconHeartRateMonitor size={20} stroke={2} aria-hidden />,
-                  },
-                  {
-                    label: "Nationwide",
-                    subLabel: "collection centers",
-                    icon: <IconUsers size={20} stroke={2} aria-hidden />,
-                  },
-                  {
-                    label: "Mobile home service",
-                    subLabel: "selected areas",
-                    icon: <IconStethoscope size={20} stroke={2} aria-hidden />,
-                  },
-                  {
-                    label: "ISO-certified",
-                    subLabel: "partner laboratory",
-                    icon: <IconMicroscope size={20} stroke={2} aria-hidden />,
-                  },
-                  {
-                    label: "Powered by",
-                    subLabel: "BGI Genomics expertise",
-                    icon: <IconMicroscope size={20} stroke={2} aria-hidden />,
-                  },
-                  {
-                    label: "Strictly",
-                    subLabel: "confidential process",
-                    icon: <IconShieldLock size={20} stroke={2} aria-hidden />,
-                  },
-                ].map((feature) => (
-                  <Box key={feature.label} className={styles.heroFeature}>
-                    <ThemeIcon size={42} radius="xl" variant="light" className={styles.heroFeatureIcon}>
-                      {feature.icon}
-                    </ThemeIcon>
-                    <Text className={styles.heroFeatureLabel}>{feature.label}</Text>
-                    <Text className={styles.heroFeatureSubLabel}>{feature.subLabel}</Text>
-                  </Box>
-                ))}
-              </SimpleGrid>
+              <FeatureHighlightsGrid
+                items={HERO_FEATURES}
+                cols={{ base: 2, sm: 3, lg: 5 }}
+                spacing={{ base: 10, md: 14 }}
+                mt={26}
+                iconSize={30}
+                iconStroke={1.8}
+                themeIconSize={58}
+                colors={{
+                  circleBackground: "#f2e9ff",
+                  circleIcon: "#7f43cb",
+                  label: "#1f3f7d",
+                  subLabel: "#4b6290",
+                }}
+              />
               <Text className={styles.heroDescription} mt={16}>
                 <strong>Important:</strong> Hereditary Cancer Screening is a genetic risk assessment tool and does not
                 diagnose cancer.

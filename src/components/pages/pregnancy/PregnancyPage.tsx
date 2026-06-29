@@ -36,6 +36,42 @@ import {
   IconStethoscope,
   IconTestPipe,
 } from "@tabler/icons-react"
+import FeatureHighlightsGrid, {
+  type FeatureHighlightItem,
+} from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
+
+const HERO_FEATURES: FeatureHighlightItem[] = [
+  {
+    label: "Advanced",
+    subLabel: "genetic technology",
+    Icon: IconFlask,
+  },
+  {
+    label: "ISO-Certified",
+    subLabel: "laboratories",
+    Icon: IconBuildingHospital,
+  },
+  {
+    label: "Nationwide",
+    subLabel: "collection centers",
+    Icon: IconMapPin,
+  },
+  {
+    label: "Home service",
+    subLabel: "available",
+    Icon: IconHome,
+  },
+  {
+    label: "Confidential",
+    subLabel: "and secure",
+    Icon: IconShieldLock,
+  },
+  {
+    label: "Expert",
+    subLabel: "support",
+    Icon: IconHeartHandshake,
+  },
+]
 
 const TEST_OPTIONS = [
   {
@@ -204,48 +240,18 @@ export default function PregnancyPage() {
                 }}
               />
 
-              <SimpleGrid cols={{ base: 2, sm: 3, lg: 6 }} spacing="sm" mt={22}>
-                {[
-                  {
-                    label: "Advanced",
-                    subLabel: "genetic technology",
-                    icon: <IconFlask size={20} stroke={2} aria-hidden />,
-                  },
-                  {
-                    label: "ISO-Certified",
-                    subLabel: "laboratories",
-                    icon: <IconBuildingHospital size={20} stroke={2} aria-hidden />,
-                  },
-                  {
-                    label: "Nationwide",
-                    subLabel: "collection centers",
-                    icon: <IconMapPin size={20} stroke={2} aria-hidden />,
-                  },
-                  {
-                    label: "Home service",
-                    subLabel: "available",
-                    icon: <IconHome size={20} stroke={2} aria-hidden />,
-                  },
-                  {
-                    label: "Confidential",
-                    subLabel: "and secure",
-                    icon: <IconShieldLock size={20} stroke={2} aria-hidden />,
-                  },
-                  {
-                    label: "Expert",
-                    subLabel: "support",
-                    icon: <IconHeartHandshake size={20} stroke={2} aria-hidden />,
-                  },
-                ].map((feature) => (
-                  <Box key={feature.label} className={styles.heroFeature}>
-                    <ThemeIcon size={42} radius="xl" variant="light" className={styles.heroFeatureIcon}>
-                      {feature.icon}
-                    </ThemeIcon>
-                    <Text className={styles.heroFeatureLabel}>{feature.label}</Text>
-                    <Text className={styles.heroFeatureSubLabel}>{feature.subLabel}</Text>
-                  </Box>
-                ))}
-              </SimpleGrid>
+              <FeatureHighlightsGrid
+                items={HERO_FEATURES}
+                cols={{ base: 2, sm: 3, lg: 6 }}
+                spacing="sm"
+                mt={22}
+                colors={{
+                  circleBackground: "#eaf2ff",
+                  circleIcon: "#356fcb",
+                  label: "#1f3f7d",
+                  subLabel: "#4b6290",
+                }}
+              />
             </Grid.Col>
 
             <Grid.Col span={{ base: 12, lg: 6 }}>

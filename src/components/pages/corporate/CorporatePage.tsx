@@ -21,15 +21,19 @@ import {
   IconVaccine,
 } from "@tabler/icons-react"
 import styles from "./CorporatePage.module.css"
+import Heading from "@/components/shared/heading/Heading"
+import FeatureHighlightsGrid, {
+  type FeatureHighlightItem,
+} from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
 
 type IconType = typeof IconBuilding
 
-const HERO_FEATURES: Array<{ icon: IconType; label: string }> = [
-  { icon: IconStethoscope, label: "Onsite APE Available" },
-  { icon: IconMapPin, label: "Nationwide Collection Network" },
-  { icon: IconUsers, label: "Employee-Friendly Experience" },
-  { icon: IconUserCheck, label: "Dedicated Account Management" },
-  { icon: IconTools, label: "Scalable Solutions" },
+const HERO_FEATURES: FeatureHighlightItem[] = [
+  { Icon: IconStethoscope, label: "Onsite APE", subLabel: "available" },
+  { Icon: IconMapPin, label: "Nationwide", subLabel: "collection network" },
+  { Icon: IconUsers, label: "Employee-Friendly", subLabel: "experience" },
+  { Icon: IconUserCheck, label: "Dedicated", subLabel: "account management" },
+  { Icon: IconTools, label: "Scalable", subLabel: "solutions" },
 ]
 
 const HERO_PARAGRAPHS = [
@@ -204,28 +208,35 @@ export default function CorporatePage() {
         <Container size="xl">
           <Grid align="center" gap={{ base: 24, lg: 36 }}>
             <Grid.Col span={{ base: 12, lg: 6 }}>
-              <Text className={styles.eyebrow}>Corporate APE & Employee Health Screening</Text>
-              <Title order={1} className={styles.heroTitle}>
-                Corporate APE & Employee Health Screening Philippines
-              </Title>
-              <Text className={styles.heroLead}>End-to-End Annual Physical Examination Solutions For Businesses</Text>
-              {HERO_PARAGRAPHS.map((line) => (
-                <Text key={line} className={styles.heroDescription}>
-                  {line}
-                </Text>
-              ))}
+              <Heading
+                order={1}
+                eyebrow="Corporate APE & Employee Health Screening"
+                title="Corporate APE & Employee Health Screening Philippines"
+                subtitle="End-to-End Annual Physical Examination Solutions For Businesses"
+                description={HERO_PARAGRAPHS}
+                classNames={{
+                  eyebrow: styles.eyebrow,
+                  title: styles.heroTitle,
+                  subtitle: styles.heroLead,
+                  description: styles.heroDescription,
+                }}
+              />
 
-              <SimpleGrid cols={{ base: 2, sm: 3, md: 5 }} spacing="sm" mt={20}>
-                {HERO_FEATURES.map((feature) => {
-                  const Icon = feature.icon
-                  return (
-                    <Paper key={feature.label} className={styles.heroFeature} radius="md">
-                      <Icon size={18} stroke={1.9} aria-hidden />
-                      <Text>{feature.label}</Text>
-                    </Paper>
-                  )
-                })}
-              </SimpleGrid>
+              <FeatureHighlightsGrid
+                items={HERO_FEATURES}
+                cols={{ base: 2, sm: 3, lg: 5 }}
+                spacing={{ base: 10, md: 14 }}
+                mt={26}
+                iconSize={30}
+                iconStroke={1.8}
+                themeIconSize={58}
+                colors={{
+                  circleBackground: "#e9f7f1",
+                  circleIcon: "#10915d",
+                  label: "#1f3f7d",
+                  subLabel: "#4b6290",
+                }}
+              />
 
               <Group mt={20} gap="sm">
                 <Button component={Link} href="#contact" className={styles.primaryButton} radius="md">

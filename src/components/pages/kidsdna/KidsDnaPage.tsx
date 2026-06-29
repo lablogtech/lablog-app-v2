@@ -18,6 +18,9 @@ import {
   Title,
 } from "@mantine/core"
 import Heading from "@/components/shared/heading/Heading"
+import FeatureHighlightsGrid, {
+  type FeatureHighlightItem,
+} from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
 import {
   IconCalendarEvent,
   IconCircleCheck,
@@ -145,16 +148,16 @@ const HOW_IT_WORKS = [
   },
 ]
 
-const TRUST_POINTS = [
-  "700+ personalized DNA reports",
-  "20 million+ genetic markers analyzed",
-  "One simple cheek swab collection",
-  "Personalized digital dashboard",
-  "Nationwide accessibility",
-  "Home DNA kit available",
-  "30-minute genetic consultation included",
-  "ISO-certified partner laboratory",
-  "Secure and confidential results",
+const HERO_FEATURES: FeatureHighlightItem[] = [
+  { label: "700+", subLabel: "personalized DNA reports", Icon: IconFileCheck },
+  { label: "20 million+", subLabel: "genetic markers analyzed", Icon: IconDna2 },
+  { label: "One simple", subLabel: "cheek swab collection", Icon: IconTestPipe },
+  { label: "Personalized", subLabel: "digital dashboard", Icon: IconFlask },
+  { label: "Available", subLabel: "nationwide", Icon: IconUsers },
+  { label: "Home DNA", subLabel: "kit available", Icon: IconStethoscope },
+  { label: "30-minute", subLabel: "consultation included", Icon: IconCalendarEvent },
+  { label: "ISO-certified", subLabel: "partner laboratory", Icon: IconMicroscope },
+  { label: "Secure", subLabel: "confidential results", Icon: IconShieldLock },
 ]
 
 const SUPPORT_POINTS = [
@@ -250,14 +253,21 @@ export default function KidsDnaPage() {
                 }}
               />
 
-              <SimpleGrid cols={{ base: 2, sm: 3, md: 5 }} spacing="sm" mt={20}>
-                {TRUST_POINTS.map((item) => (
-                  <Paper key={item} radius="md" className={styles.heroFeature}>
-                    <IconCircleCheck size={16} stroke={2.1} aria-hidden />
-                    <Text>{item}</Text>
-                  </Paper>
-                ))}
-              </SimpleGrid>
+              <FeatureHighlightsGrid
+                items={HERO_FEATURES}
+                cols={{ base: 2, sm: 3, lg: 5 }}
+                spacing={{ base: 10, md: 14 }}
+                mt={26}
+                iconSize={30}
+                iconStroke={1.8}
+                themeIconSize={58}
+                colors={{
+                  circleBackground: "#f0e9ff",
+                  circleIcon: "#6246cc",
+                  label: "#1f3f7d",
+                  subLabel: "#4b6290",
+                }}
+              />
 
               <Text className={styles.turnaroundNotice} mt={14} ta="left">
                 Important: Lablog DNA Blueprint is an informational wellness tool and not a medical diagnostic test.

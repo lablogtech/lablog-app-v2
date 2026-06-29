@@ -18,6 +18,9 @@ import {
   Title,
 } from "@mantine/core"
 import Heading from "@/components/shared/heading/Heading"
+import FeatureHighlightsGrid, {
+  type FeatureHighlightItem,
+} from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
 import {
   IconCalendarEvent,
   IconCircleCheck,
@@ -32,15 +35,15 @@ import {
   IconUsers,
 } from "@tabler/icons-react"
 
-const WHY_CHOOSE_POINTS = [
-  "Comprehensive laboratory packages",
-  "Home service available",
-  "Collection centers nationwide",
-  "Convenient booking process",
-  "Fast turnaround times",
-  "Personalized wellness approach",
-  "Doctor-friendly reports",
-  "Suitable for routine preventive care",
+const HERO_FEATURES: FeatureHighlightItem[] = [
+  { label: "Comprehensive", subLabel: "laboratory packages", Icon: IconFlask },
+  { label: "Home service", subLabel: "available", Icon: IconStethoscope },
+  { label: "Collection centers", subLabel: "nationwide", Icon: IconMapPin },
+  { label: "Convenient", subLabel: "booking process", Icon: IconCalendarEvent },
+  { label: "Fast", subLabel: "turnaround times", Icon: IconTestPipe },
+  { label: "Personalized", subLabel: "wellness approach", Icon: IconHeartRateMonitor },
+  { label: "Doctor-friendly", subLabel: "reports", Icon: IconUsers },
+  { label: "Suitable for", subLabel: "routine preventive care", Icon: IconShieldLock },
 ]
 
 const SCREENING_CARDS = [
@@ -246,14 +249,21 @@ export default function ScreeningPage() {
               <Title order={3} mt={18} className={styles.sectionTitle}>
                 Why Choose Lablog Preventive Health Screening?
               </Title>
-              <SimpleGrid cols={{ base: 2, sm: 3, md: 4 }} spacing="sm" mt={12}>
-                {WHY_CHOOSE_POINTS.map((item) => (
-                  <Paper key={item} className={styles.heroFeature} radius="md">
-                    <IconCircleCheck size={18} stroke={2.1} aria-hidden />
-                    <Text>{item}</Text>
-                  </Paper>
-                ))}
-              </SimpleGrid>
+              <FeatureHighlightsGrid
+                items={HERO_FEATURES}
+                cols={{ base: 2, sm: 3, lg: 5 }}
+                spacing={{ base: 10, md: 14 }}
+                mt={26}
+                iconSize={30}
+                iconStroke={1.8}
+                themeIconSize={58}
+                colors={{
+                  circleBackground: "#e8f7f0",
+                  circleIcon: "#14a76b",
+                  label: "#1f3f7d",
+                  subLabel: "#4b6290",
+                }}
+              />
 
               <Text className={styles.whyDescription} mt={12}>
                 <strong>Early awareness often leads to better health outcomes.</strong>
