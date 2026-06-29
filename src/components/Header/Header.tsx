@@ -82,6 +82,7 @@ const NAV_ITEMS = [
       },
     ],
   },
+  { label: "Corporate", href: "/corporate" },
   { label: "Screening", href: "/screening" },
   { label: "PetDNA", href: "/petdna" },
   { label: "KidsDNA", href: "/kidsdna" },

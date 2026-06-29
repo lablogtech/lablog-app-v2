@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import styles from "./Footer.module.css"
 import { Box, Center, Container, Grid, Group, Stack, Text, ThemeIcon, Title } from "@mantine/core"
 import {
@@ -14,28 +15,44 @@ import {
 } from "@tabler/icons-react"
 
 const QUICK_LINKS = [
-  { label: "Home", href: "#" },
-  { label: "About Us", href: "#" },
-  { label: "Collection Centers", href: "#" },
-  { label: "Blog", href: "#" },
-  { label: "Contact Us", href: "#" },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about-us" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
 ]
 
-const GENETIC_TESTING = [
-  { label: "Paternity DNA Testing", href: "#" },
-  { label: "Legal DNA Testing", href: "#" },
-  { label: "Prenatal Paternity Testing", href: "#" },
-  { label: "NIPT Philippines", href: "#" },
-  { label: "Halo DNA Testing", href: "#" },
-  { label: "Genetic Health Screening", href: "#" },
+const PATERNITY_LINKS = [
+  { label: "Paternity DNA Test", href: "/paternity-dna-test" },
+  { label: "Peace of Mind", href: "/paternity-dna-test/peace-of-mind" },
+  { label: "Legal Paternity", href: "/paternity-dna-test/legal-paternity" },
+  { label: "Non-Invasive", href: "/paternity-dna-test/non-invasive-paternal" },
 ]
 
-const LABORATORY_TESTS = [
-  { label: "Annual Physical Exam", href: "#" },
-  { label: "Routine Blood Tests", href: "#" },
-  { label: "Executive Checkups", href: "#" },
-  { label: "Health Screening Packages", href: "#" },
-  { label: "Home Blood Collection", href: "#" },
+const PREGNANCY_LINKS = [
+  { label: "Pregnancy Overview", href: "/pregnancy" },
+  { label: "NIPT Philippines", href: "/pregnancy/nipt-philippines" },
+  { label: "Carrier Screening", href: "/pregnancy/carrier-screening-philippines" },
+  {
+    label: "Newborn Screening",
+    href: "/pregnancy/newborn-genetic-screening-philippines",
+  },
+]
+
+const CANCER_LINKS = [
+  { label: "Cancer Overview", href: "/cancer" },
+  { label: "BRCA Genetic Test", href: "/cancer/brca-genetic-test-philippines" },
+  { label: "HBOC Screening", href: "/cancer/hboc-screening-philippines" },
+  {
+    label: "Comprehensive Hereditary",
+    href: "/cancer/comprehensive-hereditary-cancer-screening-philippines",
+  },
+]
+
+const OTHER_SERVICES_LINKS = [
+  { label: "Corporate", href: "/corporate" },
+  { label: "Screening", href: "/screening" },
+  { label: "PetDNA", href: "/petdna" },
+  { label: "KidsDNA", href: "/kidsdna" },
 ]
 
 const SOCIAL_LINKS = [
@@ -67,6 +84,14 @@ const CONTACT_INFO = [
 ]
 
 function FooterLink({ label, href }: { label: string; href?: string }) {
+  if (href && href.startsWith("/")) {
+    return (
+      <Text component={Link} href={href} className={styles.link}>
+        {label}
+      </Text>
+    )
+  }
+
   if (href) {
     return (
       <Text component="a" href={href} className={styles.link}>
@@ -129,30 +154,56 @@ export default function Footer() {
             </Stack>
           </Grid.Col>
 
-          {/* Genetic Testing */}
+          {/* Paternity + Pregnancy */}
           <Grid.Col span={{ base: 12, sm: 6, md: 2 }}>
-            <Stack gap="md">
-              <Title order={4} className={styles.columnTitle}>
-                Genetic Testing
-              </Title>
-              <Stack gap="xs" style={{ textWrap: "nowrap" }}>
-                {GENETIC_TESTING.map((link) => (
-                  <FooterLink key={link.label} label={link.label} href={link.href} />
-                ))}
+            <Stack gap="xl">
+              <Stack gap="md">
+                <Title order={4} className={styles.columnTitle}>
+                  Paternity
+                </Title>
+                <Stack gap="xs" style={{ textWrap: "nowrap" }}>
+                  {PATERNITY_LINKS.map((link) => (
+                    <FooterLink key={link.label} label={link.label} href={link.href} />
+                  ))}
+                </Stack>
+              </Stack>
+
+              <Stack gap="md">
+                <Title order={4} className={styles.columnTitle}>
+                  Pregnancy
+                </Title>
+                <Stack gap="xs">
+                  {PREGNANCY_LINKS.map((link) => (
+                    <FooterLink key={link.label} label={link.label} href={link.href} />
+                  ))}
+                </Stack>
               </Stack>
             </Stack>
           </Grid.Col>
 
-          {/* Laboratory Tests */}
+          {/* Cancer + Other Services */}
           <Grid.Col span={{ base: 12, sm: 6, md: 2 }}>
-            <Stack gap="md">
-              <Title order={4} className={styles.columnTitle}>
-                Laboratory Tests
-              </Title>
-              <Stack gap="xs">
-                {LABORATORY_TESTS.map((link) => (
-                  <FooterLink key={link.label} label={link.label} href={link.href} />
-                ))}
+            <Stack gap="xl">
+              <Stack gap="md">
+                <Title order={4} className={styles.columnTitle}>
+                  Cancer
+                </Title>
+                <Stack gap="xs">
+                  {CANCER_LINKS.map((link) => (
+                    <FooterLink key={link.label} label={link.label} href={link.href} />
+                  ))}
+                </Stack>
+              </Stack>
+
+              <Stack gap="md">
+                <Title order={4} className={styles.columnTitle}>
+                  Other Services
+                </Title>
+                <Stack gap="xs">
+                  {OTHER_SERVICES_LINKS.map((link) => (
+                    <FooterLink key={link.label} label={link.label} href={link.href} />
+                  ))}
+                </Stack>
               </Stack>
             </Stack>
           </Grid.Col>
