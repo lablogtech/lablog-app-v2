@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Box, Button, Container, Group, Modal, Text, ThemeIcon, Title } from "@mantine/core"
 import { IconCheck, IconUsers, IconUserSquareRounded, IconUsersGroup, IconSpy } from "@tabler/icons-react"
 import styles from "@/app/paternity-dna-test/page.module.css"
+import Heading from "@/components/shared/heading/Heading"
 
 type RelationshipCard = {
   id: string
@@ -69,14 +70,16 @@ export default function AlternativeRelationshipSection() {
   return (
     <Box component="section" className={styles.altSection}>
       <Container size="xl">
-        <Box className={styles.sectionHeading}>
-          <Title order={2} className={styles.sectionTitle}>
-            Alternative Family Relationship DNA Testing
-          </Title>
-          <Text className={styles.sectionSubtitle}>
-            When a direct paternity test is not possible, we offer alternative DNA solutions.
-          </Text>
-        </Box>
+        <Heading
+          order={2}
+          title="Alternative Family Relationship DNA Testing"
+          subtitle="When a direct paternity test is not possible, we offer alternative DNA solutions."
+          classNames={{
+            root: styles.sectionHeading,
+            title: styles.sectionTitle,
+            subtitle: styles.sectionSubtitle,
+          }}
+        />
 
         <Box className={styles.altGrid}>
           {RELATIONSHIP_CARDS.map((card) => (

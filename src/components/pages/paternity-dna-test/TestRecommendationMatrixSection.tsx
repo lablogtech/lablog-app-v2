@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Group, Table, Text, ThemeIcon, Title } from "@mantine/core"
+import { Box, Container, Grid, Group, Table, Text, ThemeIcon } from "@mantine/core"
 import {
   IconArrowNarrowRight,
   IconScale,
@@ -10,6 +10,7 @@ import {
 } from "@tabler/icons-react"
 import styles from "@/app/paternity-dna-test/page.module.css"
 import SpecialistContactCard from "@/components/pages/paternity-dna-test/SpecialistContactCard"
+import Heading from "@/components/shared/heading/Heading"
 
 type RecommendationRow = {
   situation: string
@@ -94,11 +95,14 @@ export default function TestRecommendationMatrixSection() {
     <Box component="section" className={styles.matrixSection}>
       <Container size="xl">
         <Box>
-          <Box className={styles.sectionHeading}>
-            <Title order={2} className={styles.sectionTitle}>
-              Not Sure Which Test You Need?
-            </Title>
-          </Box>
+          <Heading
+            order={2}
+            title="Not Sure Which Test You Need?"
+            classNames={{
+              root: styles.sectionHeading,
+              title: styles.sectionTitle,
+            }}
+          />
 
           <Grid>
             <Grid.Col span={{ base: 12, md: 9 }}>

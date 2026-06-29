@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Anchor, Box, Container, Group, Text, ThemeIcon, Title } from "@mantine/core"
 import { IconArrowRight, IconCheck, IconScale, IconUserCircle, IconVenus } from "@tabler/icons-react"
 import styles from "@/app/paternity-dna-test/page.module.css"
+import Heading from "@/components/shared/heading/Heading"
 
 const TEST_CARDS = [
   {
@@ -60,14 +61,16 @@ export default function PaternityTestOptionsSection() {
   return (
     <Box component="section" className={styles.testsSection}>
       <Container size="xl">
-        <Box className={styles.sectionHeading}>
-          <Title order={2} className={styles.sectionTitle}>
-            Which Paternity DNA Test Is Right For You?
-          </Title>
-          <Text className={styles.sectionSubtitle}>
-            Choose from the three most requested paternity DNA testing options below.
-          </Text>
-        </Box>
+        <Heading
+          order={2}
+          title="Which Paternity DNA Test Is Right For You?"
+          subtitle="Choose from the three most requested paternity DNA testing options below."
+          classNames={{
+            root: styles.sectionHeading,
+            title: styles.sectionTitle,
+            subtitle: styles.sectionSubtitle,
+          }}
+        />
 
         <Box className={styles.cardGrid}>
           {TEST_CARDS.map((card) => (

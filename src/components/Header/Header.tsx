@@ -82,9 +82,9 @@ const NAV_ITEMS = [
       },
     ],
   },
-  { label: "Corporate Wellness", href: "#" },
-  { label: "About Us", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "Screening", href: "/screening" },
+  { label: "PetDNA", href: "/petdna" },
+  { label: "KidsDNA", href: "/kidsdna" },
 ]
 
 export default function Header() {

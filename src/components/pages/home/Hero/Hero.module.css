@@ -54,20 +54,20 @@
 }
 
 .headline {
-  font-size: 38px;
-  font-weight: 700;
-  line-height: 1.2;
-  color: #1a1a2e;
-  letter-spacing: -0.5px;
-  margin: 0;
+  color: #0d2d70;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.55rem);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  margin-bottom: 14px;
 }
 
 .subheadline {
-  font-size: 15.5px;
-  line-height: 1.65;
-  color: #4a5568;
-  margin: 0;
-  max-width: 480px;
+  color: #203d7f;
+  font-size: clamp(1.55rem, 2.5vw, 2.15rem);
+  line-height: 1.28;
+  font-weight: 700;
+  margin-bottom: 14px;
 }
 
 /* ── Feature checklist ────────────────────────────────────────── */
@@ -139,7 +139,11 @@
 
 @media (max-width: 540px) {
   .headline {
-    font-size: 28px;
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  .subheadline {
+    font-size: 1.35rem;
   }
 
   .featureRow {

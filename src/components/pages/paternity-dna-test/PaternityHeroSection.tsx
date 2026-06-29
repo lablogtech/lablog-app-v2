@@ -1,6 +1,7 @@
-import { Box, Container, Grid, Group, Text, Title } from "@mantine/core"
+import { Box, Container, Grid, Group, Text } from "@mantine/core"
 import { IconCalendarEvent, IconLock, IconMapPin, IconShieldCheck, IconTargetArrow } from "@tabler/icons-react"
 import styles from "@/app/paternity-dna-test/page.module.css"
+import Heading from "@/components/shared/heading/Heading"
 
 const HERO_POINTS = [
   { icon: IconTargetArrow, label: "99.99%", subLabel: "Accuracy" },
@@ -17,17 +18,19 @@ export default function PaternityHeroSection() {
         <Grid className={styles.heroInner} gap={{ base: 24, md: 26 }} align="stretch">
           <Grid.Col span={12}>
             <Box className={styles.heroCopy}>
-              <Text className={styles.eyebrow}>Accurate. Confidential. Trusted.</Text>
-              <Title order={1} className={styles.heroTitle}>
-                Paternity DNA Test Philippines
-              </Title>
-              <Text className={styles.lead}>
-                Every family has a unique story. Get the answers you need with trusted paternity DNA testing solutions.
-              </Text>
-              <Text className={styles.subLead}>
-                Whether for personal peace of mind, legal purposes, or testing during pregnancy, our team helps you
-                choose the most suitable test.
-              </Text>
+              <Heading
+                order={1}
+                eyebrow="Accurate. Confidential. Trusted."
+                title="Paternity DNA Test Philippines"
+                subtitle="Every family has a unique story. Get the answers you need with trusted paternity DNA testing solutions."
+                description="Whether for personal peace of mind, legal purposes, or testing during pregnancy, our team helps you choose the most suitable test."
+                classNames={{
+                  eyebrow: styles.eyebrow,
+                  title: styles.heroTitle,
+                  subtitle: styles.lead,
+                  description: styles.subLead,
+                }}
+              />
             </Box>
           </Grid.Col>
         </Grid>

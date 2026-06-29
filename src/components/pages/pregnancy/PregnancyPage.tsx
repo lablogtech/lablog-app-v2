@@ -18,6 +18,7 @@ import {
   ThemeIcon,
   Title,
 } from "@mantine/core"
+import Heading from "@/components/shared/heading/Heading"
 import {
   IconArrowRight,
   IconBabyCarriage,
@@ -189,15 +190,19 @@ export default function PregnancyPage() {
         <Container size="xl">
           <Grid align="center" gap={{ base: 28, lg: 42 }}>
             <Grid.Col span={{ base: 12, lg: 6 }}>
-              <Text className={styles.heroEyebrow}>Pregnancy</Text>
-              <Title order={1} className={styles.heroTitle}>
-                Prenatal & Newborn Genetic Testing Philippines
-              </Title>
-              <Text className={styles.heroLead}>Genetic insights for every stage of your parenting journey</Text>
-              <Text className={styles.heroDescription}>
-                From planning your pregnancy to welcoming your baby, our advanced genetic testing solutions provide
-                valuable insights that help you make informed healthcare decisions with greater confidence.
-              </Text>
+              <Heading
+                order={1}
+                eyebrow="Pregnancy"
+                title="Prenatal & Newborn Genetic Testing Philippines"
+                subtitle="Genetic insights for every stage of your parenting journey"
+                description="From planning your pregnancy to welcoming your baby, our advanced genetic testing solutions provide valuable insights that help you make informed healthcare decisions with greater confidence."
+                classNames={{
+                  eyebrow: styles.heroEyebrow,
+                  title: styles.heroTitle,
+                  subtitle: styles.heroLead,
+                  description: styles.heroDescription,
+                }}
+              />
 
               <SimpleGrid cols={{ base: 2, sm: 3, lg: 6 }} spacing="sm" mt={22}>
                 {[

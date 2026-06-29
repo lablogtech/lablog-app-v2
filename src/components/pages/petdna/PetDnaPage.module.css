@@ -1,0 +1,381 @@
+.page {
+  min-height: 100%;
+  color: #1e2f74;
+}
+
+.heroSection {
+  padding: 34px 0 40px;
+  background: radial-gradient(circle at 12% -10%, #f0ebff 0%, transparent 42%);
+}
+
+.heroEyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #5a3dc8;
+  margin-bottom: 10px;
+}
+
+.heroTitle {
+  font-size: clamp(2rem, 4.6vw, 3.6rem);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  color: #1a2c6d;
+  margin-bottom: 12px;
+  max-width: 720px;
+}
+
+.heroLead {
+  font-size: clamp(1.2rem, 2.7vw, 1.78rem);
+  color: #5a3ec7;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.heroDescription {
+  color: #3f5390;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  max-width: 680px;
+}
+
+.heroFeature {
+  border: 1px solid #e4ddf8;
+  background: #fdfcff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.heroFeature :global(svg) {
+  color: #5a3ec8;
+  flex-shrink: 0;
+}
+
+.heroFeature :global(p) {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #264282;
+  line-height: 1.3;
+}
+
+.heroVisualWrap {
+  position: relative;
+  min-height: 520px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid #dce7f8;
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: 66% center;
+}
+
+.heroFloatingCard {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  max-width: 270px;
+  border: 1px solid #e3ddf8;
+  box-shadow: 0 16px 34px rgba(58, 43, 116, 0.2);
+}
+
+.heroFloatingTitle {
+  color: #3f2d91;
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.heroFloatingDescription {
+  color: #51427d;
+  line-height: 1.6;
+  font-size: 0.92rem;
+}
+
+.primaryButton {
+  background: #5b3fc8;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 700;
+}
+
+.primaryButton:hover {
+  background: #4f35b3;
+}
+
+.secondaryButton {
+  border-color: #5b3fc8;
+  color: #5139b4;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 700;
+}
+
+.secondaryButton:hover {
+  background: #f3efff;
+}
+
+.section {
+  padding: 44px 0;
+}
+
+.sectionHeading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  font-size: clamp(1.55rem, 3vw, 2.2rem);
+  letter-spacing: -0.02em;
+  color: #24306e;
+}
+
+.discoveryCard {
+  border: 1px solid #dee7f8;
+  background: #ffffff;
+  padding: 20px;
+  min-height: 100%;
+}
+
+.discoveryIcon {
+  background: #efe8ff;
+  color: #5b40c8;
+  margin-bottom: 12px;
+}
+
+.discoveryTitle {
+  font-size: 1.12rem;
+  color: #223978;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.discoveryDescription {
+  color: #3f5d92;
+  font-size: 0.93rem;
+  line-height: 1.6;
+}
+
+.discoveryPoint {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  color: #2a4f89;
+  font-size: 0.84rem;
+}
+
+.discoveryPoint :global(svg) {
+  color: #5c40c8;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.valueSection {
+  padding-top: 8px;
+}
+
+.valueCard {
+  border: 1px solid #e1e8f8;
+  background: #fbfdff;
+  padding: 24px 20px;
+  height: 100%;
+}
+
+.valueTitle {
+  color: #233d7c;
+}
+
+.valueDescription {
+  margin-top: 8px;
+  color: #405f94;
+  line-height: 1.65;
+}
+
+.valuePoint {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  color: #2b4f89;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.valuePoint :global(svg) {
+  color: #5d43cb;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.sampleBanner {
+  background: linear-gradient(135deg, #4d33a8 0%, #6a4fe0 100%);
+  color: #ffffff;
+  padding: 28px 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.sampleBannerText {
+  font-size: clamp(1.35rem, 2.5vw, 2.05rem);
+  line-height: 1.2;
+  font-weight: 800;
+  max-width: 600px;
+}
+
+.sampleButton {
+  margin-top: 16px;
+  border-color: #dcd3ff;
+  color: #ffffff;
+}
+
+.sampleButton:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.processSection {
+  background: linear-gradient(180deg, #f8f5ff 0%, #ffffff 100%);
+}
+
+.processCard {
+  border: 1px solid #e3ddf8;
+  background: #ffffff;
+  padding: 18px;
+  text-align: center;
+}
+
+.stepNumber {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 700;
+  background: linear-gradient(135deg, #684ce0 0%, #5637bb 100%);
+}
+
+.processIcon {
+  margin: 0 auto 10px;
+  background: #efe8ff;
+  color: #5a3ec8;
+}
+
+.processTitle {
+  color: #213974;
+  font-size: 1.06rem;
+  margin-bottom: 8px;
+}
+
+.processDescription {
+  color: #405f91;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.previewPanel {
+  position: relative;
+  min-height: 320px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #dde6f8;
+}
+
+.previewImage {
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.9) brightness(1.03);
+}
+
+.previewDescription {
+  margin-top: 10px;
+  color: #405f93;
+  line-height: 1.65;
+}
+
+.trustSection {
+  padding-top: 8px;
+}
+
+.trustCard {
+  border: 1px solid #e4ddf8;
+  background: #fdfcff;
+  padding: 14px 12px;
+  text-align: center;
+}
+
+.trustIcon {
+  margin: 0 auto 8px;
+  background: #efe8ff;
+  color: #5f45cc;
+}
+
+.trustText {
+  color: #2a4b88;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.faqAccordion :global(.mantine-Accordion-item) {
+  border-color: #e2e8f8;
+}
+
+.faqAccordion :global(.mantine-Accordion-control) {
+  color: #243c78;
+  font-weight: 700;
+}
+
+.faqAccordion :global(.mantine-Accordion-panel) {
+  color: #405f93;
+  line-height: 1.62;
+}
+
+.ctaSection {
+  padding: 10px 0 52px;
+}
+
+.ctaCard {
+  border: 1px solid #ddd5f7;
+  background: linear-gradient(135deg, #f7f2ff 0%, #efe8ff 100%);
+  padding: 30px 24px;
+  text-align: center;
+}
+
+.ctaTitle {
+  color: #36268d;
+}
+
+.ctaDescription {
+  margin-top: 8px;
+  color: #504281;
+}
+
+@media (max-width: 62em) {
+  .heroVisualWrap {
+    min-height: 430px;
+  }
+
+  .sampleBanner {
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 48em) {
+  .heroSection {
+    padding-top: 24px;
+  }
+
+  .heroFloatingCard {
+    position: static;
+    margin: 14px;
+  }
+}

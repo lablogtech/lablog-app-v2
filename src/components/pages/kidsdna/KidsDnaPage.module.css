@@ -1,0 +1,379 @@
+.page {
+  min-height: 100%;
+  color: #1f2f73;
+}
+
+.heroSection {
+  padding: 34px 0 40px;
+  background: radial-gradient(circle at 12% -12%, #f2ebff 0%, transparent 42%);
+}
+
+.heroEyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #5f42c9;
+  margin-bottom: 10px;
+}
+
+.heroTitle {
+  font-size: clamp(2rem, 4.6vw, 3.65rem);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  color: #1a2f72;
+  margin-bottom: 12px;
+  max-width: 760px;
+}
+
+.heroDescription {
+  color: #3d5a91;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  max-width: 700px;
+}
+
+.heroFeature {
+  border: 1px solid #e4def9;
+  background: #fdfcff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.heroFeature :global(svg) {
+  color: #6246cc;
+  flex-shrink: 0;
+}
+
+.heroFeature :global(p) {
+  font-size: 0.75rem;
+  line-height: 1.3;
+  font-weight: 700;
+  color: #274684;
+}
+
+.heroVisualWrap {
+  position: relative;
+  min-height: 520px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid #dde7f8;
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: 65% center;
+}
+
+.heroFloatingCard {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  max-width: 285px;
+  border: 1px solid #e4def9;
+  box-shadow: 0 16px 36px rgba(65, 46, 136, 0.2);
+}
+
+.heroFloatingTitle {
+  color: #3e2f92;
+  font-size: 1.08rem;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.heroFloatingDescription {
+  color: #54477f;
+  line-height: 1.6;
+  font-size: 0.92rem;
+}
+
+.primaryButton {
+  background: #5f42c9;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 700;
+}
+
+.primaryButton:hover {
+  background: #5237b4;
+}
+
+.secondaryButton {
+  border-color: #5f42c9;
+  color: #5138b3;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 700;
+}
+
+.secondaryButton:hover {
+  background: #f3efff;
+}
+
+.section {
+  padding: 44px 0;
+}
+
+.sectionHeading {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.sectionEyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #5f42c9;
+  font-size: 0.76rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.sectionTitle {
+  font-size: clamp(1.55rem, 3vw, 2.2rem);
+  letter-spacing: -0.02em;
+  color: #24326f;
+}
+
+.areaCard {
+  border: 1px solid #dde7f8;
+  background: #ffffff;
+  padding: 16px 14px;
+  min-height: 100%;
+}
+
+.areaIcon {
+  background: #f1eaff;
+  color: #5f43cb;
+  margin-bottom: 10px;
+}
+
+.areaTitle {
+  font-size: 1rem;
+  color: #223c78;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.areaDescription {
+  color: #3f5e93;
+  font-size: 0.88rem;
+  line-height: 1.58;
+}
+
+.infoStripSection {
+  padding-top: 8px;
+}
+
+.infoStripCard {
+  border: 1px solid #e5e0f9;
+  background: #fcfbff;
+  padding: 12px;
+  text-align: center;
+}
+
+.infoStripCard :global(p) {
+  color: #294b87;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.turnaroundNotice {
+  margin-top: 14px;
+  text-align: center;
+  color: #4f5fa0;
+  font-weight: 700;
+}
+
+.processSection {
+  background: linear-gradient(180deg, #f8f5ff 0%, #ffffff 100%);
+}
+
+.processCard {
+  border: 1px solid #e3ddf8;
+  background: #ffffff;
+  padding: 18px;
+  text-align: center;
+}
+
+.stepNumber {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 700;
+  background: linear-gradient(135deg, #694ee1 0%, #583bbd 100%);
+}
+
+.processIcon {
+  margin: 0 auto 10px;
+  background: #f0eaff;
+  color: #5e43cb;
+}
+
+.processTitle {
+  color: #233a75;
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.processDescription {
+  color: #406094;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.dashboardPanel {
+  border: 1px solid #e2e9f8;
+  background: #fbfdff;
+  padding: 22px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  min-height: 290px;
+}
+
+.dashboardScore {
+  width: 180px;
+  height: 180px;
+  border-radius: 999px;
+  border: 10px solid #d9d1f7;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dashboardPercent {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #4f35b3;
+  line-height: 1;
+}
+
+.dashboardLabel {
+  margin-top: 6px;
+  text-align: center;
+  font-size: 0.78rem;
+  color: #5063a0;
+  font-weight: 700;
+  max-width: 120px;
+}
+
+.dashboardMetrics {
+  flex: 1;
+}
+
+.metricItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  color: #2e508b;
+  font-size: 0.9rem;
+}
+
+.metricItem :global(svg) {
+  color: #6044cc;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.dashboardDescription {
+  margin-top: 10px;
+  color: #405f93;
+  line-height: 1.64;
+}
+
+.trustSection {
+  padding-top: 8px;
+}
+
+.trustCard {
+  border: 1px solid #e4def9;
+  background: #fdfcff;
+  padding: 14px 12px;
+  text-align: center;
+}
+
+.trustIcon {
+  margin: 0 auto 8px;
+  background: #efe8ff;
+  color: #6044cc;
+}
+
+.trustText {
+  color: #2a4b88;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.faqAccordion :global(.mantine-Accordion-item) {
+  border-color: #e2e8f8;
+}
+
+.faqAccordion :global(.mantine-Accordion-control) {
+  color: #243c78;
+  font-weight: 700;
+}
+
+.faqAccordion :global(.mantine-Accordion-panel) {
+  color: #405f93;
+  line-height: 1.62;
+}
+
+.ctaSection {
+  padding: 10px 0 52px;
+}
+
+.ctaCard {
+  border: 1px solid #ddd5f7;
+  background: linear-gradient(135deg, #f6f2ff 0%, #ede6ff 100%);
+  padding: 30px 24px;
+  text-align: center;
+}
+
+.ctaTitle {
+  color: #36268d;
+}
+
+.ctaDescription {
+  margin-top: 8px;
+  color: #504281;
+}
+
+@media (max-width: 62em) {
+  .heroVisualWrap {
+    min-height: 430px;
+  }
+
+  .dashboardPanel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 48em) {
+  .heroSection {
+    padding-top: 24px;
+  }
+
+  .heroFloatingCard {
+    position: static;
+    margin: 14px;
+  }
+
+  .dashboardScore {
+    width: 160px;
+    height: 160px;
+  }
+}

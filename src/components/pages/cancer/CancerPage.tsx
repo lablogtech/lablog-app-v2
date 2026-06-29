@@ -18,6 +18,7 @@ import {
   ThemeIcon,
   Title,
 } from "@mantine/core"
+import Heading from "@/components/shared/heading/Heading"
 import {
   IconArrowRight,
   IconCircleCheck,
@@ -129,28 +130,24 @@ export default function CancerPage() {
         <Container size="xl">
           <Grid align="center" gap={{ base: 28, lg: 42 }}>
             <Grid.Col span={{ base: 12, lg: 7 }}>
-              <Text className={styles.heroEyebrow}>Cancer</Text>
-              <Title order={1} className={styles.heroTitle}>
-                Hereditary Cancer Screening Philippines
-              </Title>
-              <Text className={styles.heroLead}>Understand Your Genetic Risk Before Symptoms Appear</Text>
-              <Text className={styles.heroDescription}>
-                Cancer is one of the leading health concerns worldwide, but not all cancers happen by chance. A portion
-                of cancers are inherited and may be linked to genetic changes passed down through families.
-              </Text>
-              <Text className={styles.heroDescription}>
-                Lablog&apos;s Hereditary Cancer Screening solutions help identify certain inherited genetic risks
-                associated with various cancers, allowing individuals and families to make more informed healthcare
-                decisions earlier in life.
-              </Text>
-              <Text className={styles.heroDescription}>
-                Early knowledge can help support more personalized screening strategies, proactive healthcare planning,
-                and meaningful conversations with your doctor.
-              </Text>
-              <Text className={styles.heroDescription}>
-                Using advanced genomic technology and our ISO-certified partner laboratory, Lablog provides accessible
-                and confidential cancer genetic screening throughout the Philippines.
-              </Text>
+              <Heading
+                order={1}
+                eyebrow="Cancer"
+                title="Hereditary Cancer Screening Philippines"
+                subtitle="Understand Your Genetic Risk Before Symptoms Appear"
+                description={[
+                  "Cancer is one of the leading health concerns worldwide, but not all cancers happen by chance. A portion of cancers are inherited and may be linked to genetic changes passed down through families.",
+                  "Lablog's Hereditary Cancer Screening solutions help identify certain inherited genetic risks associated with various cancers, allowing individuals and families to make more informed healthcare decisions earlier in life.",
+                  "Early knowledge can help support more personalized screening strategies, proactive healthcare planning, and meaningful conversations with your doctor.",
+                  "Using advanced genomic technology and our ISO-certified partner laboratory, Lablog provides accessible and confidential cancer genetic screening throughout the Philippines.",
+                ]}
+                classNames={{
+                  eyebrow: styles.heroEyebrow,
+                  title: styles.heroTitle,
+                  subtitle: styles.heroLead,
+                  description: styles.heroDescription,
+                }}
+              />
 
               <Title order={3} mt={24} className={styles.sectionTitle}>
                 Why Choose Lablog For Hereditary Cancer Screening?

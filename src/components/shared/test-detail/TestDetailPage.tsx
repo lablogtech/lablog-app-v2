@@ -32,6 +32,7 @@ import {
 } from "@tabler/icons-react"
 import type { DetailFaqItem, TestPageContent } from "./types"
 import styles from "./TestDetailPage.module.css"
+import Heading from "@/components/shared/heading/Heading"
 
 type TestDetailPageProps = {
   content: TestPageContent
@@ -65,12 +66,19 @@ export default function TestDetailPage({ content }: TestDetailPageProps) {
           <Box component="section" className={styles.heroSection}>
             <Grid gap={{ base: 28, lg: 40 }} align="center">
               <Grid.Col span={{ base: 12, lg: 6 }}>
-                <Text className={styles.eyebrow}>{content.hero.eyebrow}</Text>
-                <Title order={1} className={styles.heroTitle}>
-                  {content.hero.title}
-                </Title>
-                <Text className={styles.heroLead}>{content.hero.lead}</Text>
-                <Text className={styles.heroDescription}>{content.hero.description}</Text>
+                <Heading
+                  order={1}
+                  eyebrow={content.hero.eyebrow}
+                  title={content.hero.title}
+                  subtitle={content.hero.lead}
+                  description={content.hero.description}
+                  classNames={{
+                    eyebrow: styles.eyebrow,
+                    title: styles.heroTitle,
+                    subtitle: styles.heroLead,
+                    description: styles.heroDescription,
+                  }}
+                />
 
                 <SimpleGrid cols={{ base: 2, sm: 3, lg: 5 }} spacing={{ base: 10, md: 14 }} mt={26}>
                   {content.hero.features.map((item) => (
@@ -139,11 +147,17 @@ export default function TestDetailPage({ content }: TestDetailPageProps) {
           </Box>
 
           <Box component="section" className={styles.processSection}>
-            <Text className={styles.sectionEyebrow}>{content.process.eyebrow}</Text>
-            <Title order={2} className={styles.sectionTitle}>
-              {content.process.title}
-            </Title>
-            <Text className={styles.sectionSubtitle}>{content.process.subtitle}</Text>
+            <Heading
+              order={2}
+              eyebrow={content.process.eyebrow}
+              title={content.process.title}
+              subtitle={content.process.subtitle}
+              classNames={{
+                eyebrow: styles.sectionEyebrow,
+                title: styles.sectionTitle,
+                subtitle: styles.sectionSubtitle,
+              }}
+            />
 
             <SimpleGrid cols={{ base: 1, sm: 2, lg: content.process.steps.length === 5 ? 5 : 4 }} spacing="lg" mt={28}>
               {content.process.steps.map((step, index) => (
@@ -163,10 +177,15 @@ export default function TestDetailPage({ content }: TestDetailPageProps) {
 
           <Box component="section" className={styles.stripSection}>
             <Paper radius="xl" className={styles.stripWrapper}>
-              {content.strip.eyebrow ? <Text className={styles.sectionEyebrow}>{content.strip.eyebrow}</Text> : null}
-              <Title order={3} className={styles.sectionTitle}>
-                {content.strip.title}
-              </Title>
+              <Heading
+                order={3}
+                eyebrow={content.strip.eyebrow}
+                title={content.strip.title}
+                classNames={{
+                  eyebrow: styles.sectionEyebrow,
+                  title: styles.sectionTitle,
+                }}
+              />
 
               <SimpleGrid cols={content.strip.cols} spacing="lg" mt={24}>
                 {content.strip.items.map((item) => (
@@ -245,11 +264,17 @@ export default function TestDetailPage({ content }: TestDetailPageProps) {
 
           <Box component="section" className={styles.resultsSection}>
             <Box className={styles.resultsSectionHeader}>
-              <Text className={styles.sectionEyebrow}>{content.results.eyebrow}</Text>
-              <Title order={2} className={styles.sectionTitle}>
-                {content.results.title}
-              </Title>
-              <Text className={styles.sectionSubtitle}>{content.results.description}</Text>
+              <Heading
+                order={2}
+                eyebrow={content.results.eyebrow}
+                title={content.results.title}
+                subtitle={content.results.description}
+                classNames={{
+                  eyebrow: styles.sectionEyebrow,
+                  title: styles.sectionTitle,
+                  subtitle: styles.sectionSubtitle,
+                }}
+              />
             </Box>
 
             <Grid gap="xl" align="stretch">
@@ -387,9 +412,13 @@ export default function TestDetailPage({ content }: TestDetailPageProps) {
           </Box>
 
           <Box component="section" className={styles.faqSection}>
-            <Title order={2} className={styles.sectionTitle}>
-              {content.faq.title}
-            </Title>
+            <Heading
+              order={2}
+              title={content.faq.title}
+              classNames={{
+                title: styles.sectionTitle,
+              }}
+            />
 
             <SimpleGrid cols={{ base: 1, md: 2 }} spacing="lg" mt={24}>
               {faqColumns.map((questions, index) => (
