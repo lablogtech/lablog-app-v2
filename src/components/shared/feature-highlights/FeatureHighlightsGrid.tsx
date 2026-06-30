@@ -76,12 +76,7 @@ export default function FeatureHighlightsGrid({
               <item.Icon size={iconSize} stroke={iconStroke} aria-hidden />
             </ThemeIcon>
           ) : (
-            <item.Icon
-              size={iconSize}
-              stroke={iconStroke}
-              aria-hidden
-              className={joinClasses(styles.icon, classNames?.icon)}
-            />
+            <item.Icon size={iconSize} stroke={iconStroke} aria-hidden />
           )}
           <Text className={joinClasses(styles.label, classNames?.label)}>{item.label}</Text>
           {item.subLabel ? (
