@@ -1,14 +1,20 @@
 import { Box, Stack, Text } from "@mantine/core"
 import {
   IconCalendarEvent,
+  IconCertificate,
+  IconClockHour4,
   IconDna2,
+  IconDroplet,
   IconFileCheck,
   IconFlask,
   IconHeartRateMonitor,
+  IconMapPin,
   IconMicroscope,
   IconRibbonHealth,
+  IconSearch,
   IconShieldLock,
   IconStethoscope,
+  IconTarget,
   IconTestPipe,
   IconUsers,
 } from "@tabler/icons-react"
@@ -88,6 +94,35 @@ const hbocFaq = {
     {
       question: "Is the process confidential?",
       answer: "Yes. All information and results are handled with strict confidentiality.",
+    },
+  ],
+}
+
+const mcedFaq = {
+  title: "Frequently Asked Questions",
+  items: [
+    {
+      question: "What is MCED?",
+      answer:
+        "MCED stands for Multi-Cancer Early Detection. It is a blood-based screening test designed to detect signals associated with multiple types of cancer.",
+    },
+    {
+      question: "How many cancers can MCED detect?",
+      answer: "CancerScreenDx screens for signals associated with over 110 types of cancer.",
+    },
+    {
+      question: "Is the test painful?",
+      answer: "Only a standard blood draw is required.",
+    },
+    {
+      question: "Can MCED diagnose cancer?",
+      answer:
+        "No. MCED is a screening tool. Positive findings require confirmation through additional diagnostic testing.",
+    },
+    {
+      question: "Who should consider MCED?",
+      answer:
+        "Adults aged 40 and above, those with a family history of cancer, and individuals seeking more comprehensive cancer screening may benefit from MCED.",
     },
   ],
 }
@@ -172,7 +207,7 @@ export const brcaCancerPageContent: TestPageContent = {
       },
     ],
     note: "Important: BRCA testing is a genetic risk assessment tool and does not diagnose cancer.",
-    imageSrc: "/hero.jpg",
+    imageSrc: "/pages/Hero page.png",
     imageAlt: "BRCA screening consultation",
     imagePosition: "62% center",
     floatingCard: {
@@ -388,7 +423,7 @@ export const hbocCancerPageContent: TestPageContent = {
       },
     ],
     note: "Important: HBOC Screening is a genetic risk assessment tool and does not diagnose cancer.",
-    imageSrc: "/hero.jpg",
+    imageSrc: "/pages/HBOC.png",
     imageAlt: "HBOC screening family consultation",
     imagePosition: "58% center",
     floatingCard: {
@@ -596,7 +631,7 @@ export const comprehensiveCancerPageContent: TestPageContent = {
       },
     ],
     note: "Important: This is a genetic risk assessment tool and does not diagnose cancer.",
-    imageSrc: "/hero.jpg",
+    imageSrc: "/pages/Hereditary Cancer Screening.png",
     imageAlt: "Comprehensive hereditary screening consultation",
     imagePosition: "63% center",
     floatingCard: {
@@ -751,6 +786,220 @@ export const comprehensiveCancerPageContent: TestPageContent = {
     title: "Get broader hereditary cancer insights with confidence.",
     description: "Book your comprehensive screening and take a proactive step toward long-term health planning.",
     buttonLabel: "Book Comprehensive Screening",
+    email: "admin@lablog.tech",
+  },
+}
+
+export const mcedCancerPageContent: TestPageContent = {
+  backLabel: "Back to Cancer Screening",
+  backHref: "/cancer",
+  theme: {
+    accent: "#6b3fc4",
+    accentSoft: "#f3eefc",
+    accentBorder: "#e2d6f7",
+    accentStrong: "#56309f",
+    surface: "#fdfbff",
+    ctaBackground: "#4c2a9c",
+    ctaButton: "#f5a623",
+  },
+  hero: {
+    eyebrow: "Cancer - Multi-Cancer Early Detection (MCED)",
+    title: "Multi-Cancer Early Detection (MCED)",
+    lead: "Detect Multiple Types of Cancer from a Single Blood Test",
+    description:
+      "CancerScreenDx Multi-Cancer Early Detection (MCED) is an advanced blood-based screening test designed to detect cancer signals across more than 110 types of cancer, including many cancers that currently have no routine screening options. The test analyzes circulating tumor DNA (ctDNA) found in the bloodstream and can help identify potential cancer signals before symptoms appear. Unlike traditional cancer screening methods that focus on a single cancer type, MCED provides a broader approach to early cancer detection through a simple blood draw.",
+    features: [
+      {
+        label: "Over 110 types",
+        subLabel: "of cancer detected",
+        icon: <IconSearch size={28} stroke={1.8} aria-hidden />,
+      },
+      {
+        label: "Non-invasive",
+        subLabel: "blood test",
+        icon: <IconDroplet size={28} stroke={1.8} aria-hidden />,
+      },
+      {
+        label: "Tissue-of-origin",
+        subLabel: "prediction",
+        icon: <IconMapPin size={28} stroke={1.8} aria-hidden />,
+      },
+      {
+        label: "Results in",
+        subLabel: "7-14 working days",
+        icon: <IconClockHour4 size={28} stroke={1.8} aria-hidden />,
+      },
+      {
+        label: "ISO 15189",
+        subLabel: "certified laboratory",
+        icon: <IconCertificate size={28} stroke={1.8} aria-hidden />,
+      },
+      {
+        label: "Supports proactive",
+        subLabel: "preventive healthcare",
+        icon: <IconHeartRateMonitor size={28} stroke={1.8} aria-hidden />,
+      },
+      {
+        label: "One simple",
+        subLabel: "blood sample required",
+        icon: <IconTestPipe size={28} stroke={1.8} aria-hidden />,
+      },
+      {
+        label: "Powered by",
+        subLabel: "BGI Genomics expertise",
+        icon: <IconMicroscope size={28} stroke={1.8} aria-hidden />,
+      },
+      {
+        label: "Strictly",
+        subLabel: "confidential process",
+        icon: <IconShieldLock size={28} stroke={1.8} aria-hidden />,
+      },
+    ],
+    note: "Important: MCED is a screening test and is not intended to diagnose cancer.",
+    imageSrc: "/pages/Hero page.png",
+    imageAlt: "Multi-cancer early detection consultation",
+    imagePosition: "60% center",
+    floatingCard: {
+      eyebrow: "Who May Benefit From MCED?",
+      title: "MCED may be particularly beneficial for:",
+      items: [
+        "Adults aged 40 and above",
+        "Individuals with a family history of cancer",
+        "Individuals with a personal history of cancer",
+        "People seeking a more proactive approach to preventive healthcare",
+        "Individuals looking for broader cancer screening beyond conventional methods",
+      ],
+      note: "MCED offers broader early cancer screening through a simple blood draw.",
+    },
+  },
+  process: {
+    eyebrow: "How does the process work?",
+    title: "How Does MCED Work?",
+    subtitle: "Simple, non-invasive, and confidential from booking to result release.",
+    steps: [
+      {
+        title: "Book Your Test",
+        description: "Schedule your appointment with our team.",
+        icon: <IconCalendarEvent size={40} stroke={1.6} aria-hidden />,
+      },
+      {
+        title: "Blood Sample Collection",
+        description:
+          "A simple, non-invasive blood sample is collected. Collection options may include collection centers nationwide and mobile home service in selected areas.",
+        icon: <IconDroplet size={40} stroke={1.6} aria-hidden />,
+      },
+      {
+        title: "Laboratory Analysis",
+        description:
+          "Cancer cells release small fragments of DNA into the bloodstream, known as circulating tumor DNA (ctDNA). CancerScreenDx analyzes these DNA fragments and looks for patterns associated with cancer.",
+        icon: <IconMicroscope size={40} stroke={1.6} aria-hidden />,
+      },
+      {
+        title: "Receive Your Results",
+        description:
+          "When a cancer signal is identified, the test can estimate the most likely tissue or organ where the signal originated.",
+        icon: <IconFileCheck size={40} stroke={1.6} aria-hidden />,
+      },
+    ],
+  },
+  strip: {
+    eyebrow: "Benefits Of MCED",
+    title: "Why Choose Multi-Cancer Early Detection?",
+    cols: { base: 1, sm: 2, lg: 4 },
+    items: [
+      {
+        title: "Comprehensive Cancer Screening",
+        description: "Detect cancer signals across a broad range of cancer types through a single blood sample.",
+        icon: <IconTarget size={34} stroke={1.7} aria-hidden />,
+      },
+      {
+        title: "Non-Invasive",
+        description: "No scans, no scopes, and no surgical procedures. The test requires only a blood draw.",
+        icon: <IconDroplet size={34} stroke={1.7} aria-hidden />,
+      },
+      {
+        title: "Tissue-of-Origin Prediction",
+        description:
+          "If a cancer signal is detected, the test can help predict the most likely location of the cancer, assisting healthcare providers in determining appropriate follow-up investigations.",
+        icon: <IconMapPin size={34} stroke={1.7} aria-hidden />,
+      },
+      {
+        title: "Fast Results",
+        description: "Results are typically available within 7-14 working days after sample receipt.",
+        icon: <IconClockHour4 size={34} stroke={1.7} aria-hidden />,
+      },
+    ],
+    footerNote:
+      "CancerScreenDx can detect signals associated with over 110 different cancer types, including lung, breast, colorectal, ovarian, pancreatic, liver, prostate, cervical, thyroid, kidney cancers, melanoma, lymphoma, brain cancer, and many others. Many of these cancers have no routine screening options, making early detection especially valuable.",
+  },
+  turnaround: {
+    eyebrow: "Early Detection Saves Lives",
+    title: "Detecting cancer signals earlier may help improve health outcomes.",
+    description:
+      "Many cancers are often diagnosed only when symptoms develop or when the disease has already progressed. Early detection can improve treatment options and health outcomes by identifying potential cancer signals at an earlier stage.",
+    visualTitle: "Screen for More Than 110 Types of Cancer",
+    visualBody:
+      "CancerScreenDx can detect signals associated with over 110 different cancer types, including lung, breast, colorectal, ovarian, pancreatic, liver, prostate, cervical, thyroid, kidney cancers, lymphoma, melanoma, and brain cancer.",
+    noteTitle: "And Many Others",
+    noteBody: "MCED provides broader cancer screening coverage beyond conventional single-cancer screening methods.",
+  },
+  results: {
+    eyebrow: "Important Information",
+    title: "MCED is a screening test and not intended to diagnose cancer",
+    description:
+      "A positive result indicates that a cancer signal may be present and should be followed by appropriate diagnostic testing as recommended by a healthcare professional.",
+    positive: {
+      title: "If A Signal Is Detected",
+      description:
+        "A positive result should be followed by appropriate diagnostic testing to confirm diagnosis and guide treatment planning.",
+    },
+    negative: {
+      title: "If No Signal Is Detected",
+      description:
+        "A negative result does not completely rule out cancer. Routine cancer screening should still be continued according to medical guidelines.",
+    },
+    sidePanel: {
+      eyebrow: "Clinical Guidance",
+      title: "Always interpret MCED results with your healthcare provider",
+      description:
+        "MCED is a screening tool and should be used alongside clinical evaluation and standard guideline-based cancer screening.",
+      items: [
+        "Positive results require diagnostic follow-up",
+        "Negative results do not completely rule out cancer",
+        "Continue routine cancer screening per medical guidelines",
+        "Use results to inform next-step discussions with your doctor",
+      ],
+    },
+  },
+  trust: {
+    eyebrow: "Powered By BGI Genomics",
+    title: "Global genomics leadership with trusted local delivery",
+    description:
+      "Lablog partners with BGI Genomics, a global leader in genomics and precision medicine. Every sample is processed through our ISO 15189 certified partner laboratory following strict international laboratory standards and quality assurance protocols.",
+    bullets: [
+      "Advanced genomic technology and ctDNA analysis",
+      "ISO 15189 certified partner laboratory",
+      "Strict international standards and quality assurance",
+      "Accessible and trusted service throughout the Philippines",
+    ],
+    media: {
+      src: "/hero.jpg",
+      alt: "Safe and confidential multi-cancer screening process",
+      objectPosition: "60% center",
+    },
+    badgeTitle: "ISO 15189",
+    badgeSubtitle: "Certified laboratory standards",
+    badgeVisual: accreditationMark("ISO", "#6b3fc4", "ISO 15189 Certified Laboratory"),
+    sideTitle: "Safe, Private & Confidential",
+    sideDescription:
+      "We understand that health information is deeply personal. Every sample, report, and patient record is handled with strict confidentiality and released only to authorized individuals.",
+    sideItems: ["Strict confidentiality", "Authorized release only", "Professional and compassionate care"],
+  },
+  faq: mcedFaq,
+  cta: {
+    title: "Take a proactive step towards your health.",
+    description: "Book a test or speak with our genetic counselors today.",
+    buttonLabel: "Book MCED Test",
     email: "admin@lablog.tech",
   },
 }

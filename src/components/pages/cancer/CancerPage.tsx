@@ -179,8 +179,8 @@ export default function CancerPage() {
     <Box className={`pageSurface ${styles.page}`}>
       <Box component="section" className={styles.heroSection}>
         <Container size="xl">
-          <Grid align="center" gap={{ base: 28, lg: 42 }}>
-            <Grid.Col span={{ base: 12, lg: 7 }}>
+          <Grid align="stretch" gap={{ base: 28, lg: 42 }}>
+            <Grid.Col span={{ base: 12, lg: 6 }}>
               <Heading
                 order={1}
                 eyebrow="Cancer"
@@ -225,16 +225,19 @@ export default function CancerPage() {
               </Text>
             </Grid.Col>
 
-            <Grid.Col span={{ base: 12, lg: 5 }}>
-              <Box className={styles.heroVisualWrap}>
-                <Image
-                  src="/hero.jpg"
-                  alt="Family discussing hereditary cancer screening"
-                  fill
-                  priority
-                  className={styles.heroImage}
-                  style={{ objectPosition: "62% center" }}
-                />
+            <Grid.Col span={{ base: 12, lg: 6 }}>
+              <Box className={styles.heroVisual}>
+                <Box className={styles.backgroundImage} aria-hidden="true">
+                  <Image
+                    src="/pages/Cancer parent page.png"
+                    alt="Family discussing hereditary cancer screening"
+                    fill
+                    priority
+                    sizes="(max-width: 992px) 100vw, 50vw"
+                    className={styles.backgroundImageElement}
+                  />
+                  <Box className={styles.heroGlow} aria-hidden />
+                </Box>
                 <Paper className={styles.heroFloatingCard} radius="xl" p="lg">
                   <Text className={styles.heroFloatingTitle}>Knowledge before symptoms</Text>
                   <Text className={styles.heroFloatingDescription}>

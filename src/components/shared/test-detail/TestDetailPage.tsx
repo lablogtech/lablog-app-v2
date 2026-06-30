@@ -72,8 +72,8 @@ export default function TestDetailPage({ content }: TestDetailPageProps) {
           </Anchor>
 
           <Box component="section" className={styles.heroSection}>
-            <Grid gap={{ base: 28, lg: 40 }} align="center">
-              <Grid.Col span={{ base: 12, lg: 6 }}>
+            <Grid gap={{ base: 28, lg: 40 }} align="stretch">
+              <Grid.Col span={{ base: 12, lg: 6 }} className={styles.header}>
                 <Heading
                   order={1}
                   eyebrow={content.hero.eyebrow}
@@ -116,16 +116,17 @@ export default function TestDetailPage({ content }: TestDetailPageProps) {
 
               <Grid.Col span={{ base: 12, lg: 6 }}>
                 <Box className={styles.heroVisual}>
-                  <Image
-                    src={content.hero.imageSrc}
-                    alt={content.hero.imageAlt}
-                    fill
-                    priority
-                    className={styles.heroImage}
-                    style={{ objectPosition: content.hero.imagePosition ?? "center center" }}
-                  />
-                  <Box className={styles.heroGlow} aria-hidden />
-
+                  <Box className={styles.backgroundImage} aria-hidden="true">
+                    <Image
+                      src={content.hero.imageSrc}
+                      alt={content.hero.imageAlt}
+                      fill
+                      priority
+                      sizes="(max-width: 992px) 100vw, 50vw"
+                      className={styles.backgroundImageElement}
+                    />
+                    <Box className={styles.heroGlow} aria-hidden />
+                  </Box>
                   <Paper className={styles.floatingCard} p="lg" radius="xl">
                     <Stack gap="sm">
                       {content.hero.floatingCard.eyebrow ? (
@@ -353,6 +354,7 @@ export default function TestDetailPage({ content }: TestDetailPageProps) {
                         src={content.trust.media.src}
                         alt={content.trust.media.alt}
                         fill
+                        sizes="(max-width: 992px) 100vw, 42vw"
                         className={styles.trustImage}
                         style={{ objectPosition: content.trust.media.objectPosition ?? "center center" }}
                       />

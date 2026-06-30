@@ -113,7 +113,7 @@ export default function AboutUsPage() {
     <Box className={`pageSurface ${styles.page}`}>
       <Box className={styles.heroSection} component="section">
         <Container size="xl">
-          <Grid align="center" gutter={{ base: "lg", md: 40 }}>
+          <Grid align="center" gap={{ base: "lg", md: 40 }}>
             <Grid.Col span={{ base: 12, lg: 6 }}>
               <Text className={styles.eyebrow}>About Lablog</Text>
               <Title order={1} className={styles.heroTitle}>
@@ -141,7 +141,14 @@ export default function AboutUsPage() {
 
             <Grid.Col span={{ base: 12, lg: 6 }}>
               <Box className={styles.heroVisual}>
-                <Image src="/hero.jpg" alt="Lablog family" fill priority className={styles.heroImage} sizes="50vw" />
+                <Image
+                  src="/pages/About us.png"
+                  alt="About Us"
+                  fill
+                  priority
+                  className={styles.heroImage}
+                  sizes="50vw"
+                />
               </Box>
             </Grid.Col>
           </Grid>
@@ -175,7 +182,7 @@ export default function AboutUsPage() {
             </Text>
           </Stack>
 
-          <Grid mt="xl" gutter="lg">
+          <Grid mt="xl" gap="lg">
             {PARTNERS.map((partner) => (
               <Grid.Col key={partner.title} span={{ base: 12, md: 6 }}>
                 <Card className={styles.partnerCard} radius="lg" withBorder>

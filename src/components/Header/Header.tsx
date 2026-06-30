@@ -80,6 +80,10 @@ const NAV_ITEMS = [
         label: "Comprehensive Hereditary Cancer Screening",
         href: "/cancer/comprehensive-hereditary-cancer-screening-philippines",
       },
+      {
+        label: "Multi-Cancer Early Detection (MCED)",
+        href: "/cancer/multi-cancer-early-detection-mced",
+      },
     ],
   },
   { label: "Corporate", href: "/corporate" },

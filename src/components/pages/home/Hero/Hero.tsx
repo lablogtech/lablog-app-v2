@@ -16,7 +16,14 @@ export default function Hero() {
   return (
     <Box className={styles.root}>
       <Box className={styles.backgroundImage} aria-hidden="true">
-        <Image src="/hero.jpg" alt="" fill priority className={styles.backgroundImageElement} />
+        <Image
+          src="/pages/Hero banner.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className={styles.backgroundImageElement}
+        />
       </Box>
       <Box className={styles.backgroundGradient} aria-hidden="true" />
       <Container

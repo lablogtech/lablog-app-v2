@@ -27,6 +27,7 @@
 }
 
 .heroSection {
+  position: relative;
   padding-top: 22px;
 }
 
@@ -116,32 +117,39 @@
 
 .heroVisual {
   position: relative;
-  min-height: 600px;
+  min-height: 100%;
   overflow: hidden;
-  border-radius: 28px;
-  border: 1px solid #dce7f5;
-  box-shadow: 0 30px 60px rgba(13, 39, 83, 0.12);
-  background: linear-gradient(180deg, #ffffff 0%, #eef4ff 100%);
 }
 
-.heroImage {
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.backgroundImageElement {
   object-fit: cover;
+  object-position: center;
 }
 
 .heroGlow {
   position: absolute;
+  z-index: 0;
   inset: 0;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.2) 55%, transparent 100%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.2) 55%, transparent 100%);
 }
 
 .floatingCard {
   position: absolute;
   left: 24px;
   right: 24px;
-  bottom: 24px;
+  bottom: 48px;
   border-radius: 24px;
   border: 1px solid #e0e8f7;
-  box-shadow: 0 18px 40px rgba(12, 41, 90, 0.16);
+  box-shadow: 0 20px 24px rgba(12, 41, 90, 0.16);
   background: rgba(255, 255, 255, 0.94);
 }
 

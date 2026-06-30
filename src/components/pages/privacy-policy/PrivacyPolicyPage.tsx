@@ -76,7 +76,7 @@ export default function PrivacyPolicyPage() {
     <Box className={`pageSurface ${styles.page}`}>
       <Box className={styles.heroSection} component="section">
         <Container size="xl">
-          <Grid align="center" gutter={{ base: "md", lg: 40 }}>
+          <Grid align="center" gap={{ base: "md", lg: 40 }}>
             <Grid.Col span={{ base: 12, lg: 6 }}>
               <Title order={1} className={styles.heroTitle}>
                 Privacy Policy
@@ -95,7 +95,7 @@ export default function PrivacyPolicyPage() {
             <Grid.Col span={{ base: 12, lg: 6 }}>
               <Box className={styles.heroVisual}>
                 <Image
-                  src="/hero.jpg"
+                  src="/pages/Privacy Policy.png"
                   alt="Privacy and confidentiality"
                   fill
                   className={styles.heroImage}
@@ -121,7 +121,7 @@ export default function PrivacyPolicyPage() {
 
       <Box className={styles.section} component="section">
         <Container size="xl">
-          <Grid align="start" gutter="lg">
+          <Grid align="start" gap="lg">
             <Grid.Col span={{ base: 12, lg: 3 }}>
               <Card withBorder radius="lg" className={styles.sideNav}>
                 {SIDE_LINKS.map((item, index) => (

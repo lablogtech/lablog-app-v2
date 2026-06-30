@@ -51,17 +51,68 @@
   max-width: 760px;
 }
 
-.heroImageWrap {
+.heroVisual {
   position: relative;
-  min-height: 430px;
-  border-radius: 20px;
+  min-height: 100%;
   overflow: hidden;
-  border: 1px solid #dbe5f5;
-  background: #e9eef8;
 }
 
-.heroImage {
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.backgroundImageElement {
   object-fit: cover;
+  object-position: center;
+}
+
+.heroGlow {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, 0.2) 55%, transparent 100%);
+}
+
+.heroFloatingCard {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  max-width: 280px;
+  border: 1px solid #dbe4f8;
+  box-shadow: 0 14px 34px rgba(27, 56, 119, 0.17);
+}
+
+.heroFloatingTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #12377d;
+  margin-bottom: 8px;
+}
+
+.heroFloatingDescription {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #355184;
+  margin-bottom: 14px;
+}
+
+.heroFloatingButton {
+  width: 100%;
+  background: #15a668;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 700;
+}
+
+.heroFloatingButton:hover {
+  background: #0f955b;
 }
 
 .pointsList {

@@ -224,7 +224,7 @@ export default function PregnancyPage() {
     <Box className={`pageSurface ${styles.page}`}>
       <Box component="section" className={styles.heroSection}>
         <Container size="xl">
-          <Grid align="center" gap={{ base: 28, lg: 42 }}>
+          <Grid align="stretch" gap={{ base: 28, lg: 42 }}>
             <Grid.Col span={{ base: 12, lg: 6 }}>
               <Heading
                 order={1}
@@ -255,15 +255,18 @@ export default function PregnancyPage() {
             </Grid.Col>
 
             <Grid.Col span={{ base: 12, lg: 6 }}>
-              <Box className={styles.heroVisualWrap}>
-                <Image
-                  src="/hero.jpg"
-                  alt="Expecting mother consultation"
-                  fill
-                  priority
-                  className={styles.heroImage}
-                  style={{ objectPosition: "68% center" }}
-                />
+              <Box className={styles.heroVisual}>
+                <Box className={styles.backgroundImage} aria-hidden="true">
+                  <Image
+                    src="/pages/Pregnancy parent page.png"
+                    alt="Expecting mother consultation"
+                    fill
+                    priority
+                    sizes="(max-width: 992px) 100vw, 50vw"
+                    className={styles.backgroundImageElement}
+                  />
+                  <Box className={styles.heroGlow} aria-hidden />
+                </Box>
                 <Paper className={styles.heroFloatingCard} radius="xl" p="lg">
                   <Text className={styles.heroFloatingTitle}>Not sure which test is right for you?</Text>
                   <Text className={styles.heroFloatingDescription}>

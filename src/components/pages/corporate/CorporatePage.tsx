@@ -206,7 +206,7 @@ export default function CorporatePage() {
     <Box className={`pageSurface ${styles.page}`}>
       <Box component="section" className={styles.heroSection}>
         <Container size="xl">
-          <Grid align="center" gap={{ base: 24, lg: 36 }}>
+          <Grid align="stretch" gap={{ base: 24, lg: 36 }}>
             <Grid.Col span={{ base: 12, lg: 6 }}>
               <Heading
                 order={1}
@@ -255,8 +255,18 @@ export default function CorporatePage() {
             </Grid.Col>
 
             <Grid.Col span={{ base: 12, lg: 6 }}>
-              <Box className={styles.heroVisualWrap}>
-                <Image src="/hero.jpg" alt="Corporate team consultation" fill priority className={styles.heroImage} />
+              <Box className={styles.heroVisual}>
+                <Box className={styles.backgroundImage} aria-hidden="true">
+                  <Image
+                    src="/pages/Hero page corporate.png"
+                    alt="Corporate team consultation"
+                    fill
+                    priority
+                    sizes="(max-width: 992px) 100vw, 50vw"
+                    className={styles.backgroundImageElement}
+                  />
+                  <Box className={styles.heroGlow} aria-hidden />
+                </Box>
               </Box>
             </Grid.Col>
           </Grid>
@@ -306,7 +316,13 @@ export default function CorporatePage() {
             {FLEXIBLE_SOLUTIONS.map((item) => (
               <Paper key={item.title} radius="lg" className={styles.solutionCard}>
                 <Box className={styles.solutionImageWrap}>
-                  <Image src="/hero.jpg" alt={item.title} fill className={styles.solutionImage} />
+                  <Image
+                    src="/hero.jpg"
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className={styles.solutionImage}
+                  />
                 </Box>
                 <Title order={3} className={styles.cardTitle}>
                   {item.title}

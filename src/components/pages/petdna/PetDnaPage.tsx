@@ -204,7 +204,7 @@ export default function PetDnaPage() {
     <Box className={`pageSurface ${styles.page}`}>
       <Box component="section" className={styles.heroSection}>
         <Container size="xl">
-          <Grid align="center" gap={{ base: 28, lg: 42 }}>
+          <Grid align="stretch" gap={{ base: 28, lg: 42 }}>
             <Grid.Col span={{ base: 12, lg: 6 }}>
               <Heading
                 order={1}
@@ -262,8 +262,18 @@ export default function PetDnaPage() {
             </Grid.Col>
 
             <Grid.Col span={{ base: 12, lg: 6 }}>
-              <Box className={styles.heroVisualWrap}>
-                <Image src="/hero.jpg" alt="PetDNA insights" fill priority className={styles.heroImage} />
+              <Box className={styles.heroVisual}>
+                <Box className={styles.backgroundImage} aria-hidden="true">
+                  <Image
+                    src="/pages/FAQ.png"
+                    alt="PetDNA insights"
+                    fill
+                    priority
+                    sizes="(max-width: 992px) 100vw, 50vw"
+                    className={styles.backgroundImageElement}
+                  />
+                  <Box className={styles.heroGlow} aria-hidden />
+                </Box>
                 <Paper className={styles.heroFloatingCard} radius="xl" p="lg">
                   <Text className={styles.heroFloatingTitle}>Trusted by pet parents across the Philippines</Text>
                   <Text className={styles.heroFloatingDescription}>
@@ -393,7 +403,13 @@ export default function PetDnaPage() {
           <Grid align="center" gap="lg">
             <Grid.Col span={{ base: 12, lg: 7 }}>
               <Box className={styles.previewPanel}>
-                <Image src="/hero.jpg" alt="PetDNA sample dashboard" fill className={styles.previewImage} />
+                <Image
+                  src="/hero.jpg"
+                  alt="PetDNA sample dashboard"
+                  fill
+                  sizes="(max-width: 992px) 100vw, 58vw"
+                  className={styles.previewImage}
+                />
               </Box>
             </Grid.Col>
             <Grid.Col span={{ base: 12, lg: 5 }}>

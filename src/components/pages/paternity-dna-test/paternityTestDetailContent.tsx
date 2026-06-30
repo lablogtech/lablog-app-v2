@@ -106,7 +106,7 @@ export const peaceOfMindPaternityPageContent: PaternityTestPageContent = {
       { label: "Results In", subLabel: "7-10 Working Days", icon: <IconClock size={28} stroke={1.8} aria-hidden /> },
     ],
     note: "Important: This is a non-legal DNA test intended for personal knowledge only and cannot be used in court, immigration, or any legal proceedings.",
-    imageSrc: "/hero.jpg",
+    imageSrc: "/pages/Peace of mind page.png",
     imageAlt: "Family DNA testing visual",
     imagePosition: "39% center",
     floatingCard: {
@@ -258,7 +258,7 @@ export const legalPaternityPageContent: PaternityTestPageContent = {
       { label: "Results In", subLabel: "7-10 Working Days", icon: <IconClock size={28} stroke={1.8} aria-hidden /> },
     ],
     note: "Important: This is a legal DNA test for official and court-related purposes. Self-collection and unsupervised samples are not permitted.",
-    imageSrc: "/hero.jpg",
+    imageSrc: "/pages/Legal.png",
     imageAlt: "Legal paternity DNA test visual",
     imagePosition: "62% center",
     floatingCard: {
@@ -422,7 +422,7 @@ export const prenatalPaternityPageContent: PaternityTestPageContent = {
       { label: "Results In", subLabel: "10-15 Working Days", icon: <IconClock size={28} stroke={1.8} aria-hidden /> },
     ],
     note: "Important: This test is intended to establish biological paternity during pregnancy and does not replace any prenatal medical examinations recommended by your doctor.",
-    imageSrc: "/hero.jpg",
+    imageSrc: "/pages/NIPT.png",
     imageAlt: "Prenatal paternity DNA testing visual",
     imagePosition: "8% center",
     floatingCard: {

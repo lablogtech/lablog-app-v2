@@ -184,7 +184,7 @@ export const niptPageContent: PregnancyTestPageContent = {
       { label: "Results In", subLabel: "10-15 Working Days", icon: <IconClock size={28} stroke={1.8} aria-hidden /> },
     ],
     note: "Important: NIPT is a screening test and not a diagnostic test. Any high-risk results should always be discussed with your healthcare provider.",
-    imageSrc: "/hero.jpg",
+    imageSrc: "/pages/NIPT page.png",
     imageAlt: "Pregnant mother for NIPT consultation",
     imagePosition: "62% center",
     floatingCard: {
@@ -355,7 +355,7 @@ export const carrierScreeningPageContent: PregnancyTestPageContent = {
       { label: "Strictly", subLabel: "Confidential", icon: <IconShieldLock size={28} stroke={1.8} aria-hidden /> },
     ],
     note: "Important: Carrier Screening does not diagnose diseases. It identifies whether an individual carries certain inherited genetic variants that may be passed on to their children.",
-    imageSrc: "/hero.jpg",
+    imageSrc: "/pages/Carrier Screening.png",
     imageAlt: "Couple reviewing carrier screening options",
     imagePosition: "57% center",
     floatingCard: {
@@ -518,7 +518,7 @@ export const newbornGeneticScreeningPageContent: PregnancyTestPageContent = {
       { label: "Confidential", subLabel: "And Secure", icon: <IconShieldLock size={28} stroke={1.8} aria-hidden /> },
     ],
     note: "Important: Newborn Genetic Screening provides health insights and does not replace routine pediatric care or medical consultations.",
-    imageSrc: "/hero.jpg",
+    imageSrc: "/pages/Newborn Genetic Screening.png",
     imageAlt: "Newborn baby genetic screening",
     imagePosition: "65% center",
     floatingCard: {

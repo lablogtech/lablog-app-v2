@@ -1,10 +1,12 @@
-import { Box, Container, Grid } from "@mantine/core"
+import { Box, Button, Container, Grid, Paper, Text } from "@mantine/core"
 import { IconCalendarEvent, IconLock, IconMapPin, IconShieldCheck, IconTargetArrow } from "@tabler/icons-react"
 import styles from "@/app/paternity-dna-test/page.module.css"
 import Heading from "@/components/shared/heading/Heading"
 import FeatureHighlightsGrid, {
   type FeatureHighlightItem,
 } from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
+import Image from "next/image"
+import Link from "next/link"
 
 const HERO_POINTS: FeatureHighlightItem[] = [
   { Icon: IconTargetArrow, label: "99.99%", subLabel: "Accuracy" },
@@ -18,8 +20,8 @@ export default function PaternityHeroSection() {
   return (
     <Box component="section" className={styles.heroSection}>
       <Container size="xl">
-        <Grid className={styles.heroInner} gap={{ base: 24, md: 26 }} align="stretch">
-          <Grid.Col span={12}>
+        <Grid align="stretch" gap={{ base: 28, lg: 42 }}>
+          <Grid.Col span={{ base: 12, lg: 6 }}>
             <Box className={styles.heroCopy}>
               <Heading
                 order={1}
@@ -35,25 +37,48 @@ export default function PaternityHeroSection() {
                 }}
               />
             </Box>
+            <Box className={styles.pointsList}>
+              <FeatureHighlightsGrid
+                items={HERO_POINTS}
+                cols={{ base: 2, sm: 5 }}
+                spacing={8}
+                iconSize={18}
+                iconStroke={1.9}
+                themeIconSize={42}
+                colors={{
+                  circleBackground: "#eaf2ff",
+                  circleIcon: "#2f4698",
+                  label: "#1f3f7d",
+                  subLabel: "#4b6290",
+                }}
+              />
+            </Box>
+          </Grid.Col>
+          <Grid.Col span={{ base: 12, lg: 6 }}>
+            <Box className={styles.heroVisual}>
+              <Box className={styles.backgroundImage} aria-hidden="true">
+                <Image
+                  src="/pages/NIPPT page.png"
+                  alt="Expecting mother consultation"
+                  fill
+                  priority
+                  sizes="(max-width: 992px) 100vw, 50vw"
+                  className={styles.backgroundImageElement}
+                />
+                <Box className={styles.heroGlow} aria-hidden />
+              </Box>
+              <Paper className={styles.heroFloatingCard} radius="xl" p="lg">
+                <Text className={styles.heroFloatingTitle}>Not sure which test is right for you?</Text>
+                <Text className={styles.heroFloatingDescription}>
+                  Our specialists will help you choose the most appropriate test based on your stage and needs.
+                </Text>
+                <Button component={Link} href="#contact" className={styles.heroFloatingButton} radius="md">
+                  Ask our specialists
+                </Button>
+              </Paper>
+            </Box>
           </Grid.Col>
         </Grid>
-
-        <Box className={styles.pointsList}>
-          <FeatureHighlightsGrid
-            items={HERO_POINTS}
-            cols={{ base: 2, sm: 5 }}
-            spacing={8}
-            iconSize={18}
-            iconStroke={1.9}
-            themeIconSize={42}
-            colors={{
-              circleBackground: "#eaf2ff",
-              circleIcon: "#2f4698",
-              label: "#1f3f7d",
-              subLabel: "#4b6290",
-            }}
-          />
-        </Box>
       </Container>
     </Box>
   )
