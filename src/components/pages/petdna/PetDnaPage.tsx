@@ -18,6 +18,7 @@ import {
   Title,
 } from "@mantine/core"
 import Heading from "@/components/shared/heading/Heading"
+import HowItWorksSteps, { type HowItWorksStep } from "@/components/shared/how-it-works/HowItWorksSteps"
 import FeatureHighlightsGrid, {
   type FeatureHighlightItem,
 } from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
@@ -123,27 +124,35 @@ const DISCOVERY_CARDS = [
   },
 ]
 
-const HOW_IT_WORKS = [
+const HOW_IT_WORKS: HowItWorksStep[] = [
   {
+    number: 1,
     title: "Order your test",
     description: "Book online or speak with our team.",
-    icon: <IconCalendarEvent size={28} stroke={1.8} aria-hidden />,
+    icon: <IconCalendarEvent size={36} stroke={1.8} aria-hidden />,
+    color: "#067BF7",
   },
   {
+    number: 2,
     title: "Collect a simple DNA sample",
     description: "Collect a cheek swab using the kit provided.",
-    options: ["Home test kit", "Collection centers", "Mobile home service (selected areas)"],
-    icon: <IconTestPipe size={28} stroke={1.8} aria-hidden />,
+    bulletPoints: ["Home test kit", "Collection centers", "Mobile home service (selected areas)"],
+    icon: <IconTestPipe size={36} stroke={1.8} aria-hidden />,
+    color: "#02B992",
   },
   {
+    number: 3,
     title: "Laboratory analysis",
     description: "Advanced genomic technologies analyze your pet's DNA to generate personalized reports.",
-    icon: <IconMicroscope size={28} stroke={1.8} aria-hidden />,
+    icon: <IconMicroscope size={36} stroke={1.8} aria-hidden />,
+    color: "#067BF7",
   },
   {
+    number: 4,
     title: "Explore your PetDNA report",
     description: "Receive an easy-to-understand report containing your pet's genetic insights.",
-    icon: <IconFileCheck size={28} stroke={1.8} aria-hidden />,
+    icon: <IconFileCheck size={36} stroke={1.8} aria-hidden />,
+    color: "#02B992",
   },
 ]
 
@@ -368,33 +377,11 @@ export default function PetDnaPage() {
 
       <Box component="section" className={`${styles.section} ${styles.processSection}`}>
         <Container size="xl">
-          <Title order={2} className={styles.sectionTitle} ta="center">
-            How Does PetDNA Work?
-          </Title>
-          <SimpleGrid cols={{ base: 1, sm: 2, md: 4 }} spacing="md" mt={20}>
-            {HOW_IT_WORKS.map((step, index) => (
-              <Paper key={step.title} radius="lg" className={styles.processCard}>
-                <Text className={styles.stepNumber}>{index + 1}</Text>
-                <ThemeIcon size={60} radius="xl" variant="light" className={styles.processIcon}>
-                  {step.icon}
-                </ThemeIcon>
-                <Title order={3} className={styles.processTitle}>
-                  {step.title}
-                </Title>
-                <Text className={styles.processDescription}>{step.description}</Text>
-                {step.options && (
-                  <Stack gap={6} mt={10}>
-                    {step.options.map((option) => (
-                      <Text key={option} className={styles.discoveryPoint}>
-                        <IconCircleCheck size={14} stroke={2.1} aria-hidden />
-                        {option}
-                      </Text>
-                    ))}
-                  </Stack>
-                )}
-              </Paper>
-            ))}
-          </SimpleGrid>
+          <HowItWorksSteps
+            title="How Does PetDNA Work?"
+            subtitle="A simple process from booking to a personalized PetDNA report."
+            steps={HOW_IT_WORKS}
+          />
         </Container>
       </Box>
 

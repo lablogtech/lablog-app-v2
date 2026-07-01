@@ -41,62 +41,153 @@
 }
 
 .stepWrapper {
-  text-align: left;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 18px;
+  border: 1px solid #e7ecf4;
+  background: #ffffff;
+  overflow: visible !important;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
 }
 
-.stepHeader {
+.stepWrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 18px;
+  border-radius: 18px 18px 0 0;
+  background: var(--step-color, #067bf7);
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+
+.stepWrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 42px -24px color-mix(in srgb, var(--step-color, #067bf7) 65%, transparent);
+  border-color: color-mix(in srgb, var(--step-color, #067bf7) 32%, #e7ecf4);
+}
+
+.stepWrapper:hover::before {
+  opacity: 1;
+}
+
+/* ── Icon + step number ──────────────────────────────────────── */
+.stepIconWrap {
   position: relative;
-  height: 56px;
-  margin-bottom: 8px;
+  display: inline-flex;
+  margin-bottom: 20px;
 }
 
 .stepBadge {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: color-mix(in srgb, var(--step-color, #067bf7) 12%, transparent) !important;
+  color: var(--step-color, #067bf7) !important;
+  transition: transform 0.22s ease;
+}
+
+.stepWrapper:hover .stepBadge {
+  transform: scale(1.05);
 }
 
 .stepNumber {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
+  position: absolute;
+  right: -6px;
+  bottom: -6px;
+  min-width: 26px;
+  height: 26px;
+  padding: 0 6px;
+  border-radius: 999px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 13px;
   font-weight: 700;
   color: #ffffff;
+  background: var(--step-color, #067bf7);
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 10px -3px color-mix(in srgb, var(--step-color, #067bf7) 70%, transparent);
   font-family: var(--font-poppins), sans-serif;
+  line-height: 1;
 }
 
 .stepTitle {
-  font-size: 18px;
-  font-weight: 600;
-  color: #1a1a2e;
+  font-size: 17px;
+  font-weight: 700;
+  color: #16233f;
   text-align: center;
   justify-content: center;
-  margin: 0;
+  margin: 0 0 8px;
+  min-height: 46px;
+  display: flex;
+  align-items: center;
 }
 
 .stepDescription {
-  font-size: 14px;
-  color: #6b7a99;
+  font-size: 13.5px;
+  color: #64748b;
   line-height: 1.6;
   margin: 0;
+  max-width: 240px;
+  text-align: center;
+}
+
+.stepList {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  text-align: left;
+  width: 100%;
+  max-width: 240px;
+}
+
+.stepListItem {
+  font-size: 13px;
+  color: #4a5f86;
+  line-height: 1.5;
 }
 
 /* ── Arrow Connector ─────────────────────────────────────────── */
 .arrowContainer {
   display: none;
   position: absolute;
-  top: 16px;
+  top: 52px;
   right: -28px;
   z-index: 2;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid #e6ecf5;
+  border-radius: 50%;
+  box-shadow: 0 6px 16px -8px rgba(23, 50, 110, 0.45);
 }
 
 .arrow {
   display: block;
+}
+
+.sectionHeading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  font-size: clamp(1.65rem, 3.2vw, 2.3rem);
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+
+.sectionSubtitle {
+  color: #38517c;
+  font-size: 0.96rem;
 }
 
 /* ── Responsive ──────────────────────────────────────────────── */

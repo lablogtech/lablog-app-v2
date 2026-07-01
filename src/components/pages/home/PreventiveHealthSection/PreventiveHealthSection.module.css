@@ -75,6 +75,22 @@
   opacity: 0.9;
 }
 
+.sectionHeading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  font-size: clamp(1.65rem, 3.2vw, 2.3rem);
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+
+.sectionSubtitle {
+  color: #38517c;
+  font-size: 0.96rem;
+}
+
 /* ── Responsive ──────────────────────────────────────────────── */
 @media (max-width: 992px) {
   .title {

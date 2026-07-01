@@ -33,6 +33,7 @@ import {
 import type { DetailFaqItem, TestPageContent } from "./types"
 import styles from "./TestDetailPage.module.css"
 import Heading from "@/components/shared/heading/Heading"
+import HowItWorksSteps, { type HowItWorksStep } from "@/components/shared/how-it-works/HowItWorksSteps"
 import FeatureHighlightsGrid, {
   type FeatureHighlightItem,
 } from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
@@ -48,6 +49,13 @@ function splitQuestions(items: DetailFaqItem[]) {
 
 export default function TestDetailPage({ content }: TestDetailPageProps) {
   const faqColumns = splitQuestions(content.faq.items)
+  const processSteps: HowItWorksStep[] = content.process.steps.map((step, index) => ({
+    number: index + 1,
+    title: step.title,
+    description: step.description,
+    icon: step.icon,
+    color: index % 2 === 0 ? "#067BF7" : "#02B992",
+  }))
   const heroFeatures: FeatureHighlightItem[] = content.hero.features.map((item) => ({
     label: item.label,
     subLabel: item.subLabel,
@@ -154,32 +162,12 @@ export default function TestDetailPage({ content }: TestDetailPageProps) {
           </Box>
 
           <Box component="section" className={styles.processSection}>
-            <Heading
-              order={2}
-              eyebrow={content.process.eyebrow}
+            <HowItWorksSteps
               title={content.process.title}
               subtitle={content.process.subtitle}
-              classNames={{
-                eyebrow: styles.sectionEyebrow,
-                title: styles.sectionTitle,
-                subtitle: styles.sectionSubtitle,
-              }}
+              steps={processSteps}
+              eyebrow={content.process.eyebrow}
             />
-
-            <SimpleGrid cols={{ base: 1, sm: 2, lg: content.process.steps.length === 5 ? 5 : 4 }} spacing="lg" mt={28}>
-              {content.process.steps.map((step, index) => (
-                <Paper key={step.title} radius="xl" className={styles.processCard}>
-                  <ThemeIcon size={76} radius="xl" variant="light" className={styles.processIcon}>
-                    {step.icon}
-                  </ThemeIcon>
-                  <Box className={styles.stepNumber}>{index + 1}</Box>
-                  <Title order={3} className={styles.processTitle}>
-                    {step.title}
-                  </Title>
-                  <Text className={styles.processDescription}>{step.description}</Text>
-                </Paper>
-              ))}
-            </SimpleGrid>
           </Box>
 
           <Box component="section" className={styles.stripSection}>

@@ -1,16 +1,20 @@
+import type { CSSProperties, ReactNode } from "react"
 import styles from "./HowItWorks.module.css"
-import { Box, Badge, Center, Grid, Stack, Text, ThemeIcon, Title } from "@mantine/core"
+import { Box, Card, SimpleGrid, Stack, Text, ThemeIcon, Title } from "@mantine/core"
 import { IconArrowRight } from "@tabler/icons-react"
+import Heading from "@/components/shared/heading/Heading"
 
 export type HowItWorksStep = {
   number: number
   title: string
-  description: string
+  description: ReactNode
+  bulletPoints?: string[]
   icon: React.ReactNode
   color: string
 }
 
 type HowItWorksStepsProps = {
+  eyebrow?: string
   title: string
   subtitle: string
   steps: HowItWorksStep[]
@@ -18,66 +22,67 @@ type HowItWorksStepsProps = {
   normalCaseTitle?: boolean
 }
 
-export default function HowItWorksSteps({
-  title,
-  subtitle,
-  steps,
-  titleOrder = 2,
-  normalCaseTitle = false,
-}: HowItWorksStepsProps) {
+export default function HowItWorksSteps({ eyebrow, title, subtitle, steps, titleOrder = 2 }: HowItWorksStepsProps) {
   return (
     <>
       <Stack gap="lg" align="center" className={styles.headerStack}>
-        <Box className={styles.headerBox}>
-          <Title order={titleOrder} className={`${styles.title} ${normalCaseTitle ? styles.titleNormalCase : ""}`}>
-            {title}
-          </Title>
-          <Text className={styles.subtitle}>{subtitle}</Text>
-        </Box>
+        <Heading
+          eyebrow={eyebrow}
+          title={title}
+          subtitle={subtitle}
+          order={titleOrder}
+          classNames={{
+            root: styles.sectionHeading,
+            title: styles.sectionTitle,
+            subtitle: styles.sectionSubtitle,
+          }}
+        />
       </Stack>
 
-      <Grid gap={{ base: "xl", md: 40 }} align="flex-start" className={styles.stepsGrid}>
+      <SimpleGrid cols={{ base: 1, md: steps.length }} spacing={{ base: "xl", md: 40 }} className={styles.stepsGrid}>
         {steps.map((step, index) => (
-          <Grid.Col key={step.number} span={{ base: 12, sm: 6, md: 3 }}>
-            <Stack align="center" gap="md" className={styles.stepWrapper}>
-              <Box className={styles.stepHeader}>
-                <ThemeIcon
-                  size={56}
-                  radius="50%"
-                  variant="light"
-                  style={{ backgroundColor: `${step.color}18`, color: step.color }}
-                  className={styles.stepBadge}
-                >
-                  {step.icon}
-                </ThemeIcon>
+          <Card
+            shadow="xs"
+            p="xl"
+            key={step.number}
+            className={styles.stepWrapper}
+            style={{ "--step-color": step.color } as CSSProperties}
+          >
+            <Box className={styles.stepIconWrap}>
+              <ThemeIcon size={64} radius="50%" variant="light" className={styles.stepBadge}>
+                {step.icon}
+              </ThemeIcon>
+              <span className={styles.stepNumber}>{step.number}</span>
+            </Box>
+
+            <Title order={4} className={styles.stepTitle}>
+              {step.title}
+            </Title>
+            <Text className={styles.stepDescription}>{step.description}</Text>
+
+            {step.bulletPoints?.length ? (
+              <Box component="ul" className={styles.stepList}>
+                {step.bulletPoints.map((point) => (
+                  <li key={point} className={styles.stepListItem}>
+                    {point}
+                  </li>
+                ))}
               </Box>
+            ) : null}
 
-              <Stack align="center" gap={6}>
-                <Badge color={step.color}>{`Step ${step.number}`}</Badge>
-                <Center py="sm" mih={44}>
-                  <Title order={4} className={styles.stepTitle}>
-                    {step.title}
-                  </Title>
-                </Center>
-                <Text maw={240} className={styles.stepDescription} ta="center">
-                  {step.description}
-                </Text>
-              </Stack>
-
-              {index < steps.length - 1 && (
-                <Box className={styles.arrowContainer} aria-hidden="true">
-                  <IconArrowRight
-                    size={24}
-                    stroke={1.8}
-                    className={styles.arrow}
-                    style={{ color: steps[index + 1].color }}
-                  />
-                </Box>
-              )}
-            </Stack>
-          </Grid.Col>
+            {index < steps.length - 1 && (
+              <Box className={styles.arrowContainer} aria-hidden="true">
+                <IconArrowRight
+                  size={20}
+                  stroke={2}
+                  className={styles.arrow}
+                  style={{ color: steps[index + 1].color }}
+                />
+              </Box>
+            )}
+          </Card>
         ))}
-      </Grid>
+      </SimpleGrid>
     </>
   )
 }

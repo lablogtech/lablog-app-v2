@@ -1,7 +1,8 @@
 "use client"
 
 import styles from "./PreventiveHealthSection.module.css"
-import { Box, Button, Container, Grid, Stack, Text, ThemeIcon, Title } from "@mantine/core"
+import { Box, Button, Container, Grid, Stack, Text, ThemeIcon } from "@mantine/core"
+import Heading from "@/components/shared/heading/Heading"
 import {
   IconActivity,
   IconHeartbeat,
@@ -74,16 +75,17 @@ export default function PreventiveHealthSection() {
       >
         <Grid gap={{ base: "md", md: 64 }} align="center">
           {/* Left Content */}
-          <Grid.Col span={{ base: 12, md: 9 }}>
+          <Grid.Col span={{ base: 12 }}>
             <Stack gap="lg">
-              <Box>
-                <Title order={2} className={styles.title}>
-                  Preventive Health & Lifestyle Laboratory Tests
-                </Title>
-                <Text className={styles.subtitle}>
-                  Routine laboratory tests designed to help you monitor your health before symptoms appear.
-                </Text>
-              </Box>
+              <Heading
+                title="Preventive Health & Lifestyle Laboratory Tests"
+                subtitle="Routine laboratory tests designed to help you monitor your health before symptoms appear."
+                classNames={{
+                  root: styles.sectionHeading,
+                  title: styles.sectionTitle,
+                  subtitle: styles.sectionSubtitle,
+                }}
+              />
 
               {/* Lab Test Grid */}
               <Grid gap="md" align="flex-start" columns={18} className={styles.testGrid}>

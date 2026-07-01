@@ -22,6 +22,7 @@ import {
 } from "@tabler/icons-react"
 import styles from "./CorporatePage.module.css"
 import Heading from "@/components/shared/heading/Heading"
+import HowItWorksSteps, { type HowItWorksStep } from "@/components/shared/how-it-works/HowItWorksSteps"
 import FeatureHighlightsGrid, {
   type FeatureHighlightItem,
 } from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
@@ -173,31 +174,41 @@ const INDUSTRIES: Array<{ icon: IconType; label: string }> = [
   { icon: IconBuilding, label: "Hospitality Businesses" },
 ]
 
-const PROCESS = [
+const PROCESS: HowItWorksStep[] = [
   {
+    number: 1,
     title: "Initial Consultation",
     description: "Tell us about your company size, employee count, and requirements.",
-    icon: IconUsers,
+    icon: <IconUsers size={36} stroke={1.8} aria-hidden />,
+    color: "#067BF7",
   },
   {
+    number: 2,
     title: "Package Customization",
     description: "We'll build a solution based on your organization.",
-    icon: IconTools,
+    icon: <IconTools size={36} stroke={1.8} aria-hidden />,
+    color: "#02B992",
   },
   {
+    number: 3,
     title: "Implementation",
     description: "Choose onsite, clinic-based, or hybrid screening.",
-    icon: IconCalendarEvent,
+    icon: <IconCalendarEvent size={36} stroke={1.8} aria-hidden />,
+    color: "#067BF7",
   },
   {
+    number: 4,
     title: "Employee Screening",
     description: "Our team coordinates the entire process.",
-    icon: IconStethoscope,
+    icon: <IconStethoscope size={36} stroke={1.8} aria-hidden />,
+    color: "#02B992",
   },
   {
+    number: 5,
     title: "Reporting & Support",
     description: "Receive consolidated reports and ongoing support.",
-    icon: IconReportAnalytics,
+    icon: <IconReportAnalytics size={36} stroke={1.8} aria-hidden />,
+    color: "#067BF7",
   },
 ]
 
@@ -455,27 +466,11 @@ export default function CorporatePage() {
 
       <Box component="section" className={styles.sectionCompact}>
         <Container size="xl">
-          <Title order={2} className={styles.sectionTitle} ta="center">
-            Our Corporate Partnership Process
-          </Title>
-
-          <SimpleGrid cols={{ base: 1, sm: 2, lg: 5 }} spacing="md" mt={16}>
-            {PROCESS.map((step, index) => {
-              const Icon = step.icon
-              return (
-                <Paper key={step.title} radius="lg" className={styles.processCard}>
-                  <Text className={styles.stepNumber}>{index + 1}</Text>
-                  <ThemeIcon size={54} radius="xl" variant="light" className={styles.processIcon}>
-                    <Icon size={26} stroke={1.8} aria-hidden />
-                  </ThemeIcon>
-                  <Title order={3} className={styles.cardTitle}>
-                    {step.title}
-                  </Title>
-                  <Text className={styles.cardDescription}>{step.description}</Text>
-                </Paper>
-              )
-            })}
-          </SimpleGrid>
+          <HowItWorksSteps
+            title="Our Corporate Partnership Process"
+            subtitle="From consultation to reporting, we manage each phase with your team."
+            steps={PROCESS}
+          />
         </Container>
       </Box>
 

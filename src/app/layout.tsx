@@ -3,6 +3,7 @@ import { Inter, Poppins } from "next/font/google"
 import { Box, ColorSchemeScript, MantineProvider, createTheme, mantineHtmlProps } from "@mantine/core"
 import Header from "@/components/Header/Header"
 import Footer from "@/components/Footer/Footer"
+import ScrollToTopOnNavigation from "@/components/shared/ScrollToTopOnNavigation"
 import "@mantine/core/styles.css"
 import "@mantine/carousel/styles.css"
 import "leaflet/dist/leaflet.css"
@@ -76,6 +77,7 @@ export default function RootLayout({
       <body className="siteBody">
         <MantineProvider theme={theme}>
           <Box className="siteShell" bg="#fff">
+            <ScrollToTopOnNavigation />
             <Header />
             <Box component="main" className="siteMain">
               {children}

@@ -18,6 +18,7 @@ import {
   Title,
 } from "@mantine/core"
 import Heading from "@/components/shared/heading/Heading"
+import HowItWorksSteps, { type HowItWorksStep } from "@/components/shared/how-it-works/HowItWorksSteps"
 import FeatureHighlightsGrid, {
   type FeatureHighlightItem,
 } from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
@@ -162,27 +163,35 @@ const BENEFIT_POINTS = [
   "Tracking your health over time",
 ]
 
-const PROCESS_STEPS = [
+const PROCESS_STEPS: HowItWorksStep[] = [
   {
+    number: 1,
     title: "Book your package",
     description: "Choose the screening package that best matches your health goals.",
-    icon: <IconCalendarEvent size={28} stroke={1.8} aria-hidden />,
+    icon: <IconCalendarEvent size={36} stroke={1.8} aria-hidden />,
+    color: "#067BF7",
   },
   {
+    number: 2,
     title: "Sample collection",
-    description: "Choose your preferred collection method:",
-    options: ["Collection centers nationwide", "Mobile home service", "Partner clinics"],
-    icon: <IconMapPin size={28} stroke={1.8} aria-hidden />,
+    description: "Choose your preferred collection method.",
+    bulletPoints: ["Collection centers nationwide", "Mobile home service", "Partner clinics"],
+    icon: <IconMapPin size={36} stroke={1.8} aria-hidden />,
+    color: "#02B992",
   },
   {
+    number: 3,
     title: "Laboratory analysis",
     description: "Your samples are analyzed and processed following strict quality standards.",
-    icon: <IconMicroscope size={28} stroke={1.8} aria-hidden />,
+    icon: <IconMicroscope size={36} stroke={1.8} aria-hidden />,
+    color: "#067BF7",
   },
   {
+    number: 4,
     title: "Receive your results",
     description: "Receive your report and discuss the findings with your healthcare provider if needed.",
-    icon: <IconStethoscope size={28} stroke={1.8} aria-hidden />,
+    icon: <IconStethoscope size={36} stroke={1.8} aria-hidden />,
+    color: "#02B992",
   },
 ]
 
@@ -401,33 +410,11 @@ export default function ScreeningPage() {
 
       <Box component="section" className={`${styles.section} ${styles.processSection}`}>
         <Container size="xl">
-          <Title order={2} className={styles.sectionTitle} ta="center">
-            How Does It Work?
-          </Title>
-          <SimpleGrid cols={{ base: 1, sm: 2, md: 4 }} spacing="md" mt={18}>
-            {PROCESS_STEPS.map((step, index) => (
-              <Paper key={step.title} radius="lg" className={styles.processCard}>
-                <Text className={styles.stepNumber}>{index + 1}</Text>
-                <ThemeIcon size={62} radius="xl" variant="light" className={styles.processIcon}>
-                  {step.icon}
-                </ThemeIcon>
-                <Title order={3} className={styles.processTitle}>
-                  {step.title}
-                </Title>
-                <Text className={styles.processDescription}>{step.description}</Text>
-                {step.options && (
-                  <Stack gap={6} mt={10}>
-                    {step.options.map((option) => (
-                      <Text key={option} className={styles.optionPoint}>
-                        <IconCircleCheck size={14} stroke={2.1} aria-hidden />
-                        {option}
-                      </Text>
-                    ))}
-                  </Stack>
-                )}
-              </Paper>
-            ))}
-          </SimpleGrid>
+          <HowItWorksSteps
+            title="How Does It Work?"
+            subtitle="Simple steps from booking to receiving your report."
+            steps={PROCESS_STEPS}
+          />
         </Container>
       </Box>
 

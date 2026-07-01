@@ -19,6 +19,7 @@ import {
   Title,
 } from "@mantine/core"
 import Heading from "@/components/shared/heading/Heading"
+import HowItWorksSteps, { type HowItWorksStep } from "@/components/shared/how-it-works/HowItWorksSteps"
 import {
   IconArrowRight,
   IconCircleCheck,
@@ -73,26 +74,34 @@ const TEST_OPTIONS = [
   },
 ]
 
-const PROCESS_STEPS = [
+const PROCESS_STEPS: HowItWorksStep[] = [
   {
+    number: 1,
     title: "Understand Family History",
     description: "Understand your family history.",
-    icon: <IconUsers size={28} stroke={1.8} aria-hidden />,
+    icon: <IconUsers size={36} stroke={1.8} aria-hidden />,
+    color: "#067BF7",
   },
   {
+    number: 2,
     title: "Choose The Appropriate Test",
     description: "Choose the appropriate genetic screening.",
-    icon: <IconDna2 size={28} stroke={1.8} aria-hidden />,
+    icon: <IconDna2 size={36} stroke={1.8} aria-hidden />,
+    color: "#02B992",
   },
   {
+    number: 3,
     title: "Review Your Results",
     description: "Review your results with your healthcare provider.",
-    icon: <IconFlask size={28} stroke={1.8} aria-hidden />,
+    icon: <IconFlask size={36} stroke={1.8} aria-hidden />,
+    color: "#067BF7",
   },
   {
+    number: 4,
     title: "Plan Next Steps",
     description: "Create a personalized health plan.",
-    icon: <IconHeartRateMonitor size={28} stroke={1.8} aria-hidden />,
+    icon: <IconHeartRateMonitor size={36} stroke={1.8} aria-hidden />,
+    color: "#02B992",
   },
 ]
 
@@ -376,25 +385,11 @@ export default function CancerPage() {
 
       <Box component="section" className={`${styles.section} ${styles.processSection}`}>
         <Container size="xl">
-          <Box className={styles.sectionHeading}>
-            <Title order={2} className={styles.sectionTitle}>
-              Your Preventive Health Journey
-            </Title>
-          </Box>
-          <SimpleGrid cols={{ base: 1, sm: 2, lg: 4 }} spacing="lg" mt={20}>
-            {PROCESS_STEPS.map((step, index) => (
-              <Paper key={step.title} radius="xl" className={styles.processCard}>
-                <Box className={styles.stepNumber}>{index + 1}</Box>
-                <ThemeIcon size={66} radius="xl" variant="light" className={styles.processIcon}>
-                  {step.icon}
-                </ThemeIcon>
-                <Title order={3} className={styles.processTitle}>
-                  {step.title}
-                </Title>
-                <Text className={styles.processDescription}>{step.description}</Text>
-              </Paper>
-            ))}
-          </SimpleGrid>
+          <HowItWorksSteps
+            title="Your Preventive Health Journey"
+            subtitle="Follow these simple steps to complete hereditary cancer screening."
+            steps={PROCESS_STEPS}
+          />
         </Container>
       </Box>
 

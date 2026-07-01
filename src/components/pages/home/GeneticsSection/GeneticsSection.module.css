@@ -10,10 +10,6 @@
 }
 
 .title {
-  font-size: 26px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
   color: #1a1a2e;
   margin: 0 0 10px;
 }
@@ -84,8 +80,8 @@
 }
 
 .iconWrap {
-  width: 48px;
-  height: 48px;
+  width: 64px;
+  height: 64px;
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -94,13 +90,11 @@
 }
 
 .iconWrap svg {
-  width: 26px;
-  height: 26px;
+  width: 48px;
+  height: 48px;
 }
 
 .cardTitle {
-  font-size: 16px;
-  font-weight: 700;
   color: #1a1a2e;
   margin: 0;
   line-height: 1.3;
@@ -144,6 +138,22 @@
 
 .learnMore:hover {
   gap: 8px;
+}
+
+.sectionHeading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  font-size: clamp(1.65rem, 3.2vw, 2.3rem);
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+
+.sectionSubtitle {
+  color: #38517c;
+  font-size: 0.96rem;
 }
 
 /* ── Responsive ─────────────────────────────────────────────── */

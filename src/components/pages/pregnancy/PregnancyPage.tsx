@@ -19,6 +19,7 @@ import {
   Title,
 } from "@mantine/core"
 import Heading from "@/components/shared/heading/Heading"
+import HowItWorksSteps, { type HowItWorksStep } from "@/components/shared/how-it-works/HowItWorksSteps"
 import {
   IconArrowRight,
   IconBabyCarriage,
@@ -136,27 +137,35 @@ const JOURNEY_STEPS = [
   },
 ]
 
-const PROCESS_STEPS = [
+const PROCESS_STEPS: HowItWorksStep[] = [
   {
+    number: 1,
     title: "Contact Our Team",
     description: "Tell us about your stage or goals. We'll guide you to the right test.",
-    icon: <IconPhone size={28} stroke={1.8} aria-hidden />,
+    icon: <IconPhone size={36} stroke={1.8} aria-hidden />,
+    color: "#067BF7",
   },
   {
+    number: 2,
     title: "Sample Collection",
     description: "Depending on the test, sample collection may include:",
     bulletPoints: ["Blood sample", "Cheek swab", "Newborn sample collection"],
-    icon: <IconTestPipe size={28} stroke={1.8} aria-hidden />,
+    icon: <IconTestPipe size={36} stroke={1.8} aria-hidden />,
+    color: "#02B992",
   },
   {
+    number: 3,
     title: "Laboratory Analysis",
     description: "Samples are processed in our ISO-certified partner laboratories.",
-    icon: <IconMicroscope size={28} stroke={1.8} aria-hidden />,
+    icon: <IconMicroscope size={36} stroke={1.8} aria-hidden />,
+    color: "#067BF7",
   },
   {
+    number: 4,
     title: "Receive Your Results",
     description: "Your confidential report will be securely released to authorized individuals.",
-    icon: <IconCalendarEvent size={28} stroke={1.8} aria-hidden />,
+    icon: <IconCalendarEvent size={36} stroke={1.8} aria-hidden />,
+    color: "#02B992",
   },
 ]
 
@@ -425,34 +434,11 @@ export default function PregnancyPage() {
 
       <Box component="section" className={`${styles.section} ${styles.processSection}`}>
         <Container size="xl">
-          <Box className={styles.sectionHeading}>
-            <Title order={2} className={styles.sectionTitle}>
-              How Does The Process Work?
-            </Title>
-          </Box>
-          <SimpleGrid cols={{ base: 1, sm: 2, lg: 4 }} spacing="lg" mt={20}>
-            {PROCESS_STEPS.map((step, index) => (
-              <Paper key={step.title} radius="xl" className={styles.processCard}>
-                <Box className={styles.stepNumber}>{index + 1}</Box>
-                <ThemeIcon size={66} radius="xl" variant="light" className={styles.processIcon}>
-                  {step.icon}
-                </ThemeIcon>
-                <Title order={3} className={styles.processTitle}>
-                  {step.title}
-                </Title>
-                <Text className={styles.processDescription}>{step.description}</Text>
-                {step.bulletPoints ? (
-                  <Box component="ul" className={styles.processList}>
-                    {step.bulletPoints.map((point) => (
-                      <li key={point} className={styles.processListItem}>
-                        {point}
-                      </li>
-                    ))}
-                  </Box>
-                ) : null}
-              </Paper>
-            ))}
-          </SimpleGrid>
+          <HowItWorksSteps
+            title="How Does The Process Work?"
+            subtitle="A guided and confidential process from consultation to result release."
+            steps={PROCESS_STEPS}
+          />
         </Container>
       </Box>
 

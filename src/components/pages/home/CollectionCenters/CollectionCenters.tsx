@@ -2,11 +2,13 @@
 
 import { useEffect, useState } from "react"
 import dynamic from "next/dynamic"
+import Image from "next/image"
 import styles from "./CollectionCenters.module.css"
 import { Carousel } from "@mantine/carousel"
 import type { EmblaCarouselType } from "embla-carousel"
 import { Box, Button, Container, Group, Stack, Text, Title } from "@mantine/core"
 import { IconClock, IconMapPin, IconPhone, IconCalendarEvent } from "@tabler/icons-react"
+import Heading from "@/components/shared/heading/Heading"
 
 const CollectionCentersMap = dynamic(() => import("./CollectionCentersMap"), {
   ssr: false,
@@ -18,49 +20,90 @@ type CollectionCenter = {
   address: string
   phone: string
   hours: string
+  imageSrc?: string
   coordinates: [number, number]
 }
 
 const COLLECTION_CENTERS: CollectionCenter[] = [
   {
-    name: "Makati Collection Center",
-    city: "Makati City, Metro Manila",
-    address: "3F Paseo de Rosas, Makati City",
-    phone: "(02) 8122 4687",
-    hours: "Mon - Sat: 8:00 AM - 5:00 PM",
-    coordinates: [14.5547, 121.0244],
+    name: "Lablog Quezon City (Main Office)",
+    city: "Diliman, Quezon City, 1103 Metro Manila",
+    address: "Unit 605, Corporate 101 Building, Mother Ignacia Ave",
+    phone: "0956 064 8809",
+    hours: "Opens 8:00 AM",
+    imageSrc: "/clinics/Lablog%20Quezon%20City.png",
+    coordinates: [14.6372441, 121.030378],
   },
   {
-    name: "Quezon City Collection Center",
-    city: "Quezon City, Metro Manila",
-    address: "Medical Plaza Annex, Quezon Ave",
-    phone: "(02) 8741 2240",
-    hours: "Mon - Sat: 7:30 AM - 4:30 PM",
-    coordinates: [14.6471, 121.0346],
+    name: "Lablog San Juan (St. Patrick Supreme Diagnostic)",
+    city: "San Juan City, 1500 Metro Manila",
+    address: "12 N. Domingo Street, Corner San Perfecto",
+    phone: "0956 064 8809",
+    hours: "Opens 6:00 AM",
+    imageSrc: "/clinics/St.%20Patrick%20San%20Juan.jpeg",
+    coordinates: [14.602532, 121.021101],
   },
   {
-    name: "Cebu Collection Center",
-    city: "Cebu City, Cebu",
-    address: "Osmena Blvd, Cebu Business Park",
-    phone: "(032) 341 9021",
-    hours: "Mon - Sat: 8:00 AM - 5:00 PM",
-    coordinates: [10.3157, 123.8854],
+    name: "Lablog Batangas (Mega Lab Diagnostic Centre)",
+    city: "Lipa City, 4217 Batangas",
+    address: "Claro M. Recto Avenue beside Security Bank, Barangay 6",
+    phone: "(043) 757 2451",
+    hours: "Opens 7:00 AM",
+    imageSrc: "/clinics/Megalab%20Batangas.png",
+    coordinates: [13.9408624, 121.1620322],
   },
   {
-    name: "Davao Collection Center",
-    city: "Davao City, Davao del Sur",
-    address: "JP Laurel Ave, Bajada District",
-    phone: "(082) 299 5531",
-    hours: "Mon - Sat: 8:00 AM - 5:00 PM",
-    coordinates: [7.1907, 125.4553],
+    name: "Lablog Laguna (ReaLab Medical and Diagnostic Center)",
+    city: "Calamba, 4027 Laguna",
+    address: "2125 Real Rd, Real",
+    phone: "0999 521 8222",
+    hours: "Opens 7:00 AM",
+    imageSrc: "/clinics/Reallab%20Laguna.png",
+    coordinates: [14.1965605, 121.1454837],
   },
   {
-    name: "Iloilo Collection Center",
-    city: "Iloilo City, Iloilo",
-    address: "Megaworld Blvd, Mandurriao",
-    phone: "(033) 337 1810",
-    hours: "Mon - Sat: 8:00 AM - 4:30 PM",
-    coordinates: [10.7202, 122.5621],
+    name: "Lablog Baguio (TopLab MD Baguio)",
+    city: "Baguio, 2600 Benguet",
+    address: "2nd Floor, Bldg 2, BBCCC, Assumption Rd",
+    phone: "(074) 309 8591",
+    hours: "Opens 8:00 AM",
+    coordinates: [16.4163699, 120.5975912],
+  },
+  {
+    name: "Lablog Boracay (Scandi Medical Clinic and Diagnostic Center)",
+    city: "Boracay, Philippines",
+    address: "0117 Bulabog Boracay Malay Aklan",
+    phone: "(036) 288 9341",
+    hours: "Opens 8:00 AM",
+    imageSrc: "/clinics/Scandi%20Boracay.png",
+    coordinates: [11.9625436, 121.9280844],
+  },
+  {
+    name: "Lablog Bohol (Scandi Medical Clinic and Diagnostic Center)",
+    city: "Brgy Danao, Panglao, Philippines",
+    address: "Willander Plaza, Unit DL4-DL5, Purok 5",
+    phone: "0928 986 3237",
+    hours: "Opens 8:00 AM",
+    imageSrc: "/clinics/Scandi%20Bohol.png",
+    coordinates: [9.5527926, 123.7641536],
+  },
+  {
+    name: "Lablog Cebu (JS Medical and Diagnostic Center)",
+    city: "Cebu City, 6000 Lalawigan ng Cebu",
+    address: "Ayala access road (axis), 322 Macroville",
+    phone: "(032) 383 8456",
+    hours: "Opens 7:00 AM",
+    imageSrc: "/clinics/JS%20Medical%20Cebu.jpg",
+    coordinates: [10.3133338, 123.9031743],
+  },
+  {
+    name: "Lablog Davao (Labworkz Davao Medical Services)",
+    city: "Talomo, Davao City, 8000 Davao del Sur",
+    address: "GF, Unit 3, N&E Building, Guillermo E. Torres St",
+    phone: "0965 675 8256",
+    hours: "Opens 6:30 AM",
+    imageSrc: "/clinics/Labworkz%20Davao.png",
+    coordinates: [7.0617977, 125.6012636],
   },
 ]
 
@@ -90,29 +133,16 @@ export default function CollectionCenters() {
         px={{ base: 16, md: 40 }}
       >
         <Stack gap="lg">
-          <Box>
-            <Title order={2} className={styles.title}>
-              Find a LABLOG Collection Center Near You
-            </Title>
-            <Text className={styles.subtitle}>
-              LABLOG partners with collection centers nationwide to make genetic testing more accessible to Filipinos.
-            </Text>
-            <Text className={styles.subtitleSecondary}>
-              We continue to expand our network across major cities and provinces throughout the Philippines.
-            </Text>
-          </Box>
-
-          <Button
-            component="a"
-            href="#contact"
-            variant="outline"
-            color="teal"
-            radius="md"
-            className={styles.viewAllButton}
-          >
-            View All Collection Centers
-          </Button>
-
+          <Heading
+            title="Find a LABLOG Collection Center Near You"
+            subtitle="LABLOG partners with collection centers nationwide to make genetic testing more accessible to Filipinos."
+            description="We continue to expand our network across major cities and provinces throughout the Philippines."
+            classNames={{
+              root: styles.sectionHeading,
+              title: styles.sectionTitle,
+              subtitle: styles.sectionSubtitle,
+            }}
+          />
           <Box className={styles.mapStage}>
             <CollectionCentersMap
               centers={COLLECTION_CENTERS}
@@ -147,7 +177,17 @@ export default function CollectionCenters() {
                   <Carousel.Slide key={center.name}>
                     <Box className={styles.card}>
                       <Box className={styles.imagePlaceholder}>
-                        <Text className={styles.imageLabel}>LABLOG</Text>
+                        {center.imageSrc ? (
+                          <Image
+                            src={center.imageSrc}
+                            alt={center.name}
+                            fill
+                            sizes="(max-width: 640px) calc(100vw - 64px), 330px"
+                            className={styles.clinicImage}
+                          />
+                        ) : (
+                          <Text className={styles.imageLabel}>LABLOG</Text>
+                        )}
                       </Box>
 
                       <Title order={4} className={styles.cardTitle}>

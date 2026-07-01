@@ -18,6 +18,7 @@ import {
   Title,
 } from "@mantine/core"
 import Heading from "@/components/shared/heading/Heading"
+import HowItWorksSteps, { type HowItWorksStep } from "@/components/shared/how-it-works/HowItWorksSteps"
 import FeatureHighlightsGrid, {
   type FeatureHighlightItem,
 } from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
@@ -118,33 +119,43 @@ const KEY_AREAS = [
   },
 ]
 
-const HOW_IT_WORKS = [
+const HOW_IT_WORKS: HowItWorksStep[] = [
   {
+    number: 1,
     title: "Order your test",
     description: "Book online or speak with our team.",
-    icon: <IconCalendarEvent size={28} stroke={1.8} aria-hidden />,
+    icon: <IconCalendarEvent size={36} stroke={1.8} aria-hidden />,
+    color: "#067BF7",
   },
   {
+    number: 2,
     title: "Collect your DNA sample",
     description: "A simple cheek swab is collected using the sterile collection kit provided.",
-    icon: <IconTestPipe size={28} stroke={1.8} aria-hidden />,
-    options: ["Home DNA test kit", "Collection centers nationwide", "Mobile home service (selected areas)"],
+    icon: <IconTestPipe size={36} stroke={1.8} aria-hidden />,
+    bulletPoints: ["Home DNA test kit", "Collection centers nationwide", "Mobile home service (selected areas)"],
+    color: "#02B992",
   },
   {
+    number: 3,
     title: "Laboratory analysis",
     description:
       "Advanced genomic technologies analyze millions of genetic markers to generate your personalized reports.",
-    icon: <IconMicroscope size={28} stroke={1.8} aria-hidden />,
+    icon: <IconMicroscope size={36} stroke={1.8} aria-hidden />,
+    color: "#067BF7",
   },
   {
+    number: 4,
     title: "Explore your personalized dashboard",
     description: "Access your secure online DNA Blueprint dashboard and discover over 700 personalized insights.",
-    icon: <IconFileCheck size={28} stroke={1.8} aria-hidden />,
+    icon: <IconFileCheck size={36} stroke={1.8} aria-hidden />,
+    color: "#02B992",
   },
   {
+    number: 5,
     title: "Genetic consultation",
     description: "Receive a complimentary 30-minute consultation to better understand your results.",
-    icon: <IconUsers size={28} stroke={1.8} aria-hidden />,
+    icon: <IconUsers size={36} stroke={1.8} aria-hidden />,
+    color: "#067BF7",
   },
 ]
 
@@ -374,33 +385,11 @@ export default function KidsDnaPage() {
 
       <Box component="section" className={`${styles.section} ${styles.processSection}`}>
         <Container size="xl">
-          <Title order={2} className={styles.sectionTitle} ta="center">
-            How It Works
-          </Title>
-          <SimpleGrid cols={{ base: 1, sm: 2, md: 5 }} spacing="md" mt={20}>
-            {HOW_IT_WORKS.map((step, index) => (
-              <Paper key={step.title} radius="lg" className={styles.processCard}>
-                <Text className={styles.stepNumber}>{index + 1}</Text>
-                <ThemeIcon size={60} radius="xl" variant="light" className={styles.processIcon}>
-                  {step.icon}
-                </ThemeIcon>
-                <Title order={3} className={styles.processTitle}>
-                  {step.title}
-                </Title>
-                <Text className={styles.processDescription}>{step.description}</Text>
-                {step.options && (
-                  <Stack gap={6} mt={10}>
-                    {step.options.map((option) => (
-                      <Text key={option} className={styles.metricItem}>
-                        <IconCircleCheck size={14} stroke={2.1} aria-hidden />
-                        {option}
-                      </Text>
-                    ))}
-                  </Stack>
-                )}
-              </Paper>
-            ))}
-          </SimpleGrid>
+          <HowItWorksSteps
+            title="How It Works"
+            subtitle="From ordering to consultation, every step is guided and straightforward."
+            steps={HOW_IT_WORKS}
+          />
         </Container>
       </Box>
 

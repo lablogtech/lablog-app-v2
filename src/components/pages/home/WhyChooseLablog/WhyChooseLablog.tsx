@@ -2,6 +2,7 @@
 
 import styles from "./WhyChooseLablog.module.css"
 import { Box, Container, Grid, Stack, Text, ThemeIcon, Title } from "@mantine/core"
+import Heading from "@/components/shared/heading/Heading"
 import { IconRocket, IconHome, IconLock, IconCertificate, IconUsers, IconClock } from "@tabler/icons-react"
 
 const FEATURES = [
@@ -48,11 +49,14 @@ export default function WhyChooseLablog() {
         px={{ base: 16, md: 40 }}
       >
         <Stack gap="lg" align="center" className={styles.headerStack}>
-          <Box className={styles.headerBox}>
-            <Title order={2} className={styles.title}>
-              Why Choose Lablog for DNA Testing in the Philippines?
-            </Title>
-          </Box>
+          <Heading
+            title="Why Choose Lablog for DNA Testing in the Philippines?"
+            classNames={{
+              root: styles.sectionHeading,
+              title: styles.sectionTitle,
+              subtitle: styles.sectionSubtitle,
+            }}
+          />
         </Stack>
 
         <Grid gap={{ base: 24, md: 32 }} align="stretch" className={styles.featuresGrid}>

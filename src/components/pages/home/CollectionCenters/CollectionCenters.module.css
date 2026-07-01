@@ -99,6 +99,8 @@
 }
 
 .imagePlaceholder {
+  position: relative;
+  overflow: hidden;
   height: 130px;
   border-radius: 10px;
   background:
@@ -114,6 +116,10 @@
   align-items: flex-start;
   justify-content: flex-start;
   padding: 10px;
+}
+
+.clinicImage {
+  object-fit: cover;
 }
 
 .imageLabel {
@@ -175,6 +181,22 @@
 
 .indicator {
   background: var(--mantine-color-blue-6);
+}
+
+.sectionHeading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  font-size: clamp(1.65rem, 3.2vw, 2.3rem);
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+
+.sectionSubtitle {
+  color: #38517c;
+  font-size: 0.96rem;
 }
 
 @media (max-width: 992px) {
