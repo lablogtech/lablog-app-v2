@@ -20,6 +20,7 @@ import {
 } from "@mantine/core"
 import Heading from "@/components/shared/heading/Heading"
 import HowItWorksSteps, { type HowItWorksStep } from "@/components/shared/how-it-works/HowItWorksSteps"
+import RecommendationMatrixCard from "@/components/shared/recommendation-matrix-card/RecommendationMatrixCard"
 import {
   IconArrowRight,
   IconBabyCarriage,
@@ -369,46 +370,43 @@ export default function PregnancyPage() {
         <Container size="xl">
           <Grid gap="lg" align="stretch">
             <Grid.Col span={{ base: 12, lg: 8 }}>
-              <Paper radius="xl" className={styles.matrixCard}>
-                <Title order={2} className={styles.matrixTitle}>
-                  Not Sure Which Test You Need?
-                </Title>
-                <Text className={styles.matrixSubtitle}>Here&apos;s a simple guide to help you.</Text>
-
-                <Stack gap={0} mt={18}>
-                  {[
-                    {
-                      situation: "We are planning to have a baby.",
-                      recommendation: "Carrier Screening",
-                    },
-                    {
-                      situation: "I am currently pregnant.",
-                      recommendation: "NIPT (Non-Invasive Prenatal Test)",
-                    },
-                    {
-                      situation: "My baby has already been born.",
-                      recommendation: "Newborn Genetic Screening",
-                    },
-                    {
-                      situation: "We have a family history of genetic conditions.",
-                      recommendation: "Carrier Screening",
-                    },
-                    {
-                      situation: "I want additional reassurance during pregnancy.",
-                      recommendation: "NIPT (Non-Invasive Prenatal Test)",
-                    },
-                    {
-                      situation: "I want early health insights for my newborn",
-                      recommendation: "Newborn Genetic Screening",
-                    },
-                  ].map((row) => (
-                    <Group key={row.situation} justify="space-between" className={styles.matrixRow}>
-                      <Text className={styles.matrixSituation}>{row.situation}</Text>
-                      <Text className={styles.matrixRecommendation}>{row.recommendation}</Text>
-                    </Group>
-                  ))}
-                </Stack>
-              </Paper>
+              <RecommendationMatrixCard
+                title="Not Sure Which Test You Need?"
+                subtitle="Here's a simple guide to help you."
+                rows={[
+                  {
+                    situation: "We are planning to have a baby.",
+                    recommendation: "Carrier Screening",
+                    recommendationHref: "/pregnancy/carrier-screening-philippines",
+                  },
+                  {
+                    situation: "I am currently pregnant.",
+                    recommendation: "NIPT (Non-Invasive Prenatal Test)",
+                    recommendationHref: "/pregnancy/nipt-philippines",
+                  },
+                  {
+                    situation: "My baby has already been born.",
+                    recommendation: "Newborn Genetic Screening",
+                    recommendationHref: "/pregnancy/newborn-genetic-screening-philippines",
+                  },
+                  {
+                    situation: "We have a family history of genetic conditions.",
+                    recommendation: "Carrier Screening",
+                    recommendationHref: "/pregnancy/carrier-screening-philippines",
+                  },
+                  {
+                    situation: "I want additional reassurance during pregnancy.",
+                    recommendation: "NIPT (Non-Invasive Prenatal Test)",
+                    recommendationHref: "/pregnancy/nipt-philippines",
+                  },
+                  {
+                    situation: "I want early health insights for my newborn",
+                    recommendation: "Newborn Genetic Screening",
+                    recommendationHref: "/pregnancy/newborn-genetic-screening-philippines",
+                  },
+                ]}
+                accentColor="#3477d5"
+              />
             </Grid.Col>
 
             <Grid.Col span={{ base: 12, lg: 4 }}>

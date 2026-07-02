@@ -3,22 +3,10 @@
 import Image from "next/image"
 import Link from "next/link"
 import styles from "./PetDnaPage.module.css"
-import {
-  Accordion,
-  Box,
-  Button,
-  Container,
-  Grid,
-  Group,
-  Paper,
-  SimpleGrid,
-  Stack,
-  Text,
-  ThemeIcon,
-  Title,
-} from "@mantine/core"
+import { Accordion, Box, Button, Container, Grid, Group, Paper, Stack, Text, Title } from "@mantine/core"
 import Heading from "@/components/shared/heading/Heading"
 import HowItWorksSteps, { type HowItWorksStep } from "@/components/shared/how-it-works/HowItWorksSteps"
+import HighlightCards, { type HighlightCardItem } from "@/components/shared/highlight-cards/HighlightCards"
 import FeatureHighlightsGrid, {
   type FeatureHighlightItem,
 } from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
@@ -51,13 +39,19 @@ const HERO_FEATURES: FeatureHighlightItem[] = [
   { label: "Secure", subLabel: "confidential results", Icon: IconShieldLock },
 ]
 
-const DISCOVERY_CARDS = [
+const DISCOVERY_CARDS: HighlightCardItem[] = [
   {
     title: "Breed & Ancestry Analysis",
     description: "Discover your pet's genetic background and lineage.",
-    dogs: "Identify up to 149 dog breeds.",
-    cats: "Identify up to 28 cat breeds.",
-    points: [
+    details: [
+      <>
+        <strong>Dogs:</strong> Identify up to 149 dog breeds.
+      </>,
+      <>
+        <strong>Cats:</strong> Identify up to 28 cat breeds.
+      </>,
+    ],
+    insights: [
       "Mixed breed pets",
       "Rescue pets",
       "Understanding inherited traits",
@@ -68,9 +62,15 @@ const DISCOVERY_CARDS = [
   {
     title: "Genetic Health Screening",
     description: "Understand inherited risks that may help support preventive veterinary care.",
-    dogs: "Screen for 133 canine genetic diseases.",
-    cats: "Screen for 49 feline genetic diseases across 6 categories.",
-    points: [
+    details: [
+      <>
+        <strong>Dogs:</strong> Screen for 133 canine genetic diseases.
+      </>,
+      <>
+        <strong>Cats:</strong> Screen for 49 feline genetic diseases across 6 categories.
+      </>,
+    ],
+    insights: [
       "Blood and heart",
       "Internal medicine conditions",
       "Skin and facial traits",
@@ -84,7 +84,7 @@ const DISCOVERY_CARDS = [
   {
     title: "Behavioral Insights",
     description: "Better understand your pet's natural tendencies.",
-    points: [
+    insights: [
       "Energy levels",
       "Trainability",
       "Intelligence",
@@ -97,7 +97,7 @@ const DISCOVERY_CARDS = [
   {
     title: "Nutrition & Wellness Guidance",
     description: "Support healthier routines based on your pet's genetic profile.",
-    points: [
+    insights: [
       "Feeding recommendations",
       "Nutritional tendencies",
       "Weight management support",
@@ -108,13 +108,13 @@ const DISCOVERY_CARDS = [
   {
     title: "Grooming Insights",
     description: "Understand coat and grooming traits that may help you establish better grooming routines.",
-    points: [],
+    insights: [],
     icon: <IconStethoscope size={25} stroke={1.9} aria-hidden />,
   },
   {
     title: "Breeding Guidance",
     description: "Helpful for breeders and pet owners who want to make responsible breeding decisions.",
-    points: [
+    insights: [
       "Carrier status awareness",
       "Genetic compatibility considerations",
       "Blood type information (cats)",
@@ -297,48 +297,7 @@ export default function PetDnaPage() {
 
       <Box component="section" id="discover" className={styles.section}>
         <Container size="xl">
-          <Box className={styles.sectionHeading}>
-            <Title order={2} className={styles.sectionTitle}>
-              What Can PetDNA Help You Discover?
-            </Title>
-          </Box>
-
-          <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="md">
-            {DISCOVERY_CARDS.map((card) => (
-              <Paper key={card.title} radius="xl" className={styles.discoveryCard}>
-                <ThemeIcon size={56} radius="xl" variant="light" className={styles.discoveryIcon}>
-                  {card.icon}
-                </ThemeIcon>
-                <Title order={3} className={styles.discoveryTitle}>
-                  {card.title}
-                </Title>
-                <Text className={styles.discoveryDescription}>{card.description}</Text>
-                {card.dogs && (
-                  <Text className={styles.valueDescription}>
-                    <strong>Dogs:</strong> {card.dogs}
-                  </Text>
-                )}
-                {card.cats && (
-                  <Text className={styles.valueDescription}>
-                    <strong>Cats:</strong> {card.cats}
-                  </Text>
-                )}
-                <Stack gap={6} mt={10}>
-                  {card.points.map((point) => (
-                    <Text key={point} className={styles.discoveryPoint}>
-                      <IconCircleCheck size={14} stroke={2.1} aria-hidden />
-                      {point}
-                    </Text>
-                  ))}
-                </Stack>
-                {card.note && (
-                  <Text className={styles.previewDescription}>
-                    <strong>{card.note}</strong>
-                  </Text>
-                )}
-              </Paper>
-            ))}
-          </SimpleGrid>
+          <HighlightCards title="What Can PetDNA Help You Discover?" items={DISCOVERY_CARDS} />
         </Container>
       </Box>
 

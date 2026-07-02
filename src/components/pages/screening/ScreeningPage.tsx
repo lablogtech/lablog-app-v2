@@ -12,13 +12,14 @@ import {
   Group,
   Paper,
   SimpleGrid,
-  Stack,
   Text,
   ThemeIcon,
   Title,
 } from "@mantine/core"
 import Heading from "@/components/shared/heading/Heading"
+import ConfidentialInfoCard from "@/components/shared/confidential-info-card/ConfidentialInfoCard"
 import HowItWorksSteps, { type HowItWorksStep } from "@/components/shared/how-it-works/HowItWorksSteps"
+import HighlightCards, { type HighlightCardItem } from "@/components/shared/highlight-cards/HighlightCards"
 import FeatureHighlightsGrid, {
   type FeatureHighlightItem,
 } from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
@@ -47,11 +48,12 @@ const HERO_FEATURES: FeatureHighlightItem[] = [
   { label: "Suitable for", subLabel: "routine preventive care", Icon: IconShieldLock },
 ]
 
-const SCREENING_CARDS = [
+const SCREENING_CARDS: HighlightCardItem[] = [
   {
     title: "Cardiac Health Screening",
     description: "Monitor key markers associated with cardiovascular and metabolic health.",
-    idealFor: [
+    details: ["Ideal for:"],
+    insights: [
       "Family history of heart disease",
       "High cholesterol",
       "Hypertension risk",
@@ -62,7 +64,8 @@ const SCREENING_CARDS = [
   {
     title: "Diet & Lifestyle Screening",
     description: "Understand important health markers that may be influenced by your lifestyle habits.",
-    idealFor: [
+    details: ["Ideal for:"],
+    insights: [
       "Weight management",
       "Metabolic health concerns",
       "Nutritional awareness",
@@ -73,25 +76,29 @@ const SCREENING_CARDS = [
   {
     title: "Diabetes Screening",
     description: "Monitor blood sugar and metabolic markers that support long-term health management.",
-    idealFor: ["Diabetes risk", "Family history of diabetes", "Obesity concerns", "Preventive health monitoring"],
+    details: ["Ideal for:"],
+    insights: ["Diabetes risk", "Family history of diabetes", "Obesity concerns", "Preventive health monitoring"],
     icon: <IconTestPipe size={26} stroke={1.9} aria-hidden />,
   },
   {
     title: "Hormone Screening",
     description: "Evaluate important hormones that may affect energy, metabolism, mood, and overall wellbeing.",
-    idealFor: ["Fatigue", "Weight fluctuations", "Hormonal imbalances", "Thyroid concerns", "PCOS support"],
+    details: ["Ideal for:"],
+    insights: ["Fatigue", "Weight fluctuations", "Hormonal imbalances", "Thyroid concerns", "PCOS support"],
     icon: <IconDna2 size={26} stroke={1.9} aria-hidden />,
   },
   {
     title: "Elite Fitness Screening",
     description: "Optimize your fitness journey through comprehensive laboratory monitoring.",
-    idealFor: ["Athletes", "Active individuals", "Fitness enthusiasts", "Performance optimization"],
+    details: ["Ideal for:"],
+    insights: ["Athletes", "Active individuals", "Fitness enthusiasts", "Performance optimization"],
     icon: <IconStethoscope size={26} stroke={1.9} aria-hidden />,
   },
   {
     title: "Men's Prime Health Package",
     description: "A comprehensive wellness assessment designed specifically for men's health needs.",
-    idealFor: [
+    details: ["Ideal for:"],
+    insights: [
       "Men aged 35 and above",
       "Annual health checkups",
       "Family history of chronic diseases",
@@ -102,7 +109,8 @@ const SCREENING_CARDS = [
   {
     title: "Women's Prime Health Package",
     description: "A comprehensive wellness assessment designed specifically for women's health needs.",
-    idealFor: [
+    details: ["Ideal for:"],
+    insights: [
       "Women aged 35 and above",
       "Annual health checkups",
       "Long-term preventive care",
@@ -113,7 +121,8 @@ const SCREENING_CARDS = [
   {
     title: "Men's Tumor Marker Screening",
     description: "Monitor specific tumor markers that may support discussions around cancer surveillance.",
-    idealFor: [
+    details: ["Ideal for:"],
+    insights: [
       "Family history of cancer",
       "High-risk individuals",
       "Ongoing monitoring",
@@ -125,7 +134,8 @@ const SCREENING_CARDS = [
   {
     title: "Women's Tumor Marker Screening",
     description: "Monitor specific tumor markers associated with women's health.",
-    idealFor: [
+    details: ["Ideal for:"],
+    insights: [
       "Family history of cancer",
       "High-risk individuals",
       "Ongoing monitoring",
@@ -137,7 +147,8 @@ const SCREENING_CARDS = [
   {
     title: "Pregnancy Wellness Screening",
     description: "Essential laboratory screening designed to support maternal health during pregnancy.",
-    idealFor: ["Expecting mothers", "Routine prenatal care", "Early pregnancy screening"],
+    details: ["Ideal for:"],
+    insights: ["Expecting mothers", "Routine prenatal care", "Early pregnancy screening"],
     icon: <IconShieldLock size={26} stroke={1.9} aria-hidden />,
   },
 ]
@@ -321,41 +332,12 @@ export default function ScreeningPage() {
 
       <Box component="section" className={styles.section}>
         <Container size="xl">
-          <Box className={styles.sectionHeading}>
-            <Title order={2} className={styles.sectionTitle}>
-              Find The Right Health Screening For You
-            </Title>
-          </Box>
-
-          <SimpleGrid cols={{ base: 1, sm: 2, lg: 5 }} spacing="md">
-            {SCREENING_CARDS.map((item) => (
-              <Paper key={item.title} radius="xl" className={styles.optionCard}>
-                <ThemeIcon size={56} radius="xl" variant="light" className={styles.optionIcon}>
-                  {item.icon}
-                </ThemeIcon>
-                <Title order={3} className={styles.optionTitle}>
-                  {item.title}
-                </Title>
-                <Text className={styles.optionDescription}>{item.description}</Text>
-                <Text className={styles.optionDescription} mt={10} fw={700}>
-                  Ideal for:
-                </Text>
-                <Stack gap={6} mt={6}>
-                  {item.idealFor.map((point) => (
-                    <Text key={point} className={styles.optionPoint}>
-                      <IconCircleCheck size={14} stroke={2.1} aria-hidden />
-                      {point}
-                    </Text>
-                  ))}
-                </Stack>
-                {item.note && (
-                  <Text className={styles.optionDescription} mt={10}>
-                    <strong>{item.note}</strong>
-                  </Text>
-                )}
-              </Paper>
-            ))}
-          </SimpleGrid>
+          <HighlightCards
+            title="Find The Right Health Screening For You"
+            items={SCREENING_CARDS}
+            cols={{ base: 1, sm: 2, lg: 5 }}
+            accentColor="#14a66a"
+          />
         </Container>
       </Box>
 
@@ -420,19 +402,16 @@ export default function ScreeningPage() {
 
       <Box component="section" className={styles.section}>
         <Container size="xl">
-          <Paper radius="xl" className={styles.ctaCard}>
-            <Title order={2} className={styles.ctaTitle}>
-              Safe, Convenient & Confidential
-            </Title>
-            <Text className={styles.ctaDescription}>We understand that health information is personal.</Text>
-            <Text className={styles.ctaDescription} mt={10}>
-              Every sample, report, and patient record is handled with strict confidentiality and released only to
-              authorized individuals.
-            </Text>
-            <Text className={styles.ctaDescription} mt={10}>
-              Our goal is to make preventive healthcare more accessible for everyone.
-            </Text>
-          </Paper>
+          <ConfidentialInfoCard
+            title="Safe, Convenient & Confidential"
+            paragraphs={[
+              "We understand that health information is personal.",
+              "Every sample, report, and patient record is handled with strict confidentiality and released only to authorized individuals.",
+              "Our goal is to make preventive healthcare more accessible for everyone.",
+            ]}
+            accentColor="#14a66a"
+            icon={<IconShieldLock size={22} stroke={1.9} aria-hidden />}
+          />
         </Container>
       </Box>
 

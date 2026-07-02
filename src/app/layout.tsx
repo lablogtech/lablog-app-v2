@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Inter, Poppins } from "next/font/google"
+import { Suspense } from "react"
 import { Box, ColorSchemeScript, MantineProvider, createTheme, mantineHtmlProps } from "@mantine/core"
 import Header from "@/components/Header/Header"
 import Footer from "@/components/Footer/Footer"
@@ -77,7 +78,9 @@ export default function RootLayout({
       <body className="siteBody">
         <MantineProvider theme={theme}>
           <Box className="siteShell" bg="#fff">
-            <ScrollToTopOnNavigation />
+            <Suspense fallback={null}>
+              <ScrollToTopOnNavigation />
+            </Suspense>
             <Header />
             <Box component="main" className="siteMain">
               {children}

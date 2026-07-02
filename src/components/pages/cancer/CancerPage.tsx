@@ -19,6 +19,8 @@ import {
   Title,
 } from "@mantine/core"
 import Heading from "@/components/shared/heading/Heading"
+import ConfidentialInfoCard from "@/components/shared/confidential-info-card/ConfidentialInfoCard"
+import RecommendationMatrixCard from "@/components/shared/recommendation-matrix-card/RecommendationMatrixCard"
 import HowItWorksSteps, { type HowItWorksStep } from "@/components/shared/how-it-works/HowItWorksSteps"
 import {
   IconArrowRight,
@@ -397,28 +399,39 @@ export default function CancerPage() {
         <Container size="xl">
           <Grid gap="lg" align="stretch">
             <Grid.Col span={{ base: 12, lg: 7 }}>
-              <Paper radius="xl" className={styles.matrixCard}>
-                <Title order={2} className={styles.matrixTitle}>
-                  Not Sure Which Test You Need?
-                </Title>
-                <Text className={styles.matrixSubtitle}>Here&apos;s a quick guide to help you decide.</Text>
-
-                <Stack gap={0} mt={16}>
-                  {[
-                    ["Family history of breast cancer", "BRCA Genetic Test"],
-                    ["Multiple generations affected", "HBOC Screening"],
-                    ["Multiple cancer types in the family", "Comprehensive Hereditary Cancer Screening"],
-                    ["I want a broader preventive assessment", "Comprehensive Hereditary Cancer Screening"],
-                    ["I&apos;m unsure where to start", "Speak with our specialists"],
-                  ].map(([situation, recommendation]) => (
-                    <Group key={situation} justify="space-between" className={styles.matrixRow}>
-                      <Text className={styles.matrixSituation}>{situation}</Text>
-                      <Text className={styles.matrixRecommendation}>{recommendation}</Text>
-                    </Group>
-                  ))}
-                </Stack>
-                <Text mt={14}>Our team can help determine the most appropriate screening option for you.</Text>
-              </Paper>
+              <RecommendationMatrixCard
+                title="Not Sure Which Test You Need?"
+                subtitle="Here's a quick guide to help you decide."
+                rows={[
+                  {
+                    situation: "Family history of breast cancer",
+                    recommendation: "BRCA Genetic Test",
+                    recommendationHref: "/cancer/brca-genetic-test-philippines",
+                  },
+                  {
+                    situation: "Multiple generations affected",
+                    recommendation: "HBOC Screening",
+                    recommendationHref: "/cancer/hboc-screening-philippines",
+                  },
+                  {
+                    situation: "Multiple cancer types in the family",
+                    recommendation: "Comprehensive Hereditary Cancer Screening",
+                    recommendationHref: "/cancer/comprehensive-hereditary-cancer-screening-philippines",
+                  },
+                  {
+                    situation: "I want a broader preventive assessment",
+                    recommendation: "Comprehensive Hereditary Cancer Screening",
+                    recommendationHref: "/cancer/comprehensive-hereditary-cancer-screening-philippines",
+                  },
+                  {
+                    situation: "I'm unsure where to start",
+                    recommendation: "Speak with our specialists",
+                    recommendationHref: "#contact",
+                  },
+                ]}
+                note="Our team can help determine the most appropriate screening option for you."
+                accentColor="#8a45d9"
+              />
             </Grid.Col>
 
             <Grid.Col span={{ base: 12, lg: 5 }}>
@@ -448,19 +461,16 @@ export default function CancerPage() {
 
       <Box component="section" className={styles.section}>
         <Container size="xl">
-          <Paper radius="xl" className={styles.infoCard}>
-            <Title order={2} className={styles.sectionTitle}>
-              Safe, Private &amp; Confidential
-            </Title>
-            <Text mt={12}>We understand that genetic information is deeply personal.</Text>
-            <Text mt={8}>
-              Every sample, report, and patient record is handled with strict confidentiality and released only to
-              authorized individuals.
-            </Text>
-            <Text mt={8}>
-              Our team is here to support you with professionalism, compassion, and care throughout your journey.
-            </Text>
-          </Paper>
+          <ConfidentialInfoCard
+            title="Safe, Private & Confidential"
+            paragraphs={[
+              "We understand that genetic information is deeply personal.",
+              "Every sample, report, and patient record is handled with strict confidentiality and released only to authorized individuals.",
+              "Our team is here to support you with professionalism, compassion, and care throughout your journey.",
+            ]}
+            accentColor="#2e74e0"
+            icon={<IconShieldLock size={22} stroke={1.9} aria-hidden />}
+          />
         </Container>
       </Box>
 

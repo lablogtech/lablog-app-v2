@@ -3,22 +3,11 @@
 import Image from "next/image"
 import Link from "next/link"
 import styles from "./KidsDnaPage.module.css"
-import {
-  Accordion,
-  Box,
-  Button,
-  Container,
-  Grid,
-  Group,
-  Paper,
-  SimpleGrid,
-  Stack,
-  Text,
-  ThemeIcon,
-  Title,
-} from "@mantine/core"
+import { Accordion, Box, Button, Container, Grid, Group, Paper, SimpleGrid, Stack, Text, Title } from "@mantine/core"
 import Heading from "@/components/shared/heading/Heading"
+import ConfidentialInfoCard from "@/components/shared/confidential-info-card/ConfidentialInfoCard"
 import HowItWorksSteps, { type HowItWorksStep } from "@/components/shared/how-it-works/HowItWorksSteps"
+import HighlightCards, { type HighlightCardItem } from "@/components/shared/highlight-cards/HighlightCards"
 import FeatureHighlightsGrid, {
   type FeatureHighlightItem,
 } from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
@@ -36,7 +25,7 @@ import {
   IconUsers,
 } from "@tabler/icons-react"
 
-const KEY_AREAS = [
+const KEY_AREAS: HighlightCardItem[] = [
   {
     title: "Ancestry & Origins",
     description: "Explore your child's genetic story and discover ancestral roots from different parts of the world.",
@@ -327,39 +316,11 @@ export default function KidsDnaPage() {
 
       <Box component="section" className={styles.section}>
         <Container size="xl">
-          <Box className={styles.sectionHeading}>
-            <Text className={styles.sectionEyebrow}>What Makes Up DNA Blueprint</Text>
-            <Title order={2} className={styles.sectionTitle}>
-              7 Key Areas Designed To Help You Better Understand Your Child
-            </Title>
-          </Box>
-
-          <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="md">
-            {KEY_AREAS.map((area) => (
-              <Paper key={area.title} radius="lg" className={styles.areaCard}>
-                <ThemeIcon size={52} radius="xl" variant="light" className={styles.areaIcon}>
-                  {area.icon}
-                </ThemeIcon>
-                <Title order={3} className={styles.areaTitle}>
-                  {area.title}
-                </Title>
-                <Text className={styles.areaDescription}>{area.description}</Text>
-                <Stack gap={6} mt={10}>
-                  {area.insights.map((insight) => (
-                    <Text key={insight} className={styles.metricItem}>
-                      <IconCircleCheck size={14} stroke={2.1} aria-hidden />
-                      {insight}
-                    </Text>
-                  ))}
-                </Stack>
-                {area.note && (
-                  <Text className={styles.dashboardLabel} mt={8}>
-                    {area.note}
-                  </Text>
-                )}
-              </Paper>
-            ))}
-          </SimpleGrid>
+          <HighlightCards
+            eyebrow="What Makes Up DNA Blueprint"
+            title="7 Key Areas Designed To Help You Better Understand Your Child"
+            items={KEY_AREAS}
+          />
         </Container>
       </Box>
 
@@ -375,8 +336,10 @@ export default function KidsDnaPage() {
           <SimpleGrid cols={{ base: 1, sm: 2, lg: 5 }} spacing="sm" mt={18}>
             {SUPPORT_POINTS.map((item) => (
               <Paper key={item.title} radius="md" className={styles.infoStripCard}>
-                <Text className={styles.areaTitle}>{item.title}</Text>
-                <Text>{item.description}</Text>
+                <Title order={4} className={styles.areaTitle}>
+                  {item.title}
+                </Title>
+                <Text fw={400}>{item.description}</Text>
               </Paper>
             ))}
           </SimpleGrid>
@@ -412,23 +375,17 @@ export default function KidsDnaPage() {
               </Paper>
             </Grid.Col>
             <Grid.Col span={{ base: 12, lg: 5 }}>
-              <Title order={2} className={styles.sectionTitle}>
-                Safe, Secure and Confidential
-              </Title>
-              <Text className={styles.dashboardDescription}>
-                We understand that genetic information is deeply personal.
-              </Text>
-              <Text className={styles.dashboardDescription} mt={10}>
-                Every sample, report, and patient record is handled with strict confidentiality and released only to
-                authorized individuals.
-              </Text>
-              <Text className={styles.dashboardDescription} mt={10}>
-                Our team is here to support your family with professionalism, compassion, and care every step of the
-                way.
-              </Text>
-              <Button component={Link} href="#contact" className={styles.primaryButton} radius="md" mt={16}>
-                Talk to our specialists
-              </Button>
+              <ConfidentialInfoCard
+                title="Safe, Secure and Confidential"
+                paragraphs={[
+                  "We understand that genetic information is deeply personal.",
+                  "Every sample, report, and patient record is handled with strict confidentiality and released only to authorized individuals.",
+                  "Our team is here to support your family with professionalism, compassion, and care every step of the way.",
+                ]}
+                accentColor="#5f42c9"
+                icon={<IconShieldLock size={22} stroke={1.9} aria-hidden />}
+                action={{ label: "Talk to our specialists", href: "#contact" }}
+              />
             </Grid.Col>
           </Grid>
         </Container>

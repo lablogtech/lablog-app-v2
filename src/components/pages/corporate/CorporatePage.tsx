@@ -7,7 +7,6 @@ import {
   IconBuilding,
   IconBuildingFactory2,
   IconCalendarEvent,
-  IconCheck,
   IconClipboardList,
   IconHeartRateMonitor,
   IconMapPin,
@@ -23,6 +22,8 @@ import {
 import styles from "./CorporatePage.module.css"
 import Heading from "@/components/shared/heading/Heading"
 import HowItWorksSteps, { type HowItWorksStep } from "@/components/shared/how-it-works/HowItWorksSteps"
+import HighlightCards, { type HighlightCardItem } from "@/components/shared/highlight-cards/HighlightCards"
+import ChecklistGridSection from "@/components/shared/checklist-grid-section/ChecklistGridSection"
 import FeatureHighlightsGrid, {
   type FeatureHighlightItem,
 } from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
@@ -85,50 +86,81 @@ const CORPORATE_SOLUTIONS_INCLUDE = [
   "Dedicated Account Management",
 ]
 
-const FLEXIBLE_SOLUTIONS = [
+const FLEXIBLE_SOLUTIONS: HighlightCardItem[] = [
   {
     title: "Onsite APE",
+    image: {
+      src: "/pages/Onsite APE.png",
+      alt: "Onsite APE",
+    },
     description: "We bring healthcare directly to your office.",
-    idealFor: [
-      "Medium to large companies",
-      "Manufacturing facilities",
-      "Corporate offices",
-      "BPO companies",
-      "Educational institutions",
+    sections: [
+      {
+        label: "Ideal for:",
+        points: [
+          "Medium to large companies",
+          "Manufacturing facilities",
+          "Corporate offices",
+          "BPO companies",
+          "Educational institutions",
+        ],
+      },
+      {
+        label: "Benefits:",
+        points: [
+          "Minimal employee downtime",
+          "Increased participation",
+          "Convenient scheduling",
+          "Reduced operational disruptions",
+        ],
+      },
     ],
-    benefits: [
-      "Minimal employee downtime",
-      "Increased participation",
-      "Convenient scheduling",
-      "Reduced operational disruptions",
-    ],
+    insights: [],
   },
   {
     title: "Partner Clinic Screening",
+    image: {
+      src: "/pages/Clinic based APE.png",
+      alt: "Partner Clinic Screening",
+    },
     description: "Employees may visit designated collection centers and partner clinics at their convenience.",
-    idealFor: ["Distributed teams", "Hybrid workforces", "Smaller businesses", "Multiple branch locations"],
-    benefits: [],
+    sections: [
+      {
+        label: "Ideal for:",
+        points: ["Distributed teams", "Hybrid workforces", "Smaller businesses", "Multiple branch locations"],
+      },
+    ],
+    insights: [],
   },
   {
     title: "Executive Health Packages",
+    image: {
+      src: "/pages/Executive health pacjkage.png",
+      alt: "Executive Health Packages",
+    },
     description: "Customized preventive health packages for leadership teams and executives.",
-    idealFor: [],
-    benefits: ["Comprehensive laboratory tests", "Cardiac screening", "Cancer screening", "Wellness assessments"],
+    sections: [
+      {
+        label: "Packages may include:",
+        points: ["Comprehensive laboratory tests", "Cardiac screening", "Cancer screening", "Wellness assessments"],
+      },
+    ],
+    insights: [],
   },
 ]
 
-const APE_PACKAGES = [
+const APE_PACKAGES: HighlightCardItem[] = [
   {
-    icon: IconVaccine,
     title: "Basic APE",
-    subtitle: "Common inclusions:",
-    points: ["Medical history", "Physical examination", "CBC", "Urinalysis", "Chest X-ray"],
+    icon: <IconVaccine size={24} stroke={1.8} aria-hidden />,
+    details: ["Common inclusions:"],
+    insights: ["Medical history", "Physical examination", "CBC", "Urinalysis", "Chest X-ray"],
   },
   {
-    icon: IconPill,
     title: "Comprehensive APE",
-    subtitle: "Additional options may include:",
-    points: [
+    icon: <IconPill size={24} stroke={1.8} aria-hidden />,
+    details: ["Additional options may include:"],
+    insights: [
       "Fasting Blood Sugar",
       "Lipid Profile",
       "Liver Function Tests",
@@ -140,10 +172,10 @@ const APE_PACKAGES = [
     ],
   },
   {
-    icon: IconTargetArrow,
     title: "Industry-Specific APE",
-    subtitle: "Examples:",
-    points: [
+    icon: <IconTargetArrow size={24} stroke={1.8} aria-hidden />,
+    details: ["Examples:"],
+    insights: [
       "Corporate Offices",
       "Manufacturing",
       "Schools & Universities",
@@ -296,141 +328,53 @@ export default function CorporatePage() {
           <Text className={styles.cardDescription} ta="center" maw={840} mx="auto" mt={8}>
             Managing employee health screenings shouldn&apos;t create additional work for your HR team.
           </Text>
-          <Text className={styles.cardDescription} ta="center" maw={840} mx="auto">
+          <Text mb="md" className={styles.cardDescription} ta="center" maw={840} mx="auto">
             Lablog handles the coordination so your organization can focus on running the business.
           </Text>
 
-          <Title order={3} className={styles.sectionTitleLeft} mt={20}>
-            Our Corporate Solutions Include:
-          </Title>
-
-          <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="sm" mt={12}>
-            {CORPORATE_SOLUTIONS_INCLUDE.map((item) => (
-              <Paper key={item} radius="md" className={styles.inclusionCard}>
-                <Text className={styles.pointRow}>
-                  <IconCheck size={16} stroke={2.1} aria-hidden />
-                  {item}
-                </Text>
-              </Paper>
-            ))}
-          </SimpleGrid>
+          <ChecklistGridSection
+            title="Our Corporate Solutions Include:"
+            items={CORPORATE_SOLUTIONS_INCLUDE}
+            cols={{ base: 1, sm: 2 }}
+            accentColor="#0f9a61"
+            titleAlign="center"
+            titleAsText
+          />
         </Container>
       </Box>
 
       <Box component="section" className={styles.section}>
         <Container size="xl">
-          <Title order={2} className={styles.sectionTitle} ta="center">
-            Flexible Screening Solutions For Every Organization
-          </Title>
-
-          <SimpleGrid cols={{ base: 1, md: 3 }} spacing="md" mt={20}>
-            {FLEXIBLE_SOLUTIONS.map((item) => (
-              <Paper key={item.title} radius="lg" className={styles.solutionCard}>
-                <Box className={styles.solutionImageWrap}>
-                  <Image
-                    src="/hero.jpg"
-                    alt={item.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className={styles.solutionImage}
-                  />
-                </Box>
-                <Title order={3} className={styles.cardTitle}>
-                  {item.title}
-                </Title>
-                <Text className={styles.cardDescription}>{item.description}</Text>
-
-                {item.idealFor.length ? (
-                  <>
-                    <Text className={styles.caption} ta="left">
-                      Ideal for:
-                    </Text>
-                    <Stack gap={6} mt={6}>
-                      {item.idealFor.map((point) => (
-                        <Text key={point} className={styles.pointRow}>
-                          <IconCheck size={15} stroke={2.2} aria-hidden />
-                          {point}
-                        </Text>
-                      ))}
-                    </Stack>
-                  </>
-                ) : null}
-
-                {item.benefits.length ? (
-                  <>
-                    <Text className={styles.caption} ta="left">
-                      {item.title === "Executive Health Packages" ? "Packages may include:" : "Benefits:"}
-                    </Text>
-                    <Stack gap={6} mt={6}>
-                      {item.benefits.map((point) => (
-                        <Text key={point} className={styles.pointRow}>
-                          <IconCheck size={15} stroke={2.2} aria-hidden />
-                          {point}
-                        </Text>
-                      ))}
-                    </Stack>
-                  </>
-                ) : null}
-              </Paper>
-            ))}
-          </SimpleGrid>
+          <HighlightCards
+            title="Flexible Screening Solutions For Every Organization"
+            items={FLEXIBLE_SOLUTIONS}
+            cols={{ base: 1, md: 3 }}
+            accentColor="#0f9a61"
+          />
         </Container>
       </Box>
 
       <Box component="section" className={styles.sectionCompact}>
         <Container size="xl">
-          <Title order={2} className={styles.sectionTitle} ta="center">
-            APE Packages We Can Customize
-          </Title>
-
-          <Text className={styles.cardDescription} ta="center" maw={820} mx="auto" mt={8}>
-            We understand that every organization has different requirements. Packages may be customized according to
-            your needs.
-          </Text>
-
-          <SimpleGrid cols={{ base: 1, md: 3 }} spacing="sm" mt={16}>
-            {APE_PACKAGES.map((item) => {
-              const Icon = item.icon
-              return (
-                <Paper key={item.title} radius="lg" className={styles.inclusionCard}>
-                  <ThemeIcon size={50} radius="xl" variant="light" className={styles.inclusionIcon}>
-                    <Icon size={24} stroke={1.8} aria-hidden />
-                  </ThemeIcon>
-                  <Title order={3} className={styles.cardTitle}>
-                    {item.title}
-                  </Title>
-                  <Text className={styles.caption}>{item.subtitle}</Text>
-                  <Stack gap={5} mt={6}>
-                    {item.points.map((point) => (
-                      <Text key={point} className={styles.pointRow}>
-                        <IconCheck size={15} stroke={2.1} aria-hidden />
-                        {point}
-                      </Text>
-                    ))}
-                  </Stack>
-                </Paper>
-              )
-            })}
-          </SimpleGrid>
+          <HighlightCards
+            title="APE Packages We Can Customize"
+            subtitle="We understand that every organization has different requirements. Packages may be customized according to your needs."
+            items={APE_PACKAGES}
+            cols={{ base: 1, md: 3 }}
+            accentColor="#0f9a61"
+          />
         </Container>
       </Box>
 
       <Box component="section" className={styles.sectionCompact}>
         <Container size="xl">
-          <Title order={2} className={styles.sectionTitle} ta="center">
-            Who We Work With
-          </Title>
-
-          <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="sm" mt={16}>
-            {WHO_WE_WORK_WITH.map((item) => (
-              <Paper key={item} radius="md" className={styles.inclusionCard}>
-                <Text className={styles.pointRow}>
-                  <IconCheck size={16} stroke={2.1} aria-hidden />
-                  {item}
-                </Text>
-              </Paper>
-            ))}
-          </SimpleGrid>
+          <ChecklistGridSection
+            title="Who We Work With"
+            items={WHO_WE_WORK_WITH}
+            cols={{ base: 1, sm: 2 }}
+            accentColor="#0f9a61"
+            titleAlign="center"
+          />
 
           <Text className={styles.caption} mt={14}>
             Whether you have <strong>20 employees or 2,000 employees</strong>, our solutions can scale according to your

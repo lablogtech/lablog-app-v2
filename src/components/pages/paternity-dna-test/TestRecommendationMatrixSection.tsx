@@ -1,96 +1,58 @@
-import { Box, Container, Grid, Group, Table, Text, ThemeIcon } from "@mantine/core"
-import {
-  IconArrowNarrowRight,
-  IconScale,
-  IconSpy,
-  IconUser,
-  IconUsers,
-  IconUsersGroup,
-  IconVenus,
-} from "@tabler/icons-react"
+import { Box, Container, Grid } from "@mantine/core"
+import { IconScale, IconSpy, IconUser, IconUsers, IconUsersGroup, IconVenus } from "@tabler/icons-react"
 import styles from "@/app/paternity-dna-test/page.module.css"
 import SpecialistContactCard from "@/components/pages/paternity-dna-test/SpecialistContactCard"
 import Heading from "@/components/shared/heading/Heading"
+import RecommendationMatrixCard, {
+  type RecommendationMatrixRow,
+} from "@/components/shared/recommendation-matrix-card/RecommendationMatrixCard"
 
-type RecommendationRow = {
-  situation: string
-  recommended: string
-  icon: typeof IconUser
-  iconClassName: string
-  recommendedClassName: string
-}
-
-const RECOMMENDATIONS: RecommendationRow[] = [
+const RECOMMENDATIONS: RecommendationMatrixRow[] = [
   {
     situation: "I simply want to know if someone is the biological father.",
-    recommended: "Peace of Mind Paternity Test",
-    icon: IconUser,
-    iconClassName: styles.matrixIconGreen,
-    recommendedClassName: styles.matrixRecommendedGreen,
+    recommendation: "Peace of Mind Paternity Test",
+    recommendationHref: "/paternity-dna-test/peace-of-mind",
+    icon: <IconUser size={14} stroke={2} aria-hidden />,
+    accentColor: "#2f9f68",
   },
   {
     situation: "I need results for legal purposes.",
-    recommended: "Legal Paternity DNA Test",
-    icon: IconScale,
-    iconClassName: styles.matrixIconBlue,
-    recommendedClassName: styles.matrixRecommendedBlue,
+    recommendation: "Legal Paternity DNA Test",
+    recommendationHref: "/paternity-dna-test/legal-paternity",
+    icon: <IconScale size={14} stroke={2} aria-hidden />,
+    accentColor: "#2d75f3",
   },
   {
     situation: "I am currently pregnant.",
-    recommended: "Prenatal Paternity Test",
-    icon: IconVenus,
-    iconClassName: styles.matrixIconPurple,
-    recommendedClassName: styles.matrixRecommendedPurple,
+    recommendation: "Prenatal Paternity Test",
+    recommendationHref: "/paternity-dna-test/non-invasive-paternal",
+    icon: <IconVenus size={14} stroke={2} aria-hidden />,
+    accentColor: "#8f58e6",
   },
   {
     situation: "The alleged father is unavailable.",
-    recommended: "Grandparent or Avuncular DNA Test",
-    icon: IconUsersGroup,
-    iconClassName: styles.matrixIconPurple,
-    recommendedClassName: styles.matrixRecommendedPurple,
+    recommendation: "Grandparent or Avuncular DNA Test",
+    recommendationHref: "/paternity-dna-test/peace-of-mind",
+    icon: <IconUsersGroup size={14} stroke={2} aria-hidden />,
+    accentColor: "#8f58e6",
   },
   {
     situation: "I only have personal items available.",
-    recommended: "Discreet DNA Testing",
-    icon: IconSpy,
-    iconClassName: styles.matrixIconMagenta,
-    recommendedClassName: styles.matrixRecommendedMagenta,
+    recommendation: "Discreet DNA Testing",
+    recommendationHref: "/paternity-dna-test/peace-of-mind",
+    icon: <IconSpy size={14} stroke={2} aria-hidden />,
+    accentColor: "#be4b97",
   },
   {
     situation: "I need to compare two siblings.",
-    recommended: "Sibling DNA Test",
-    icon: IconUsers,
-    iconClassName: styles.matrixIconOrange,
-    recommendedClassName: styles.matrixRecommendedOrange,
+    recommendation: "Sibling DNA Test",
+    recommendationHref: "/paternity-dna-test/peace-of-mind",
+    icon: <IconUsers size={14} stroke={2} aria-hidden />,
+    accentColor: "#e18a20",
   },
 ]
 
 export default function TestRecommendationMatrixSection() {
-  const rows = RECOMMENDATIONS.map((row) => {
-    const Icon = row.icon
-
-    return (
-      <Table.Tr key={row.situation}>
-        <Table.Td className={styles.matrixSituationCell}>
-          <Group gap={10} wrap="nowrap">
-            <ThemeIcon size={22} variant="light" radius={999} className={`${styles.matrixIcon} ${row.iconClassName}`}>
-              <Icon size={14} stroke={2} aria-hidden />
-            </ThemeIcon>
-            <Text className={styles.matrixSituationText}>{row.situation}</Text>
-          </Group>
-        </Table.Td>
-
-        <Table.Td className={styles.matrixArrowCell}>
-          <IconArrowNarrowRight size={18} stroke={1.9} aria-hidden />
-        </Table.Td>
-
-        <Table.Td className={styles.matrixRecommendedCell}>
-          <Text className={`${styles.matrixRecommendedText} ${row.recommendedClassName}`}>{row.recommended}</Text>
-        </Table.Td>
-      </Table.Tr>
-    )
-  })
-
   return (
     <Box component="section" className={styles.matrixSection}>
       <Container size="xl">
@@ -106,16 +68,19 @@ export default function TestRecommendationMatrixSection() {
 
           <Grid>
             <Grid.Col span={{ base: 12, md: 9 }}>
-              <Table className={styles.matrixTable} horizontalSpacing="lg" verticalSpacing="sm">
-                <Table.Thead>
-                  <Table.Tr>
-                    <Table.Th className={styles.matrixHeadLeft}>Your Situation</Table.Th>
-                    <Table.Th className={styles.matrixHeadArrow} />
-                    <Table.Th className={styles.matrixHeadRight}>Recommended Test</Table.Th>
-                  </Table.Tr>
-                </Table.Thead>
-                <Table.Tbody>{rows}</Table.Tbody>
-              </Table>
+              <RecommendationMatrixCard
+                title="Not Sure Which Test You Need?"
+                rows={RECOMMENDATIONS.map((row) => ({
+                  situation: row.situation,
+                  recommendation: row.recommendation,
+                  recommendationHref: row.recommendationHref,
+                  icon: row.icon,
+                  accentColor: row.accentColor,
+                }))}
+                accentColor="#8f58e6"
+                situationLabel="Your Situation"
+                recommendationLabel="Recommended Test"
+              />
             </Grid.Col>
             <Grid.Col span={{ base: 12, md: 3 }}>
               <SpecialistContactCard />

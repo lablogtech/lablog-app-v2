@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import styles from "./PreventiveHealthSection.module.css"
 import { Box, Button, Container, Grid, Stack, Text, ThemeIcon } from "@mantine/core"
 import Heading from "@/components/shared/heading/Heading"
@@ -109,8 +110,8 @@ export default function PreventiveHealthSection() {
 
               {/* CTA Button */}
               <Button
-                component="a"
-                href="#laboratory-packages"
+                component={Link}
+                href="/screening"
                 className={styles.ctaButton}
                 variant="filled"
                 color="blue"

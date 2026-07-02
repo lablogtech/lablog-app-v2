@@ -160,29 +160,85 @@
 }
 
 .areaCard {
-  border: 1px solid #dde7f8;
-  background: #ffffff;
-  padding: 16px 14px;
+  position: relative;
+  border: 1px solid #dfe7fb;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  padding: 18px 16px 16px;
   min-height: 100%;
+  overflow: hidden;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.areaCard::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, #7a5af8 0%, #5f42c9 55%, #4476ff 100%);
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+
+.areaCard:hover {
+  transform: translateY(-4px);
+  border-color: #ccdaf8;
+  box-shadow: 0 20px 34px -24px rgba(60, 74, 150, 0.6);
+}
+
+.areaCard:hover::before {
+  opacity: 1;
 }
 
 .areaIcon {
-  background: #f1eaff;
+  background: radial-gradient(circle at 25% 20%, #faf6ff 0%, #efe7ff 65%, #e9deff 100%);
   color: #5f43cb;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #e3d9ff;
+  box-shadow: 0 8px 20px -14px rgba(95, 67, 203, 0.8);
 }
 
 .areaTitle {
-  font-size: 1rem;
-  color: #223c78;
-  line-height: 1.35;
+  color: #1f3470;
+  line-height: 1.32;
   margin-bottom: 8px;
+  letter-spacing: -0.01em;
 }
 
 .areaDescription {
-  color: #3f5e93;
-  font-size: 0.88rem;
-  line-height: 1.58;
+  color: #3f5a8b;
+  font-size: 0.91rem;
+  line-height: 1.64;
+  margin-bottom: 2px;
+}
+
+.areaCard .metricItem {
+  color: #2f4f84;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  background: #f7f9ff;
+  border: 1px solid #e5ecfb;
+  border-radius: 12px;
+  padding: 7px 10px;
+}
+
+.areaCard .metricItem :global(svg) {
+  color: #5f42c9;
+  margin-top: 1px;
+}
+
+.areaCard .dashboardLabel {
+  margin-top: 12px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: #f4f0ff;
+  color: #4a3a8f;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  font-weight: 700;
+  border: 1px solid #e2d9ff;
 }
 
 .infoStripSection {
@@ -288,7 +344,6 @@
   font-size: 0.78rem;
   color: #5063a0;
   font-weight: 700;
-  max-width: 120px;
 }
 
 .dashboardMetrics {
