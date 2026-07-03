@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { useState } from "react"
 import styles from "./ScreeningPage.module.css"
 import { Box, Container, Grid, Group, Paper, SimpleGrid, Text, ThemeIcon, Title } from "@mantine/core"
 import Heading from "@/components/shared/heading/Heading"
@@ -12,6 +13,8 @@ import FeatureHighlightsGrid, {
   type FeatureHighlightItem,
 } from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
 import MessengerButton from "@/components/shared/messenger-button/MessengerButton"
+import ScreeningTestModal from "./ScreeningTestModal"
+import { SCREENING_MODAL_CONTENT } from "./screeningModalData"
 import {
   IconCalendarEvent,
   IconCircleCheck,
@@ -52,6 +55,7 @@ const SCREENING_CARDS: HighlightCardItem[] = [
   },
   {
     title: "Diet & Lifestyle Screening",
+    interactive: true,
     description: "Understand important health markers that may be influenced by your lifestyle habits.",
     details: ["Ideal for:"],
     insights: [
@@ -64,6 +68,7 @@ const SCREENING_CARDS: HighlightCardItem[] = [
   },
   {
     title: "Diabetes Screening",
+    interactive: true,
     description: "Monitor blood sugar and metabolic markers that support long-term health management.",
     details: ["Ideal for:"],
     insights: ["Diabetes risk", "Family history of diabetes", "Obesity concerns", "Preventive health monitoring"],
@@ -71,6 +76,7 @@ const SCREENING_CARDS: HighlightCardItem[] = [
   },
   {
     title: "Hormone Screening",
+    interactive: true,
     description: "Evaluate important hormones that may affect energy, metabolism, mood, and overall wellbeing.",
     details: ["Ideal for:"],
     insights: ["Fatigue", "Weight fluctuations", "Hormonal imbalances", "Thyroid concerns", "PCOS support"],
@@ -78,6 +84,7 @@ const SCREENING_CARDS: HighlightCardItem[] = [
   },
   {
     title: "Elite Fitness Screening",
+    interactive: true,
     description: "Optimize your fitness journey through comprehensive laboratory monitoring.",
     details: ["Ideal for:"],
     insights: ["Athletes", "Active individuals", "Fitness enthusiasts", "Performance optimization"],
@@ -85,6 +92,7 @@ const SCREENING_CARDS: HighlightCardItem[] = [
   },
   {
     title: "Men's Prime Health Package",
+    interactive: true,
     description: "A comprehensive wellness assessment designed specifically for men's health needs.",
     details: ["Ideal for:"],
     insights: [
@@ -97,6 +105,7 @@ const SCREENING_CARDS: HighlightCardItem[] = [
   },
   {
     title: "Women's Prime Health Package",
+    interactive: true,
     description: "A comprehensive wellness assessment designed specifically for women's health needs.",
     details: ["Ideal for:"],
     insights: [
@@ -109,6 +118,7 @@ const SCREENING_CARDS: HighlightCardItem[] = [
   },
   {
     title: "Men's Tumor Marker Screening",
+    interactive: true,
     description: "Monitor specific tumor markers that may support discussions around cancer surveillance.",
     details: ["Ideal for:"],
     insights: [
@@ -122,6 +132,7 @@ const SCREENING_CARDS: HighlightCardItem[] = [
   },
   {
     title: "Women's Tumor Marker Screening",
+    interactive: true,
     description: "Monitor specific tumor markers associated with women's health.",
     details: ["Ideal for:"],
     insights: [
@@ -132,6 +143,19 @@ const SCREENING_CARDS: HighlightCardItem[] = [
     ],
     note: "This is not a cancer diagnostic test.",
     icon: <IconMicroscope size={26} stroke={1.9} aria-hidden />,
+  },
+  {
+    title: "PCOS & Hormone Health Panel",
+    interactive: true,
+    description: "Evaluate key hormones and metabolic markers to understand the root cause of PCOS symptoms.",
+    details: ["Ideal for:"],
+    insights: [
+      "Irregular periods or fertility concerns",
+      "Suspected or diagnosed PCOS",
+      "Weight management difficulties",
+      "Monitoring hormonal health",
+    ],
+    icon: <IconDna2 size={26} stroke={1.9} aria-hidden />,
   },
   {
     title: "Pregnancy Wellness Screening",
@@ -225,6 +249,15 @@ const FAQ_ITEMS = [
 ]
 
 export default function ScreeningPage() {
+  const [activeModalKey, setActiveModalKey] = useState<string | null>(null)
+  const activeModalContent = activeModalKey ? (SCREENING_MODAL_CONTENT[activeModalKey] ?? null) : null
+
+  const handleCardClick = (item: HighlightCardItem) => {
+    if (SCREENING_MODAL_CONTENT[item.title]) {
+      setActiveModalKey(item.title)
+    }
+  }
+
   return (
     <Box className={`pageSurface ${styles.page}`}>
       <Box component="section" className={styles.heroSection}>
@@ -322,6 +355,7 @@ export default function ScreeningPage() {
             items={SCREENING_CARDS}
             cols={{ base: 1, sm: 2, lg: 5 }}
             accentColor="#14a66a"
+            onItemClick={handleCardClick}
           />
         </Container>
       </Box>
@@ -426,6 +460,12 @@ export default function ScreeningPage() {
           </Paper>
         </Container>
       </Box>
+
+      <ScreeningTestModal
+        content={activeModalContent}
+        opened={Boolean(activeModalContent)}
+        onClose={() => setActiveModalKey(null)}
+      />
     </Box>
   )
 }

@@ -1,4 +1,4 @@
-import type { CSSProperties, ReactNode } from "react"
+import type { CSSProperties, KeyboardEvent, ReactNode } from "react"
 import Image from "next/image"
 import { Box, Paper, SimpleGrid, Stack, Text, ThemeIcon, Title, type SimpleGridProps } from "@mantine/core"
 import { IconCircleCheck } from "@tabler/icons-react"
@@ -24,6 +24,7 @@ export type HighlightCardItem = {
   insights: string[]
   sections?: HighlightCardSection[]
   note?: string
+  interactive?: boolean
 }
 
 type HighlightCardsProps = {
@@ -33,6 +34,7 @@ type HighlightCardsProps = {
   items: HighlightCardItem[]
   cols?: SimpleGridProps["cols"]
   accentColor?: string
+  onItemClick?: (item: HighlightCardItem) => void
 }
 
 export default function HighlightCards({
@@ -42,6 +44,7 @@ export default function HighlightCards({
   items,
   cols,
   accentColor = "#5f42c9",
+  onItemClick,
 }: HighlightCardsProps) {
   return (
     <Box className={styles.root} style={{ "--hc-accent": accentColor } as CSSProperties}>
@@ -54,62 +57,85 @@ export default function HighlightCards({
       </Box>
 
       <SimpleGrid cols={cols ?? { base: 1, sm: 2, lg: 3 }} spacing="md">
-        {items.map((item) => (
-          <Paper key={item.title} radius="lg" className={styles.card}>
-            <Stack gap="xs">
-              {item.image ? (
-                <Box className={styles.imageWrap}>
-                  <Image
-                    src={item.image.src}
-                    alt={item.image.alt}
-                    fill
-                    sizes={item.image.sizes ?? "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"}
-                    className={styles.image}
-                  />
-                </Box>
-              ) : item.icon ? (
-                <ThemeIcon size={52} radius="xl" variant="light" className={styles.icon}>
-                  {item.icon}
-                </ThemeIcon>
-              ) : null}
-              <Title order={3} className={styles.cardTitle}>
-                {item.title}
-              </Title>
-              {item.description ? <Text className={styles.description}>{item.description}</Text> : null}
-              {item.details?.map((detail, index) => (
-                <Text key={`${item.title}-detail-${index}`} className={styles.detail}>
-                  {detail}
-                </Text>
-              ))}
-              {item.sections?.map((section, sectionIndex) => (
-                <Box key={`${item.title}-section-${sectionIndex}`}>
-                  <Text className={styles.sectionLabel}>{section.label}</Text>
-                  {section.points.length ? (
-                    <Stack gap={6} mt={6}>
-                      {section.points.map((point) => (
-                        <Text key={point} className={styles.metricItem}>
-                          <IconCircleCheck size={14} stroke={2.1} aria-hidden />
-                          {point}
-                        </Text>
-                      ))}
-                    </Stack>
-                  ) : null}
-                </Box>
-              ))}
-              {item.insights.length ? (
-                <Stack gap={6} mt={10}>
-                  {item.insights.map((insight) => (
-                    <Text key={insight} className={styles.metricItem}>
-                      <IconCircleCheck size={14} stroke={2.1} aria-hidden />
-                      {insight}
-                    </Text>
-                  ))}
-                </Stack>
-              ) : null}
-              {item.note ? <Text className={styles.note}>{item.note}</Text> : null}
-            </Stack>
-          </Paper>
-        ))}
+        {items.map((item) => {
+          const isInteractive = Boolean(onItemClick && item.interactive)
+          const interactiveProps = isInteractive
+            ? {
+                role: "button" as const,
+                tabIndex: 0,
+                onClick: () => onItemClick?.(item),
+                onKeyDown: (event: KeyboardEvent<HTMLDivElement>) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault()
+                    onItemClick?.(item)
+                  }
+                },
+              }
+            : {}
+
+          return (
+            <Paper
+              key={item.title}
+              radius="lg"
+              className={`${styles.card} ${isInteractive ? styles.cardInteractive : ""}`}
+              {...interactiveProps}
+            >
+              <Stack gap="xs" className={styles.cardInner}>
+                {item.image ? (
+                  <Box className={styles.imageWrap}>
+                    <Image
+                      src={item.image.src}
+                      alt={item.image.alt}
+                      fill
+                      sizes={item.image.sizes ?? "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"}
+                      className={styles.image}
+                    />
+                  </Box>
+                ) : item.icon ? (
+                  <ThemeIcon size={52} radius="xl" variant="light" className={styles.icon}>
+                    {item.icon}
+                  </ThemeIcon>
+                ) : null}
+                <Title order={3} className={styles.cardTitle}>
+                  {item.title}
+                </Title>
+                {item.description ? <Text className={styles.description}>{item.description}</Text> : null}
+                {item.details?.map((detail, index) => (
+                  <Text key={`${item.title}-detail-${index}`} className={styles.detail}>
+                    {detail}
+                  </Text>
+                ))}
+                {item.sections?.map((section, sectionIndex) => (
+                  <Box key={`${item.title}-section-${sectionIndex}`}>
+                    <Text className={styles.sectionLabel}>{section.label}</Text>
+                    {section.points.length ? (
+                      <Stack gap={6} mt={6}>
+                        {section.points.map((point) => (
+                          <Text key={point} className={styles.metricItem}>
+                            <IconCircleCheck size={14} stroke={2.1} aria-hidden />
+                            {point}
+                          </Text>
+                        ))}
+                      </Stack>
+                    ) : null}
+                  </Box>
+                ))}
+                {item.insights.length ? (
+                  <Stack gap={6} mt={10}>
+                    {item.insights.map((insight) => (
+                      <Text key={insight} className={styles.metricItem}>
+                        <IconCircleCheck size={14} stroke={2.1} aria-hidden />
+                        {insight}
+                      </Text>
+                    ))}
+                  </Stack>
+                ) : null}
+                {item.note ? <Text className={styles.note}>{item.note}</Text> : null}
+                {isInteractive ? <Text className={styles.viewDetails}>View details</Text> : null}
+              </Stack>
+            </Paper>
+          )
+        })}
       </SimpleGrid>
     </Box>
   )
