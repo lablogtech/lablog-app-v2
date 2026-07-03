@@ -1,4 +1,4 @@
-import { Box, Button, Container, Grid, Paper, Text } from "@mantine/core"
+import { Box, Container, Grid, Paper, Text } from "@mantine/core"
 import { IconCalendarEvent, IconLock, IconMapPin, IconShieldCheck, IconTargetArrow } from "@tabler/icons-react"
 import styles from "@/app/paternity-dna-test/page.module.css"
 import Heading from "@/components/shared/heading/Heading"
@@ -6,7 +6,7 @@ import FeatureHighlightsGrid, {
   type FeatureHighlightItem,
 } from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
 import Image from "next/image"
-import Link from "next/link"
+import MessengerButton from "@/components/shared/messenger-button/MessengerButton"
 
 const HERO_POINTS: FeatureHighlightItem[] = [
   { Icon: IconTargetArrow, label: "99.99%", subLabel: "Accuracy" },
@@ -72,9 +72,13 @@ export default function PaternityHeroSection() {
                 <Text className={styles.heroFloatingDescription}>
                   Our specialists will help you choose the most appropriate test based on your stage and needs.
                 </Text>
-                <Button component={Link} href="#contact" className={styles.heroFloatingButton} radius="md">
+                <MessengerButton
+                  message="Hi Lablog team, I need help choosing the right paternity DNA test."
+                  className={styles.heroFloatingButton}
+                  radius="md"
+                >
                   Ask our specialists
-                </Button>
+                </MessengerButton>
               </Paper>
             </Box>
           </Grid.Col>

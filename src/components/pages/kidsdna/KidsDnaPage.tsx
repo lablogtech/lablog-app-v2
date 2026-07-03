@@ -1,9 +1,8 @@
 "use client"
 
 import Image from "next/image"
-import Link from "next/link"
 import styles from "./KidsDnaPage.module.css"
-import { Box, Button, Container, Grid, Group, Paper, SimpleGrid, Stack, Text, Title } from "@mantine/core"
+import { Box, Container, Grid, Group, Paper, SimpleGrid, Stack, Text, Title } from "@mantine/core"
 import Heading from "@/components/shared/heading/Heading"
 import ConfidentialInfoCard from "@/components/shared/confidential-info-card/ConfidentialInfoCard"
 import FaqSection from "@/components/shared/faq-section/FaqSection"
@@ -12,6 +11,7 @@ import HighlightCards, { type HighlightCardItem } from "@/components/shared/high
 import FeatureHighlightsGrid, {
   type FeatureHighlightItem,
 } from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
+import MessengerButton, { buildMessengerLink } from "@/components/shared/messenger-button/MessengerButton"
 import {
   IconCalendarEvent,
   IconCircleCheck,
@@ -268,18 +268,21 @@ export default function KidsDnaPage() {
               </Text>
 
               <Group gap="sm" mt={22}>
-                <Button component={Link} href="#contact" className={styles.primaryButton} radius="md">
+                <MessengerButton
+                  message="Hi Lablog team, I would like to book a KidsDNA test."
+                  className={styles.primaryButton}
+                  radius="md"
+                >
                   Book a test
-                </Button>
-                <Button
-                  component={Link}
-                  href="#contact"
+                </MessengerButton>
+                <MessengerButton
+                  message="Hi Lablog team, I want to speak with a specialist about KidsDNA."
                   variant="outline"
                   className={styles.secondaryButton}
                   radius="md"
                 >
                   Talk to our specialists
-                </Button>
+                </MessengerButton>
               </Group>
             </Grid.Col>
 
@@ -378,7 +381,10 @@ export default function KidsDnaPage() {
                 ]}
                 accentColor="#5f42c9"
                 icon={<IconShieldLock size={22} stroke={1.9} aria-hidden />}
-                action={{ label: "Talk to our specialists", href: "#contact" }}
+                action={{
+                  label: "Talk to our specialists",
+                  href: buildMessengerLink("Hi Lablog team, I want to speak with a specialist about KidsDNA."),
+                }}
               />
             </Grid.Col>
           </Grid>
@@ -400,9 +406,14 @@ export default function KidsDnaPage() {
             <Text className={styles.ctaDescription}>
               Give your child a more personalized future with Lablog DNA Blueprint.
             </Text>
-            <Button component={Link} href="#contact" className={styles.primaryButton} radius="md" mt={14}>
+            <MessengerButton
+              message="Hi Lablog team, I would like to book a KidsDNA test."
+              className={styles.primaryButton}
+              radius="md"
+              mt={14}
+            >
               Book your KidsDNA test
-            </Button>
+            </MessengerButton>
           </Paper>
         </Container>
       </Box>

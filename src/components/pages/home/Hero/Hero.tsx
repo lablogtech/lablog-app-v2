@@ -1,9 +1,12 @@
 "use client"
 
+import { useEffect } from "react"
 import Image from "next/image"
 import styles from "./Hero.module.css"
 import { Box, Button, Container, Group, Text, ThemeIcon, Title } from "@mantine/core"
+import { useScrollIntoView } from "@mantine/hooks"
 import { IconCalendarEvent, IconCheck, IconMapPinSearch } from "@tabler/icons-react"
+import MessengerButton from "@/components/shared/messenger-button/MessengerButton"
 
 const FEATURES = [
   ["Paternity DNA Testing", "Legal DNA Testing"],
@@ -13,6 +16,17 @@ const FEATURES = [
 ]
 
 export default function Hero() {
+  const { scrollIntoView, targetRef, scrollableRef } = useScrollIntoView<HTMLElement, HTMLElement>({
+    duration: 2000,
+    offset: 64,
+    easing: (x) => (x < 0.5 ? 16 * x * x * x * x * x : 1 - Math.pow(-2 * x + 2, 5) / 2),
+  })
+
+  useEffect(() => {
+    scrollableRef.current = document.querySelector(".siteShell") as HTMLElement | null
+    targetRef.current = document.getElementById("collection-centers")
+  }, [targetRef, scrollableRef])
+
   return (
     <Box className={styles.root}>
       <Box className={styles.backgroundImage} aria-hidden="true">
@@ -64,7 +78,8 @@ export default function Hero() {
             </Box>
 
             <Group className={styles.ctas}>
-              <Button
+              <MessengerButton
+                message="Hi Lablog team, I would like to book a test."
                 variant="filled"
                 size="md"
                 color="blue"
@@ -72,8 +87,10 @@ export default function Hero() {
                 leftSection={<IconCalendarEvent size={18} stroke={2} aria-hidden />}
               >
                 Book a Test Now
-              </Button>
+              </MessengerButton>
               <Button
+                type="button"
+                onClick={() => scrollIntoView({ alignment: "start" })}
                 variant="outline"
                 size="md"
                 color="teal"

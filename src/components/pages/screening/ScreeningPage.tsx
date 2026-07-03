@@ -1,9 +1,8 @@
 "use client"
 
 import Image from "next/image"
-import Link from "next/link"
 import styles from "./ScreeningPage.module.css"
-import { Box, Button, Container, Grid, Group, Paper, SimpleGrid, Text, ThemeIcon, Title } from "@mantine/core"
+import { Box, Container, Grid, Group, Paper, SimpleGrid, Text, ThemeIcon, Title } from "@mantine/core"
 import Heading from "@/components/shared/heading/Heading"
 import ConfidentialInfoCard from "@/components/shared/confidential-info-card/ConfidentialInfoCard"
 import HowItWorksSteps, { type HowItWorksStep } from "@/components/shared/how-it-works/HowItWorksSteps"
@@ -12,6 +11,7 @@ import HighlightCards, { type HighlightCardItem } from "@/components/shared/high
 import FeatureHighlightsGrid, {
   type FeatureHighlightItem,
 } from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
+import MessengerButton from "@/components/shared/messenger-button/MessengerButton"
 import {
   IconCalendarEvent,
   IconCircleCheck,
@@ -272,18 +272,21 @@ export default function ScreeningPage() {
               </Text>
 
               <Group gap="sm" mt={22}>
-                <Button component={Link} href="#contact" className={styles.primaryButton} radius="md">
+                <MessengerButton
+                  message="Hi Lablog team, I would like to book a preventive health screening package."
+                  className={styles.primaryButton}
+                  radius="md"
+                >
                   Book a screening
-                </Button>
-                <Button
-                  component={Link}
-                  href="#contact"
+                </MessengerButton>
+                <MessengerButton
+                  message="Hi Lablog team, I want to speak with a specialist about preventive health screening."
                   variant="outline"
                   className={styles.secondaryButton}
                   radius="md"
                 >
                   Talk to our specialists
-                </Button>
+                </MessengerButton>
               </Group>
             </Grid.Col>
 
@@ -412,9 +415,14 @@ export default function ScreeningPage() {
             <Text className={styles.ctaDescription}>
               Book your preventive package now and take the first step to a healthier tomorrow.
             </Text>
-            <Button component={Link} href="#contact" className={styles.primaryButton} radius="md" mt={14}>
+            <MessengerButton
+              message="Hi Lablog team, I would like to book a preventive health screening package."
+              className={styles.primaryButton}
+              radius="md"
+              mt={14}
+            >
               Book a screening now
-            </Button>
+            </MessengerButton>
           </Paper>
         </Container>
       </Box>

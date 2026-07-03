@@ -363,13 +363,7 @@ export default function TestDetailPage({ content }: TestDetailPageProps) {
 
               <Grid.Col span={{ base: 12, lg: 3 }}>
                 <Paper radius="xl" className={styles.badgeCard}>
-                  <Stack justify="center" align="center" h="100%" gap="md">
-                    <Box className={styles.badgeVisual}>{content.trust.badgeVisual}</Box>
-                    <Title order={3} className={styles.badgeTitle}>
-                      {content.trust.badgeTitle}
-                    </Title>
-                    <Text className={styles.badgeSubtitle}>{content.trust.badgeSubtitle}</Text>
-                  </Stack>
+                  <Box className={styles.badgeVisual}>{content.trust.badgeVisual}</Box>
                 </Paper>
               </Grid.Col>
 

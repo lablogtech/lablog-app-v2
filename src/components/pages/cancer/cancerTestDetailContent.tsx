@@ -1,4 +1,3 @@
-import { Box, Stack, Text } from "@mantine/core"
 import {
   IconCalendarEvent,
   IconCertificate,
@@ -19,30 +18,7 @@ import {
   IconUsers,
 } from "@tabler/icons-react"
 import type { TestPageContent } from "@/components/shared/test-detail/types"
-
-function accreditationMark(label: string, accent: string, subtitle: string) {
-  return (
-    <Stack justify="center" align="center" h="100%" gap={8}>
-      <Box
-        style={{
-          width: 132,
-          height: 132,
-          borderRadius: 26,
-          border: `2px solid ${accent}`,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "linear-gradient(180deg, #ffffff 0%, #f7faff 100%)",
-        }}
-      >
-        <Text style={{ color: accent, fontSize: "2.5rem", fontWeight: 800, letterSpacing: "0.08em" }}>{label}</Text>
-      </Box>
-      <Text ta="center" style={{ color: accent, fontSize: "0.92rem", fontWeight: 800, lineHeight: 1.35 }}>
-        {subtitle}
-      </Text>
-    </Stack>
-  )
-}
+import AccreditationBadge from "@/components/shared/accreditation-badge/AccreditationBadge"
 
 const brcaFaq = {
   title: "Frequently Asked Questions",
@@ -341,7 +317,7 @@ export const brcaCancerPageContent: TestPageContent = {
     },
     badgeTitle: "Safe, Private & Confidential",
     badgeSubtitle: "Handled with strict confidentiality",
-    badgeVisual: accreditationMark("NATA", "#2559d6", "World Recognised Accreditation"),
+    badgeVisual: <AccreditationBadge type="NATA" />,
     sideTitle: "Your privacy is always protected",
     sideDescription:
       "We understand that genetic information is deeply personal. Every sample, report, and patient record is handled with strict confidentiality and released only to authorized individuals.",
@@ -553,7 +529,7 @@ export const hbocCancerPageContent: TestPageContent = {
     ],
     badgeTitle: "NATA",
     badgeSubtitle: "World recognized accreditation",
-    badgeVisual: accreditationMark("NATA", "#2559d6", "World Recognised Accreditation"),
+    badgeVisual: <AccreditationBadge type="NATA" />,
     sideTitle: "Safe, Private & Confidential",
     sideDescription:
       "We understand that genetic information is deeply personal. Every sample, report, and patient record is handled with strict confidentiality and released only to authorized individuals.",
@@ -775,7 +751,7 @@ export const comprehensiveCancerPageContent: TestPageContent = {
     ],
     badgeTitle: "NATA",
     badgeSubtitle: "World recognized accreditation",
-    badgeVisual: accreditationMark("NATA", "#2559d6", "World Recognised Accreditation"),
+    badgeVisual: <AccreditationBadge type="NATA" />,
     sideTitle: "Safe, Private & Confidential",
     sideDescription:
       "We understand that genetic information is deeply personal. Every sample, report, and patient record is handled with strict confidentiality and released only to authorized individuals.",
@@ -989,7 +965,7 @@ export const mcedCancerPageContent: TestPageContent = {
     },
     badgeTitle: "ISO 15189",
     badgeSubtitle: "Certified laboratory standards",
-    badgeVisual: accreditationMark("ISO", "#6b3fc4", "ISO 15189 Certified Laboratory"),
+    badgeVisual: <AccreditationBadge type="ISO" />,
     sideTitle: "Safe, Private & Confidential",
     sideDescription:
       "We understand that health information is deeply personal. Every sample, report, and patient record is handled with strict confidentiality and released only to authorized individuals.",

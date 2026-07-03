@@ -10,7 +10,6 @@ import {
   Anchor,
   Box,
   Burger,
-  Button,
   Container,
   Divider,
   Drawer,
@@ -22,6 +21,7 @@ import {
 } from "@mantine/core"
 import { useDisclosure } from "@mantine/hooks"
 import { IconCalendarEvent, IconChevronDown, IconMenu2 } from "@tabler/icons-react"
+import MessengerButton from "@/components/shared/messenger-button/MessengerButton"
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
@@ -181,17 +181,16 @@ export default function Header() {
         </Group>
 
         {/* CTA */}
-        <Button
+        <MessengerButton
+          message="Hi Lablog team, I would like to book a test."
           leftSection={<IconCalendarEvent className={styles.ctaIcon} stroke={2} aria-hidden />}
-          component={Link}
-          href="#contact"
           className={styles.cta}
           variant="filled"
           tt="uppercase"
           radius="sm"
         >
           Book a Test
-        </Button>
+        </MessengerButton>
 
         <Burger
           opened={drawerOpened}
@@ -286,16 +285,15 @@ export default function Header() {
 
             <Divider my="xs" color="#dbe5f6" />
 
-            <Button
+            <MessengerButton
+              message="Hi Lablog team, I would like to book a test."
               leftSection={<IconCalendarEvent className={styles.ctaIcon} stroke={2} aria-hidden />}
-              component={Link}
-              href="#contact"
               className={styles.mobileCta}
               variant="filled"
               radius="md"
             >
               Book a Test
-            </Button>
+            </MessengerButton>
           </Stack>
         </ScrollArea>
       </Drawer>

@@ -3,20 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import styles from "./CancerPage.module.css"
-import {
-  Anchor,
-  Box,
-  Button,
-  Container,
-  Grid,
-  Group,
-  Paper,
-  SimpleGrid,
-  Stack,
-  Text,
-  ThemeIcon,
-  Title,
-} from "@mantine/core"
+import { Anchor, Box, Container, Grid, Group, Paper, SimpleGrid, Stack, Text, ThemeIcon, Title } from "@mantine/core"
 import Heading from "@/components/shared/heading/Heading"
 import ConfidentialInfoCard from "@/components/shared/confidential-info-card/ConfidentialInfoCard"
 import RecommendationMatrixCard from "@/components/shared/recommendation-matrix-card/RecommendationMatrixCard"
@@ -36,6 +23,7 @@ import {
 import FeatureHighlightsGrid, {
   type FeatureHighlightItem,
 } from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
+import MessengerButton, { buildMessengerLink } from "@/components/shared/messenger-button/MessengerButton"
 
 const TEST_OPTIONS = [
   {
@@ -247,9 +235,13 @@ export default function CancerPage() {
                   <Text className={styles.heroFloatingDescription}>
                     Take control of your health through earlier screening and better preparation.
                   </Text>
-                  <Button component={Link} href="#contact" className={styles.heroFloatingButton} radius="md">
+                  <MessengerButton
+                    message="Hi Lablog team, I need help choosing the right hereditary cancer screening test."
+                    className={styles.heroFloatingButton}
+                    radius="md"
+                  >
                     Talk to our specialists
-                  </Button>
+                  </MessengerButton>
                 </Paper>
               </Box>
             </Grid.Col>
@@ -419,7 +411,9 @@ export default function CancerPage() {
                   {
                     situation: "I'm unsure where to start",
                     recommendation: "Speak with our specialists",
-                    recommendationHref: "#contact",
+                    recommendationHref: buildMessengerLink(
+                      "Hi Lablog team, I need help choosing the right hereditary cancer screening test.",
+                    ),
                   },
                 ]}
                 note="Our team can help determine the most appropriate screening option for you."
@@ -443,9 +437,13 @@ export default function CancerPage() {
                   Advanced genomic technologies and internationally recognized laboratory protocols help ensure
                   reliable, accurate, and confidential results.
                 </Text>
-                <Button component={Link} href="#contact" radius="md" className={styles.supportButton}>
+                <MessengerButton
+                  message="Hi Lablog team, I have questions about cancer screening options."
+                  radius="md"
+                  className={styles.supportButton}
+                >
                   Contact Us
-                </Button>
+                </MessengerButton>
               </Paper>
             </Grid.Col>
           </Grid>
@@ -486,9 +484,13 @@ export default function CancerPage() {
                 </Text>
               </Box>
               <Stack gap={8} align="flex-end">
-                <Button component={Link} href="#" className={styles.ctaButton} radius="md">
+                <MessengerButton
+                  message="Hi Lablog team, I would like to book a hereditary cancer screening test."
+                  className={styles.ctaButton}
+                  radius="md"
+                >
                   Book Your Test Now
-                </Button>
+                </MessengerButton>
                 <Text className={styles.ctaContact}>or email us at admin@lablog.tech</Text>
               </Stack>
             </Group>

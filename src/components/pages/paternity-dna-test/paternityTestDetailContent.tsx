@@ -1,4 +1,3 @@
-import { Box, Stack, Text } from "@mantine/core"
 import {
   IconBuilding,
   IconCalendarEvent,
@@ -20,30 +19,7 @@ import {
   IconVenus,
 } from "@tabler/icons-react"
 import type { PaternityTestPageContent } from "@/components/shared/paternity-test-detail/types"
-
-function accreditationMark(label: string, accent: string, subtitle: string) {
-  return (
-    <Stack justify="center" align="center" h="100%" gap={8}>
-      <Box
-        style={{
-          width: 132,
-          height: 132,
-          borderRadius: 26,
-          border: `2px solid ${accent}`,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "linear-gradient(180deg, #ffffff 0%, #f7faff 100%)",
-        }}
-      >
-        <Text style={{ color: accent, fontSize: "2.5rem", fontWeight: 800, letterSpacing: "0.08em" }}>{label}</Text>
-      </Box>
-      <Text ta="center" style={{ color: accent, fontSize: "0.92rem", fontWeight: 800, lineHeight: 1.35 }}>
-        {subtitle}
-      </Text>
-    </Stack>
-  )
-}
+import AccreditationBadge from "@/components/shared/accreditation-badge/AccreditationBadge"
 
 const faq = {
   title: "Frequently Asked Questions",
@@ -217,7 +193,7 @@ export const peaceOfMindPaternityPageContent: PaternityTestPageContent = {
     ],
     badgeTitle: "NATA",
     badgeSubtitle: "World recognized accreditation",
-    badgeVisual: accreditationMark("NATA", "#2559d6", "World Recognised Accreditation"),
+    badgeVisual: <AccreditationBadge type="NATA" />,
     sideTitle: "High testing standards you can rely on.",
     sideDescription:
       "Our laboratory utilizes advanced DNA analysis technology to ensure reliable, highly accurate, and confidential results. Every sample undergoes strict quality control to maintain the highest testing standards.",
@@ -377,7 +353,7 @@ export const legalPaternityPageContent: PaternityTestPageContent = {
     ],
     badgeTitle: "NATA",
     badgeSubtitle: "World recognized accreditation",
-    badgeVisual: accreditationMark("NATA", "#2559d6", "World Recognised Accreditation"),
+    badgeVisual: <AccreditationBadge type="NATA" />,
     sideTitle: "Scientific integrity from collection to reporting.",
     sideDescription:
       "Our laboratory utilizes advanced genetic analysis technology to ensure highly accurate, secure, and confidential results. Every sample undergoes rigorous quality control procedures to maintain the highest level of scientific integrity.",
@@ -544,7 +520,7 @@ export const prenatalPaternityPageContent: PaternityTestPageContent = {
     },
     badgeTitle: "ISO Certified Laboratory",
     badgeSubtitle: "Validated testing standards for prenatal DNA analysis",
-    badgeVisual: accreditationMark("ISO", "#8d57e8", "Certified Laboratory"),
+    badgeVisual: <AccreditationBadge type="ISO" />,
     sideTitle: "Reliable testing standards you can trust.",
     sideDescription:
       "Our advanced DNA analysis technology ensures highly accurate and reliable results while maintaining the highest level of confidentiality and quality control.",

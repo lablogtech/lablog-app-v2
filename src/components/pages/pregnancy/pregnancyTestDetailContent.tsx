@@ -1,4 +1,3 @@
-import { Box, Stack, Text } from "@mantine/core"
 import {
   IconBabyCarriage,
   IconCalendarEvent,
@@ -19,30 +18,7 @@ import {
   IconUsers,
 } from "@tabler/icons-react"
 import type { PregnancyTestPageContent } from "@/components/shared/pregnancy-test-detail/types"
-
-function accreditationMark(label: string, accent: string, subtitle: string) {
-  return (
-    <Stack justify="center" align="center" h="100%" gap={8}>
-      <Box
-        style={{
-          width: 132,
-          height: 132,
-          borderRadius: 26,
-          border: `2px solid ${accent}`,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "linear-gradient(180deg, #ffffff 0%, #f7faff 100%)",
-        }}
-      >
-        <Text style={{ color: accent, fontSize: "2.5rem", fontWeight: 800, letterSpacing: "0.08em" }}>{label}</Text>
-      </Box>
-      <Text ta="center" style={{ color: accent, fontSize: "0.92rem", fontWeight: 800, lineHeight: 1.35 }}>
-        {subtitle}
-      </Text>
-    </Stack>
-  )
-}
+import AccreditationBadge from "@/components/shared/accreditation-badge/AccreditationBadge"
 
 const sharedFaq = {
   title: "Frequently Asked Questions",
@@ -298,7 +274,7 @@ export const niptPageContent: PregnancyTestPageContent = {
     ],
     badgeTitle: "NATA",
     badgeSubtitle: "World recognized accreditation",
-    badgeVisual: accreditationMark("NATA", "#6f42ce", "World Recognised Accreditation"),
+    badgeVisual: <AccreditationBadge type="NATA" />,
     sideTitle: "Trusted science with nationwide accessibility.",
     sideDescription:
       "Combined with Lablog's local support and nationwide accessibility, families receive a seamless and trusted testing experience.",
@@ -477,7 +453,7 @@ export const carrierScreeningPageContent: PregnancyTestPageContent = {
     ],
     badgeTitle: "NATA",
     badgeSubtitle: "World recognized accreditation",
-    badgeVisual: accreditationMark("NATA", "#bc3a89", "World Recognised Accreditation"),
+    badgeVisual: <AccreditationBadge type="NATA" />,
     sideTitle: "Safe, Private & Confidential",
     sideDescription:
       "We understand that genetic information is personal. Every sample, report, and patient record is handled with strict confidentiality and released only to authorized individuals. Our team is here to support you with professionalism, compassion, and care every step of the way.",
@@ -640,7 +616,7 @@ export const newbornGeneticScreeningPageContent: PregnancyTestPageContent = {
     ],
     badgeTitle: "NATA",
     badgeSubtitle: "World recognized accreditation",
-    badgeVisual: accreditationMark("NATA", "#7349d1", "World Recognised Accreditation"),
+    badgeVisual: <AccreditationBadge type="NATA" />,
     sideTitle: "Built to support families with reliable insights.",
     sideDescription:
       "Every sample is handled through standardized protocols with specialist support available when questions arise.",

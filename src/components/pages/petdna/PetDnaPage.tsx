@@ -11,6 +11,7 @@ import HighlightCards, { type HighlightCardItem } from "@/components/shared/high
 import FeatureHighlightsGrid, {
   type FeatureHighlightItem,
 } from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
+import MessengerButton from "@/components/shared/messenger-button/MessengerButton"
 import {
   IconCalendarEvent,
   IconCircleCheck,
@@ -249,9 +250,13 @@ export default function PetDnaPage() {
               />
 
               <Group gap="sm" mt={22}>
-                <Button component={Link} href="#contact" className={styles.primaryButton} radius="md">
+                <MessengerButton
+                  message="Hi Lablog team, I would like to book a PetDNA test."
+                  className={styles.primaryButton}
+                  radius="md"
+                >
                   Book a test
-                </Button>
+                </MessengerButton>
                 <Button
                   component={Link}
                   href="#discover"
@@ -319,9 +324,14 @@ export default function PetDnaPage() {
                 <Text className={styles.sampleBannerText}>
                   Understand their origins, support long-term health, and improve daily care.
                 </Text>
-                <Button component={Link} href="#contact" variant="outline" radius="md" className={styles.sampleButton}>
+                <MessengerButton
+                  message="Hi Lablog team, I would like to book a PetDNA test."
+                  variant="outline"
+                  radius="md"
+                  className={styles.sampleButton}
+                >
                   Book your PetDNA test
-                </Button>
+                </MessengerButton>
               </Paper>
             </Grid.Col>
           </Grid>
@@ -367,9 +377,14 @@ export default function PetDnaPage() {
                   </Text>
                 ))}
               </Stack>
-              <Button component={Link} href="#contact" className={styles.primaryButton} radius="md" mt={16}>
+              <MessengerButton
+                message="Hi Lablog team, I want to speak with a specialist about PetDNA."
+                className={styles.primaryButton}
+                radius="md"
+                mt={16}
+              >
                 Talk to our specialists
-              </Button>
+              </MessengerButton>
             </Grid.Col>
           </Grid>
         </Container>
@@ -390,9 +405,14 @@ export default function PetDnaPage() {
             <Text className={styles.ctaDescription}>
               Book your PetDNA test today and start making more informed decisions for your beloved companion.
             </Text>
-            <Button component={Link} href="#contact" className={styles.primaryButton} radius="md" mt={14}>
+            <MessengerButton
+              message="Hi Lablog team, I would like to book a PetDNA test."
+              className={styles.primaryButton}
+              radius="md"
+              mt={14}
+            >
               Book your PetDNA test
-            </Button>
+            </MessengerButton>
           </Paper>
         </Container>
       </Box>

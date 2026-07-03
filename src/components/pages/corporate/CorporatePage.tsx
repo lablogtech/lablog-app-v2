@@ -1,8 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import Link from "next/link"
-import { Box, Button, Container, Grid, Group, Paper, SimpleGrid, Stack, Text, ThemeIcon, Title } from "@mantine/core"
+import { Box, Container, Grid, Group, Paper, SimpleGrid, Stack, Text, ThemeIcon, Title } from "@mantine/core"
 import {
   IconBuilding,
   IconBuildingFactory2,
@@ -27,6 +26,7 @@ import ChecklistGridSection from "@/components/shared/checklist-grid-section/Che
 import FeatureHighlightsGrid, {
   type FeatureHighlightItem,
 } from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
+import MessengerButton from "@/components/shared/messenger-button/MessengerButton"
 
 type IconType = typeof IconBuilding
 
@@ -282,18 +282,21 @@ export default function CorporatePage() {
               />
 
               <Group mt={20} gap="sm">
-                <Button component={Link} href="#contact" className={styles.primaryButton} radius="md">
+                <MessengerButton
+                  message="Hi Lablog team, we want to discuss employee health screening for our company."
+                  className={styles.primaryButton}
+                  radius="md"
+                >
                   Talk to our corporate team
-                </Button>
-                <Button
-                  component={Link}
-                  href="#contact"
+                </MessengerButton>
+                <MessengerButton
+                  message="Hi Lablog team, we would like to request a corporate APE proposal."
                   variant="outline"
                   className={styles.secondaryButton}
                   radius="md"
                 >
                   Request a proposal
-                </Button>
+                </MessengerButton>
               </Group>
             </Grid.Col>
 
@@ -454,9 +457,14 @@ export default function CorporatePage() {
             <Text className={styles.contactDescription} ta="center">
               Our team would love to learn more about your requirements.
             </Text>
-            <Button component={Link} href="#contact" className={styles.contactButton} radius="md" mt={8}>
+            <MessengerButton
+              message="Hi Lablog team, we want to talk with your corporate health screening team."
+              className={styles.contactButton}
+              radius="md"
+              mt={8}
+            >
               Talk To Our Corporate Team
-            </Button>
+            </MessengerButton>
           </Stack>
         </Container>
       </Box>

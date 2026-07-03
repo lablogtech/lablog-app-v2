@@ -6,9 +6,10 @@ import Image from "next/image"
 import styles from "./CollectionCenters.module.css"
 import { Carousel } from "@mantine/carousel"
 import type { EmblaCarouselType } from "embla-carousel"
-import { Box, Button, Container, Group, Stack, Text, Title } from "@mantine/core"
+import { Box, Container, Group, Stack, Text, Title } from "@mantine/core"
 import { IconClock, IconMapPin, IconPhone, IconCalendarEvent } from "@tabler/icons-react"
 import Heading from "@/components/shared/heading/Heading"
+import MessengerButton from "@/components/shared/messenger-button/MessengerButton"
 
 const CollectionCentersMap = dynamic(() => import("./CollectionCentersMap"), {
   ssr: false,
@@ -213,16 +214,15 @@ export default function CollectionCenters() {
                         </Group>
                       </Stack>
 
-                      <Button
-                        component="a"
-                        href="#contact"
+                      <MessengerButton
+                        message={`Hi Lablog team, I would like to book an appointment at ${center.name}.`}
                         className={styles.bookButton}
                         color="blue"
                         leftSection={<IconCalendarEvent size={16} stroke={2} aria-hidden />}
                         radius="md"
                       >
                         Book Appointment
-                      </Button>
+                      </MessengerButton>
                     </Box>
                   </Carousel.Slide>
                 ))}

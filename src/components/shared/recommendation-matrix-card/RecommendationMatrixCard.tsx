@@ -54,6 +54,9 @@ export default function RecommendationMatrixCard({
         <Stack gap={10} className={styles.rows}>
           {rows.map((row) => {
             const rowAccentColor = row.accentColor ?? accentColor
+            const hasExternalRecommendation = row.recommendationHref
+              ? /^https?:\/\//i.test(row.recommendationHref)
+              : false
 
             return (
               <Paper
@@ -78,15 +81,29 @@ export default function RecommendationMatrixCard({
 
                   <Box className={styles.recommendationChip}>
                     {row.recommendationHref ? (
-                      <Anchor
-                        component={Link}
-                        href={row.recommendationHref}
-                        underline="never"
-                        size="sm"
-                        className={`${styles.recommendation} ${styles.recommendationLink}`}
-                      >
-                        {row.recommendation}
-                      </Anchor>
+                      hasExternalRecommendation ? (
+                        <Anchor
+                          component="a"
+                          href={row.recommendationHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          underline="never"
+                          size="sm"
+                          className={`${styles.recommendation} ${styles.recommendationLink}`}
+                        >
+                          {row.recommendation}
+                        </Anchor>
+                      ) : (
+                        <Anchor
+                          component={Link}
+                          href={row.recommendationHref}
+                          underline="never"
+                          size="sm"
+                          className={`${styles.recommendation} ${styles.recommendationLink}`}
+                        >
+                          {row.recommendation}
+                        </Anchor>
+                      )
                     ) : (
                       <Text size="sm" className={styles.recommendation}>
                         {row.recommendation}

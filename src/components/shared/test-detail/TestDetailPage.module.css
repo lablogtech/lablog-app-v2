@@ -427,22 +427,13 @@
   border-radius: 22px;
   border: 1px solid #dce7f6;
   background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
-  text-align: center;
+  display: flex;
+  align-items: center;
   box-shadow: 0 16px 34px rgba(19, 48, 99, 0.06);
 }
 
 .badgeVisual {
-  min-height: 160px;
-}
-
-.badgeTitle {
-  color: #17346c;
-  font-size: 1.25rem;
-}
-
-.badgeSubtitle {
-  color: #4c6482;
-  font-size: 0.9rem;
+  width: 100%;
 }
 
 .faqColumn :global(.mantine-Accordion-item) {

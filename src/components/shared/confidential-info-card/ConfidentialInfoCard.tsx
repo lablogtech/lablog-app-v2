@@ -27,6 +27,7 @@ export default function ConfidentialInfoCard({
   action,
 }: ConfidentialInfoCardProps) {
   const cardIcon = icon ?? <IconShieldLock size={22} stroke={1.9} aria-hidden />
+  const hasExternalAction = action ? /^https?:\/\//i.test(action.href) : false
 
   return (
     <Paper className={styles.card} radius="xl" style={{ "--ci-accent": accentColor } as CSSProperties}>
@@ -52,9 +53,22 @@ export default function ConfidentialInfoCard({
         </Stack>
 
         {action ? (
-          <Button component={Link} href={action.href} className={styles.action} radius="md">
-            {action.label}
-          </Button>
+          hasExternalAction ? (
+            <Button
+              component="a"
+              href={action.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.action}
+              radius="md"
+            >
+              {action.label}
+            </Button>
+          ) : (
+            <Button component={Link} href={action.href} className={styles.action} radius="md">
+              {action.label}
+            </Button>
+          )
         ) : null}
       </Stack>
     </Paper>

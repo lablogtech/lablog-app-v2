@@ -41,6 +41,7 @@ import {
 import FeatureHighlightsGrid, {
   type FeatureHighlightItem,
 } from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
+import MessengerButton from "@/components/shared/messenger-button/MessengerButton"
 
 const HERO_FEATURES: FeatureHighlightItem[] = [
   {
@@ -275,9 +276,13 @@ export default function PregnancyPage() {
                   <Text className={styles.heroFloatingDescription}>
                     Our specialists will help you choose the most appropriate test based on your stage and needs.
                   </Text>
-                  <Button component={Link} href="#contact" className={styles.heroFloatingButton} radius="md">
+                  <MessengerButton
+                    message="Hi Lablog team, I need help choosing the right pregnancy genetic test."
+                    className={styles.heroFloatingButton}
+                    radius="md"
+                  >
                     Ask our specialists
-                  </Button>
+                  </MessengerButton>
                 </Paper>
               </Box>
             </Grid.Col>
@@ -413,9 +418,13 @@ export default function PregnancyPage() {
                 <Text className={styles.supportDescription}>
                   Our care specialists can answer your questions and recommend the most suitable test for your needs.
                 </Text>
-                <Button component={Link} href="#contact" radius="md" className={styles.supportButton}>
+                <MessengerButton
+                  message="Hi Lablog team, I have questions about pregnancy genetic screening options."
+                  radius="md"
+                  className={styles.supportButton}
+                >
                   Contact Us
-                </Button>
+                </MessengerButton>
                 <Text className={styles.supportPhone}>or call us at +63 917 817 5468</Text>
               </Paper>
             </Grid.Col>
