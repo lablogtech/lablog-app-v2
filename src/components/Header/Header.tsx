@@ -17,10 +17,9 @@ import {
   Menu,
   ScrollArea,
   Stack,
-  Text,
 } from "@mantine/core"
 import { useDisclosure } from "@mantine/hooks"
-import { IconCalendarEvent, IconChevronDown, IconMenu2 } from "@tabler/icons-react"
+import { IconCalendarEvent, IconChevronDown } from "@tabler/icons-react"
 import MessengerButton from "@/components/shared/messenger-button/MessengerButton"
 
 const NAV_ITEMS = [
@@ -41,6 +40,10 @@ const NAV_ITEMS = [
       {
         label: "Non-Invasive",
         href: "/paternity-dna-test/non-invasive-paternal",
+      },
+      {
+        label: "Family Relationship Testing",
+        href: "/paternity-dna-test/family-relationship-testing",
       },
     ],
   },
@@ -207,22 +210,14 @@ export default function Header() {
         onClose={closeDrawer}
         position="right"
         size="86%"
-        title={
-          <Group gap={8} align="center" className={styles.drawerTitleWrap}>
-            <IconMenu2 size={18} stroke={1.9} aria-hidden />
-            <Text className={styles.drawerTitle}>Menu</Text>
-          </Group>
-        }
+        withCloseButton={false}
         classNames={{
           content: styles.drawerContent,
-          header: styles.drawerHeader,
           body: styles.drawerBody,
-          close: styles.drawerClose,
-          title: styles.drawerTitleSlot,
         }}
         zIndex={99999}
       >
-        <ScrollArea h="calc(100dvh - 88px)" type="scroll" scrollbarSize={5}>
+        <ScrollArea h="100dvh" type="scroll" scrollbarSize={5}>
           <Stack gap="xs" className={styles.mobileNavList}>
             {NAV_ITEMS.map((item) => {
               const itemActive = isPathActive(item.href)

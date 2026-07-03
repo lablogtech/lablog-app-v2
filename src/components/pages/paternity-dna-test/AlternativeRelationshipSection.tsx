@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { useState } from "react"
 import { Box, Button, Container, Group, Modal, Text, ThemeIcon, Title } from "@mantine/core"
 import { IconCheck, IconUsers, IconUserSquareRounded, IconUsersGroup, IconSpy } from "@tabler/icons-react"
@@ -23,7 +24,7 @@ const RELATIONSHIP_CARDS: RelationshipCard[] = [
     id: "discreet-dna",
     title: "Discreet DNA Testing",
     description: "Uses personal items that may contain DNA when standard samples are unavailable.",
-    points: ["Hair with roots", "Nail clippings", "Used toothbrush", "Ear swabs"],
+    points: ["Hair with roots", "Nail clippings"],
     icon: IconSpy,
     cardClassName: styles.altCardGreen,
     iconClassName: styles.altIconGreen,
@@ -108,10 +109,10 @@ export default function AlternativeRelationshipSection() {
               )}
 
               <Button
+                component={Link}
+                href="/paternity-dna-test/family-relationship-testing"
                 variant="subtle"
                 className={`${styles.altAction} ${card.actionClassName}`}
-                onClick={() => setActiveCardId(card.id)}
-                rightSection={<span aria-hidden>→</span>}
               >
                 View Details
               </Button>

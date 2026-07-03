@@ -254,20 +254,66 @@
 
 .stripCard {
   height: 100%;
-  padding: 20px 16px;
+  padding: 22px 16px 14px;
   text-align: center;
   border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  border-color: var(--strip-item-card-border);
+  background: var(--strip-item-card-bg);
 }
 
 .stripIcon {
   margin: 0 auto 12px;
-  color: var(--detail-accent);
-  background: var(--detail-accent-soft);
+  color: var(--strip-item-accent);
+  background: var(--strip-item-icon-bg);
 }
 
 .stripTitle {
-  font-size: 1.06rem;
   margin-bottom: 8px;
+}
+
+.stripHighlight {
+  color: #143268;
+  font-size: 0.96rem;
+  font-weight: 700;
+  max-width: 260px;
+  margin: 0 auto 8px;
+}
+
+.stripPoints {
+  margin-top: 10px;
+}
+
+.stripPointRow {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.stripPointIcon {
+  color: var(--strip-item-accent);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.stripPointText {
+  color: #17315f;
+  font-size: 0.93rem;
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+.stripAction {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  color: var(--strip-item-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 0.94rem;
+  font-weight: 800;
 }
 
 .stripFooter {

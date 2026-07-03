@@ -26,6 +26,7 @@ const PATERNITY_LINKS = [
   { label: "Peace of Mind", href: "/paternity-dna-test/peace-of-mind" },
   { label: "Legal Paternity", href: "/paternity-dna-test/legal-paternity" },
   { label: "Non-Invasive", href: "/paternity-dna-test/non-invasive-paternal" },
+  { label: "Family Relationship Testing", href: "/paternity-dna-test/family-relationship-testing" },
 ]
 
 const PREGNANCY_LINKS = [

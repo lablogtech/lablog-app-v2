@@ -26,13 +26,39 @@ export type DetailStep = {
 
 export type DetailStripItem = {
   title: string
+  highlight?: string
   description?: string
+  points?: string[]
+  actionLabel?: string
+  actionHref?: string
+  accentColor?: string
+  iconBackground?: string
+  cardBackground?: string
+  cardBorderColor?: string
   icon: ReactNode
 }
 
 export type DetailResultCard = {
   title: string
   description: string
+}
+
+export type DetailRecommendationMatrixRow = {
+  situation: string
+  recommendation: string
+  recommendationHref?: string
+  icon?: ReactNode
+  accentColor?: string
+}
+
+export type DetailRecommendationMatrix = {
+  title: string
+  subtitle?: string
+  rows: DetailRecommendationMatrixRow[]
+  note?: string
+  accentColor?: string
+  situationLabel?: string
+  recommendationLabel?: string
 }
 
 export type DetailInfoPanel = {
@@ -107,10 +133,11 @@ export type TestPageContent = {
   results: {
     eyebrow: string
     title: string
-    description: string
-    positive: DetailResultCard
-    negative: DetailResultCard
-    sidePanel: DetailInfoPanel
+    description?: string
+    positive?: DetailResultCard
+    negative?: DetailResultCard
+    sidePanel?: DetailInfoPanel
+    matrix?: DetailRecommendationMatrix
   }
   trust: DetailTrustSection
   faq: {

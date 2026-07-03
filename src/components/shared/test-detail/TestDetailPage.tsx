@@ -36,6 +36,7 @@ import HowItWorksSteps, { type HowItWorksStep } from "@/components/shared/how-it
 import FeatureHighlightsGrid, {
   type FeatureHighlightItem,
 } from "@/components/shared/feature-highlights/FeatureHighlightsGrid"
+import RecommendationMatrixCard from "@/components/shared/recommendation-matrix-card/RecommendationMatrixCard"
 
 type TestDetailPageProps = {
   content: TestPageContent
@@ -177,14 +178,40 @@ export default function TestDetailPage({ content }: TestDetailPageProps) {
 
               <SimpleGrid cols={content.strip.cols} spacing="lg" mt={24}>
                 {content.strip.items.map((item) => (
-                  <Paper key={item.title} radius="xl" className={styles.stripCard}>
+                  <Paper
+                    key={item.title}
+                    radius="xl"
+                    className={styles.stripCard}
+                    style={
+                      {
+                        "--strip-item-accent": item.accentColor ?? content.theme.accent,
+                        "--strip-item-icon-bg": item.iconBackground ?? content.theme.accentSoft,
+                        "--strip-item-card-bg": item.cardBackground ?? "rgba(255, 255, 255, 0.92)",
+                        "--strip-item-card-border": item.cardBorderColor ?? "#dce7f6",
+                      } as CSSProperties
+                    }
+                  >
                     <ThemeIcon size={68} radius="xl" variant="light" className={styles.stripIcon}>
                       {item.icon}
                     </ThemeIcon>
                     <Title order={4} className={styles.stripTitle}>
                       {item.title}
                     </Title>
+                    {item.highlight ? <Text className={styles.stripHighlight}>{item.highlight}</Text> : null}
                     {item.description ? <Text className={styles.stripDescription}>{item.description}</Text> : null}
+
+                    {item.points?.length ? (
+                      <Stack gap={6} mt={8} className={styles.stripPoints}>
+                        {item.points.map((point) => (
+                          <Group key={point} wrap="nowrap" gap={7} align="flex-start" className={styles.stripPointRow}>
+                            <IconCircleCheck size={16} stroke={2.1} className={styles.stripPointIcon} aria-hidden />
+                            <Text component="span" className={styles.stripPointText}>
+                              {point}
+                            </Text>
+                          </Group>
+                        ))}
+                      </Stack>
+                    ) : null}
                   </Paper>
                 ))}
               </SimpleGrid>
@@ -251,78 +278,100 @@ export default function TestDetailPage({ content }: TestDetailPageProps) {
           </Box>
 
           <Box component="section" className={styles.resultsSection}>
-            <Box className={styles.resultsSectionHeader}>
-              <Heading
-                order={2}
-                eyebrow={content.results.eyebrow}
-                title={content.results.title}
-                subtitle={content.results.description}
-                classNames={{
-                  eyebrow: styles.sectionEyebrow,
-                  title: styles.sectionTitle,
-                  subtitle: styles.sectionSubtitle,
-                }}
+            {content.results.matrix ? null : (
+              <Box className={styles.resultsSectionHeader}>
+                <Heading
+                  order={2}
+                  eyebrow={content.results.eyebrow}
+                  title={content.results.title}
+                  subtitle={content.results.description}
+                  classNames={{
+                    eyebrow: styles.sectionEyebrow,
+                    title: styles.sectionTitle,
+                    subtitle: styles.sectionSubtitle,
+                  }}
+                />
+              </Box>
+            )}
+
+            {content.results.matrix ? (
+              <RecommendationMatrixCard
+                title={content.results.matrix.title}
+                subtitle={content.results.matrix.subtitle}
+                rows={content.results.matrix.rows.map((row) => ({
+                  situation: row.situation,
+                  recommendation: row.recommendation,
+                  recommendationHref: row.recommendationHref,
+                  icon: row.icon,
+                  accentColor: row.accentColor,
+                }))}
+                note={content.results.matrix.note}
+                accentColor={content.results.matrix.accentColor ?? content.theme.accent}
+                situationLabel={content.results.matrix.situationLabel}
+                recommendationLabel={content.results.matrix.recommendationLabel}
               />
-            </Box>
+            ) : (
+              <Grid gap="xl" align="stretch">
+                <Grid.Col span={{ base: 12, lg: 7 }}>
+                  <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg">
+                    <Paper radius="xl" className={styles.resultCard}>
+                      <ThemeIcon size={70} radius="xl" variant="light" className={styles.resultIconPositive}>
+                        <IconCircleCheck size={36} stroke={1.8} aria-hidden />
+                      </ThemeIcon>
+                      <Text className={styles.resultLabelPositive}>Positive Result</Text>
+                      <Title order={4} className={styles.resultCardTitle}>
+                        {content.results.positive?.title}
+                      </Title>
+                      <Text className={styles.faqAnswer}>{content.results.positive?.description}</Text>
+                    </Paper>
 
-            <Grid gap="xl" align="stretch">
-              <Grid.Col span={{ base: 12, lg: 7 }}>
-                <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg">
-                  <Paper radius="xl" className={styles.resultCard}>
-                    <ThemeIcon size={70} radius="xl" variant="light" className={styles.resultIconPositive}>
-                      <IconCircleCheck size={36} stroke={1.8} aria-hidden />
-                    </ThemeIcon>
-                    <Text className={styles.resultLabelPositive}>Positive Result</Text>
-                    <Title order={4} className={styles.resultCardTitle}>
-                      {content.results.positive.title}
+                    <Paper radius="xl" className={styles.resultCard}>
+                      <ThemeIcon size={70} radius="xl" variant="light" className={styles.resultIconNegative}>
+                        <IconCircleX size={36} stroke={1.8} aria-hidden />
+                      </ThemeIcon>
+                      <Text className={styles.resultLabelNegative}>Negative Result</Text>
+                      <Title order={4} className={styles.resultCardTitle}>
+                        {content.results.negative?.title}
+                      </Title>
+                      <Text className={styles.faqAnswer}>{content.results.negative?.description}</Text>
+                    </Paper>
+                  </SimpleGrid>
+                </Grid.Col>
+
+                <Grid.Col span={{ base: 12, lg: 5 }}>
+                  <Paper radius="xl" className={styles.resultsSideCard}>
+                    {content.results.sidePanel?.eyebrow ? (
+                      <Text className={styles.panelEyebrow}>{content.results.sidePanel.eyebrow}</Text>
+                    ) : null}
+                    <Title order={3} className={styles.panelTitle}>
+                      {content.results.sidePanel?.title}
                     </Title>
-                    <Text className={styles.faqAnswer}>{content.results.positive.description}</Text>
+                    {content.results.sidePanel?.description ? (
+                      <Text className={styles.turnaroundText} mt={10}>
+                        {content.results.sidePanel.description}
+                      </Text>
+                    ) : null}
+
+                    {content.results.sidePanel?.items ? (
+                      <Stack gap={10} mt={16}>
+                        {content.results.sidePanel.items.map((item) => (
+                          <Group key={item} wrap="nowrap" align="flex-start" className={styles.panelItem}>
+                            <IconCircleCheck size={18} stroke={2.1} color={content.theme.accent} aria-hidden />
+                            <Text>{item}</Text>
+                          </Group>
+                        ))}
+                      </Stack>
+                    ) : null}
+
+                    {content.results.sidePanel?.note ? (
+                      <Text mt={14} className={styles.panelNote}>
+                        {content.results.sidePanel.note}
+                      </Text>
+                    ) : null}
                   </Paper>
-
-                  <Paper radius="xl" className={styles.resultCard}>
-                    <ThemeIcon size={70} radius="xl" variant="light" className={styles.resultIconNegative}>
-                      <IconCircleX size={36} stroke={1.8} aria-hidden />
-                    </ThemeIcon>
-                    <Text className={styles.resultLabelNegative}>Negative Result</Text>
-                    <Title order={4} className={styles.resultCardTitle}>
-                      {content.results.negative.title}
-                    </Title>
-                    <Text className={styles.faqAnswer}>{content.results.negative.description}</Text>
-                  </Paper>
-                </SimpleGrid>
-              </Grid.Col>
-
-              <Grid.Col span={{ base: 12, lg: 5 }}>
-                <Paper radius="xl" className={styles.resultsSideCard}>
-                  {content.results.sidePanel.eyebrow ? (
-                    <Text className={styles.panelEyebrow}>{content.results.sidePanel.eyebrow}</Text>
-                  ) : null}
-                  <Title order={3} className={styles.panelTitle}>
-                    {content.results.sidePanel.title}
-                  </Title>
-                  {content.results.sidePanel.description ? (
-                    <Text className={styles.turnaroundText} mt={10}>
-                      {content.results.sidePanel.description}
-                    </Text>
-                  ) : null}
-
-                  <Stack gap={10} mt={16}>
-                    {content.results.sidePanel.items.map((item) => (
-                      <Group key={item} wrap="nowrap" align="flex-start" className={styles.panelItem}>
-                        <IconCircleCheck size={18} stroke={2.1} color={content.theme.accent} aria-hidden />
-                        <Text>{item}</Text>
-                      </Group>
-                    ))}
-                  </Stack>
-
-                  {content.results.sidePanel.note ? (
-                    <Text mt={14} className={styles.panelNote}>
-                      {content.results.sidePanel.note}
-                    </Text>
-                  ) : null}
-                </Paper>
-              </Grid.Col>
-            </Grid>
+                </Grid.Col>
+              </Grid>
+            )}
           </Box>
 
           <Box component="section" className={styles.trustSection}>

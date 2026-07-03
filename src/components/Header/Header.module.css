@@ -318,25 +318,43 @@
   }
 
   .cta {
-    display: none;
+    display: inline-flex;
+    order: 3;
+    margin-left: auto;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
   }
 
   .mobileMenuButton {
     display: inline-flex;
+    order: 1;
+    margin-right: 6px;
   }
 
   .inner {
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 0 14px;
     min-height: 68px;
-    gap: 10px;
+    gap: 8px;
   }
 
   .logo {
-    height: 46px;
+    height: 42px;
+    order: 2;
+    position: static;
+    left: auto;
+    transform: none;
+    margin: 0;
   }
 
   .logo img {
-    height: 46px;
+    height: 40px;
+  }
+
+  .ctaIcon {
+    width: 14px;
+    height: 14px;
   }
 }

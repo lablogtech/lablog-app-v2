@@ -1,6 +1,6 @@
 import Link from "next/link"
-import { Anchor, Box, Container, Group, Text, ThemeIcon, Title } from "@mantine/core"
-import { IconArrowRight, IconCheck, IconScale, IconUserCircle, IconVenus } from "@tabler/icons-react"
+import { Box, Button, Container, Group, Text, ThemeIcon, Title } from "@mantine/core"
+import { IconCheck, IconScale, IconUserCircle, IconVenus } from "@tabler/icons-react"
 import styles from "@/app/paternity-dna-test/page.module.css"
 import Heading from "@/components/shared/heading/Heading"
 
@@ -97,15 +97,14 @@ export default function PaternityTestOptionsSection() {
                 ))}
               </Box>
 
-              <Anchor
+              <Button
                 component={Link}
                 href={card.href}
-                underline="never"
                 className={`${styles.learnMoreLink} ${card.learnMoreClassName}`}
+                variant="subtle"
               >
                 Learn More
-                <IconArrowRight size={17} stroke={2.4} aria-hidden />
-              </Anchor>
+              </Button>
             </Box>
           ))}
         </Box>
