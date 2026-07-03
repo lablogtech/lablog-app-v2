@@ -15,9 +15,10 @@ import {
   Paper,
   Text,
   TextInput,
+  ThemeIcon,
   Title,
 } from "@mantine/core"
-import { IconSearch } from "@tabler/icons-react"
+import { IconChevronDown, IconHelp, IconSearch } from "@tabler/icons-react"
 
 type FaqItem = {
   question: string
@@ -546,16 +547,30 @@ export default function FaqPage() {
                     key={`${selectedCategory}-${showAllInAllCategory ? "all" : "partial"}-${normalizedQuery}`}
                     variant="separated"
                     radius="md"
-                    className={styles.accordion}
+                    chevron={<IconChevronDown size={15} stroke={2.2} />}
+                    classNames={{
+                      item: styles.faqItem,
+                      control: styles.faqControl,
+                      panel: styles.faqPanel,
+                      chevron: styles.faqChevron,
+                    }}
                     defaultValue={visibleQuestionEntries[0]?.entryKey}
                   >
                     {visibleQuestionEntries.map((item) => (
                       <Accordion.Item key={item.entryKey} value={item.entryKey}>
-                        <Accordion.Control>
+                        <Accordion.Control
+                          icon={
+                            <ThemeIcon size={20} radius="xl" variant="light" className={styles.faqQuestionIcon}>
+                              <IconHelp size={13} stroke={2.1} aria-hidden />
+                            </ThemeIcon>
+                          }
+                        >
                           <Highlight highlight={searchQuery.trim()}>{item.question}</Highlight>
                         </Accordion.Control>
                         <Accordion.Panel>
-                          <Highlight highlight={searchQuery.trim()}>{item.answer}</Highlight>
+                          <Text className={styles.faqAnswerText}>
+                            <Highlight highlight={searchQuery.trim()}>{item.answer}</Highlight>
+                          </Text>
                         </Accordion.Panel>
                       </Accordion.Item>
                     ))}

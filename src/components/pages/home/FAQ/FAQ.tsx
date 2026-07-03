@@ -1,8 +1,9 @@
 "use client"
 
+import Link from "next/link"
 import styles from "./FAQ.module.css"
-import { Accordion, Box, Text, Title } from "@mantine/core"
-import { IconChevronDown } from "@tabler/icons-react"
+import { Box, Text } from "@mantine/core"
+import FaqSection from "@/components/shared/faq-section/FaqSection"
 
 const FAQ_ITEMS = [
   {
@@ -30,25 +31,9 @@ const FAQ_ITEMS = [
 export default function FAQ() {
   return (
     <Box className={styles.card}>
-      <Title order={3} className={styles.title}>
-        Frequently Asked Questions
-      </Title>
+      <FaqSection items={FAQ_ITEMS} columns={1} />
 
-      <Accordion
-        variant="separated"
-        radius="md"
-        className={styles.accordion}
-        chevron={<IconChevronDown size={16} stroke={2} />}
-      >
-        {FAQ_ITEMS.map((item) => (
-          <Accordion.Item key={item.question} value={item.question}>
-            <Accordion.Control className={styles.control}>{item.question}</Accordion.Control>
-            <Accordion.Panel className={styles.panel}>{item.answer}</Accordion.Panel>
-          </Accordion.Item>
-        ))}
-      </Accordion>
-
-      <Text component="a" href="#contact" className={styles.moreLink}>
+      <Text component={Link} href="/faq" className={styles.moreLink}>
         View all FAQs
       </Text>
     </Box>

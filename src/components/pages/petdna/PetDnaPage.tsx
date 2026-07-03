@@ -3,8 +3,9 @@
 import Image from "next/image"
 import Link from "next/link"
 import styles from "./PetDnaPage.module.css"
-import { Accordion, Box, Button, Container, Grid, Group, Paper, Stack, Text, Title } from "@mantine/core"
+import { Box, Button, Container, Grid, Group, Paper, Stack, Text, Title } from "@mantine/core"
 import Heading from "@/components/shared/heading/Heading"
+import FaqSection from "@/components/shared/faq-section/FaqSection"
 import HowItWorksSteps, { type HowItWorksStep } from "@/components/shared/how-it-works/HowItWorksSteps"
 import HighlightCards, { type HighlightCardItem } from "@/components/shared/highlight-cards/HighlightCards"
 import FeatureHighlightsGrid, {
@@ -201,14 +202,7 @@ const FAQ_ITEMS = [
   },
 ]
 
-function splitQuestions(items: typeof FAQ_ITEMS) {
-  const midpoint = Math.ceil(items.length / 2)
-  return [items.slice(0, midpoint), items.slice(midpoint)]
-}
-
 export default function PetDnaPage() {
-  const faqColumns = splitQuestions(FAQ_ITEMS)
-
   return (
     <Box className={`pageSurface ${styles.page}`}>
       <Box component="section" className={styles.heroSection}>
@@ -383,23 +377,7 @@ export default function PetDnaPage() {
 
       <Box component="section" className={styles.section}>
         <Container size="xl">
-          <Title order={2} className={styles.sectionTitle} ta="center">
-            Frequently Asked Questions
-          </Title>
-          <Grid mt={18} gap="lg">
-            {faqColumns.map((column, columnIndex) => (
-              <Grid.Col key={columnIndex} span={{ base: 12, md: 6 }}>
-                <Accordion variant="separated" radius="md" className={styles.faqAccordion}>
-                  {column.map((faq) => (
-                    <Accordion.Item key={faq.question} value={faq.question}>
-                      <Accordion.Control>{faq.question}</Accordion.Control>
-                      <Accordion.Panel>{faq.answer}</Accordion.Panel>
-                    </Accordion.Item>
-                  ))}
-                </Accordion>
-              </Grid.Col>
-            ))}
-          </Grid>
+          <FaqSection items={FAQ_ITEMS} />
         </Container>
       </Box>
 

@@ -1,8 +1,7 @@
-import { Accordion, Box, Container, Grid, Text, ThemeIcon, Title } from "@mantine/core"
+import { Box, Container, Text, ThemeIcon } from "@mantine/core"
 import {
   IconCalendarEvent,
   IconCertificate2,
-  IconChevronDown,
   IconDna2,
   IconFileCheck,
   IconHome,
@@ -11,6 +10,7 @@ import {
   IconTestPipe,
   IconUsersGroup,
 } from "@tabler/icons-react"
+import FaqSection from "@/components/shared/faq-section/FaqSection"
 import HowItWorksSteps, { type HowItWorksStep } from "@/components/shared/how-it-works/HowItWorksSteps"
 import styles from "@/app/paternity-dna-test/page.module.css"
 
@@ -78,10 +78,17 @@ const TRUST_POINTS = [
   },
 ]
 
-const FAQ_COLUMNS = [
-  ["Which DNA test do I need?", "Is the DNA test confidential?", "Can the DNA test be done at home?"],
-  ["Can participants be in different locations?", "How accurate are the results?", "How long do results take?"],
-]
+const FAQ_ITEMS = [
+  "Which DNA test do I need?",
+  "Is the DNA test confidential?",
+  "Can the DNA test be done at home?",
+  "Can participants be in different locations?",
+  "How accurate are the results?",
+  "How long do results take?",
+].map((question) => ({
+  question,
+  answer: "Our team will walk you through the best option and process details based on your situation.",
+}))
 
 export default function PaternityProcessSection() {
   return (
@@ -118,44 +125,7 @@ export default function PaternityProcessSection() {
             })}
           </Box>
 
-          <Title order={3} className={styles.processFaqTitle}>
-            Frequently Asked Questions
-          </Title>
-
-          <Grid gap={12}>
-            {FAQ_COLUMNS.map((column, columnIndex) => (
-              <Grid.Col key={columnIndex} span={{ base: 12, md: 6 }}>
-                <Accordion
-                  variant="separated"
-                  radius="md"
-                  chevron={<IconChevronDown size={15} stroke={2.2} />}
-                  classNames={{
-                    item: styles.processFaqItem,
-                    control: styles.processFaqControl,
-                    panel: styles.processFaqPanel,
-                    chevron: styles.processFaqChevron,
-                  }}
-                >
-                  {column.map((question) => (
-                    <Accordion.Item value={question} key={question}>
-                      <Accordion.Control
-                        icon={
-                          <ThemeIcon size={18} radius={999} className={styles.processFaqIcon}>
-                            ?
-                          </ThemeIcon>
-                        }
-                      >
-                        {question}
-                      </Accordion.Control>
-                      <Accordion.Panel>
-                        Our team will walk you through the best option and process details based on your situation.
-                      </Accordion.Panel>
-                    </Accordion.Item>
-                  ))}
-                </Accordion>
-              </Grid.Col>
-            ))}
-          </Grid>
+          <FaqSection items={FAQ_ITEMS} />
         </Box>
       </Container>
     </Box>

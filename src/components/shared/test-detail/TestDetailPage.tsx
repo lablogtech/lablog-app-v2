@@ -4,7 +4,6 @@ import type { CSSProperties } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import {
-  Accordion,
   Anchor,
   Box,
   Button,
@@ -21,7 +20,6 @@ import {
 import {
   IconArrowLeft,
   IconCalendarEvent,
-  IconChevronDown,
   IconCircleCheck,
   IconCircleX,
   IconClock,
@@ -30,8 +28,9 @@ import {
   IconPhone,
   IconShieldLock,
 } from "@tabler/icons-react"
-import type { DetailFaqItem, TestPageContent } from "./types"
+import type { TestPageContent } from "./types"
 import styles from "./TestDetailPage.module.css"
+import FaqSection from "@/components/shared/faq-section/FaqSection"
 import Heading from "@/components/shared/heading/Heading"
 import HowItWorksSteps, { type HowItWorksStep } from "@/components/shared/how-it-works/HowItWorksSteps"
 import FeatureHighlightsGrid, {
@@ -42,13 +41,7 @@ type TestDetailPageProps = {
   content: TestPageContent
 }
 
-function splitQuestions(items: DetailFaqItem[]) {
-  const midpoint = Math.ceil(items.length / 2)
-  return [items.slice(0, midpoint), items.slice(midpoint)]
-}
-
 export default function TestDetailPage({ content }: TestDetailPageProps) {
-  const faqColumns = splitQuestions(content.faq.items)
   const processSteps: HowItWorksStep[] = content.process.steps.map((step, index) => ({
     number: index + 1,
     title: step.title,
@@ -408,37 +401,7 @@ export default function TestDetailPage({ content }: TestDetailPageProps) {
           </Box>
 
           <Box component="section" className={styles.faqSection}>
-            <Heading
-              order={2}
-              title={content.faq.title}
-              classNames={{
-                title: styles.sectionTitle,
-              }}
-            />
-
-            <SimpleGrid cols={{ base: 1, md: 2 }} spacing="lg" mt={24}>
-              {faqColumns.map((questions, index) => (
-                <Box key={index} className={styles.faqColumn}>
-                  <Accordion
-                    variant="separated"
-                    radius="xl"
-                    chevron={<IconChevronDown size={16} stroke={2.2} />}
-                    classNames={{
-                      control: styles.faqControl,
-                      chevron: styles.faqChevron,
-                      panel: styles.faqPanel,
-                    }}
-                  >
-                    {questions.map((item) => (
-                      <Accordion.Item key={item.question} value={item.question}>
-                        <Accordion.Control>{item.question}</Accordion.Control>
-                        <Accordion.Panel>{item.answer}</Accordion.Panel>
-                      </Accordion.Item>
-                    ))}
-                  </Accordion>
-                </Box>
-              ))}
-            </SimpleGrid>
+            <FaqSection title={content.faq.title} items={content.faq.items} />
           </Box>
 
           <Paper radius="xl" className={styles.ctaBand}>

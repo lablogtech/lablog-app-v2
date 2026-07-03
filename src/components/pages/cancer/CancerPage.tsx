@@ -4,7 +4,6 @@ import Link from "next/link"
 import Image from "next/image"
 import styles from "./CancerPage.module.css"
 import {
-  Accordion,
   Anchor,
   Box,
   Button,
@@ -21,6 +20,7 @@ import {
 import Heading from "@/components/shared/heading/Heading"
 import ConfidentialInfoCard from "@/components/shared/confidential-info-card/ConfidentialInfoCard"
 import RecommendationMatrixCard from "@/components/shared/recommendation-matrix-card/RecommendationMatrixCard"
+import FaqSection from "@/components/shared/faq-section/FaqSection"
 import HowItWorksSteps, { type HowItWorksStep } from "@/components/shared/how-it-works/HowItWorksSteps"
 import {
   IconArrowRight,
@@ -178,14 +178,7 @@ const FAQ_ITEMS = [
   },
 ]
 
-function splitQuestions(items: typeof FAQ_ITEMS) {
-  const midpoint = Math.ceil(items.length / 2)
-  return [items.slice(0, midpoint), items.slice(midpoint)]
-}
-
 export default function CancerPage() {
-  const faqColumns = splitQuestions(FAQ_ITEMS)
-
   return (
     <Box className={`pageSurface ${styles.page}`}>
       <Box component="section" className={styles.heroSection}>
@@ -476,30 +469,7 @@ export default function CancerPage() {
 
       <Box component="section" className={styles.section}>
         <Container size="xl">
-          <Box className={styles.sectionHeading}>
-            <Title order={2} className={styles.sectionTitle}>
-              Frequently Asked Questions
-            </Title>
-          </Box>
-
-          <Grid gap="lg">
-            {faqColumns.map((column, columnIndex) => (
-              <Grid.Col key={`column-${columnIndex}`} span={{ base: 12, md: 6 }}>
-                <Accordion variant="separated" radius="md" className={styles.faqAccordion}>
-                  {column.map((item) => (
-                    <Accordion.Item key={item.question} value={item.question} className={styles.faqItem}>
-                      <Accordion.Control icon={<IconFlask size={16} stroke={2.2} aria-hidden />}>
-                        <Text className={styles.faqQuestion}>{item.question}</Text>
-                      </Accordion.Control>
-                      <Accordion.Panel>
-                        <Text className={styles.faqAnswer}>{item.answer}</Text>
-                      </Accordion.Panel>
-                    </Accordion.Item>
-                  ))}
-                </Accordion>
-              </Grid.Col>
-            ))}
-          </Grid>
+          <FaqSection items={FAQ_ITEMS} />
         </Container>
       </Box>
 
