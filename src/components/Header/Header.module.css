@@ -191,6 +191,7 @@
   border: 1px solid #d8e3f6;
   background: #f8fbff;
   border-radius: 10px;
+  align-items: center;
 }
 
 .drawerContent {
@@ -227,16 +228,28 @@
   gap: 8px;
 }
 
+.mobileNavLink,
+.mobileAccordionTitle,
+.mobileSubLink {
+  text-transform: uppercase;
+  font-family: var(--font-poppins);
+  letter-spacing: 1px;
+  padding: 12px 0 !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  color: var(--mantine-color-blue-4) !important;
+}
+
+.mobileNavLinkActive,
+.mobileAccordionTitleActive,
+.mobileSubLinkActive {
+  color: var(--mantine-color-teal-6) !important;
+  font-weight: 600 !important;
+}
+
 .mobileNavLink {
   display: flex;
   align-items: center;
-  border: 1px solid #dbe5f5;
-  border-radius: 10px;
-  background: #ffffff;
-  color: #224376;
-  padding: 11px 12px;
-  font-size: 0.96rem;
-  font-weight: 600;
 }
 
 .mobileNavLinkActive {
@@ -246,7 +259,7 @@
 }
 
 .mobileAccordion :global(.mantine-Accordion-item) {
-  border: 1px solid #dbe5f5;
+  border: 0;
   border-radius: 10px;
   overflow: hidden;
   background: #ffffff;
@@ -258,19 +271,27 @@
 
 .mobileAccordionTitle {
   display: inline-flex;
-  align-items: center;
-  padding: 9px 8px;
-  color: #224376;
-  font-size: 0.96rem;
-  font-weight: 700;
+}
+
+.mobileAccordionLabel,
+.mobileAccordionControl {
+  padding: 0 !important;
 }
 
 .mobileAccordionTitleActive {
   color: #0d71e8;
+  padding: 0;
 }
 
 .mobileAccordionPanel {
   padding-top: 0;
+}
+
+.mobileAccordionItem {
+  border: 0;
+  &[data-active] {
+    border: 0;
+  }
 }
 
 .mobileSubLink {

@@ -121,7 +121,14 @@ export default function Header() {
         </Anchor>
 
         {/* Nav */}
-        <Group visibleFrom="md" component="nav" align="flex-end" className={styles.nav} aria-label="Main navigation">
+        <Group
+          visibleFrom="md"
+          component="nav"
+          align="flex-end"
+          justify="center"
+          className={styles.nav}
+          aria-label="Main navigation"
+        >
           {NAV_ITEMS.map((item) => {
             const isActive = isPathActive(item.href)
 
@@ -238,9 +245,19 @@ export default function Header() {
               }
 
               return (
-                <Accordion key={item.label} variant="separated" radius="md" className={styles.mobileAccordion}>
-                  <Accordion.Item value={item.label} className={styles.mobileAccordionItem}>
-                    <Accordion.Control className={styles.mobileAccordionControl}>
+                <Accordion
+                  key={item.label}
+                  variant="separated"
+                  radius="md"
+                  classNames={{
+                    root: styles.mobileAccordion,
+                    item: styles.mobileAccordionItem,
+                    control: styles.mobileAccordionControl,
+                    label: styles.mobileAccordionLabel,
+                  }}
+                >
+                  <Accordion.Item value={item.label}>
+                    <Accordion.Control>
                       <Group justify="space-between" wrap="nowrap" gap={8}>
                         <Anchor
                           component={Link}
