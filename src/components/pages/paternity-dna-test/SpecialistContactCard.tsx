@@ -24,11 +24,11 @@ export default function SpecialistContactCard() {
 
       <Text className={styles.specialistCallout}>or call us at</Text>
 
-      <Anchor href="tel:+639178175468" underline="never" className={styles.specialistPhoneLink}>
+      <Anchor href="tel:+639560648809" underline="never" className={styles.specialistPhoneLink}>
         <Group gap={8} wrap="nowrap">
           <IconPhone size={18} stroke={2.4} aria-hidden />
           <Text component="span" className={styles.specialistPhoneText}>
-            +63 917 817 5468
+            0956 064 8809
           </Text>
         </Group>
       </Anchor>

@@ -425,7 +425,7 @@ export default function PregnancyPage() {
                 >
                   Contact Us
                 </MessengerButton>
-                <Text className={styles.supportPhone}>or call us at +63 917 817 5468</Text>
+                <Text className={styles.supportPhone}>or call us at 0956 064 8809</Text>
               </Paper>
             </Grid.Col>
           </Grid>

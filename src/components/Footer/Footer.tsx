@@ -66,21 +66,21 @@ const SOCIAL_LINKS = [
 const CONTACT_INFO = [
   {
     icon: IconPhone,
-    label: "(02) 8633 5555",
-    href: "tel:+6328633555",
+    label: "0956 064 8809",
+    href: "tel:+639560648809",
   },
   {
     icon: IconMail,
-    label: "info@lablog.com.ph",
-    href: "mailto:info@lablog.com.ph",
+    label: "admin@lablog.tech",
+    href: "mailto:admin@lablog.tech",
   },
   {
     icon: IconMapPin,
-    label: "Unit 3A, 2nd Floor, 67 Paseo de Roxas, Makati City, Metro Manila",
+    label: "Unit 605, Corporate 101 Building, Mother Ignacia Ave, Diliman, Quezon City, 1103 Metro Manila",
   },
   {
     icon: IconClock,
-    label: "Mon - Sat: 6:00 AM - 5:00 PM",
+    label: "Mon - Sat: 8:00 AM - 4:00 PM",
   },
 ]
 
