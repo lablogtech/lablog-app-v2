@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { Box, Button, Container, Group, Text, ThemeIcon, Title } from "@mantine/core"
 import { IconCheck, IconScale, IconUserCircle, IconVenus } from "@tabler/icons-react"

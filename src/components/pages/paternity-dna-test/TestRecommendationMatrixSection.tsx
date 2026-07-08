@@ -1,3 +1,5 @@
+"use client"
+
 import { Box, Container, Grid } from "@mantine/core"
 import { IconScale, IconSpy, IconUser, IconUsers, IconUsersGroup, IconVenus } from "@tabler/icons-react"
 import styles from "@/app/paternity-dna-test/page.module.css"

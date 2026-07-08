@@ -1,5 +1,4 @@
-"use client"
-
+import type { Metadata } from "next"
 import styles from "./page.module.css"
 import Hero from "@/components/pages/home/Hero/Hero"
 import StatsBar from "@/components/pages/home/StatsBar/StatsBar"
@@ -10,7 +9,10 @@ import WhyChooseLablog from "@/components/pages/home/WhyChooseLablog/WhyChooseLa
 import FAQReviewsSection from "@/components/pages/home/FAQReviewsSection/FAQReviewsSection"
 import CorporateWellness from "@/components/pages/home/CorporateWellness/CorporateWellness"
 import CollectionCenters from "@/components/pages/home/CollectionCenters/CollectionCenters"
+import { getPageMetadata } from "@/lib/seo"
 import { Box } from "@mantine/core"
+
+export const metadata: Metadata = getPageMetadata("/")
 
 export default function Home() {
   return (

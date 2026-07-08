@@ -10,6 +10,8 @@ import "@mantine/carousel/styles.css"
 import "leaflet/dist/leaflet.css"
 import "./globals.css"
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://lablog.tech"
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -61,8 +63,29 @@ const theme = createTheme({
 })
 
 export const metadata: Metadata = {
-  title: "LABLOG",
-  description: "DNA Testing, NIPT & Genetic Screening in the Philippines",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Lablog | Online Laboratory Tests in the Philippines",
+    template: "%s | Lablog",
+  },
+  description: "DNA testing, NIPT, and preventive laboratory screening services in the Philippines.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_PH",
+    siteName: "Lablog",
+    title: "Lablog | Online Laboratory Tests in the Philippines",
+    description: "DNA testing, NIPT, and preventive laboratory screening services in the Philippines.",
+    url: "/",
+    images: [
+      {
+        url: "/hero.jpg",
+        alt: "Lablog online laboratory testing services in the Philippines",
+      },
+    ],
+  },
 }
 
 export default function RootLayout({

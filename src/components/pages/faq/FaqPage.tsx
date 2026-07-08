@@ -565,11 +565,15 @@ export default function FaqPage() {
                             </ThemeIcon>
                           }
                         >
-                          <Highlight highlight={searchQuery.trim()}>{item.question}</Highlight>
+                          <Highlight component="span" highlight={searchQuery.trim()}>
+                            {item.question}
+                          </Highlight>
                         </Accordion.Control>
                         <Accordion.Panel>
                           <Text className={styles.faqAnswerText}>
-                            <Highlight highlight={searchQuery.trim()}>{item.answer}</Highlight>
+                            <Highlight component="span" highlight={searchQuery.trim()}>
+                              {item.answer}
+                            </Highlight>
                           </Text>
                         </Accordion.Panel>
                       </Accordion.Item>

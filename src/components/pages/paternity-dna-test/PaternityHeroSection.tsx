@@ -1,3 +1,5 @@
+"use client"
+
 import { Box, Container, Grid, Paper, Text } from "@mantine/core"
 import { IconCalendarEvent, IconLock, IconMapPin, IconShieldCheck, IconTargetArrow } from "@tabler/icons-react"
 import styles from "@/app/paternity-dna-test/page.module.css"
