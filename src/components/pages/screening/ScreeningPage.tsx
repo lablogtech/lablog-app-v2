@@ -263,7 +263,7 @@ export default function ScreeningPage() {
       <Box component="section" className={styles.heroSection}>
         <Container size="xl">
           <Grid align="stretch" gap={{ base: 28, lg: 40 }}>
-            <Grid.Col span={{ base: 12, lg: 7 }}>
+            <Grid.Col span={{ base: 12, lg: 7 }} className={styles.heroContent}>
               <Heading
                 order={1}
                 eyebrow="Preventive Health Screening Philippines"
@@ -280,6 +280,13 @@ export default function ScreeningPage() {
                   description: styles.heroDescription,
                 }}
               />
+
+              <Paper className={`${styles.heroFloatingCard} ${styles.heroFloatingCardMobile}`} radius="xl" p="lg">
+                <Text className={styles.heroFloatingTitle}>Early awareness supports better outcomes.</Text>
+                <Text className={styles.heroFloatingDescription}>
+                  Monitor key health markers and make informed long-term decisions.
+                </Text>
+              </Paper>
 
               <Title order={3} mt={18} className={styles.sectionTitle}>
                 Why Choose Lablog Preventive Health Screening?
@@ -304,7 +311,7 @@ export default function ScreeningPage() {
                 <strong>Early awareness often leads to better health outcomes.</strong>
               </Text>
 
-              <Group gap="sm" mt={22}>
+              <Group gap="sm" mt={22} className={styles.heroActions}>
                 <MessengerButton
                   message="Hi Lablog team, I would like to book a preventive health screening package."
                   className={styles.primaryButton}
@@ -323,7 +330,7 @@ export default function ScreeningPage() {
               </Group>
             </Grid.Col>
 
-            <Grid.Col span={{ base: 12, lg: 5 }}>
+            <Grid.Col span={{ base: 12, lg: 5 }} className={styles.heroMedia}>
               <Box className={styles.heroVisual}>
                 <Box className={styles.backgroundImage} aria-hidden="true">
                   <Image
@@ -336,7 +343,7 @@ export default function ScreeningPage() {
                   />
                   <Box className={styles.heroGlow} aria-hidden />
                 </Box>
-                <Paper className={styles.heroFloatingCard} radius="xl" p="lg">
+                <Paper className={`${styles.heroFloatingCard} ${styles.heroFloatingCardDesktop}`} radius="xl" p="lg">
                   <Text className={styles.heroFloatingTitle}>Early awareness supports better outcomes.</Text>
                   <Text className={styles.heroFloatingDescription}>
                     Monitor key health markers and make informed long-term decisions.

@@ -86,6 +86,7 @@ export const peaceOfMindPaternityPageContent: PaternityTestPageContent = {
     imageSrc: "/pages/Peace of mind page.png",
     imageAlt: "Family DNA testing visual",
     imagePosition: "39% center",
+    imageMobilePosition: "39% 18%",
     floatingCard: {
       title: "Collection Options That Fit Your Schedule",
       description: "We offer multiple sample collection options designed for convenience and privacy.",
@@ -238,6 +239,7 @@ export const legalPaternityPageContent: PaternityTestPageContent = {
     imageSrc: "/pages/Legal.png",
     imageAlt: "Legal paternity DNA test visual",
     imagePosition: "62% center",
+    imageMobilePosition: "62% 18%",
     floatingCard: {
       title: "Why choose our Legal Paternity DNA Test?",
       description: "A legally compliant testing process with documented handling from start to finish.",
@@ -402,6 +404,7 @@ export const prenatalPaternityPageContent: PaternityTestPageContent = {
     imageSrc: "/pages/NIPT.png",
     imageAlt: "Prenatal paternity DNA testing visual",
     imagePosition: "8% center",
+    imageMobilePosition: "8% 18%",
     floatingCard: {
       title: "Why choose our Prenatal Paternity Test?",
       description: "A safe, confidential process designed to give early answers during pregnancy.",
@@ -573,6 +576,7 @@ export const familyRelationshipTestingPageContent: PaternityTestPageContent = {
     imageSrc: "/pages/Alternative DNA test.png",
     imageAlt: "Family relationship DNA testing visual",
     imagePosition: "center",
+    imageMobilePosition: "50% 18%",
     floatingCard: {
       title: "Why choose Lablog for Family Relationship DNA Testing?",
       description: "Expert guidance from start to finish with flexible nationwide collection options.",

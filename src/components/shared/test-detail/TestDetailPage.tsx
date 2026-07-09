@@ -68,14 +68,14 @@ export default function TestDetailPage({ content }: TestDetailPageProps) {
     <Box className={`pageSurface ${styles.page}`} style={themeVars}>
       <Box className={styles.main}>
         <Container size="xl">
-          <Anchor component={Link} href={content.backHref} underline="never" className={styles.backLink}>
-            <IconArrowLeft size={16} stroke={2.2} aria-hidden />
-            <Text component="span">{content.backLabel}</Text>
-          </Anchor>
-
           <Box component="section" className={styles.heroSection}>
             <Grid gap={{ base: 28, lg: 40 }} align="stretch">
               <Grid.Col span={{ base: 12, lg: 6 }} className={styles.header}>
+                <Anchor component={Link} href={content.backHref} underline="never" className={styles.backLink}>
+                  <IconArrowLeft size={16} stroke={2.2} aria-hidden />
+                  <Text component="span">{content.backLabel}</Text>
+                </Anchor>
+
                 <Heading
                   order={1}
                   eyebrow={content.hero.eyebrow}
@@ -114,10 +114,40 @@ export default function TestDetailPage({ content }: TestDetailPageProps) {
                     <Text>{content.hero.note}</Text>
                   </Group>
                 </Paper>
+
+                <Paper className={`${styles.floatingCard} ${styles.floatingCardMobile}`} p="lg" radius="xl">
+                  <Stack gap="sm">
+                    {content.hero.floatingCard.eyebrow ? (
+                      <Text className={styles.panelEyebrow}>{content.hero.floatingCard.eyebrow}</Text>
+                    ) : null}
+                    <Title order={3} className={styles.floatingCardTitle}>
+                      {content.hero.floatingCard.title}
+                    </Title>
+                    {content.hero.floatingCard.description ? (
+                      <Text className={styles.floatingCardText}>{content.hero.floatingCard.description}</Text>
+                    ) : null}
+                    <Stack gap={8}>
+                      {content.hero.floatingCard.items.map((item) => (
+                        <Group key={item} wrap="nowrap" align="flex-start" className={styles.panelItem}>
+                          <IconCircleCheck size={18} stroke={2.1} color={content.theme.accent} aria-hidden />
+                          <Text>{item}</Text>
+                        </Group>
+                      ))}
+                    </Stack>
+                  </Stack>
+                </Paper>
               </Grid.Col>
 
-              <Grid.Col span={{ base: 12, lg: 6 }}>
-                <Box className={styles.heroVisual}>
+              <Grid.Col span={{ base: 12, lg: 6 }} className={styles.heroMedia}>
+                <Box
+                  className={styles.heroVisual}
+                  style={
+                    {
+                      "--hero-image-position": content.hero.imagePosition ?? "center center",
+                      "--hero-image-mobile-position": content.hero.imageMobilePosition ?? "50% 18%",
+                    } as CSSProperties
+                  }
+                >
                   <Box className={styles.backgroundImage} aria-hidden="true">
                     <Image
                       src={content.hero.imageSrc}
@@ -129,7 +159,7 @@ export default function TestDetailPage({ content }: TestDetailPageProps) {
                     />
                     <Box className={styles.heroGlow} aria-hidden />
                   </Box>
-                  <Paper className={styles.floatingCard} p="lg" radius="xl">
+                  <Paper className={`${styles.floatingCard} ${styles.floatingCardDesktop}`} p="lg" radius="xl">
                     <Stack gap="sm">
                       {content.hero.floatingCard.eyebrow ? (
                         <Text className={styles.panelEyebrow}>{content.hero.floatingCard.eyebrow}</Text>

@@ -106,6 +106,7 @@ export type TestPageContent = {
     imageSrc: string
     imageAlt: string
     imagePosition?: string
+    imageMobilePosition?: string
     floatingCard: DetailInfoPanel
   }
   process: {

@@ -209,7 +209,7 @@ export default function PetDnaPage() {
       <Box component="section" className={styles.heroSection}>
         <Container size="xl">
           <Grid align="stretch" gap={{ base: 28, lg: 42 }}>
-            <Grid.Col span={{ base: 12, lg: 6 }}>
+            <Grid.Col span={{ base: 12, lg: 6 }} className={styles.heroContent}>
               <Heading
                 order={1}
                 eyebrow="PetDNA Philippines"
@@ -228,6 +228,13 @@ export default function PetDnaPage() {
                   description: styles.heroDescription,
                 }}
               />
+
+              <Paper className={`${styles.heroFloatingCard} ${styles.heroFloatingCardMobile}`} radius="xl" p="lg">
+                <Text className={styles.heroFloatingTitle}>Trusted by pet parents across the Philippines</Text>
+                <Text className={styles.heroFloatingDescription}>
+                  Personalized and easy-to-understand reports designed to support lifelong pet wellness.
+                </Text>
+              </Paper>
 
               <Title order={3} mt={18} className={styles.valueTitle}>
                 Why Pet Owners Choose Lablog PetDNA
@@ -249,7 +256,7 @@ export default function PetDnaPage() {
                 }}
               />
 
-              <Group gap="sm" mt={22}>
+              <Group gap="sm" mt={22} className={styles.heroActions}>
                 <MessengerButton
                   message="Hi Lablog team, I would like to book a PetDNA test."
                   className={styles.primaryButton}
@@ -269,7 +276,7 @@ export default function PetDnaPage() {
               </Group>
             </Grid.Col>
 
-            <Grid.Col span={{ base: 12, lg: 6 }}>
+            <Grid.Col span={{ base: 12, lg: 6 }} className={styles.heroMedia}>
               <Box className={styles.heroVisual}>
                 <Box className={styles.backgroundImage} aria-hidden="true">
                   <Image
@@ -282,7 +289,7 @@ export default function PetDnaPage() {
                   />
                   <Box className={styles.heroGlow} aria-hidden />
                 </Box>
-                <Paper className={styles.heroFloatingCard} radius="xl" p="lg">
+                <Paper className={`${styles.heroFloatingCard} ${styles.heroFloatingCardDesktop}`} radius="xl" p="lg">
                   <Text className={styles.heroFloatingTitle}>Trusted by pet parents across the Philippines</Text>
                   <Text className={styles.heroFloatingDescription}>
                     Personalized and easy-to-understand reports designed to support lifelong pet wellness.

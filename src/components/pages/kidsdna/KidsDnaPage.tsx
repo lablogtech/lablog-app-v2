@@ -224,7 +224,7 @@ export default function KidsDnaPage() {
       <Box component="section" className={styles.heroSection}>
         <Container size="xl">
           <Grid align="stretch" gap={{ base: 28, lg: 42 }}>
-            <Grid.Col span={{ base: 12, lg: 6 }}>
+            <Grid.Col span={{ base: 12, lg: 6 }} className={styles.heroContent}>
               <Heading
                 order={1}
                 eyebrow="Lablog DNA Blueprint Philippines"
@@ -247,6 +247,13 @@ export default function KidsDnaPage() {
                 }}
               />
 
+              <Paper className={`${styles.heroFloatingCard} ${styles.heroFloatingCardMobile}`} radius="xl" p="lg">
+                <Text className={styles.heroFloatingTitle}>Trusted by families across the Philippines</Text>
+                <Text className={styles.heroFloatingDescription}>
+                  Understand your child better with clear and science-backed genetic context.
+                </Text>
+              </Paper>
+
               <FeatureHighlightsGrid
                 items={HERO_FEATURES}
                 cols={{ base: 2, sm: 3, lg: 5 }}
@@ -267,7 +274,7 @@ export default function KidsDnaPage() {
                 Important: Lablog DNA Blueprint is an informational wellness tool and not a medical diagnostic test.
               </Text>
 
-              <Group gap="sm" mt={22}>
+              <Group gap="sm" mt={22} className={styles.heroActions}>
                 <MessengerButton
                   message="Hi Lablog team, I would like to book a KidsDNA test."
                   className={styles.primaryButton}
@@ -286,7 +293,7 @@ export default function KidsDnaPage() {
               </Group>
             </Grid.Col>
 
-            <Grid.Col span={{ base: 12, lg: 6 }}>
+            <Grid.Col span={{ base: 12, lg: 6 }} className={styles.heroMedia}>
               <Box className={styles.heroVisual}>
                 <Box className={styles.backgroundImage} aria-hidden="true">
                   <Image
@@ -299,7 +306,7 @@ export default function KidsDnaPage() {
                   />
                   <Box className={styles.heroGlow} aria-hidden />
                 </Box>
-                <Paper className={styles.heroFloatingCard} radius="xl" p="lg">
+                <Paper className={`${styles.heroFloatingCard} ${styles.heroFloatingCardDesktop}`} radius="xl" p="lg">
                   <Text className={styles.heroFloatingTitle}>Trusted by families across the Philippines</Text>
                   <Text className={styles.heroFloatingDescription}>
                     Understand your child better with clear and science-backed genetic context.

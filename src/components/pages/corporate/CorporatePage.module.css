@@ -121,6 +121,10 @@
   background: #ecfbf3;
 }
 
+.heroActions {
+  width: 100%;
+}
+
 .logoStrip {
   background: linear-gradient(90deg, #064b35 0%, #0a6e48 100%);
   padding: 18px 0;
@@ -461,7 +465,45 @@
 
 @media (max-width: 48em) {
   .heroSection {
-    padding-top: 24px;
+    padding-top: 0;
+  }
+
+  .heroMedia {
+    order: 1;
+    padding: 0 !important;
+  }
+
+  .heroContent {
+    order: 2;
+    margin-top: -44px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .heroVisual {
+    min-height: 40vh;
+    height: 40vh;
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    overflow: hidden;
+  }
+
+  .backgroundImage {
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: auto;
+    height: 100%;
+  }
+
+  .heroGlow {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.85) 78%, #ffffff 100%);
+  }
+
+  .heroActions {
+    justify-content: center;
   }
 
   .heroFeature {

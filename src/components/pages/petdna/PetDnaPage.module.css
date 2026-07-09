@@ -105,6 +105,14 @@
   box-shadow: 0 16px 34px rgba(58, 43, 116, 0.2);
 }
 
+.heroFloatingCardDesktop {
+  display: block;
+}
+
+.heroFloatingCardMobile {
+  display: none;
+}
+
 .heroFloatingTitle {
   color: #3f2d91;
   font-size: 1.1rem;
@@ -140,6 +148,10 @@
 
 .secondaryButton:hover {
   background: #f3efff;
+}
+
+.heroActions {
+  width: 100%;
 }
 
 .section {
@@ -393,11 +405,58 @@
 
 @media (max-width: 48em) {
   .heroSection {
-    padding-top: 24px;
+    padding-top: 0;
   }
 
-  .heroFloatingCard {
-    position: static;
-    margin: 14px;
+  .heroMedia {
+    order: 1;
+    padding: 0 !important;
+  }
+
+  .heroContent {
+    order: 2;
+    margin-top: -44px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .heroVisual {
+    min-height: 40vh;
+    height: 40vh;
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    overflow: hidden;
+  }
+
+  .backgroundImage {
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: auto;
+    height: 100%;
+  }
+
+  .heroGlow {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.85) 78%, #ffffff 100%);
+  }
+
+  .heroActions {
+    justify-content: center;
+  }
+
+  .heroFloatingCardDesktop {
+    display: none;
+  }
+
+  .heroFloatingCardMobile {
+    display: block;
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 14px 0 0;
+    max-width: none;
+    width: 100%;
   }
 }

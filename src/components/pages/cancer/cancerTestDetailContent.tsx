@@ -186,6 +186,7 @@ export const brcaCancerPageContent: TestPageContent = {
     imageSrc: "/pages/Hero page.png",
     imageAlt: "BRCA screening consultation",
     imagePosition: "62% center",
+    imageMobilePosition: "62% 18%",
     floatingCard: {
       eyebrow: "Who Should Consider BRCA Testing?",
       title: "BRCA Genetic Testing may be suitable if:",
@@ -402,6 +403,7 @@ export const hbocCancerPageContent: TestPageContent = {
     imageSrc: "/pages/HBOC.png",
     imageAlt: "HBOC screening family consultation",
     imagePosition: "58% center",
+    imageMobilePosition: "58% 18%",
     floatingCard: {
       eyebrow: "Who Should Consider HBOC Screening?",
       title: "HBOC Screening may be suitable if:",
@@ -610,6 +612,7 @@ export const comprehensiveCancerPageContent: TestPageContent = {
     imageSrc: "/pages/Hereditary Cancer Screening.png",
     imageAlt: "Comprehensive hereditary screening consultation",
     imagePosition: "63% center",
+    imageMobilePosition: "63% 18%",
     floatingCard: {
       eyebrow: "Who Should Consider Comprehensive Hereditary Cancer Screening?",
       title: "You may benefit if:",
@@ -835,6 +838,7 @@ export const mcedCancerPageContent: TestPageContent = {
     imageSrc: "/pages/Hero page.png",
     imageAlt: "Multi-cancer early detection consultation",
     imagePosition: "60% center",
+    imageMobilePosition: "60% 18%",
     floatingCard: {
       eyebrow: "Who May Benefit From MCED?",
       title: "MCED may be particularly beneficial for:",

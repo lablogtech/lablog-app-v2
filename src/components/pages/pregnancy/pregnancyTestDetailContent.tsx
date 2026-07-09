@@ -163,6 +163,7 @@ export const niptPageContent: PregnancyTestPageContent = {
     imageSrc: "/pages/NIPT page.png",
     imageAlt: "Pregnant mother for NIPT consultation",
     imagePosition: "62% center",
+    imageMobilePosition: "62% 18%",
     floatingCard: {
       title: "Who should consider NIPT?",
       description: "NIPT may be suitable for:",
@@ -334,6 +335,7 @@ export const carrierScreeningPageContent: PregnancyTestPageContent = {
     imageSrc: "/pages/Carrier Screening.png",
     imageAlt: "Couple reviewing carrier screening options",
     imagePosition: "57% center",
+    imageMobilePosition: "57% 18%",
     floatingCard: {
       title: "Who should consider Carrier Screening?",
       description: "Carrier Screening may be suitable for:",
@@ -497,6 +499,7 @@ export const newbornGeneticScreeningPageContent: PregnancyTestPageContent = {
     imageSrc: "/pages/Newborn Genetic Screening.png",
     imageAlt: "Newborn baby genetic screening",
     imagePosition: "65% center",
+    imageMobilePosition: "65% 18%",
     floatingCard: {
       title: "Early knowledge. Better preparation.",
       description: "Knowledge today can support your child's health and development for years to come.",

@@ -250,7 +250,7 @@ export default function CorporatePage() {
       <Box component="section" className={styles.heroSection}>
         <Container size="xl">
           <Grid align="stretch" gap={{ base: 24, lg: 36 }}>
-            <Grid.Col span={{ base: 12, lg: 6 }}>
+            <Grid.Col span={{ base: 12, lg: 6 }} className={styles.heroContent}>
               <Heading
                 order={1}
                 eyebrow="Corporate APE & Employee Health Screening"
@@ -281,7 +281,7 @@ export default function CorporatePage() {
                 }}
               />
 
-              <Group mt={20} gap="sm">
+              <Group mt={20} gap="sm" className={styles.heroActions}>
                 <MessengerButton
                   message="Hi Lablog team, we want to discuss employee health screening for our company."
                   className={styles.primaryButton}
@@ -300,7 +300,7 @@ export default function CorporatePage() {
               </Group>
             </Grid.Col>
 
-            <Grid.Col span={{ base: 12, lg: 6 }}>
+            <Grid.Col span={{ base: 12, lg: 6 }} className={styles.heroMedia}>
               <Box className={styles.heroVisual}>
                 <Box className={styles.backgroundImage} aria-hidden="true">
                   <Image
