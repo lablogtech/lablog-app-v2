@@ -227,7 +227,11 @@
     font-size: 15px;
   }
 
-  .mapStage,
+  .mapStage {
+    min-height: 0;
+    height: auto;
+  }
+
   .map {
     min-height: 320px;
     height: 320px;

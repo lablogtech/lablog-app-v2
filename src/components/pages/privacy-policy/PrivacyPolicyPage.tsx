@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import styles from "./PrivacyPolicyPage.module.css"
-import { Box, Button, Card, Container, Grid, Group, Paper, SimpleGrid, Text, ThemeIcon, Title } from "@mantine/core"
+import { Box, Card, Container, Grid, Paper, SimpleGrid, Text, ThemeIcon, Title } from "@mantine/core"
 import {
   IconCheck,
   IconFileDescription,
@@ -122,7 +122,7 @@ export default function PrivacyPolicyPage() {
       <Box className={styles.section} component="section">
         <Container size="xl">
           <Grid align="start" gap="lg">
-            <Grid.Col span={{ base: 12, lg: 3 }}>
+            <Grid.Col visibleFrom="md" span={{ base: 12, lg: 3 }}>
               <Card withBorder radius="lg" className={styles.sideNav}>
                 {SIDE_LINKS.map((item, index) => (
                   <Paper key={item} className={`${styles.sideNavItem} ${index === 0 ? styles.sideNavActive : ""}`}>
@@ -159,12 +159,6 @@ export default function PrivacyPolicyPage() {
                   )
                 })}
               </Box>
-
-              <Group mt="xl" justify="center">
-                <Button variant="outline" className={styles.downloadButton}>
-                  Download Full Policy (PDF)
-                </Button>
-              </Group>
             </Grid.Col>
           </Grid>
         </Container>

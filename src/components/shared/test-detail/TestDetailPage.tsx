@@ -448,12 +448,15 @@ export default function TestDetailPage({ content }: TestDetailPageProps) {
           </Box>
 
           <Paper radius="xl" className={styles.ctaBand}>
-            <Group justify="space-between" align="center" gap="lg">
-              <Group wrap="nowrap" align="flex-start">
-                <ThemeIcon size={48} radius="xl" variant="light" className={styles.ctaIcon}>
+            <Group justify="space-between" align="center" gap="lg" className={styles.ctaLayout}>
+              <Group wrap="nowrap" align="flex-start" className={styles.ctaContent}>
+                <ThemeIcon visibleFrom="md" size={48} radius="xl" variant="light" className={styles.ctaIcon}>
                   <IconPhone size={24} stroke={1.8} aria-hidden />
                 </ThemeIcon>
-                <Box>
+                <Box className={styles.ctaCopy}>
+                  <ThemeIcon hiddenFrom="md" size={48} radius="xl" variant="light" className={styles.ctaIcon}>
+                    <IconPhone size={24} stroke={1.8} aria-hidden />
+                  </ThemeIcon>
                   <Title order={3} className={styles.ctaTitle}>
                     {content.cta.title}
                   </Title>
@@ -463,7 +466,7 @@ export default function TestDetailPage({ content }: TestDetailPageProps) {
                 </Box>
               </Group>
 
-              <Stack gap={8} align="flex-end">
+              <Stack gap={8} align="flex-end" className={styles.ctaActions}>
                 <Button component="a" href={`mailto:${content.cta.email}`} radius="xl" className={styles.ctaButton}>
                   {content.cta.buttonLabel}
                 </Button>

@@ -582,4 +582,27 @@
   .floatingCard {
     margin: 12px;
   }
+
+  .ctaLayout {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .ctaContent {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .ctaCopy {
+    text-align: center;
+  }
+
+  .ctaActions {
+    width: 100%;
+    align-items: center;
+  }
+
+  .ctaMeta {
+    justify-content: center;
+  }
 }

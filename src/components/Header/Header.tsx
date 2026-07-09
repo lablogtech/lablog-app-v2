@@ -117,7 +117,7 @@ export default function Header() {
       <Container size="xl" className={styles.inner}>
         {/* Logo */}
         <Anchor component={Link} href="/" className={styles.logo} underline="never">
-          <Image src="/lablog-nav.png" alt="LABLOG" width={280} height={80} priority />
+          <Image src="/nav-logo.png" alt="LABLOG" width={280} height={80} priority />
         </Anchor>
 
         {/* Nav */}

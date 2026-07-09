@@ -6,7 +6,7 @@ import { Box, Center, Container, Grid, Group, Stack, Text, ThemeIcon, Title } fr
 import {
   IconBrandFacebook,
   IconBrandInstagram,
-  IconBrandYoutube,
+  IconBrandLinkedin,
   IconBrandTiktok,
   IconPhone,
   IconMail,
@@ -57,10 +57,14 @@ const OTHER_SERVICES_LINKS = [
 ]
 
 const SOCIAL_LINKS = [
-  { icon: IconBrandFacebook, label: "Facebook", href: "#" },
-  { icon: IconBrandInstagram, label: "Instagram", href: "#" },
-  { icon: IconBrandYoutube, label: "YouTube", href: "#" },
-  { icon: IconBrandTiktok, label: "TikTok", href: "#" },
+  { icon: IconBrandFacebook, label: "Facebook", href: "https://www.facebook.com/lablog.tech/" },
+  { icon: IconBrandInstagram, label: "Instagram", href: "https://www.instagram.com/lablog.tech/" },
+  { icon: IconBrandTiktok, label: "TikTok", href: "https://www.tiktok.com/@lablog.tech" },
+  {
+    icon: IconBrandLinkedin,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/89949335/admin/dashboard/",
+  },
 ]
 
 const CONTACT_INFO = [
@@ -130,6 +134,9 @@ export default function Footer() {
                       radius="md"
                       variant="light"
                       component="a"
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={styles.socialIcon}
                       aria-label={social.label}
                     >

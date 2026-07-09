@@ -287,16 +287,52 @@ export default function AboutUsPage() {
 
             <Paper className={styles.contactCard}>
               <Group justify="center" gap="xs">
-                <ActionIcon size="lg" radius="xl" variant="light" className={styles.socialAction}>
+                <ActionIcon
+                  component="a"
+                  href="https://www.facebook.com/lablog.tech/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  size="lg"
+                  radius="xl"
+                  variant="light"
+                  className={styles.socialAction}
+                >
                   <IconBrandFacebook size={18} stroke={2} />
                 </ActionIcon>
-                <ActionIcon size="lg" radius="xl" variant="light" className={styles.socialAction}>
+                <ActionIcon
+                  component="a"
+                  href="https://www.instagram.com/lablog.tech/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  size="lg"
+                  radius="xl"
+                  variant="light"
+                  className={styles.socialAction}
+                >
                   <IconBrandInstagram size={18} stroke={2} />
                 </ActionIcon>
-                <ActionIcon size="lg" radius="xl" variant="light" className={styles.socialAction}>
+                <ActionIcon
+                  component="a"
+                  href="https://www.tiktok.com/@lablog.tech"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  size="lg"
+                  radius="xl"
+                  variant="light"
+                  className={styles.socialAction}
+                >
                   <IconBrandTiktok size={18} stroke={2} />
                 </ActionIcon>
-                <ActionIcon size="lg" radius="xl" variant="light" className={styles.socialAction}>
+                <ActionIcon
+                  component="a"
+                  href="https://www.linkedin.com/company/89949335/admin/dashboard/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  size="lg"
+                  radius="xl"
+                  variant="light"
+                  className={styles.socialAction}
+                >
                   <IconBrandLinkedin size={18} stroke={2} />
                 </ActionIcon>
               </Group>
@@ -306,7 +342,15 @@ export default function AboutUsPage() {
           </SimpleGrid>
 
           <Group mt="xl" justify="center" gap="md" wrap="wrap">
-            <Button className={styles.facebookButton} radius="md" size="md">
+            <Button
+              component="a"
+              href="https://www.facebook.com/lablog.tech/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.facebookButton}
+              radius="md"
+              size="md"
+            >
               Message Us On Facebook
             </Button>
             <Button className={styles.whatsAppButton} radius="md" size="md">
