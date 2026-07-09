@@ -128,20 +128,17 @@ export default function Footer() {
                 {SOCIAL_LINKS.map((social) => {
                   const Icon = social.icon
                   return (
-                    <ThemeIcon
+                    <a
                       key={social.label}
-                      size="md"
-                      radius="md"
-                      variant="light"
-                      component="a"
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={styles.socialIcon}
                       aria-label={social.label}
                     >
-                      <Icon size={18} stroke={2} />
-                    </ThemeIcon>
+                      <ThemeIcon size="md" radius="md" variant="light" className={styles.socialIcon}>
+                        <Icon size={18} stroke={2} />
+                      </ThemeIcon>
+                    </a>
                   )
                 })}
               </Group>
