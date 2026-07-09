@@ -63,6 +63,15 @@
   height: 100%;
 }
 
+.allReviewsButton {
+  background: var(--mantine-color-blue-6) !important;
+  font-weight: 700;
+}
+
+.allReviewsButton:hover {
+  background: var(--mantine-color-blue-7) !important;
+}
+
 @media (max-width: 768px) {
   .card {
     padding: 18px;

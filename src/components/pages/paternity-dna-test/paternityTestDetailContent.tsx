@@ -192,9 +192,9 @@ export const peaceOfMindPaternityPageContent: PaternityTestPageContent = {
       "Rigorous quality control procedures",
       "Reliable, highly accurate, and confidential results",
     ],
-    badgeTitle: "NATA",
+    badgeTitle: "ISO",
     badgeSubtitle: "World recognized accreditation",
-    badgeVisual: <AccreditationBadge type="NATA" />,
+    badgeVisual: <AccreditationBadge type="ISO" />,
     sideTitle: "High testing standards you can rely on.",
     sideDescription:
       "Our laboratory utilizes advanced DNA analysis technology to ensure reliable, highly accurate, and confidential results. Every sample undergoes strict quality control to maintain the highest testing standards.",
@@ -352,9 +352,9 @@ export const legalPaternityPageContent: PaternityTestPageContent = {
       "Rigorous quality control procedures",
       "Highly accurate, secure, and confidential results",
     ],
-    badgeTitle: "NATA",
+    badgeTitle: "ISO",
     badgeSubtitle: "World recognized accreditation",
-    badgeVisual: <AccreditationBadge type="NATA" />,
+    badgeVisual: <AccreditationBadge type="ISO" />,
     sideTitle: "Scientific integrity from collection to reporting.",
     sideDescription:
       "Our laboratory utilizes advanced genetic analysis technology to ensure highly accurate, secure, and confidential results. Every sample undergoes rigorous quality control procedures to maintain the highest level of scientific integrity.",

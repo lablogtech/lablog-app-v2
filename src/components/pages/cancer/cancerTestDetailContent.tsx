@@ -317,7 +317,7 @@ export const brcaCancerPageContent: TestPageContent = {
     },
     badgeTitle: "Safe, Private & Confidential",
     badgeSubtitle: "Handled with strict confidentiality",
-    badgeVisual: <AccreditationBadge type="NATA" />,
+    badgeVisual: <AccreditationBadge type="ISO" />,
     sideTitle: "Your privacy is always protected",
     sideDescription:
       "We understand that genetic information is deeply personal. Every sample, report, and patient record is handled with strict confidentiality and released only to authorized individuals.",
@@ -527,9 +527,9 @@ export const hbocCancerPageContent: TestPageContent = {
       "Quality assurance protocols",
       "Accessible and trusted support throughout the Philippines",
     ],
-    badgeTitle: "NATA",
+    badgeTitle: "ISO",
     badgeSubtitle: "World recognized accreditation",
-    badgeVisual: <AccreditationBadge type="NATA" />,
+    badgeVisual: <AccreditationBadge type="ISO" />,
     sideTitle: "Safe, Private & Confidential",
     sideDescription:
       "We understand that genetic information is deeply personal. Every sample, report, and patient record is handled with strict confidentiality and released only to authorized individuals.",
@@ -749,9 +749,9 @@ export const comprehensiveCancerPageContent: TestPageContent = {
       "Strict international standards and quality assurance",
       "Accessible and trusted service throughout the Philippines",
     ],
-    badgeTitle: "NATA",
+    badgeTitle: "ISO",
     badgeSubtitle: "World recognized accreditation",
-    badgeVisual: <AccreditationBadge type="NATA" />,
+    badgeVisual: <AccreditationBadge type="ISO" />,
     sideTitle: "Safe, Private & Confidential",
     sideDescription:
       "We understand that genetic information is deeply personal. Every sample, report, and patient record is handled with strict confidentiality and released only to authorized individuals.",

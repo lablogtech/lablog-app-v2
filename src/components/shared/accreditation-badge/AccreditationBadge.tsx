@@ -4,17 +4,13 @@ import Image from "next/image"
 import { Box } from "@mantine/core"
 import styles from "./AccreditationBadge.module.css"
 
-type AccreditationType = "NATA" | "ISO"
+type AccreditationType = "ISO"
 
 type AccreditationBadgeProps = {
   type: AccreditationType
 }
 
 const LOGO_MAP: Record<AccreditationType, { src: string; alt: string }> = {
-  NATA: {
-    src: "/logos/Nata.jpg",
-    alt: "NATA accreditation logo",
-  },
   ISO: {
     src: "/logos/ISO.png",
     alt: "ISO accreditation logo",
