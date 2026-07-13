@@ -97,6 +97,14 @@ const COLLECTION_CENTERS: CollectionCenter[] = [
     imageSrc: "/clinics/Labworkz%20Davao.png",
     coordinates: [7.0617977, 125.6012636],
   },
+  {
+    name: "Lablog Tuguegarao (Hi-Care Diagnostic Laboratory)",
+    city: "Praise Plaza Caritan Norte, Tuguegarao City, Philippines",
+    address: "Praise Plaza Caritan Norte",
+    hours: "Opens 8:00 AM - 3:00 PM",
+    imageSrc: "/clinics/HiCare.jpg",
+    coordinates: [17.625778, 121.722231],
+  },
 ]
 
 export default function CollectionCenters() {

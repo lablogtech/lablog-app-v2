@@ -8,7 +8,6 @@ import {
   Button,
   Card,
   Container,
-  Divider,
   Grid,
   Group,
   Paper,
@@ -68,15 +67,17 @@ const PARTNERS = [
 const FOUNDERS = [
   {
     name: "Hiroka",
-    role: "Co-Founder & CEO",
+    role: "CEO & Co-Founder",
     description:
-      "Leads strategy, operations, and patient-first service initiatives to make preventive healthcare easier to access.",
+      "Originally from Japan, she has built her career across multiple countries, bringing a global perspective and a passion for making healthcare more accessible. With a strong background in business development and client relations, she founded LabLog with the vision of providing fast, reliable, and affordable laboratory testing services to individuals, healthcare professionals, and businesses throughout the Philippines. Guided by integrity, innovation, and genuine care for people, Hiroka is committed to building lasting partnerships while making a meaningful difference in the communities LabLog serves.",
+    portrait: "/personnel/Hiroka.png",
   },
   {
     name: "Jonas Hidalgo",
-    role: "Co-Founder & Business Development",
+    role: "Co-Founder & Product Director",
     description:
-      "Builds partnerships and growth initiatives to bring modern genetic solutions to more Filipino families.",
+      "Jonas Hidalgo is the Co-Founder and Product Director of Lablog. With a background in fitness, wellness, and business development, he has spent much of his career helping people take a more proactive approach to their health.\n\nAfter working internationally in Hong Kong, Jonas returned to the Philippines with a vision of making advanced genetic testing more accessible to Filipino families. At Lablog, he leads strategic partnerships, business development, and patient education initiatives, helping bridge the gap between genetic science and everyday healthcare.\n\nAs a father and entrepreneur, he is passionate about empowering individuals with the knowledge they need to make informed health decisions and embrace preventive healthcare.",
+    portrait: "/personnel/Jonas.png",
   },
   {
     name: "Allan Henry Nadong",
@@ -212,20 +213,37 @@ export default function AboutUsPage() {
           </Title>
           <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="lg" mt="xl">
             {FOUNDERS.map((founder) => (
-              <Card key={founder.name} className={styles.founderCard} radius="lg" withBorder>
-                <ThemeIcon size={74} radius="xl" className={styles.founderAvatar}>
-                  {founder.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")
-                    .slice(0, 2)}
-                </ThemeIcon>
-                <Title order={4} className={styles.founderName}>
-                  {founder.name}
-                </Title>
-                <Text className={styles.founderRole}>{founder.role}</Text>
-                <Divider my="sm" />
-                <Text className={styles.founderDescription}>{founder.description}</Text>
+              <Card key={founder.name} className={styles.founderCard} radius="lg">
+                <Group className={styles.founderRow} wrap="nowrap" align="flex-start" gap="md">
+                  {founder.portrait ? (
+                    <Box className={styles.founderPortrait}>
+                      <Image
+                        src={founder.portrait}
+                        alt={founder.name}
+                        width={174}
+                        height={174}
+                        sizes="(max-width: 48em) 122px, 174px"
+                        quality={100}
+                        className={styles.founderPortraitImage}
+                      />
+                    </Box>
+                  ) : (
+                    <ThemeIcon size={74} radius="xl" className={styles.founderAvatar}>
+                      {founder.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")
+                        .slice(0, 2)}
+                    </ThemeIcon>
+                  )}
+                  <Box className={styles.founderContent}>
+                    <Title order={4} className={styles.founderName}>
+                      {founder.name}
+                    </Title>
+                    <Text className={styles.founderRole}>{founder.role}</Text>
+                    <Text className={styles.founderDescription}>{founder.description}</Text>
+                  </Box>
+                </Group>
               </Card>
             ))}
           </SimpleGrid>

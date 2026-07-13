@@ -158,35 +158,73 @@
 }
 
 .founderCard {
-  border-color: #dce8f7;
-  background: #ffffff;
-  text-align: center;
-  padding: 24px 20px;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  padding: 0;
+  box-shadow: none;
+}
+
+.founderRow {
+  align-items: flex-start;
+  flex-wrap: nowrap;
 }
 
 .founderAvatar {
-  margin: 0 auto 12px;
+  margin: 0;
+  width: 174px;
+  height: 174px;
+  flex: 0 0 174px;
   background: linear-gradient(135deg, #0f7cfb 0%, #10c7a5 100%);
-  font-size: 1.2rem;
+  font-size: 2rem;
   font-weight: 800;
   color: #ffffff;
 }
 
+.founderPortrait {
+  width: 174px;
+  height: 174px;
+  margin: 0;
+  flex: 0 0 174px;
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+  background: #edf1f6;
+}
+
+.founderPortraitImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.founderContent {
+  flex: 1;
+  min-width: 0;
+}
+
 .founderName {
-  color: #104277;
+  color: #0e9e66;
+  font-size: 2rem;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
 }
 
 .founderRole {
   margin-top: 4px;
-  font-size: 0.86rem;
-  color: #0f9762;
+  font-size: 1.04rem;
+  line-height: 1.35;
+  color: #2f4a69;
   font-weight: 700;
 }
 
 .founderDescription {
-  color: #46648f;
-  line-height: 1.65;
-  font-size: 0.92rem;
+  margin-top: 12px;
+  color: #2f4a69;
+  line-height: 1.58;
+  font-size: 0.98rem;
+  white-space: pre-line;
 }
 
 .valueCard {
@@ -293,5 +331,32 @@
   .contactSection {
     padding-top: 36px;
     padding-bottom: 36px;
+  }
+
+  .founderCard {
+    width: 100%;
+  }
+
+  .founderRow {
+    gap: 14px;
+  }
+
+  .founderPortrait,
+  .founderAvatar {
+    width: 122px;
+    height: 122px;
+    flex-basis: 122px;
+  }
+
+  .founderName {
+    font-size: 1.35rem;
+  }
+
+  .founderRole {
+    font-size: 0.92rem;
+  }
+
+  .founderDescription {
+    font-size: 0.9rem;
   }
 }
