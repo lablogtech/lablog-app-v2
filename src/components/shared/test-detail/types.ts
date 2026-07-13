@@ -43,6 +43,22 @@ export type DetailResultCard = {
   description: string
 }
 
+export type DetailComparisonCard = {
+  label: string
+  title: string
+  description: string
+  accentColor?: string
+  icon?: ReactNode
+}
+
+export type DetailComparisonSection = {
+  eyebrow?: string
+  title: string
+  description?: string
+  cards: DetailComparisonCard[]
+  note?: string
+}
+
 export type DetailRecommendationMatrixRow = {
   situation: string
   recommendation: string
@@ -137,6 +153,7 @@ export type TestPageContent = {
     description?: string
     positive?: DetailResultCard
     negative?: DetailResultCard
+    comparison?: DetailComparisonSection
     sidePanel?: DetailInfoPanel
     matrix?: DetailRecommendationMatrix
   }

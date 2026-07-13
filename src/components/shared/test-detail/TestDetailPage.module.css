@@ -413,6 +413,46 @@
   margin-bottom: 10px;
 }
 
+.comparisonCard {
+  height: 100%;
+  padding: 28px 24px;
+  border-radius: 20px;
+  border: 1px solid color-mix(in srgb, var(--comparison-accent) 24%, #dce7f6);
+  background:
+    radial-gradient(circle at top left, color-mix(in srgb, var(--comparison-accent) 10%, #ffffff), transparent 52%),
+    rgba(255, 255, 255, 0.94);
+  box-shadow: 0 16px 34px rgba(19, 48, 99, 0.06);
+}
+
+.comparisonIcon {
+  margin-bottom: 14px;
+  background: color-mix(in srgb, var(--comparison-accent) 12%, #ffffff);
+  color: var(--comparison-accent);
+}
+
+.comparisonLabel {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--comparison-accent);
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.comparisonCardTitle {
+  color: #16356f;
+  font-size: 1.45rem;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.comparisonCardDescription {
+  color: #496280;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
 .resultsSideCard {
   height: 100%;
   padding: 24px 22px;

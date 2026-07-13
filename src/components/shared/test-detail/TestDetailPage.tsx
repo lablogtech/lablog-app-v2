@@ -343,29 +343,53 @@ export default function TestDetailPage({ content }: TestDetailPageProps) {
             ) : (
               <Grid gap="xl" align="stretch">
                 <Grid.Col span={{ base: 12, lg: 7 }}>
-                  <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg">
-                    <Paper radius="xl" className={styles.resultCard}>
-                      <ThemeIcon size={70} radius="xl" variant="light" className={styles.resultIconPositive}>
-                        <IconCircleCheck size={36} stroke={1.8} aria-hidden />
-                      </ThemeIcon>
-                      <Text className={styles.resultLabelPositive}>Positive Result</Text>
-                      <Title order={4} className={styles.resultCardTitle}>
-                        {content.results.positive?.title}
-                      </Title>
-                      <Text className={styles.faqAnswer}>{content.results.positive?.description}</Text>
-                    </Paper>
+                  {content.results.comparison ? (
+                    <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg">
+                      {content.results.comparison.cards.map((card) => (
+                        <Paper
+                          key={card.label}
+                          radius="xl"
+                          className={styles.comparisonCard}
+                          style={{ "--comparison-accent": card.accentColor ?? content.theme.accent } as CSSProperties}
+                        >
+                          {card.icon ? (
+                            <ThemeIcon size={72} radius="xl" variant="light" className={styles.comparisonIcon}>
+                              {card.icon}
+                            </ThemeIcon>
+                          ) : null}
+                          <Text className={styles.comparisonLabel}>{card.label}</Text>
+                          <Title order={3} className={styles.comparisonCardTitle}>
+                            {card.title}
+                          </Title>
+                          <Text className={styles.comparisonCardDescription}>{card.description}</Text>
+                        </Paper>
+                      ))}
+                    </SimpleGrid>
+                  ) : (
+                    <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg">
+                      <Paper radius="xl" className={styles.resultCard}>
+                        <ThemeIcon size={70} radius="xl" variant="light" className={styles.resultIconPositive}>
+                          <IconCircleCheck size={36} stroke={1.8} aria-hidden />
+                        </ThemeIcon>
+                        <Text className={styles.resultLabelPositive}>Positive Result</Text>
+                        <Title order={4} className={styles.resultCardTitle}>
+                          {content.results.positive?.title}
+                        </Title>
+                        <Text className={styles.faqAnswer}>{content.results.positive?.description}</Text>
+                      </Paper>
 
-                    <Paper radius="xl" className={styles.resultCard}>
-                      <ThemeIcon size={70} radius="xl" variant="light" className={styles.resultIconNegative}>
-                        <IconCircleX size={36} stroke={1.8} aria-hidden />
-                      </ThemeIcon>
-                      <Text className={styles.resultLabelNegative}>Negative Result</Text>
-                      <Title order={4} className={styles.resultCardTitle}>
-                        {content.results.negative?.title}
-                      </Title>
-                      <Text className={styles.faqAnswer}>{content.results.negative?.description}</Text>
-                    </Paper>
-                  </SimpleGrid>
+                      <Paper radius="xl" className={styles.resultCard}>
+                        <ThemeIcon size={70} radius="xl" variant="light" className={styles.resultIconNegative}>
+                          <IconCircleX size={36} stroke={1.8} aria-hidden />
+                        </ThemeIcon>
+                        <Text className={styles.resultLabelNegative}>Negative Result</Text>
+                        <Title order={4} className={styles.resultCardTitle}>
+                          {content.results.negative?.title}
+                        </Title>
+                        <Text className={styles.faqAnswer}>{content.results.negative?.description}</Text>
+                      </Paper>
+                    </SimpleGrid>
+                  )}
                 </Grid.Col>
 
                 <Grid.Col span={{ base: 12, lg: 5 }}>

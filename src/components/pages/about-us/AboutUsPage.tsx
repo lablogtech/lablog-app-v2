@@ -66,7 +66,7 @@ const PARTNERS = [
 
 const FOUNDERS = [
   {
-    name: "Hiroka",
+    name: "Hiroka Lee",
     role: "CEO & Co-Founder",
     description:
       "Originally from Japan, she has built her career across multiple countries, bringing a global perspective and a passion for making healthcare more accessible. With a strong background in business development and client relations, she founded LabLog with the vision of providing fast, reliable, and affordable laboratory testing services to individuals, healthcare professionals, and businesses throughout the Philippines. Guided by integrity, innovation, and genuine care for people, Hiroka is committed to building lasting partnerships while making a meaningful difference in the communities LabLog serves.",
@@ -211,30 +211,32 @@ export default function AboutUsPage() {
           <Title order={2} className={styles.sectionTitle} ta="center">
             Meet Our Founders
           </Title>
-          <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="lg" mt="xl">
+          <SimpleGrid cols={1} spacing="lg" mt="xl">
             {FOUNDERS.map((founder) => (
               <Card key={founder.name} className={styles.founderCard} radius="lg">
-                <Group className={styles.founderRow} wrap="nowrap" align="flex-start" gap="md">
+                <Group className={styles.founderLayout} wrap="nowrap" align="flex-start" gap="xl">
                   {founder.portrait ? (
-                    <Box className={styles.founderPortrait}>
+                    <Box className={styles.founderMedia}>
                       <Image
                         src={founder.portrait}
                         alt={founder.name}
-                        width={174}
-                        height={174}
-                        sizes="(max-width: 48em) 122px, 174px"
+                        width={1200}
+                        height={900}
+                        sizes="(max-width: 48em) 100vw, (max-width: 75em) 90vw, 1200px"
                         quality={100}
                         className={styles.founderPortraitImage}
                       />
                     </Box>
                   ) : (
-                    <ThemeIcon size={74} radius="xl" className={styles.founderAvatar}>
-                      {founder.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")
-                        .slice(0, 2)}
-                    </ThemeIcon>
+                    <Box className={styles.founderMedia}>
+                      <ThemeIcon className={styles.founderAvatar}>
+                        {founder.name
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")
+                          .slice(0, 2)}
+                      </ThemeIcon>
+                    </Box>
                   )}
                   <Box className={styles.founderContent}>
                     <Title order={4} className={styles.founderName}>

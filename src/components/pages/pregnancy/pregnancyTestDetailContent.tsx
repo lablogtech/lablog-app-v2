@@ -241,12 +241,14 @@ export const niptPageContent: PregnancyTestPageContent = {
     description:
       "Every sample, report, and patient record is handled with strict confidentiality and released only to authorized individuals.",
     positive: {
-      title: "Greater Reassurance",
-      description: "Feel more confident throughout your pregnancy journey.",
+      title: "Higher Risk for a Chromosomal Condition",
+      description:
+        "Your results suggest an increased likelihood of the condition screened. Your doctor may recommend additional testing to confirm the result and discuss the next steps.",
     },
     negative: {
-      title: "Convenient Process",
-      description: "Available through collection centers nationwide and selected home services.",
+      title: "Low Risk for a Chromosomal Condition",
+      description:
+        "Your results indicate a low likelihood of the conditions screened. Most patients receive negative results, providing reassurance throughout pregnancy.",
     },
     sidePanel: {
       eyebrow: "Compassionate support",
@@ -421,12 +423,14 @@ export const carrierScreeningPageContent: PregnancyTestPageContent = {
     title: "Testing both partners provides the most comprehensive assessment",
     description: "Our team can guide you through the process from testing through follow-up next steps.",
     positive: {
-      title: "If One Parent Is A Carrier",
-      description: "Your healthcare provider may recommend testing the other parent.",
+      title: "You Are A Carrier",
+      description:
+        "The test identified a genetic variant associated with one of the screened conditions. Partner testing may be recommended to assess potential risks for future pregnancies.",
     },
     negative: {
-      title: "If Both Parents Are Carriers",
-      description: "Your healthcare provider can discuss additional options and next steps.",
+      title: "No Carrier Status Found",
+      description:
+        "No significant genetic variants were identified for the conditions screened, providing additional reassurance for family planning.",
     },
     sidePanel: {
       eyebrow: "Who should consider Carrier Screening?",

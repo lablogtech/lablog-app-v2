@@ -280,12 +280,14 @@ export const brcaCancerPageContent: TestPageContent = {
     title: "Additional value of early BRCA awareness",
     description: "Your results may also support family planning and long-term preventive care decisions.",
     positive: {
-      title: "Family Awareness",
-      description: "Your results may also provide important information for family members.",
+      title: "Higher Hereditary Cancer Risk",
+      description:
+        "The test identified a genetic variant associated with an increased risk of certain cancers. Early monitoring and preventive strategies may help support better health outcomes.",
     },
     negative: {
-      title: "More Informed Decisions",
-      description: "Knowledge can help reduce uncertainty and support long-term planning.",
+      title: "Lower Hereditary Cancer Risk",
+      description:
+        "No significant genetic variants associated with hereditary cancer were detected. Continue following recommended health screenings and preventive care.",
     },
     sidePanel: {
       eyebrow: "What to do next",
@@ -496,16 +498,31 @@ export const hbocCancerPageContent: TestPageContent = {
   results: {
     eyebrow: "BRCA vs HBOC",
     title: "BRCA vs HBOC: What's The Difference?",
-    description: "If you're unsure which test is appropriate, our specialists can guide you.",
-    positive: {
-      title: "BRCA Genetic Test",
+    description: "If you're comparing the two tests, our specialists can help you choose the right option.",
+    comparison: {
+      eyebrow: "BRCA vs HBOC",
+      title: "A Broader Look At Hereditary Cancer Risk",
       description:
-        "Focuses on BRCA1 and BRCA2 only. Focused risk assessment. Ideal for straightforward family histories. Entry-level hereditary cancer screening.",
-    },
-    negative: {
-      title: "HBOC Screening",
-      description:
-        "Evaluates multiple hereditary cancer genes. Expanded risk assessment. Ideal for complex or multiple family histories. Broader hereditary cancer evaluation.",
+        "Use this comparison to understand how each test fits different family histories and screening goals.",
+      cards: [
+        {
+          label: "BRCA Genetic Test",
+          title: "Focused BRCA1 and BRCA2 screening",
+          description:
+            "Best when you want a more targeted hereditary breast and ovarian cancer assessment centered on BRCA1 and BRCA2.",
+          accentColor: "#d3398d",
+          icon: <IconDna2 size={28} stroke={1.8} aria-hidden />,
+        },
+        {
+          label: "HBOC Screening",
+          title: "Expanded hereditary cancer assessment",
+          description:
+            "Looks beyond BRCA and evaluates multiple genes linked to hereditary breast and ovarian cancer risk for a broader comparison.",
+          accentColor: "#7f4ad4",
+          icon: <IconFlask size={28} stroke={1.8} aria-hidden />,
+        },
+      ],
+      note: "Our team can help determine which option best matches your family history, questions, and screening goals.",
     },
     sidePanel: {
       eyebrow: "Additional Benefits",
@@ -718,16 +735,18 @@ export const comprehensiveCancerPageContent: TestPageContent = {
     noteBody: "Some individuals may benefit from earlier surveillance.",
   },
   results: {
-    eyebrow: "Why Is This Different From BRCA And HBOC?",
+    eyebrow: "Hereditary Cancer Screening",
     title: "Choosing the right hereditary cancer test",
     description: "If you're unsure which test is appropriate, our specialists can guide you.",
     positive: {
-      title: "BRCA Genetic Test",
-      description: "Focused breast and ovarian cancer risk assessment.",
+      title: "Higher Genetic Cancer Risk",
+      description:
+        "A cancer-related genetic variant was detected, allowing for earlier monitoring and personalized risk management.",
     },
     negative: {
-      title: "HBOC Screening",
-      description: "Expanded hereditary breast and ovarian cancer evaluation.",
+      title: "Lower Genetic Cancer Risk",
+      description:
+        "No significant hereditary cancer variants were identified, providing added reassurance while supporting routine preventive care.",
     },
     sidePanel: {
       eyebrow: "Comprehensive Option",
