@@ -25,10 +25,15 @@ export type DetailStep = {
 }
 
 export type DetailStripItem = {
-  title: string
+  title?: string
+  styledTitle?: string
   highlight?: string
   description?: string
   points?: string[]
+  sections?: {
+    header: string
+    items: string[]
+  }[]
   actionLabel?: string
   actionHref?: string
   accentColor?: string
@@ -36,6 +41,7 @@ export type DetailStripItem = {
   cardBackground?: string
   cardBorderColor?: string
   icon: ReactNode
+  footerNote?: string
 }
 
 export type DetailResultCard = {
@@ -137,6 +143,7 @@ export type TestPageContent = {
     items: DetailStripItem[]
     cols: ResponsiveCols
     footerNote?: string
+    footerIcon?: ReactNode
   }
   turnaround: {
     eyebrow: string

@@ -1,4 +1,5 @@
 import {
+  IconAsterisk,
   IconBabyCarriage,
   IconCalendarEvent,
   IconCheck,
@@ -208,22 +209,88 @@ export const niptPageContent: PregnancyTestPageContent = {
   strip: {
     title: "What can NIPT screen for?",
     cols: { base: 1, sm: 2, lg: 2 },
+    footerIcon: <IconAsterisk size={18} stroke={4} />,
+    footerNote:
+      "The above asterisks are optional detection. The detection of sex chromosomal aneuploidies is limited to singleton pregnancy.",
     items: [
       {
-        title: "NIFTY Basic",
-        description:
-          "Down syndrome (Trisomy 21), Edwards syndrome (Trisomy 18), Patau syndrome (Trisomy 13), and optional fetal sex determination.",
+        styledTitle: "NIFTY",
+        sections: [
+          {
+            header: "Common Autosomal Trisomies",
+            items: ["Trisomy 21 (Down syndrome)", "Trisomy 18 (Edwards syndrome)", "Trisomy 13 (Patau syndrome)"],
+          },
+          {
+            header: "Rare Autosomal Trisomies",
+            items: ["Trisomy 9", "Trisomy 16", "Trisomy 22"],
+          },
+          {
+            header: "Sex Chromosome Aneuploidies*",
+            items: [
+              "XO (Turner syndrome)",
+              "XXY (Klinefelter syndrome)",
+              "XXX (Triple-X syndrome)",
+              "XYY (Jacobs syndrome)",
+            ],
+          },
+          {
+            header: "Incidental findings*",
+            items: ["Other autosomal aneuploidies"],
+          },
+          {
+            header: "Sex Indication*",
+            items: ["Y chromosome detection"],
+          },
+        ],
         icon: <IconCheck size={34} stroke={1.7} aria-hidden />,
       },
       {
-        title: "NIFTY Pro",
-        description:
-          "Includes everything in NIFTY Basic plus additional screening for sex chromosome abnormalities, selected microdeletion syndromes, additional chromosomal conditions, and optional fetal sex determination.",
+        styledTitle: "NIFTY Pro",
+        sections: [
+          {
+            header: "Common Autosomal Trisomies",
+            items: ["Trisomy 21 (Down syndrome)", "Trisomy 18 (Edwards syndrome)", "Trisomy 13 (Patau syndrome)"],
+          },
+          {
+            header: "Rare Autosomal Trisomies",
+            items: ["Trisomy 9", "Trisomy 16", "Trisomy 22"],
+          },
+          {
+            header: "Sex Chromosome Aneuploidies",
+            items: [
+              "XO (Turner syndrome)",
+              "XXY (Klinefelter syndrome)",
+              "XXX (Triple-X syndrome)",
+              "XYY (Jacobs syndrome)",
+            ],
+          },
+          {
+            header: "92/10 micro deletion/duplication, including:",
+            items: [
+              "DiGeorge syndrome (22q11.2 deletion)",
+              "1p36 deletion syndrome",
+              "Prader-Willi/Angelman syndrome",
+              "Smith-Magenis syndrome",
+              "Cri-du-Chat syndrome",
+              "4p16.3 deletion syndrome",
+              "Distal 18q deletion syndrome",
+              "18p deletion syndrome",
+              "9p deletion syndrome",
+              "Jacobsen Syndrome",
+            ],
+          },
+          {
+            header: "Incidental findings",
+            items: ["Other autosomal aneuploidies & ≥5Mb CNVs"],
+          },
+          {
+            header: "Sex Indication*",
+            items: ["Y chromosome detection"],
+          },
+        ],
         icon: <IconDna2 size={34} stroke={1.7} aria-hidden />,
       },
     ],
-    footerNote:
-      "Important: NIPT is a screening test and not a diagnostic test. Any high-risk results should always be discussed with your healthcare provider.",
   },
   turnaround: {
     eyebrow: "Why parents choose NIPT",

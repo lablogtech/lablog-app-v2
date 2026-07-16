@@ -221,14 +221,46 @@ export default function TestDetailPage({ content }: TestDetailPageProps) {
                       } as CSSProperties
                     }
                   >
-                    <ThemeIcon size={68} radius="xl" variant="light" className={styles.stripIcon}>
-                      {item.icon}
-                    </ThemeIcon>
-                    <Title order={4} className={styles.stripTitle}>
-                      {item.title}
-                    </Title>
+                    {item.sections ? null : (
+                      <ThemeIcon size={68} radius="xl" variant="light" className={styles.stripIcon}>
+                        {item.icon}
+                      </ThemeIcon>
+                    )}
+                    {item.title && (
+                      <Title order={4} className={styles.stripTitle}>
+                        {item.title}
+                      </Title>
+                    )}
+                    {item.styledTitle && (
+                      <Title order={4} className={styles.stripStyledTitle}>
+                        {item.styledTitle}
+                      </Title>
+                    )}
                     {item.highlight ? <Text className={styles.stripHighlight}>{item.highlight}</Text> : null}
                     {item.description ? <Text className={styles.stripDescription}>{item.description}</Text> : null}
+
+                    {item.sections?.length ? (
+                      <Stack gap={14} mt={10} className={styles.stripSections}>
+                        {item.sections.map((section) => (
+                          <Box key={section.header} className={styles.stripSection}>
+                            <Text className={styles.stripSectionTitle}>{section.header}</Text>
+                            <Stack component="ul" gap={4} mt={4} className={styles.stripSectionList}>
+                              {section.items.map((entry) => (
+                                <Text component="li" key={entry} className={styles.stripSectionItem}>
+                                  {entry}
+                                </Text>
+                              ))}
+                            </Stack>
+                          </Box>
+                        ))}
+                      </Stack>
+                    ) : null}
+
+                    {item.footerNote ? (
+                      <Group justify="left" className={styles.stripFooter}>
+                        <Text>{item.footerNote}</Text>
+                      </Group>
+                    ) : null}
 
                     {item.points?.length ? (
                       <Stack gap={6} mt={8} className={styles.stripPoints}>
@@ -248,7 +280,9 @@ export default function TestDetailPage({ content }: TestDetailPageProps) {
 
               {content.strip.footerNote ? (
                 <Group justify="center" mt={18} className={styles.stripFooter}>
-                  <IconLock size={18} stroke={1.8} aria-hidden color={content.theme.accent} />
+                  {content.strip.footerIcon ?? (
+                    <IconLock size={18} stroke={1.8} aria-hidden color={content.theme.accent} />
+                  )}
                   <Text>{content.strip.footerNote}</Text>
                 </Group>
               ) : null}
