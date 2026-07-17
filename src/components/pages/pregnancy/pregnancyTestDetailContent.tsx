@@ -225,15 +225,6 @@ export const niptPageContent: PregnancyTestPageContent = {
             items: ["Trisomy 9", "Trisomy 16", "Trisomy 22"],
           },
           {
-            header: "Sex Chromosome Aneuploidies*",
-            items: [
-              "XO (Turner syndrome)",
-              "XXY (Klinefelter syndrome)",
-              "XXX (Triple-X syndrome)",
-              "XYY (Jacobs syndrome)",
-            ],
-          },
-          {
             header: "Incidental findings*",
             items: ["Other autosomal aneuploidies"],
           },
