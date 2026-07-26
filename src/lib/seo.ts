@@ -46,7 +46,7 @@ const baseKeywords = [
 
 const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
   "/": {
-    title: "Online Laboratory Tests in the Philippines",
+    title: "Genetic Testing, DNA Testing & NIPT in the Philippines",
     description:
       "Book online laboratory and DNA tests in the Philippines with nationwide collection centers, selected home service, and confidential result handling.",
     keywords: [
