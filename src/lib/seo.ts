@@ -291,10 +291,8 @@ const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
 
 export function getPageMetadata(path: SeoPagePath): Metadata {
   const page = pageSeo[path]
-  const www = 'www'
   const canonicalPath = path === "/" ? "/" : path
   const pageUrl = new URL(canonicalPath, siteUrl).toString()
-  console.log('PAGEURL', pageUrl)
   const mergedKeywords = Array.from(new Set([...baseKeywords, ...page.keywords]))
 
   return {
