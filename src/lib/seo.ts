@@ -30,7 +30,7 @@ type PageSeoDefinition = {
   keywords: string[]
 }
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://lablog.tech"
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lablog.tech"
 const socialImage = "/hero.jpg"
 
 const baseKeywords = [
@@ -291,8 +291,10 @@ const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
 
 export function getPageMetadata(path: SeoPagePath): Metadata {
   const page = pageSeo[path]
+  const www = 'www'
   const canonicalPath = path === "/" ? "/" : path
   const pageUrl = new URL(canonicalPath, siteUrl).toString()
+  console.log('PAGEURL', pageUrl)
   const mergedKeywords = Array.from(new Set([...baseKeywords, ...page.keywords]))
 
   return {
