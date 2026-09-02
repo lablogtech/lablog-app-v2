@@ -10,7 +10,11 @@ import "@mantine/carousel/styles.css"
 import "leaflet/dist/leaflet.css"
 import "./globals.css"
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://lablog.tech"
+function withWww(url: string): string {
+  return url.replace(/^(https?:\/\/)(?!www\.)/, "$1www.")
+}
+
+const siteUrl = withWww(process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lablog.tech")
 
 const inter = Inter({
   variable: "--font-inter",

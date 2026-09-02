@@ -30,8 +30,12 @@ type PageSeoDefinition = {
   keywords: string[]
 }
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lablog.tech"
+const siteUrl = withWww(process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lablog.tech")
 const socialImage = "/hero.jpg"
+
+function withWww(url: string): string {
+  return url.replace(/^(https?:\/\/)(?!www\.)/, "$1www.")
+}
 
 const baseKeywords = [
   "online laboratory test Philippines",
