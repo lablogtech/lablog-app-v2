@@ -50,9 +50,9 @@ const baseKeywords = [
 
 const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
   "/": {
-    title: "Genetic Testing, DNA Testing & NIPT in the Philippines",
+    title: "Lablog | DNA Testing, NIPT & Genetic Screening Philippines",
     description:
-      "Book online laboratory and DNA tests in the Philippines with nationwide collection centers, selected home service, and confidential result handling.",
+      "Book DNA lab tests online across the Philippines with Lablog. Access NIPT, genetic testing, and confidential results at nationwide collection centers.",
     keywords: [
       "online lab test booking",
       "DNA and genetic screening Philippines",
@@ -61,7 +61,7 @@ const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
     ],
   },
   "/about-us": {
-    title: "About Lablog Philippines",
+    title: "About Lablog Philippines | Meet Our Founders",
     description:
       "Learn about Lablog, our patient-first approach, trusted laboratory partnerships, and nationwide accessibility for DNA and preventive health testing in the Philippines.",
     keywords: [
@@ -72,7 +72,7 @@ const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
     ],
   },
   "/cancer": {
-    title: "Cancer Genetic Screening Philippines",
+    title: "Cancer Screening & Genetic Test Philippines | Lablog",
     description:
       "Explore BRCA, HBOC, comprehensive hereditary cancer screening, and MCED options to support early risk awareness and long-term health planning in the Philippines.",
     keywords: [
@@ -83,7 +83,7 @@ const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
     ],
   },
   "/cancer/brca-genetic-test-philippines": {
-    title: "BRCA Genetic Test Philippines",
+    title: "BRCA Genetic Test Philippines | Know Your Cancer Risk | Lablog",
     description:
       "Screen BRCA1 and BRCA2 genes to assess hereditary cancer risk with confidential, accessible testing and nationwide collection options in the Philippines.",
     keywords: [
@@ -94,7 +94,7 @@ const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
     ],
   },
   "/cancer/comprehensive-hereditary-cancer-screening-philippines": {
-    title: "Comprehensive Hereditary Cancer Screening Philippines",
+    title: "Comprehensive Hereditary Cancer Screening Philippines | Lablog",
     description:
       "Get broader hereditary cancer risk insights across multiple cancer-associated genes for more informed screening and prevention planning in the Philippines.",
     keywords: [
@@ -105,7 +105,7 @@ const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
     ],
   },
   "/cancer/hboc-screening-philippines": {
-    title: "HBOC Screening Philippines",
+    title: "HBOC Test Philippines | Breast & Ovarian Cancer Test | Lablog",
     description:
       "Evaluate hereditary breast and ovarian cancer risk beyond BRCA using an expanded multi-gene panel with confidential processing in the Philippines.",
     keywords: [
@@ -116,9 +116,9 @@ const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
     ],
   },
   "/cancer/multi-cancer-early-detection-mced": {
-    title: "Multi-Cancer Early Detection (MCED) Philippines",
+    title: "MCED Blood Test: Multi-Cancer Early Detection Philippines | Lablog",
     description:
-      "Screen for cancer-associated signals using a non-invasive MCED blood test designed to support earlier health conversations and follow-up care.",
+      "Screen for cancer-associated signals with a non-invasive MCED blood test in the Philippines to support earlier health conversations and timely follow-up care.",
     keywords: [
       "MCED test Philippines",
       "multi cancer early detection",
@@ -127,7 +127,7 @@ const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
     ],
   },
   "/corporate": {
-    title: "Corporate Wellness and APE Packages Philippines",
+    title: "Corporate APE & Employee Health Screening Check Up Philippines | Lablog",
     description:
       "Offer employee health screening with flexible onsite, clinic-based, or hybrid APE and wellness packages for companies across the Philippines.",
     keywords: [
@@ -138,7 +138,7 @@ const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
     ],
   },
   "/faq": {
-    title: "FAQ on DNA and Genetic Testing Philippines",
+    title: "FAQ on DNA and Genetic Testing Philippines | Lablog",
     description:
       "Find answers on paternity DNA tests, NIPT, carrier screening, newborn screening, and cancer genetic tests offered by Lablog in the Philippines.",
     keywords: [
@@ -149,7 +149,7 @@ const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
     ],
   },
   "/kidsdna": {
-    title: "Kids DNA Blueprint Philippines",
+    title: "Kids DNA Test Philippines | Lablog DNA Blueprint",
     description:
       "Discover your child's DNA-based insights for learning, wellness, nutrition, and development through a secure and guided Kids DNA testing journey.",
     keywords: [
@@ -160,9 +160,9 @@ const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
     ],
   },
   "/paternity-dna-test": {
-    title: "Paternity DNA Test Philippines",
+    title: "Paternity DNA Test Philippines: 99.9% Accurate Testing | Lablog",
     description:
-      "Compare non-legal, legal, prenatal, and family relationship DNA testing options with confidential handling and nationwide collection support.",
+      "Compare non-legal, legal, prenatal, and family relationship DNA testing options with confidential handling and nationwide collection support across the Philippines.",
     keywords: [
       "paternity DNA test Philippines",
       "legal paternity test",
@@ -171,9 +171,9 @@ const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
     ],
   },
   "/paternity-dna-test/family-relationship-testing": {
-    title: "Family Relationship DNA Testing Philippines",
+    title: "Family DNA Test Philippines: Sibling, Grandparent, Avuncular | Lablog",
     description:
-      "Choose avuncular, grandparent, sibling, and discreet DNA testing options to clarify biological relationships with specialist guidance.",
+      "Choose avuncular, grandparent, sibling, and discreet DNA testing options in the Philippines to clarify biological relationships with specialist guidance.",
     keywords: [
       "family relationship DNA test Philippines",
       "avuncular DNA test",
@@ -182,7 +182,7 @@ const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
     ],
   },
   "/paternity-dna-test/legal-paternity": {
-    title: "Legal Paternity DNA Test Philippines",
+    title: "Accredited Legal Paternity DNA Testing Philippines | Lablog",
     description:
       "Get court-admissible paternity DNA testing with strict chain-of-custody, identity verification, and secure result release in the Philippines.",
     keywords: [
@@ -193,9 +193,9 @@ const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
     ],
   },
   "/paternity-dna-test/non-invasive-paternal": {
-    title: "Non-Invasive Prenatal Paternity Test Philippines",
+    title: "Non-Invasive Prenatal Paternity Test Philippines (NIPP) | Lablog",
     description:
-      "Access safe prenatal paternity DNA testing using maternal blood and alleged father sample, with private support and accurate laboratory analysis.",
+      "Access safe prenatal paternity DNA testing (NIPP) in the Philippines using a maternal blood sample and an alleged father's sample, supported by private assistance and accurate laboratory analysis.",
     keywords: [
       "non invasive prenatal paternity test Philippines",
       "prenatal DNA test Philippines",
@@ -204,9 +204,9 @@ const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
     ],
   },
   "/paternity-dna-test/peace-of-mind": {
-    title: "Peace of Mind Paternity DNA Test Philippines",
+    title: "Non-Legal Peace of Mind Paternity DNA Test Philippines | Lablog",
     description:
-      "Get a private non-legal paternity DNA test for personal knowledge with confidential processing, at-home options, and nationwide accessibility.",
+      "Get a private non-legal paternity DNA test for personal knowledge with confidential processing, at-home options, and nationwide accessibility in the Philippines.",
     keywords: [
       "peace of mind paternity test",
       "non legal paternity DNA test Philippines",
@@ -215,7 +215,7 @@ const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
     ],
   },
   "/petdna": {
-    title: "Pet DNA Test Philippines",
+    title: "Pet DNA Test: Genetic Health Check Screening Philippines | Lablog",
     description:
       "Understand your pet's breed ancestry, inherited health markers, and behavioral traits through a simple cheek swab and comprehensive DNA report.",
     keywords: [
@@ -226,7 +226,7 @@ const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
     ],
   },
   "/pregnancy": {
-    title: "Pregnancy Genetic Testing Philippines",
+    title: "Book Pregnancy Genetic Testing Online | Lablog Philippines",
     description:
       "Explore NIPT, carrier screening, and newborn genetic screening options with confidential reporting and nationwide collection access in the Philippines.",
     keywords: [
@@ -237,9 +237,9 @@ const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
     ],
   },
   "/pregnancy/carrier-screening-philippines": {
-    title: "Carrier Screening Philippines",
+    title: "Book Genetic Carrier Screening Online Philippines | Lablog",
     description:
-      "Identify inherited genetic variants that parents may carry before or during pregnancy to support informed family planning and clinical discussions.",
+      "Identify inherited genetic variants that parents in the Philippines may carry before or during pregnancy to support informed family planning and clinical discussions.",
     keywords: [
       "carrier screening Philippines",
       "preconception genetic test",
@@ -248,9 +248,9 @@ const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
     ],
   },
   "/pregnancy/newborn-genetic-screening-philippines": {
-    title: "Newborn Genetic Screening Philippines",
+    title: "Book Newborn Genetic Screening Online Philippines | Lablog",
     description:
-      "Screen for selected genetic and metabolic conditions early to support timely follow-up care and healthier long-term outcomes for newborns.",
+      "Screen for selected genetic and metabolic conditions early in the Philippines to support timely follow-up care and healthier long-term outcomes for newborns.",
     keywords: [
       "newborn genetic screening Philippines",
       "newborn DNA test Philippines",
@@ -259,9 +259,9 @@ const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
     ],
   },
   "/pregnancy/nipt-philippines": {
-    title: "NIPT Philippines (Non-Invasive Prenatal Test)",
+    title: "NIPT Screening Philippines: Non-Invasive Prenatal Test | Lablog",
     description:
-      "Take NIPT as early as 10 weeks to screen for common chromosomal conditions through a safe maternal blood test with confidential results.",
+      "Take NIPT (Non-Invasive Prenatal Test) in the Philippines as early as 10 weeks to screen for common chromosomal conditions through a safe maternal blood test with confidential results.",
     keywords: [
       "NIPT Philippines",
       "non invasive prenatal test",
@@ -281,7 +281,7 @@ const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
     ],
   },
   "/screening": {
-    title: "Preventive Health Screening Packages Philippines",
+    title: "Preventive Health Screening Packages Philippines | Lablog",
     description:
       "Choose preventive health screening packages including cardiac, diabetes, hormone, and wellness panels with online booking and nationwide access.",
     keywords: [
@@ -302,7 +302,7 @@ export function getPageMetadata(path: SeoPagePath): Metadata {
   const mergedKeywords = Array.from(new Set([...baseKeywords, ...page.keywords]))
 
   return {
-    title: page.title,
+    title: { absolute: page.title },
     description: page.description,
     keywords: mergedKeywords,
     alternates: {

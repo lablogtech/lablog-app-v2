@@ -64,10 +64,11 @@ const theme = createTheme({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Lablog | Online Laboratory Tests in the Philippines",
+    default: "Lablog | DNA Testing, NIPT & Genetic Screening Philippines",
     template: "%s | Lablog",
   },
-  description: "DNA testing, NIPT, and preventive laboratory screening services in the Philippines.",
+  description:
+    "Book DNA lab tests online across the Philippines with Lablog. Access NIPT, genetic testing, and confidential results at nationwide collection centers.",
   alternates: {
     canonical: "/",
   },
@@ -75,8 +76,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_PH",
     siteName: "Lablog",
-    title: "Lablog | Online Laboratory Tests in the Philippines",
-    description: "DNA testing, NIPT, and preventive laboratory screening services in the Philippines.",
+    title: "Lablog | DNA Testing, NIPT & Genetic Screening Philippines",
+    description:
+      "Book DNA lab tests online across the Philippines with Lablog. Access NIPT, genetic testing, and confidential results at nationwide collection centers.",
     url: "/",
     images: [
       {
