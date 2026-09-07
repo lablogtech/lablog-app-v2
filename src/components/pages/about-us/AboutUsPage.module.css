@@ -164,6 +164,22 @@
   padding: 20px;
   box-shadow: 0 12px 30px rgba(19, 50, 99, 0.05);
   text-align: left;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.founderCardVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .founderCard {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 .founderLayout {

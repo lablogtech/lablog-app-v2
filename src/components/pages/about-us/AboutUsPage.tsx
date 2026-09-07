@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import styles from "./AboutUsPage.module.css"
 import {
@@ -81,10 +82,83 @@ const FOUNDERS = [
   },
   {
     name: "Allan Henry Nadong",
-    role: "Co-Founder & Head of Operations",
-    description: "Oversees lab workflows, quality systems, and clinical coordination for consistent patient support.",
+    role: "Chief Operating Officer",
+    description:
+      "Allan Henry Nadong, RMT is a Registered Medical Technologist with over 10 years of professional experience in clinical laboratory and hospital settings. He earned his Bachelor’s Degree in Medical Laboratory Science in 2015 and has since developed extensive experience in laboratory operations, diagnostic testing, quality management, and patient-centered healthcare services.\n\nAt LABLOG PHILIPPINES INC., Allan oversees the company’s overall operations, including the coordination of laboratory and diagnostic services, implementation of operational policies and quality standards, management of partner laboratories and healthcare providers, and supervision of specimen collection, processing, and logistics workflows.\n\nWith his combination of clinical laboratory expertise, operational leadership, and industry experience, Allan contributes to LABLOG PHILIPPINES INC.’s commitment to providing accessible, reliable, and high-quality laboratory and diagnostic solutions.",
+    portrait: "/personnel/Allan.png",
   },
 ]
+
+function useRevealOnScroll<T extends HTMLElement>() {
+  const ref = useRef<T>(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const node = ref.current
+    if (!node) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.15 }
+    )
+
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [])
+
+  return { ref, visible }
+}
+
+function FounderCard({ founder, delay }: { founder: (typeof FOUNDERS)[number]; delay: number }) {
+  const { ref, visible } = useRevealOnScroll<HTMLDivElement>()
+
+  return (
+    <Card
+      ref={ref}
+      className={`${styles.founderCard} ${visible ? styles.founderCardVisible : ""}`}
+      radius="lg"
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      <Group className={styles.founderLayout} wrap="nowrap" align="flex-start" gap="xl">
+        {founder.portrait ? (
+          <Box className={styles.founderMedia}>
+            <Image
+              src={founder.portrait}
+              alt={founder.name}
+              width={1200}
+              height={900}
+              sizes="(max-width: 48em) 100vw, (max-width: 75em) 90vw, 1200px"
+              quality={100}
+              className={styles.founderPortraitImage}
+            />
+          </Box>
+        ) : (
+          <Box className={styles.founderMedia}>
+            <ThemeIcon className={styles.founderAvatar}>
+              {founder.name
+                .split(" ")
+                .map((n) => n[0])
+                .join("")
+                .slice(0, 2)}
+            </ThemeIcon>
+          </Box>
+        )}
+        <Box className={styles.founderContent}>
+          <Title order={4} className={styles.founderName}>
+            {founder.name}
+          </Title>
+          <Text className={styles.founderRole}>{founder.role}</Text>
+          <Text className={styles.founderDescription}>{founder.description}</Text>
+        </Box>
+      </Group>
+    </Card>
+  )
+}
 
 const VALUE_POINTS = [
   {
@@ -212,41 +286,8 @@ export default function AboutUsPage() {
             Meet Our Founders
           </Title>
           <SimpleGrid cols={1} spacing="lg" mt="xl">
-            {FOUNDERS.map((founder) => (
-              <Card key={founder.name} className={styles.founderCard} radius="lg">
-                <Group className={styles.founderLayout} wrap="nowrap" align="flex-start" gap="xl">
-                  {founder.portrait ? (
-                    <Box className={styles.founderMedia}>
-                      <Image
-                        src={founder.portrait}
-                        alt={founder.name}
-                        width={1200}
-                        height={900}
-                        sizes="(max-width: 48em) 100vw, (max-width: 75em) 90vw, 1200px"
-                        quality={100}
-                        className={styles.founderPortraitImage}
-                      />
-                    </Box>
-                  ) : (
-                    <Box className={styles.founderMedia}>
-                      <ThemeIcon className={styles.founderAvatar}>
-                        {founder.name
-                          .split(" ")
-                          .map((n) => n[0])
-                          .join("")
-                          .slice(0, 2)}
-                      </ThemeIcon>
-                    </Box>
-                  )}
-                  <Box className={styles.founderContent}>
-                    <Title order={4} className={styles.founderName}>
-                      {founder.name}
-                    </Title>
-                    <Text className={styles.founderRole}>{founder.role}</Text>
-                    <Text className={styles.founderDescription}>{founder.description}</Text>
-                  </Box>
-                </Group>
-              </Card>
+            {FOUNDERS.map((founder, index) => (
+              <FounderCard key={founder.name} founder={founder} delay={index * 120} />
             ))}
           </SimpleGrid>
         </Container>
