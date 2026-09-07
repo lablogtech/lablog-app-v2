@@ -16,6 +16,42 @@ const gtmId = process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-PMQZJJQF"
 const googleSiteVerification =
   process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? "9yT3QmKh9OdV1RNBWQkSrwOdB4g597REHoV8YcL3i5g"
 
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "LabLog Philippines Inc.",
+  description:
+    "Lablog is a healthcare technology company helping Filipino families and businesses across the Philippines access preventive healthcare packages, home service lab testing, and accurate and comprehensive DNA tests. With genetic testing services available nationwide through our partner clinic network, we combine advanced laboratory partnerships with a patient-first approach to make better health decisions easier today and sustainable for tomorrow.",
+  image: `${siteUrl}/nav-logo.png`,
+  "@id": "https://www.lablog.tech/",
+  url: "https://www.lablog.tech/",
+  telephone: "0956 064 8809",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Unit 605, Corporate 101 Building, Mother Ignacia Ave, Diliman",
+    addressLocality: "Quezon City",
+    postalCode: "1103",
+    addressCountry: "PH",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 14.6373669,
+    longitude: 121.0303712,
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    opens: "08:00",
+    closes: "16:00",
+  },
+  sameAs: [
+    "https://www.facebook.com/lablog.tech/",
+    "https://www.instagram.com/lablog.tech/",
+    "https://www.linkedin.com/company/lablog-tech/",
+    "https://www.lablog.tech/",
+  ],
+}
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -106,6 +142,12 @@ export default function RootLayout({
     <html lang="en" {...mantineHtmlProps} className={`${inter.variable} ${poppins.variable}`}>
       <head>
         <ColorSchemeScript />
+        <Script
+          id="local-business-schema"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
         <Script id="gtm-script" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
