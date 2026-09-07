@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Inter, Poppins } from "next/font/google"
+import Script from "next/script"
 import { Suspense } from "react"
 import { Box, ColorSchemeScript, MantineProvider, createTheme, mantineHtmlProps } from "@mantine/core"
 import Header from "@/components/Header/Header"
@@ -10,6 +11,10 @@ import "@mantine/core/styles.css"
 import "@mantine/carousel/styles.css"
 import "leaflet/dist/leaflet.css"
 import "./globals.css"
+
+const gtmId = process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-PMQZJJQF"
+const googleSiteVerification =
+  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? "9yT3QmKh9OdV1RNBWQkSrwOdB4g597REHoV8YcL3i5g"
 
 const inter = Inter({
   variable: "--font-inter",
@@ -72,6 +77,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  verification: {
+    google: googleSiteVerification,
+  },
   openGraph: {
     type: "website",
     locale: "en_PH",
@@ -98,8 +106,23 @@ export default function RootLayout({
     <html lang="en" {...mantineHtmlProps} className={`${inter.variable} ${poppins.variable}`}>
       <head>
         <ColorSchemeScript />
+        <Script id="gtm-script" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${gtmId}');`}
+        </Script>
       </head>
       <body className="siteBody">
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <MantineProvider theme={theme}>
           <Box className="siteShell" bg="#fff">
             <Suspense fallback={null}>
