@@ -83,8 +83,8 @@ export default function CollectionCentersMap({
     >
       {/* Carto Voyager gives the soft blue water and muted land tones similar to the target design. */}
       <TileLayer
-        url="https://tile.openstreetmap.bzh/ca/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles courtesy of <a href="https://www.openstreetmap.cat" target="_blank">Breton OpenStreetMap Team</a>'
+        url="https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png"
+        attribution='&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
 
       <ActiveCenterSync coordinates={activeCoordinates} occludedRatio={occludedRatio} />
