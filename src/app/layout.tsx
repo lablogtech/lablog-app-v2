@@ -5,16 +5,11 @@ import { Box, ColorSchemeScript, MantineProvider, createTheme, mantineHtmlProps 
 import Header from "@/components/Header/Header"
 import Footer from "@/components/Footer/Footer"
 import ScrollToTopOnNavigation from "@/components/shared/ScrollToTopOnNavigation"
+import { siteUrl } from "@/lib/seo"
 import "@mantine/core/styles.css"
 import "@mantine/carousel/styles.css"
 import "leaflet/dist/leaflet.css"
 import "./globals.css"
-
-function withWww(url: string): string {
-  return url.replace(/^(https?:\/\/)(?!www\.)/, "$1www.")
-}
-
-const siteUrl = withWww(process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lablog.tech")
 
 const inter = Inter({
   variable: "--font-inter",

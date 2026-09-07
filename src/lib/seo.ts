@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 
-type SeoPagePath =
+export type SeoPagePath =
   | "/"
   | "/about-us"
   | "/cancer"
@@ -30,7 +30,7 @@ type PageSeoDefinition = {
   keywords: string[]
 }
 
-const siteUrl = withWww(process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lablog.tech")
+export const siteUrl = withWww(process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lablog.tech")
 const socialImage = "/hero.jpg"
 
 function withWww(url: string): string {
@@ -292,6 +292,8 @@ const pageSeo: Record<SeoPagePath, PageSeoDefinition> = {
     ],
   },
 }
+
+export const seoPagePaths = Object.keys(pageSeo) as SeoPagePath[]
 
 export function getPageMetadata(path: SeoPagePath): Metadata {
   const page = pageSeo[path]
