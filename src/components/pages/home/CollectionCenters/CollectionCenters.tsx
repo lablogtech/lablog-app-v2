@@ -105,6 +105,30 @@ const COLLECTION_CENTERS: CollectionCenter[] = [
     imageSrc: "/clinics/HiCare.jpg",
     coordinates: [17.625778, 121.722231],
   },
+  {
+    name: "Lablog Zamboanga (St. Vincent Diagnostic Center)",
+    city: "Zamboanga City, Philippines",
+    address: "108 Veterans Ave., Zone 4",
+    hours: "Opens 9:00 AM - 3:00 PM Monday - Saturday",
+    imageSrc: "/clinics/StVincent.jpeg",
+    coordinates: [6.907128237333418, 122.08016458077024],
+  },
+  {
+    name: "Lablog Zamboanga Ipil (St. Vincent Diagnostic Center)",
+    city: "Zamboanga City, Philippines",
+    address: "Victoria King Hotel, Ipil",
+    hours: "Opens 9:00 AM - 3:00 PM Monday - Saturday",
+    imageSrc: "/clinics/Ipil.jpg",
+    coordinates: [7.7895750818475396, 122.59631078650553],
+  },
+  {
+    name: "Lablog Puerto Princesa (Mediplus Healthcare Services)",
+    city: "Puerto Princesa City, 5300 Palawan, Philippines",
+    address: "H. Mendoza St",
+    hours: "Opens 8:00 AM - 3:00 PM Monday - Saturday",
+    imageSrc: "/clinics/PuertoPrinsesa.jpeg",
+    coordinates: [9.741094364126788, 118.73728887931216],
+  },
 ]
 
 export default function CollectionCenters() {
