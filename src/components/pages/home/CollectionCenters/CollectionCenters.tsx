@@ -129,6 +129,14 @@ const COLLECTION_CENTERS: CollectionCenter[] = [
     imageSrc: "/clinics/PuertoPrinsesa.jpeg",
     coordinates: [9.741094364126788, 118.73728887931216],
   },
+  {
+    name: "Lablog Bicol (Daraga Diagnostic Laboratory and Animal Bite Center)",
+    city: "Albay, Philippines",
+    address: "Unit 103 GF Dona Maria Building Tagas, Daraga",
+    hours: "Opens 9:00 AM - 3:00 PM Monday - Saturday",
+    imageSrc: "/clinics/Bicol.jpg",
+    coordinates: [13.157476254767433, 123.72265560241715],
+  },
 ]
 
 export default function CollectionCenters() {

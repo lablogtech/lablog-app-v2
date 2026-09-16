@@ -12,7 +12,7 @@ const STATS = [
   },
   {
     label: "Partner Clinics Nationwide",
-    value: "9",
+    value: "14",
     icon: <IconMapPin aria-hidden stroke={1.8} />,
   },
   {
